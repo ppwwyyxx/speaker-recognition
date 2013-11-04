@@ -5,11 +5,13 @@ The task of speaker recognition can be considered as a task of classification. T
 can be applied to this task. In general, this task should cover the following three topics:
 
 \begin{enumerate}
-  \item Feature Extraction: process the voice signal and describe it with features.
+  \item Feature Extraction: process the voice signal and extract acoustic features that
+	  could describe the acoustic characteristics of speakers, which can be correlated
+	  in some extend to model latter used.
 
   \item Acoustic Model: provide the functionality of registration as well as identification or verification.
 
-  \item Testing: test the precision and accuracy of our system
+  \item Evaluation: Evaluate our approach with reliable criterion.
 \end{enumerate}
 
 \subsection{Feature Extraction}
@@ -53,12 +55,12 @@ Recently, some common machine learning model are also applied to the task of spe
 recognition. \cite{svm} suggested a method of using SVM in speaker recognition.
 Deep neural networks are also used in speech processing recently.\cite{deep}
 
-HMM and GMM are our first choices, as they are already widely used and proven to be
+HMM and GMM will probably be our first attempt, as they are already widely used and proven to be
 efficient and effective.  We might also try to migrate our extracted feature to
 some other available models.
 
-\subsection{Testing}
-There are a number of well-known data sets for testing in speaker recognition systems,
+\subsection{Evaluation}
+There are a number of well-known databses for speaker recognition system evaluation,
 such as KING speaker verification\cite{king}. \cite{database} gives description on
 several common databases. But most of these databases are not free of charge.
 We intend to try to search for an freely available database,

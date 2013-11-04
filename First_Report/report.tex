@@ -1,6 +1,6 @@
 %
 % $File: report.tex
-% $Date: Mon Nov 04 21:48:03 2013 +0800
+% $Date: Mon Nov 04 22:50:25 2013 +0800
 % $Author: Xinyu Zhou <zxytim@gmail.com>
 %
 
@@ -11,8 +11,7 @@
 \zhspacing
 \usepackage{listings}
 \usepackage[hyperfootnotes=false,colorlinks,linkcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
-\usepackage[sorting=none]{biblatex}
-%\usepackage[dvips]{graphicx}
+\usepackage[backend=biber]{biblatex}
 \usepackage{graphicx}
 \usepackage{minted}
 \usepackage{subfigure}
@@ -37,10 +36,13 @@
 
 \title{Digital Signal Processing: Speaker Recognition}
 \author{Xinyu Zhou, Yuxin Wu, and Tiezheng Li\\ Tsinghua University}
-\date{\today}
+\date{}
 
-\addbibresource{refs.bib}
+\bibliography{refs.bib}
 \begin{document}
+
+\fontsize{11pt}{1.4em}
+\setlength{\baselineskip}{1.6em}
 \maketitle
 \section{Introduction}
 A \textbf{Speaker Recognition} tasks can be classified with respect to diffenrent criterion:

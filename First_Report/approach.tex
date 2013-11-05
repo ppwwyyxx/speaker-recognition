@@ -11,7 +11,7 @@ can be applied to this task. In general, this task should cover the following th
 
   \item Acoustic Model: provide the functionality of registration as well as identification or verification.
 
-  \item Evaluation: Evaluate our approach with reliable criterion.
+  \item Evaluation: Evaluate our approach using datasets with appropriate metrics.
 \end{enumerate}
 
 \subsection{Feature Extraction}
@@ -60,9 +60,15 @@ efficient and effective.  We might also try to migrate our extracted feature to
 some other available models.
 
 \subsection{Evaluation}
+\subsubsection{Dataset}
 There are a number of well-known databses for speaker recognition system evaluation,
 such as KING speaker verification\cite{king}. \cite{database} gives description on
 several common databases. But most of these databases are not free of charge.
-We intend to try to search for an freely available database,
+We intend to search for an freely available database,
 otherwise we have to build some simple test cases by our own.
+\subsubsection{Metrics}
+As we intend to distinguish different speakers, the primary goal is overall
+accuracy of the system we built. Furthermore, the performance may differ from
+speaker to speaker, which may provide with additional feedback to our approach.
+Thus we shall examine precision, recall and $F_1$ score for each speaker.
 

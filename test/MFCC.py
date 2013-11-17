@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: mfcc.py
-# Date: Sun Nov 17 21:38:17 2013 +0800
+# File: MFCC.py
+# Date: Sun Nov 17 22:08:41 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 POWER_SPECTRUM_FLOOR = 1e-100
@@ -62,6 +62,20 @@ class MFCCExtractor(object):
             sigma = std(feature, axis=0)
             feature = (feature - mu) / sigma
         return feature
+
+    def extract_differential(self, signal):
+        feature = self.extract(signal)
+        ret = []
+        for feat in feature:
+            diff = lambda f: [x - f[i - 1] for i, x in enumerate(f)][1:]
+            diff1 = diff(feat)
+            diff2 = diff(diff1)
+            ret.append(concatenate((feat, diff1, diff2)))
+        return ret
+
+    @staticmethod
+    def differentiate(feature):
+        return
 
     @staticmethod
     def hamming(n):

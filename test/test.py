@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: test.py
-# Date: Sun Nov 17 21:39:14 2013 +0800
+# Date: Sun Nov 17 22:11:36 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from MFCC import MFCCExtractor
@@ -25,10 +25,10 @@ extractor = MFCCExtractor(16000)
 for d in dirs:
     features = []
     print d
-    for i in range(3):
+    for i in range(2):
         f = choice(glob.glob(d + "/*.wav"))
         fs, signal = wavfile.read(f)
-        mfcc = extractor.extract(signal)
+        mfcc = extractor.extract_differential(signal)
         features.extend(mfcc)
     mfccs.append(features)
 
@@ -55,7 +55,7 @@ for idx, d in enumerate(dirs):
     for f in glob.glob(d + "/*.wav"):
         cnt += 1
         fs, signal = wavfile.read(f)
-        mfcc = extractor.extract(signal)
+        mfcc = extractor.extract_differential(signal)
         pred = pred_label(mfcc)
         print f, idx, pred
         if idx == pred:

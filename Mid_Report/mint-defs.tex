@@ -1,5 +1,5 @@
 % $File: mint-defs.tex
-% $Date: Thu Sep 26 22:11:33 2013 +0800
+% $Date: Sun Nov 17 23:37:24 2013 +0800
 % $Author: Xinyu Zhou <zxytim@gmail.com>
 
 \newcommand{\inputmintedConfigured}[3][]{\inputminted[fontsize=\footnotesize,
@@ -16,3 +16,6 @@
 
 \newcommand{\matlabsrc}[2][]{\inputmintedConfigured[#1]{matlab}{#2}}
 \newcommand{\matlabsrcpart}[4][]{\matlabsrc[firstline=#3,firstnumber=#3,lastline=#4,#1]{#2}}
+
+\newcommand{\pysrc}[2][]{\inputmintedConfigured[#1]{matlab}{#2}}
+\newcommand{\pysrcpart}[4][]{\matlabsrc[firstline=#3,firstnumber=#3,lastline=#4,#1]{#2}}

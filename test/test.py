@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: test.py
-# Date: Sun Nov 17 22:11:36 2013 +0800
+# Date: Sun Nov 17 22:20:12 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from MFCC import MFCCExtractor
@@ -61,5 +61,5 @@ for idx, d in enumerate(dirs):
         if idx == pred:
             right += 1
 
-print cnt, right
-print float(right) / cnt
+print "Count: ", cnt, right
+print "Accuracy: ", float(right) / cnt

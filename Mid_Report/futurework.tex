@@ -6,4 +6,5 @@ but also the age, health, emotional state and effort level of the speaker.
 Background noise and performance of recording device also interfere the
 classification process.
 A goal we want to achieve in this project can be described as follows: For a clear conversation signal between two persons, with no sentences overlapped and significant interval between sentences, we may separate the conversation signal into two parts. Each part is exactly all the sentences spoken by a certain speaker.
-
+A main challenge is that MFCC's performance decreases incredibly when the strength of background noise enhances.  A series of speech noise reduction algorithms needs to be applied on the input signals. Fortunately, much work in this field has been done previously. Spectral Subtraction(SS) that incorporates noise over time, and SPLICE algorithm that makes no assumptions about noise stationarity can be applied to build a noise-robust recognition system as two examples.
+Another challenge settles in separating overlapped sentences from two or more different speakers. Vocal separation is a challenging problem, to date there is no general algorithm that ensures perfect separation effect. Some commonly used models and algorithms are listed as follows: NSA, LVD/PLCA, SFD, etc. More work on this field will be done till next period.

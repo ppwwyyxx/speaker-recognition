@@ -1,10 +1,10 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: test.py
-# Date: Sun Nov 17 21:09:31 2013 +0800
+# Date: Sun Nov 17 21:39:14 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
-import MFCC
+from MFCC import MFCCExtractor
 import operator
 from random import choice
 
@@ -20,13 +20,15 @@ nspeaker = len(dirs)
 mfccs = []
 print "reading and calculating..."
 
+extractor = MFCCExtractor(16000)
+
 for d in dirs:
     features = []
     print d
     for i in range(3):
         f = choice(glob.glob(d + "/*.wav"))
         fs, signal = wavfile.read(f)
-        mfcc = MFCC.extract(signal)
+        mfcc = extractor.extract(signal)
         features.extend(mfcc)
     mfccs.append(features)
 
@@ -53,7 +55,7 @@ for idx, d in enumerate(dirs):
     for f in glob.glob(d + "/*.wav"):
         cnt += 1
         fs, signal = wavfile.read(f)
-        mfcc = MFCC.extract(signal)
+        mfcc = extractor.extract(signal)
         pred = pred_label(mfcc)
         print f, idx, pred
         if idx == pred:

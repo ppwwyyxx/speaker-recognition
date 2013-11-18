@@ -1,21 +1,20 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: test.py
-# Date: Sun Nov 17 22:20:12 2013 +0800
+# Date: Mon Nov 18 11:43:45 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
-from MFCC import MFCCExtractor
 import operator
+import glob
 from random import choice
 
 import scipy.io.wavfile as wavfile
 import numpy as np
-import glob
-
 from sklearn.mixture import GMM
 
+from MFCC import MFCCExtractor
+
 dirs = ['data1', 'data2', 'data3']
-nspeaker = len(dirs)
 
 mfccs = []
 print "reading and calculating..."
@@ -28,9 +27,12 @@ for d in dirs:
     for i in range(2):
         f = choice(glob.glob(d + "/*.wav"))
         fs, signal = wavfile.read(f)
-        mfcc = extractor.extract_differential(signal)
+        mfcc = extractor.extract(signal, True)
         features.extend(mfcc)
     mfccs.append(features)
+
+def gmm_model_feature(model):
+    return np.append(model.means_, [model.weights_])
 
 print "start training"
 gmms = []
@@ -38,6 +40,7 @@ for idx, mfcc in enumerate(mfccs):
     print idx
     gmm = GMM(32, n_iter=1000, thresh=0.001)
     gmm.fit(mfcc)
+    print gmm_model_feature(gmm)
     gmms.append(gmm)
 
 print "done training"
@@ -55,11 +58,12 @@ for idx, d in enumerate(dirs):
     for f in glob.glob(d + "/*.wav"):
         cnt += 1
         fs, signal = wavfile.read(f)
-        mfcc = extractor.extract_differential(signal)
+        mfcc = extractor.extract(signal, True)
         pred = pred_label(mfcc)
-        print f, idx, pred
         if idx == pred:
             right += 1
+        else:
+            print f, idx, pred
 
 print "Count: ", cnt, right
-print "Accuracy: ", float(right) / cnt
+print "Error rate: ", float(cnt - right) / cnt

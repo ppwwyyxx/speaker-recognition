@@ -6,5 +6,5 @@
 mkdir -p $1/converted
 for i in $1/*.wav; do
 	echo $i
-	./wav_format.sh $i $1/converted/$i
+	$(dirname $BASH_SOURCE)/wav_format.sh $i $1/converted/$i 2>/dev/null 1>/dev/null
 done

@@ -12,21 +12,29 @@ import scipy.io.wavfile as wavfile
 import numpy as np
 from sklearn.mixture import GMM
 
-from MFCC import MFCCExtractor
+from MFCC import get_mfcc_extractor
 
-dirs = ['data1', 'data2', 'data3']
+dirs = ['../test-data/xinyu',
+        '../test-data/twb',
+        '../test-data/ly',
+        '../test-data/zdw',
+        '../test-data/qq',
+#        '../test-data/fsew0_v1.1/converted/',
+#        '../test-data/maps0/converted/',
+#        '../test-data/msak0_v1.1/converted/'
+        ]
 
 mfccs = []
 print "reading and calculating..."
 
-extractor = MFCCExtractor(16000)
 
 for d in dirs:
     features = []
     print d
-    for i in range(2):
+    for i in range(3):
         f = choice(glob.glob(d + "/*.wav"))
         fs, signal = wavfile.read(f)
+        extractor = get_mfcc_extractor(fs)
         mfcc = extractor.extract(signal, True)
         features.extend(mfcc)
     mfccs.append(features)
@@ -58,12 +66,11 @@ for idx, d in enumerate(dirs):
     for f in glob.glob(d + "/*.wav"):
         cnt += 1
         fs, signal = wavfile.read(f)
-        mfcc = extractor.extract(signal, True)
+        mfcc = get_mfcc_extractor(fs).extract(signal, True)
         pred = pred_label(mfcc)
         if idx == pred:
             right += 1
-        else:
-            print f, idx, pred
+        print f, idx, pred
 
 print "Count: ", cnt, right
 print "Error rate: ", float(cnt - right) / cnt

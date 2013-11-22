@@ -17,7 +17,7 @@ def hamming(n):
 class MFCCExtractor(object):
 
     def __init__(self, fs, FFT_SIZE=2048, n_bands=40, n_coefs=13,
-                 PRE_EMPH=0.95):
+                 PRE_EMPH=0.95, verbose = False):
         self.PRE_EMPH = PRE_EMPH
         self.fs = fs
         self.n_bands = n_bands
@@ -35,15 +35,22 @@ class MFCCExtractor(object):
         dctmtx = MFCCExtractor.dctmtx(self.n_bands)
         self.D = dctmtx[1: self.coefs + 1]
         self.invD = linalg.inv(dctmtx)[:, 1: self.coefs + 1]
+
+        self.verbose = verbose
         # The inverse DCT matrix. Change the index to [0:COEFS] if you want to keep the 0-th coefficient
 
+
+    def dprint(self, msg):
+        """ Debug print """
+        if self.verbose:
+            print(msg)
 
     def extract(self, signal, diff=False):
         """
         Extract MFCC coefficients of the sound x in numpy array format.
         """
         if signal.ndim > 1:
-            print "INFO: Input signal has more than 1 channel; the channels will be averaged."
+            self.dprint("INFO: Input signal has more than 1 channel; the channels will be averaged.")
             signal = mean(signal, axis=1)
         frames = (len(signal) - self.FRAME_LEN) / self.FRAME_SHIFT + 1
         feature = []
@@ -110,3 +117,12 @@ class MFCCExtractor(object):
         D = sqrt(2.0 / n) * cos(pi * (2 * x + 1) * y / (2 * n))
         D[0] /= sqrt(2)
         return D
+
+extractors = dict()
+def get_mfcc_extractor(fs, verbose = False):
+    global extractors
+    if fs not in extractors:
+        extractors[fs] = MFCCExtractor(fs)
+        if verbose:
+            print("new extractor " . format(fs))
+    return extractors[fs]

@@ -122,7 +122,10 @@ extractors = dict()
 def get_mfcc_extractor(fs, verbose = False):
     global extractors
     if fs not in extractors:
-        extractors[fs] = MFCCExtractor(fs)
+        extractors[fs] = MFCCExtractor(fs, verbose = verbose)
         if verbose:
             print("new extractor " . format(fs))
     return extractors[fs]
+
+def extract(fs, signal):
+    return get_mfcc_extractor(fs).extract(signal)

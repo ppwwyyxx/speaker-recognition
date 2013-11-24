@@ -1,0 +1,28 @@
+
+\section{Progress}
+	During past weeks, we've built a proof-of-concept ASR system based on
+	MFCC feature and GMM for modeling spearker with fine-tuned parameters.
+
+	A brief performance summary:
+	\begin{itemize}
+		\item $10s\sim15s$ training corpus per person.
+		\item $2s\sim5s$ test corpus per person.
+		\item We adopted GMM with $32$ Gaussians.
+		\item Accuracy on 5 speakers is about 93 percent
+		\item Accuracy on 10 speakers is about 90 percent
+	\end{itemize}
+
+	It turns out that, our method worked well when the condition that the number of
+	speakers is limited to 5 or less is met. But as we employed the new dataset
+	which provided by teacher this week, which contains 102 speaker, comprised
+	of 60 females and 42 males, in three speaking conditions: reading,
+	spontaneous and whisper, the challenge we are facing is beyond our expectation.
+
+	Although we fulfilled the plan we aforementioned in opening report, the overall
+	performance is still unsatisfying.
+	The main reason that MFCC + GMM approach suffers from new corpus is that,
+	using solely MFCC limits the model we can use to generative models,
+	which in turns brings computation inefficiency to feature extraction, model
+	training and testing.
+
+

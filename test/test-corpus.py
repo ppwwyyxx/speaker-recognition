@@ -1,0 +1,167 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+# $File: test-corpus.py
+# $Date: Tue Nov 26 13:32:21 2013 +0800
+# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
+
+import glob
+import traceback
+import sys
+import random
+import os
+import scipy.io.wavfile as wavfile
+import numpy as np
+import multiprocessing
+import operator
+from collections import defaultdict
+from sklearn.mixture import GMM
+
+import MFCC
+import sigfilter
+
+from sample import Sample
+
+class Person(object):
+    def __init__(self, sample = None, name = None, gender = None):
+        self.sample = sample
+        self.name = name
+        self.gender = gender
+        self.samples = []
+
+    def add_sample(self, sample):
+        self.samples.append(sample)
+        if not self.sample:
+            self.sample = sample
+        else:
+            self.sample.add(sample)
+
+    def sample_duration(self):
+        return self.sample.duration()
+
+    def get_fragment(self, duration):
+        return self.sample.get_fragment(duration)
+
+
+def filter_sample(fs, signal = None, ret2 = False):
+    if signal == None:
+        sample = fs
+    else:
+        sample = Sample(fs, signal)
+    # XXX NO FILTER
+
+    filters = [
+#            sigfilter.get_threshold_percentage_filter(-0.1),
+            sigfilter.get_speaking_filter(),
+            ]
+    for f in filters:
+        sample = f(sample)
+
+    if ret2:
+        return sample.fs, sample.signal
+    return sample
+
+def get_corpus():
+    persons = defaultdict(Person)
+
+    dirs = [
+            '../test-data/corpus/Style_Reading',
+#            '../test-data/corpus/Style_Spontaneous',
+#            '../test-data/corpus/Style_Whisper',
+            ]
+    for d in dirs:
+        print("processing {} ..." . format(d))
+        for fname in sorted(glob.glob(os.path.join(d, "*.wav"))):
+            basename = os.path.basename(fname)
+            gender, name, _ = basename.split('_')
+            p = persons[name]
+            p.name, p.gender = name, gender
+            try:
+                orig_sample = Sample.from_wavfile(fname)
+                p.add_sample(orig_sample)
+            except Exception as e:
+                print("Exception occured while reading {}: {} " . format(
+                    fname, e))
+                print("======= traceback =======")
+                print(traceback.format_exc())
+                print("=========================")
+
+    return persons
+
+class GMMSet(object):
+    def __init__(self, gmm_order = 32):
+        self.gmms = []
+        self.gmm_order = 32
+        self.y = []
+
+    def fit_new(self, x, label):
+        self.y.append(label)
+        gmm = GMM(self.gmm_order)
+        gmm.fit(x)
+        self.gmms.append(gmm)
+
+    def cluster_by_label(self, X, y):
+        Xtmp = defaultdict(list)
+        for ind, x in enumerate(X):
+            label = y[ind]
+            Xtmp[label].extend(x)
+        yp, Xp = zip(*Xtmp.iteritems())
+        return Xp, yp
+
+    def fit(self, X, y):
+        X, y = self.cluster_by_label(X, y)
+        for ind, x in enumerate(X):
+            self.fit_new(x, y[ind])
+
+    def gmm_score(self, gmm, x):
+        return np.exp(np.sum(gmm.score(x)) / 1000)
+    def predict_one(self, x):
+        scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
+        return self.y[max(enumerate(scores), key = operator.itemgetter(1))[0]]
+
+    def predict(self, X):
+        return map(self.predict_one, X)
+
+def main():
+
+    nr_person = 20
+    train_duration = 30
+    test_duration = 10
+    nr_test_fragment_per_person = 100
+
+    persons = list(get_corpus().iteritems())
+    random.shuffle(persons)
+
+    persons = dict(persons[:nr_person])
+
+    X_train, y_train = [], []
+    X_test, y_test = [], []
+    for name, p in persons.iteritems():
+        print(name, p.sample_duration())
+        y_train.append(name)
+        X_train.append(MFCC.extract(*p.get_fragment(train_duration)))
+        for i in xrange(nr_test_fragment_per_person):
+            X_test.append(MFCC.extract(*p.get_fragment(test_duration)))
+            y_test.append(name)
+
+    gmmset = GMMSet()
+    print('training ...')
+    gmmset.fit(X_train, y_train)
+    nr_correct = 0
+    for x_test, label_true in zip(*(X_test, y_test)):
+        label_pred = gmmset.predict_one(x_test)
+        is_wrong = '' if label_pred == label_true else ' wrong'
+        print("{} {}{}" . format(label_pred, label_true, is_wrong))
+        if label_pred == label_true:
+            nr_correct += 1
+    print("{}/{} {:.2f}" . format(
+            nr_correct, len(y_test),
+            float(nr_correct) / len(y_test)))
+
+    print (nr_person, train_duration, test_duration, nr_test_fragment_per_person)
+
+if __name__ == '__main__':
+    main()
+
+
+# vim: foldmethod=marker
+

@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: sample.py
-# $Date: Sat Nov 30 18:19:43 2013 +0800
+# $Date: Sat Nov 30 18:22:22 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import scipy.io.wavfile as wavfile
@@ -46,7 +46,7 @@ class Sample(object):
         assert begin <= end
         if begin == end:
             return
-        signal = np.concatenate((signal[:begin], signal[end:]))
+        self.signal = np.concatenate((self.signal[:begin], self.signal[end:]))
 
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sat Nov 30 18:22:27 2013 +0800
+# $Date: Sat Nov 30 18:35:06 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -108,6 +108,10 @@ class GMMSet(object):
     def predict(self, X):
         return map(self.predict_one, X)
 
+def gen_data(params):
+    p, duration = params
+    return MFCC.extract(*p.get_fragment(duration))
+
 def main():
 
     nr_person = 20
@@ -120,21 +124,29 @@ def main():
 
     persons = dict(persons[:nr_person])
 
+    print('generating data ...')
     X_train, y_train = [], []
     X_test, y_test = [], []
     for name, p in persons.iteritems():
         print(name, p.sample_duration())
         y_train.append(name)
         fs, signal, begin, end = p.get_fragment_with_interval(train_duration)
-
         # it is important to remove signal used for training to get
         # unbiased result
         p.remove_subsignal(begin, end)
 
         X_train.append(MFCC.extract(fs, signal))
+
+        # return x
+
+        pool = multiprocessing.Pool(4)
+        params = []
         for i in xrange(nr_test_fragment_per_person):
-            X_test.append(MFCC.extract(*p.get_fragment(test_duration)))
+            params.append((p, test_duration))
             y_test.append(name)
+#            X_test.append(MFCC.extract(*p.get_fragment(test_duration)))
+#            y_test.append(name)
+        X_test.extend(pool.map(gen_data, params))
 
     gmmset = GMMSet()
     print('training ...')

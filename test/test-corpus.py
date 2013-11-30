@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Tue Nov 26 13:32:21 2013 +0800
+# $Date: Sat Nov 30 18:21:33 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -17,7 +17,6 @@ from collections import defaultdict
 from sklearn.mixture import GMM
 
 import MFCC
-import sigfilter
 
 from sample import Sample
 
@@ -41,32 +40,20 @@ class Person(object):
     def get_fragment(self, duration):
         return self.sample.get_fragment(duration)
 
+    def get_fragment_with_interval(self, duration):
+        return self.sample.get_fragment_with_interval(duration)
 
-def filter_sample(fs, signal = None, ret2 = False):
-    if signal == None:
-        sample = fs
-    else:
-        sample = Sample(fs, signal)
-    # XXX NO FILTER
+    def remove_subsignal(self, begin, end):
+        self.sample.remove_subsignal(begin, end)
 
-    filters = [
-#            sigfilter.get_threshold_percentage_filter(-0.1),
-            sigfilter.get_speaking_filter(),
-            ]
-    for f in filters:
-        sample = f(sample)
-
-    if ret2:
-        return sample.fs, sample.signal
-    return sample
 
 def get_corpus():
     persons = defaultdict(Person)
 
     dirs = [
-            '../test-data/corpus/Style_Reading',
-#            '../test-data/corpus/Style_Spontaneous',
-#            '../test-data/corpus/Style_Whisper',
+            '../test-data/corpus.silence-removed//Style_Reading',
+#            '../test-data/corpus.silence-removed//Style_Spontaneous',
+#            '../test-data/corpus.silence-removed//Style_Whisper',
             ]
     for d in dirs:
         print("processing {} ..." . format(d))
@@ -124,8 +111,8 @@ class GMMSet(object):
 def main():
 
     nr_person = 20
-    train_duration = 30
-    test_duration = 10
+    train_duration = 15
+    test_duration = 5
     nr_test_fragment_per_person = 100
 
     persons = list(get_corpus().iteritems())
@@ -138,7 +125,13 @@ def main():
     for name, p in persons.iteritems():
         print(name, p.sample_duration())
         y_train.append(name)
-        X_train.append(MFCC.extract(*p.get_fragment(train_duration)))
+        fs, signal, begin, end = p.get_fragment_with_interval(train_duration)
+
+        # it is important to remove signal used for training to get
+        # unbiased result
+        p.remove_subsignal(begin, end)
+
+        X_train.append(MFCC.extract(fs, signal))
         for i in xrange(nr_test_fragment_per_person):
             X_test.append(MFCC.extract(*p.get_fragment(test_duration)))
             y_test.append(name)

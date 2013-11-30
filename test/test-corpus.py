@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sat Nov 30 18:35:06 2013 +0800
+# $Date: Sat Nov 30 18:42:11 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -47,14 +47,13 @@ class Person(object):
         self.sample.remove_subsignal(begin, end)
 
 
-def get_corpus():
+def get_corpus(dirs):
     persons = defaultdict(Person)
 
-    dirs = [
-            '../test-data/corpus.silence-removed//Style_Reading',
+#    dirs = [ '../test-data/corpus.silence-removed//Style_Reading',
 #            '../test-data/corpus.silence-removed//Style_Spontaneous',
 #            '../test-data/corpus.silence-removed//Style_Whisper',
-            ]
+#            ]
     for d in dirs:
         print("processing {} ..." . format(d))
         for fname in sorted(glob.glob(os.path.join(d, "*.wav"))):
@@ -114,12 +113,19 @@ def gen_data(params):
 
 def main():
 
+    if len(sys.argv) == 1:
+        print("Usage: {} <dir_contains_wav_file> [<dirs> ...]" . format(
+                sys.argv[0]))
+        sys.exit(1)
+
+    dirs = sys.argv[1:]
+
     nr_person = 20
     train_duration = 15
     test_duration = 5
     nr_test_fragment_per_person = 100
 
-    persons = list(get_corpus().iteritems())
+    persons = list(get_corpus(dirs).iteritems())
     random.shuffle(persons)
 
     persons = dict(persons[:nr_person])

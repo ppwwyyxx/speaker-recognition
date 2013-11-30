@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sat Nov 30 18:42:11 2013 +0800
+# $Date: Sat Nov 30 18:51:49 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -111,6 +111,9 @@ def gen_data(params):
     p, duration = params
     return MFCC.extract(*p.get_fragment(duration))
 
+def predict_task(gmmset, x_test):
+    return gmmset.predict_one(x_test)
+
 def main():
 
     if len(sys.argv) == 1:
@@ -120,10 +123,11 @@ def main():
 
     dirs = sys.argv[1:]
 
-    nr_person = 20
+    nr_person = 2
     train_duration = 15
     test_duration = 5
-    nr_test_fragment_per_person = 100
+    nr_test_fragment_per_person = 10
+    concurrency = 4
 
     persons = list(get_corpus(dirs).iteritems())
     random.shuffle(persons)
@@ -145,7 +149,7 @@ def main():
 
         # return x
 
-        pool = multiprocessing.Pool(4)
+        pool = multiprocessing.Pool(concurrency)
         params = []
         for i in xrange(nr_test_fragment_per_person):
             params.append((p, test_duration))
@@ -158,8 +162,14 @@ def main():
     print('training ...')
     gmmset.fit(X_train, y_train)
     nr_correct = 0
+
+    pool = multiprocessing.Pool(concurrency)
+    predictions = []
     for x_test, label_true in zip(*(X_test, y_test)):
-        label_pred = gmmset.predict_one(x_test)
+        predictions.append(pool.apply_async(predict_task, args = (gmmset, x_test)))
+    pool.close()
+    for ind, (x_test, label_true) in enumerate(zip(*(X_test, y_test))):
+        label_pred = predictions[ind].get()
         is_wrong = '' if label_pred == label_true else ' wrong'
         print("{} {}{}" . format(label_pred, label_true, is_wrong))
         if label_pred == label_true:
@@ -168,7 +178,8 @@ def main():
             nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
 
-    print (nr_person, train_duration, test_duration, nr_test_fragment_per_person)
+    print(dirs)
+    print(nr_person, train_duration, test_duration, nr_test_fragment_per_person)
 
 if __name__ == '__main__':
     main()

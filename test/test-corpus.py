@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sat Nov 30 18:51:49 2013 +0800
+# $Date: Sat Nov 30 18:52:56 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -123,10 +123,10 @@ def main():
 
     dirs = sys.argv[1:]
 
-    nr_person = 2
-    train_duration = 15
+    nr_person = 20
+    train_duration = 30
     test_duration = 5
-    nr_test_fragment_per_person = 10
+    nr_test_fragment_per_person = 100
     concurrency = 4
 
     persons = list(get_corpus(dirs).iteritems())

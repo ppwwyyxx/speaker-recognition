@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sat Nov 30 18:52:56 2013 +0800
+# $Date: Sun Dec 01 21:46:14 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -16,6 +16,7 @@ import operator
 from collections import defaultdict
 from sklearn.mixture import GMM
 
+#import BOB as MFCC
 import MFCC
 
 from sample import Sample
@@ -130,26 +131,30 @@ def main():
     concurrency = 4
 
     persons = list(get_corpus(dirs).iteritems())
-    random.shuffle(persons)
+    #random.shuffle(persons)
 
     persons = dict(persons[:nr_person])
+
 
     print('generating data ...')
     X_train, y_train = [], []
     X_test, y_test = [], []
     for name, p in persons.iteritems():
+        print "haah"
         print(name, p.sample_duration())
         y_train.append(name)
         fs, signal, begin, end = p.get_fragment_with_interval(train_duration)
         # it is important to remove signal used for training to get
         # unbiased result
         p.remove_subsignal(begin, end)
-
         X_train.append(MFCC.extract(fs, signal))
 
         # return x
 
-        pool = multiprocessing.Pool(concurrency)
+    pool = multiprocessing.Pool(concurrency)
+    for name, p in persons.iteritems():
+        print "qiewqwerqre"
+        print(name, p.sample_duration())
         params = []
         for i in xrange(nr_test_fragment_per_person):
             params.append((p, test_duration))

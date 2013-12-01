@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: remove-silence.py
-# $Date: Sat Nov 30 18:14:33 2013 +0800
+# $Date: Sun Dec 01 14:33:53 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
@@ -10,6 +10,7 @@ import glob
 import scipy.io.wavfile as wavfile
 import numpy as np
 import matplotlib.pyplot as plt
+import multiprocessing
 
 def mkdirp(dirname):
     try:
@@ -21,9 +22,16 @@ def mkdirp(dirname):
 def remove_silence(fs, signal,
         frame_duration = 0.02,
         frame_shift = 0.01,
-        perc = 0.05):
+        perc = 0.01):
+    orig_dtype = type(signal[0])
+    typeinfo = np.iinfo(orig_dtype)
+    is_unsigned = typeinfo.min >= 0
+    signal = signal.astype(np.int64)
+    if is_unsigned:
+        signal = signal - typeinfo.max / 2
+
     siglen = len(signal)
-    retsig = np.zeros(siglen, dtype = type(signal[0]))
+    retsig = np.zeros(siglen, dtype = np.int64)
     frame_length = frame_duration * fs
     frame_shift_length = frame_shift * fs
     new_siglen = 0
@@ -45,7 +53,16 @@ def remove_silence(fs, signal,
             retsig[new_siglen:new_siglen + sigaddlen] = subsig[:sigaddlen]
             new_siglen += sigaddlen
             i += frame_shift_length
-    return fs, retsig[:new_siglen]
+    retsig = retsig[:new_siglen]
+    if is_unsigned:
+        retsig = retsig + typeinfo.max / 2
+    return fs, retsig.astype(orig_dtype)
+
+def task(fpath, new_fpath):
+    fs, signal = wavfile.read(fpath)
+    fs_out, signal_out = remove_silence(fs, signal)
+    wavfile.write(new_fpath, fs_out, signal_out)
+    return fpath
 
 def main():
     if len(sys.argv) != 3:
@@ -53,25 +70,18 @@ def main():
         sys.exit(1)
 
     ORIG_DIR, OUTPUT_DIR = sys.argv[1:]
+    pool = multiprocessing.Pool(4)
+    result = []
     for style in glob.glob(os.path.join(ORIG_DIR, '*')):
         dirname = os.path.basename(style)
         for fpath in glob.glob(os.path.join(style, '*.wav')):
             fname = os.path.basename(fpath)
             new_fpath = os.path.join(OUTPUT_DIR, dirname, fname)
             mkdirp(os.path.dirname(new_fpath))
-
-            print(fpath)
-
-
-            fs, signal = wavfile.read(fpath)
-            fs_out, signal_out = remove_silence(fs, signal)
-            wavfile.write(new_fpath, fs_out, signal_out)
-
-            continue
-            f, (ax1, ax2) = plt.subplots(2, 1)
-            ax1.plot(signal)
-            ax2.plot(signal_out)
-            plt.show()
+            result.append(pool.apply_async(task, args = (fpath, new_fpath)))
+    pool.close()
+    for r in result:
+        print(r.get())
 
 if __name__ == '__main__':
     main()

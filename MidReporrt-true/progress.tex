@@ -1,4 +1,19 @@
 
 \section{Progress}
+	Till now, we have implemented MFCC feature extractor and GMM model for
+	acoustic modeling. For GMM we employ scikit-learn\cite{scikit-learn}.
 
+	We've tested on 20 speakers for a closed set recognition task and calculate
+	accuracy of recognition. 30 seconds utterance is used for training, and 5
+	seconds utterance is used for test. We randomly extract 100 continuous 5-second
+	test utterance from utterance of a speaker as test set.
+	There's no overlap between training and test utterance.
 
+	The test is repeated 20 times to obtain an accurate estimate of accuracy.
+	The test result is as follows:
+
+	\begin{itemize}
+		\item \textbf{Spontaneous} TODO
+		\item \textbf{Reading} TODO
+		\item \textbf{Whisper} TODO
+	\end{itemize}

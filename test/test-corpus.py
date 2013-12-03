@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sun Dec 01 21:46:14 2013 +0800
+# $Date: Sun Dec 01 22:16:52 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -55,6 +55,7 @@ def get_corpus(dirs):
 #            '../test-data/corpus.silence-removed//Style_Spontaneous',
 #            '../test-data/corpus.silence-removed//Style_Whisper',
 #            ]
+
     for d in dirs:
         print("processing {} ..." . format(d))
         for fname in sorted(glob.glob(os.path.join(d, "*.wav"))):

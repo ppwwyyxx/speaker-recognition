@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: sigfilter.py
-# $Date: Tue Nov 26 11:28:12 2013 +0800
+# $Date: Sat Nov 30 17:57:47 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 """

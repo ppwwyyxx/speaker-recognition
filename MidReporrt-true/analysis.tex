@@ -1,0 +1,18 @@
+\section{Analysis}
+	The result indicates the effectiveness of our method, but also shows the limitation.
+	\begin{enumerate}
+		\item The performance is not satisfying. \\
+			Compare to the performance given in serval sources (books and papers),
+			ours are not the best.  This may due to the corpus difference between
+			test, and the result may not be comparable.
+			But comparing to MFCC extractor provided by
+			bob\cite{bob2012}, we get $5\%$ higher accuracy, which proved the
+			effectiveness of our model.
+		\item Long training utterance. \\
+			30s utterance training data may not feasible in practical application.
+		\item GMM is of low efficiency when classifying. \\
+			Due to the modeling of each spkeaker using GMM with 32 mixtures,
+			classification of a single speaker involves scoring over all
+			enrolled speakers. The more speaker, the less efficiency.
+	\end{enumerate}
+

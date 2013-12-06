@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sun Dec 01 22:16:52 2013 +0800
+# $Date: Sat Dec 07 00:28:51 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -141,7 +141,6 @@ def main():
     X_train, y_train = [], []
     X_test, y_test = [], []
     for name, p in persons.iteritems():
-        print "haah"
         print(name, p.sample_duration())
         y_train.append(name)
         fs, signal, begin, end = p.get_fragment_with_interval(train_duration)
@@ -154,7 +153,6 @@ def main():
 
     pool = multiprocessing.Pool(concurrency)
     for name, p in persons.iteritems():
-        print "qiewqwerqre"
         print(name, p.sample_duration())
         params = []
         for i in xrange(nr_test_fragment_per_person):

@@ -1,6 +1,6 @@
 #
 # $File: Makefile
-# $Date: Fri Dec 06 21:55:33 2013 +0800
+# $Date: Sat Dec 07 14:48:26 2013 +0000
 #
 # A single output portable Makefile for
 # simple c++ project
@@ -25,6 +25,7 @@ INCLUDE_DIR = -Isrc/include/
 CXXFLAGS += -O2
 # CXXFLAGS += -g -O0
 # CXXFLAGS += -pg
+CXXFLAGS += -lpthread
 CXXFLAGS += #-static -static-libstdc++
 CXXFLAGS += #-lpthread -fopenmp
 CXXFLAGS += $(DEFINES)

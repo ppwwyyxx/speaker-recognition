@@ -1,6 +1,6 @@
 /*
  * $File: crbm.hh
- * $Date: Fri Dec 06 21:52:23 2013 +0800
+ * $Date: Sat Dec 07 13:44:24 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -39,6 +39,10 @@ class CRBM {
 
 		void reconstruct(std::vector<real_t> &v_in,
 				std::vector<real_t> &v_out, int n_times = 1);
+		real_t reconstruct_log_likelihood(std::vector<real_t> &v);
+		real_t reconstruct_log_likelihood(std::vector<std::vector<real_t>> &X);
+		real_t reconstruction_error(std::vector<real_t> &v);
+		real_t reconstruction_error(std::vector<std::vector<real_t>> &X);
 
 		void fit(std::vector<std::vector<real_t>> &X, CRBMTrainer *trainer);
 	public:
@@ -54,7 +58,10 @@ class CRBMTrainer {
 		int nr_epoch_max;
 		int batch_train_size;
 		int CD_k;
+		real_t C;
+		real_t momentum;
 		bool verbose;
+
 
 		int nr_epoch_report;
 		int nr_reconstruction_test;
@@ -71,6 +78,8 @@ class CRBMTrainer {
 			nr_epoch_max(nr_epoch_max),
 			batch_train_size(batch_train_size),
 			CD_k(CD_k),
+			C(0.001),
+			momentum(0.90),
 			verbose(verbose),
 			nr_epoch_report(0),
 			nr_reconstruction_test(0),
@@ -90,6 +99,11 @@ class CRBMTrainer {
 		std::vector<real_t> v_0, v_inf; // temporal variable
 		std::vector<real_t> h2_0, h2_inf; // temporal variable
 		std::vector<std::vector<real_t>> w_0, w_inf; // temporal variable
+
+		std::vector<real_t> dh;
+		std::vector<real_t> dv;
+		std::vector<real_t> da_hid;
+		std::vector<std::vector<real_t>> dw;
 
 		void resize_variables();
 		void resize_w(std::vector<std::vector<real_t>> &w);

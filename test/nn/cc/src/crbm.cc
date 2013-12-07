@@ -1,6 +1,6 @@
 /*
  * $File: crbm.cc
- * $Date: Fri Dec 06 22:09:21 2013 +0800
+ * $Date: Sat Dec 07 14:26:10 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -90,24 +90,26 @@ static void divide_w(std::vector<std::vector<real_t>> &w, real_t b) {
 }
 
 static void _sample_hidden_layer(CRBM *rbm, std::vector<real_t> &v,
-		std::vector<real_t> &h, Random &random) {
+		std::vector<real_t> &h, Random &random, bool no_random = false) {
 	for (size_t j = 0; j < h.size(); j ++) {
 		real_t activation = rbm->hidden_layer_bias[j];
 		for (size_t i = 0; i < v.size(); i ++)
 			activation += v[i] * rbm->w[i][j];
-		activation += rbm->sigma * random.rand_normal();
+		if (!no_random)
+			activation += rbm->sigma * random.rand_normal();
 		activation *= rbm->a_hidden[j];
 		h[j] = sigmoid(activation, rbm->hidden_layer_range[j]);
 	}
 }
 
 static void _sample_visible_layer(CRBM *rbm, std::vector<real_t> &v,
-		std::vector<real_t> &h, Random &random) {
+		std::vector<real_t> &h, Random &random, bool no_random = false) {
 	for (size_t i = 0; i < v.size(); i ++) {
 		real_t activation = rbm->visible_layer_bias[i];
 		for (size_t j = 0; j < h.size(); j ++)
 			activation += h[j] * rbm->w[i][j];
-		activation += rbm->sigma * random.rand_normal();
+		if (!no_random)
+			activation += rbm->sigma * random.rand_normal();
 		// no 'a' factor here compared to sample_hidden_layer
 		v[i] = sigmoid(activation, rbm->visible_layer_range[i]);
 	}
@@ -166,6 +168,71 @@ void CRBM::reconstruct(std::vector<real_t> &v_in,
 		sample_visible_layer(v, h_reconstruct);
 	}
 	v_out = v;
+}
+
+real_t CRBM::reconstruct_log_likelihood(std::vector<std::vector<real_t>> &X) {
+	real_t p = 0;
+	for (auto x: X)
+		p += reconstruct_log_likelihood(x);
+	return p;
+}
+
+real_t CRBM::reconstruction_error(std::vector<std::vector<real_t>> &X) {
+	real_t error = 0;
+	for (auto x: X)
+		error += reconstruction_error(x);
+	return error;
+}
+
+real_t CRBM::reconstruction_error(std::vector<real_t> &v_in) {
+	std::vector<real_t>
+		v = v_in,
+		h(hidden_layer_size);
+	_sample_hidden_layer(this, v, h, random, true);
+	_sample_visible_layer(this, v, h, random, true);
+
+	real_t error = 0;
+	for (size_t i = 0; i < v.size(); i ++) {
+		real_t e = v_in[i] - v[i];
+		error += e * e;
+	}
+	return error;
+}
+
+
+real_t CRBM::reconstruct_log_likelihood(std::vector<real_t> &v_in) {
+	std::vector<real_t>
+		v = v_in,
+		h(hidden_layer_size);
+	sample_hidden_layer(v, h);
+	sample_visible_layer(v, h);
+	real_t energy = 0;
+	for (int i = 0; i < visible_layer_size; i ++)
+		for (int j = 0; j < hidden_layer_size; j ++) {
+			if (i == j)
+				continue;
+			energy += -0.5 * w[i][j] * v[i] * h[j];
+			if (fpclassify(energy) == FP_NAN)
+				int asdf = 0;
+		}
+
+//    for (int i = 0; i < visible_layer_size; i ++) {
+//        real_t e = (v[i] - visible_layer_bias[i]);
+//        energy += e * e;
+//    }
+
+//    for (int j = 0; j < hidden_layer_size; j ++) {
+//        real_t e = (h[j] - hidden_layer_bias[j]) / (sigma * sigma);
+//        energy += e * e;
+//    }
+
+	for (int j = 0; j < hidden_layer_size; j ++) {
+		energy += h[j] * h[j] / a_hidden[j]; // approximation
+		if (fpclassify(energy) == FP_NAN)
+			int asdf = 0;
+	}
+
+	return energy;
 }
 
 void CRBM::dump(const char *fname) {
@@ -236,7 +303,7 @@ static double get_reconstruction_error(CRBM *rbm, vector<vector<real_t>> &X, int
 		vector<real_t> &v = X[i];
 		rbm->reconstruct(v, x);
 		if (fout) {
-			for (int i = 0; i < x.size(); i ++)
+			for (int i = 0; i < (int)x.size(); i ++)
 				fprintf(fout, "%f ", x[i]);
 			fprintf(fout, "\n");
 		}
@@ -250,6 +317,29 @@ static double get_reconstruction_error(CRBM *rbm, vector<vector<real_t>> &X, int
 	return error / nr_test;
 }
 
+#include <queue>
+using namespace std;
+
+// TODO: not in use currently
+struct ParameterCoordinator {
+	real_t cost;
+	real_t prev_cost;
+	real_t *learning_rate;
+	real_t *momentum;
+	real_t damping_factor;
+
+	ParameterCoordinator(real_t *learning_rate = NULL,
+			real_t *momentum = NULL ,
+			real_t damping_factor= 0.9) :
+		cost(0), prev_cost(numeric_limits<real_t>::max()),
+		learning_rate(learning_rate),
+		momentum(momentum),
+		damping_factor(damping_factor){}
+
+	void advance(real_t c) {
+		cost = cost * (1 - damping_factor) + c * damping_factor;
+	}
+};
 
 void CRBMTrainer::train(CRBM *rbm, std::vector<std::vector<real_t>> &X) {
 	if (X.size() == 0)
@@ -260,20 +350,29 @@ void CRBMTrainer::train(CRBM *rbm, std::vector<std::vector<real_t>> &X) {
 	reset_parameters();
 	update_visible_coord_range(rbm, X, 0, X.size());
 
+//    ParameterCoordinator pc(&learning_rate, &momentum);
 	int nr_instances = (int)X.size();
 	for (int epoch = 0; epoch < nr_epoch_max; epoch ++) {
-		if (verbose && nr_epoch_report > 0 && epoch % nr_epoch_report == 0)
+		if (verbose && nr_epoch_report > 0 && epoch % nr_epoch_report == 0) {
 			printf("epoch %d/%d %.4f ... ", epoch, nr_epoch_max, epoch / (double)nr_epoch_max);
+			fflush(stdout);
+		}
 		for (int i = 0; i < nr_instances; i += batch_train_size)
 			train_batch(rbm, X, i, i + batch_train_size, false, true);
-		if (verbose && nr_epoch_report > 0 && epoch % nr_epoch_report == 0)
-			printf("reconstruction error: %lf\n",
-					get_reconstruction_error(rbm, X, nr_reconstruction_test, reconstruction_output_file));
-		if (nr_epoch_save > 0 && epoch % nr_epoch_save == 0) {
+		if (verbose && nr_epoch_report > 0 && epoch % nr_epoch_report == 0) {
+			real_t error = get_reconstruction_error(rbm, X, nr_reconstruction_test, reconstruction_output_file);
+			printf("reconstruction error: %lf\n", error);
+			printf("log likelihood: %lf\n", rbm->reconstruct_log_likelihood(X));
+//            pc.advance(error);
+//            printf("cost: %lf\n", pc.cost);
+			fflush(stdout);
+		}
+		if (verbose && nr_epoch_save > 0 && epoch % nr_epoch_save == 0) {
 			printf("saving model to `%s' ...\n", model_file.c_str());
 			if (model_file.size() != 0)
 				rbm->dump(model_file.c_str());
 			else printf("model file not specified, abort saving.\n");
+			fflush(stdout);
 		}
 	}
 }
@@ -319,24 +418,30 @@ void CRBMTrainer::train_batch(CRBM *rbm, std::vector<std::vector<real_t>> &X, in
 	for (size_t i = 0; i < rbm->visible_layer_bias.size(); i ++) {
 		real_t delta_v = (v_0[i] - v_inf[i]);
 		//printf("dv[%d] = %f\n", (int)i, delta_v);
-		rbm->visible_layer_bias[i] += learning_rate * delta_v;
+		dv[i] = momentum * dv[i] + learning_rate * (delta_v - C * rbm->visible_layer_bias[i]);
+		rbm->visible_layer_bias[i] += dv[i];
+//        rbm->visible_layer_bias[i] += learning_rate * (delta_v - C * rbm->visible_layer_bias[i]);
 	}
 	for (size_t j = 0; j < rbm->hidden_layer_bias.size(); j ++) {
 		real_t delta_h = (h_0[j] - h_inf[j]);
-		//printf("dh[%d] = %f\n", (int)j, delta_h);
-		rbm->hidden_layer_bias[j] += learning_rate * delta_h;
+//        printf("dh[%d] = %f\n", (int)j, delta_h);
+        dh[j] = momentum * dh[j] + learning_rate * (delta_h - C * rbm->hidden_layer_bias[j]);
+		rbm->hidden_layer_bias[j] += dh[j];
+//        rbm->hidden_layer_bias[j] += learning_rate * (delta_h - C * rbm->hidden_layer_bias[j]);
 	}
 	for (size_t i = 0; i < rbm->visible_layer_bias.size(); i ++)
 		for (size_t j = 0; j < rbm->hidden_layer_bias.size(); j ++)
 		{
 			real_t delta_w = (w_0[i][j] - w_inf[i][j]);
+			dw[i][j] = momentum * dw[i][j] + learning_rate * (delta_w - C * rbm->w[i][j]);
 			//printf("dw[%d][%d] = %f\n", (int)i, (int)j, delta_w);
-			rbm->w[i][j] += learning_rate * delta_w;
+			rbm->w[i][j] += dw[i][j];
 		}
 	for (int i = 0; i < rbm->hidden_layer_size; i ++){
 		real_t ah_i = rbm->a_hidden[i];
 		real_t delta_a = (h2_0[i] - h2_inf[i]) / (ah_i * ah_i);
-		rbm->a_hidden[i] += learning_rate * delta_a;
+		da_hid[i] = momentum * da_hid[i] + learning_rate * (delta_a - C * rbm->a_hidden[i]);
+		rbm->a_hidden[i] += da_hid[i];
 	}
 
 	rbm->trained = true;
@@ -370,6 +475,14 @@ void CRBMTrainer::reset_parameters() {
 			val = random.rand_normal() * 0.01;
 	for (auto &a: rbm->a_hidden)
 		a = 1.0;
+
+	for (auto &v: dh) v = 0;
+	for (auto &v: dv) v = 0;
+	for (auto &v: da_hid) v = 0;
+	for (auto &v: dw)
+		for (auto &h: v)
+			h = 0;
+
 	rbm->hidden_layer_range = vector<pair<real_t,real_t>>(rbm->hidden_layer_size,
 			make_pair(0.0, 1.0));
 	real_t inf = numeric_limits<real_t>::max();
@@ -392,6 +505,11 @@ void CRBMTrainer::resize_variables() {
 	resize_w(w_inf);
 	h2_0.resize(rbm->hidden_layer_size);
 	h2_inf.resize(rbm->hidden_layer_size);
+
+	dh.resize(rbm->hidden_layer_size);
+	dv.resize(rbm->visible_layer_size);
+	da_hid.resize(rbm->hidden_layer_size);
+	resize_w(dw);
 }
 
 void CRBMTrainer::resize_w(std::vector<std::vector<real_t>> &w) {

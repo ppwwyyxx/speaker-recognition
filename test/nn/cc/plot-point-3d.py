@@ -2,6 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 import argparse, sys
 
 stdin_fname = '$stdin$'
@@ -26,6 +27,13 @@ def get_args():
     parser.add_argument('--ylabel',
             help = 'y label',
             default = 'y')
+    parser.add_argument('--zlabel',
+            help = 'z label',
+            default = 'z')
+    parser.add_argument('--xlim', help = 'xlim')
+    parser.add_argument('--ylim', help = 'ylim')
+    parser.add_argument('--zlim', help = 'zlim')
+
     parser.add_argument('--annotate-maximum',
             help = 'annonate maximum value in graph',
             action = 'store_true')
@@ -40,6 +48,12 @@ def get_args():
 
     if (not args.show) and len(args.output) == 0:
         raise Exception("at least one of --show and --output/-o must be specified")
+    if args.xlim:
+        args.xlim = map(float, args.xlim.rstrip().split(','))
+    if args.ylim:
+        args.ylim = map(float, args.ylim.rstrip().split(','))
+    if args.zlim:
+        args.zlim = map(float, args.zlim.rstrip().split(','))
 
     return args
 
@@ -54,11 +68,27 @@ def filter_valid_range(points, rect):
         ret.append(points[0])
     return ret
 
-def do_plot(data_x, data_y, args):
+def do_plot(data_x, data_y, data_z, args):
     fig = plt.figure(figsize = (16.18, 10))
-    ax = fig.add_axes((0.1, 0.2, 0.8, 0.7))
-    plt.scatter(data_x, data_y)
-#    ax.set_aspect('equal', 'datalim')
+    projection = '2d'
+    if len(data_z) > 0:
+        projection = '3d'
+    ax = fig.add_axes((0.1, 0.2, 0.8, 0.7), projection = projection)
+    if projection == '2d':
+        ax.scatter(data_x, data_y)
+    else:
+        ax.scatter(data_x, data_y, data_z)
+    if args.xlim:
+        ax.set_xlim(args.xlim)
+    if args.ylim:
+        ax.set_ylim(args.ylim)
+    if args.zlim:
+        ax.set_zlim3d(args.zlim)
+    if args.xlim or args.ylim or args.zlim:
+        pass
+        ax.set_aspect('equal')
+    else:
+        ax.set_aspect('equal', 'datalim')
     #ax.spines['right'].set_color('none')
     #ax.spines['left'].set_color('none')
     #plt.xticks([])
@@ -112,10 +142,10 @@ def do_plot(data_x, data_y, args):
                     xytext = (text_x, text_y),
                     arrowprops = dict(arrowstyle = '->'))
 
-    plt.xlabel(args.xlabel)
-    plt.ylabel(args.ylabel)
-
-    ax.grid(color = 'gray', linestyle = 'dashed')
+    ax.set_xlabel(args.xlabel)
+    ax.set_ylabel(args.ylabel)
+    if projection == '3d':
+        ax.set_zlabel(args.zlabel)
 
     fig.text(0.5, 0.05, args.title, ha = 'center')
     if args.output != '':
@@ -133,10 +163,12 @@ def main():
 
     data_x = []
     data_y = []
+    data_z = []
     data_format = -1
     for lineno, line in enumerate(fin.readlines()):
         line = [float(i) for i in line.rstrip().split()]
         line_data_format = -1
+        x, y, z = None, None, None
         if len(line) == 0:
             continue
         if len(line) == 2:
@@ -145,6 +177,9 @@ def main():
         elif len(line) == 1:
             line_data_format = 1
             x, y = lineno, line[0]
+        elif len(line) == 3:
+            x, y, z = line
+            line_data_format = 2;
         else:
             raise RuntimeError('Can not parse input data at line {}' . format(lineno + 1))
 
@@ -156,6 +191,8 @@ def main():
                         . format(lineno + 1))
         data_x.append(x)
         data_y.append(y)
+        if z != None:
+            data_z.append(z)
     print len(data_x)
     if args.input != stdin_fname:
         fin.close()
@@ -165,9 +202,9 @@ def main():
 
     if args.xkcd:
         with plt.xkcd():
-            do_plot(data_x, data_y, args)
+            do_plot(data_x, data_y, data_z, args)
     else:
-        do_plot(data_x, data_y, args)
+        do_plot(data_x, data_y, data_z, args)
 
 
 

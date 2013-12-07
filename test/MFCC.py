@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: MFCC.py
-# Date: Mon Nov 18 11:19:58 2013 +0800
+# Date: Sat Dec 07 11:19:54 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 POWER_SPECTRUM_FLOOR = 1e-100
@@ -127,5 +127,9 @@ def get_mfcc_extractor(fs, verbose = False):
             print("new extractor " . format(fs))
     return extractors[fs]
 
-def extract(fs, signal):
+def extract(fs, signal=None):
+    """accept two argument, or one as a tuple"""
+    if signal is None:
+        assert type(fs) == tuple
+        fs, signal = fs[0], fs[1]
     return get_mfcc_extractor(fs).extract(signal)

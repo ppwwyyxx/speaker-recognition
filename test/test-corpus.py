@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sat Dec 07 00:28:51 2013 +0800
+# $Date: Sat Dec 07 11:10:20 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -50,11 +50,6 @@ class Person(object):
 
 def get_corpus(dirs):
     persons = defaultdict(Person)
-
-#    dirs = [ '../test-data/corpus.silence-removed//Style_Reading',
-#            '../test-data/corpus.silence-removed//Style_Spontaneous',
-#            '../test-data/corpus.silence-removed//Style_Whisper',
-#            ]
 
     for d in dirs:
         print("processing {} ..." . format(d))
@@ -129,10 +124,10 @@ def main():
     train_duration = 30
     test_duration = 5
     nr_test_fragment_per_person = 100
-    concurrency = 4
+    concurrency = multiprocessing.cpu_count()
 
     persons = list(get_corpus(dirs).iteritems())
-    #random.shuffle(persons)
+    random.shuffle(persons)
 
     persons = dict(persons[:nr_person])
 

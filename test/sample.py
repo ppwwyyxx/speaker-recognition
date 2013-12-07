@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: sample.py
-# $Date: Sat Nov 30 18:22:22 2013 +0800
+# $Date: Sat Dec 07 10:37:17 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import scipy.io.wavfile as wavfile
@@ -47,6 +47,13 @@ class Sample(object):
         if begin == end:
             return
         self.signal = np.concatenate((self.signal[:begin], self.signal[end:]))
+
+    def get_interval(self, begin, end):
+        """begin and end in second"""
+        assert begin <= end and end < self.duration()
+        bpos, epos = begin * self.fs, end * self.fs
+        return self.fs, self.signal[bpos : epos]
+
 
 
 

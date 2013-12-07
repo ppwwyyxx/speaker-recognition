@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: BOB.py
-# Date: Sun Dec 01 21:53:47 2013 +0800
+# Date: Sat Dec 07 12:15:48 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -37,6 +37,11 @@ def get_mfcc_extractor(fs, verbose = False):
     #return lfcc_extractors[fs]
 
 def extract(fs, signal):
+    """accept two argument, or one as a tuple"""
+    if signal is None:
+        assert type(fs) == tuple
+        fs, signal = fs[0], fs[1]
+
     signal = numpy.cast['float'](signal)
     return get_mfcc_extractor(fs)(signal)
 

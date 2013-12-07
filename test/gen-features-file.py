@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gen-features-file.py
-# Date: Sat Dec 07 12:08:06 2013 +0800
+# Date: Sun Dec 08 00:34:58 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import glob
@@ -120,8 +120,8 @@ class DataSet(object):
 if __name__ == "__main__":
     segment_duration = 20
     nr_train_model = 50 #
-    nr_enroll = 20 #
-    enroll_duration = 30
+    nr_enroll = 50 #
+    enroll_duration = 15
     test_duration = 5
     nr_test_fragment_per_person = 50 #
 
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     dataset = DataSet()
 
     print('segmenting signals ...')
-    for p in persons[:50]:
+    for p in persons[:nr_train_model]:
         duration = p.sample_duration()
         tail = segment_duration
         while tail < duration:

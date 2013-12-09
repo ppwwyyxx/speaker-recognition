@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: MFCC.py
-# Date: Sat Dec 07 11:19:54 2013 +0800
+# Date: Mon Dec 09 13:52:21 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 POWER_SPECTRUM_FLOOR = 1e-100
@@ -103,10 +103,10 @@ class MFCCExtractor(object):
         pm = pf - fp
         M = zeros((self.n_bands, 1 + fn2))
         for c in xrange(b2 - 1, b4):
-            r = fp[c] - 1
+            r = int(fp[c] - 1)
             M[r, c+1] += 2 * (1 - pm[c])
         for c in xrange(b3):
-            r = fp[c]
+            r = int(fp[c])
             M[r, c+1] += 2 * pm[c]
         return M, CF
 

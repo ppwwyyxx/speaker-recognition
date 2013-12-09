@@ -1,7 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INIT THE EXPERIMENT
-ny = 40;           % number of eigenvoices
-niter = 400;
+ny = 300;           % number of eigenvoices
+niter = 300;
 
 % initial eigenvoices matrix
 % eigen_voices_mat_file   = ['output/v_pca' num2str(ny, '%03d') '.mat'];

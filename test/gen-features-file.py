@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gen-features-file.py
-# Date: Sun Dec 08 00:34:58 2013 +0800
+# Date: Mon Dec 09 13:52:43 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import glob
@@ -126,10 +126,11 @@ if __name__ == "__main__":
     nr_test_fragment_per_person = 50 #
 
     persons = get_corpus(['../corpus.silence-removed/Style_Reading'])
+    random.shuffle(persons)
     dataset = DataSet()
 
     print('segmenting signals ...')
-    for p in persons[:nr_train_model]:
+    for p in persons[-nr_train_model:]:
         duration = p.sample_duration()
         tail = segment_duration
         while tail < duration:
@@ -137,7 +138,6 @@ if __name__ == "__main__":
             tail += segment_duration
             dataset.train_model.append((p.name, fs, now_sample))
 
-    #random.shuffle(persons)
     print "generating enroll/test data..."
     for p in persons[:nr_enroll]:
         fs, signal, begin, end = p.get_fragment_with_interval(enroll_duration)

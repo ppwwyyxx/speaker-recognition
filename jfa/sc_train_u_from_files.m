@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INIT THE EXPERIMENT
-nx = 20;           % number of eigenvoices
-niter = 400;
+nx = 300;           % number of eigenvoices
+niter = 300;
 
 % initial eigenvoices and eigenchannels matrices
 % eigen_channels_mat_file = ['output/u_pca' num2str(nx, '%03d') '.mat'];

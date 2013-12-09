@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sat Dec 07 11:10:20 2013 +0800
+# $Date: Sun Dec 08 14:59:46 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -156,6 +156,7 @@ def main():
 #            X_test.append(MFCC.extract(*p.get_fragment(test_duration)))
 #            y_test.append(name)
         X_test.extend(pool.map(gen_data, params))
+    pool.terminate()
 
     gmmset = GMMSet()
     print('training ...')

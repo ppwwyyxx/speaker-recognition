@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-niter = 400
+niter = 300
 
 % initial eigenvoices and eigenchannels matrices
 eigen_channels_mat_file = 'output/u_final.mat';

@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Sun Dec 08 14:59:46 2013 +0800
+# $Date: Tue Dec 10 23:48:27 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -9,14 +9,16 @@ import traceback
 import sys
 import random
 import os
-import scipy.io.wavfile as wavfile
+import time
 import numpy as np
 import multiprocessing
 import operator
 from collections import defaultdict
 from sklearn.mixture import GMM
 
-#import BOB as MFCC
+concurrency = multiprocessing.cpu_count()
+
+import BOB as bob_MFCC
 import MFCC
 
 from sample import Sample
@@ -106,63 +108,31 @@ class GMMSet(object):
 
 def gen_data(params):
     p, duration = params
-    return MFCC.extract(*p.get_fragment(duration))
+    return p.get_fragment(duration)
 
 def predict_task(gmmset, x_test):
     return gmmset.predict_one(x_test)
 
-def main():
-
-    if len(sys.argv) == 1:
-        print("Usage: {} <dir_contains_wav_file> [<dirs> ...]" . format(
-                sys.argv[0]))
-        sys.exit(1)
-
-    dirs = sys.argv[1:]
-
-    nr_person = 20
-    train_duration = 30
-    test_duration = 5
-    nr_test_fragment_per_person = 100
-    concurrency = multiprocessing.cpu_count()
-
-    persons = list(get_corpus(dirs).iteritems())
-    random.shuffle(persons)
-
-    persons = dict(persons[:nr_person])
-
-
-    print('generating data ...')
-    X_train, y_train = [], []
-    X_test, y_test = [], []
-    for name, p in persons.iteritems():
-        print(name, p.sample_duration())
-        y_train.append(name)
-        fs, signal, begin, end = p.get_fragment_with_interval(train_duration)
-        # it is important to remove signal used for training to get
-        # unbiased result
-        p.remove_subsignal(begin, end)
-        X_train.append(MFCC.extract(fs, signal))
-
-        # return x
-
+def test_mfcc(mfcc_impl, X_train, y_train, X_test, y_test):
+    start = time.time()
+    print('calculating features...')
     pool = multiprocessing.Pool(concurrency)
-    for name, p in persons.iteritems():
-        print(name, p.sample_duration())
-        params = []
-        for i in xrange(nr_test_fragment_per_person):
-            params.append((p, test_duration))
-            y_test.append(name)
-#            X_test.append(MFCC.extract(*p.get_fragment(test_duration)))
-#            y_test.append(name)
-        X_test.extend(pool.map(gen_data, params))
+    X_train = pool.map(mfcc_impl, X_train)
     pool.terminate()
+    pool = multiprocessing.Pool(concurrency)
+    X_test = pool.map(mfcc_impl, X_test)
+    pool.terminate()
+    print 'time elapsed: ', time.time() - start
 
+    start = time.time()
     gmmset = GMMSet()
     print('training ...')
     gmmset.fit(X_train, y_train)
     nr_correct = 0
+    print 'time elapsed: ', time.time() - start
 
+    print 'predicting...'
+    start = time.time()
     pool = multiprocessing.Pool(concurrency)
     predictions = []
     for x_test, label_true in zip(*(X_test, y_test)):
@@ -170,13 +140,59 @@ def main():
     pool.close()
     for ind, (x_test, label_true) in enumerate(zip(*(X_test, y_test))):
         label_pred = predictions[ind].get()
-        is_wrong = '' if label_pred == label_true else ' wrong'
-        print("{} {}{}" . format(label_pred, label_true, is_wrong))
+        #is_wrong = '' if label_pred == label_true else ' wrong'
+        #print("{} {}{}" . format(label_pred, label_true, is_wrong))
         if label_pred == label_true:
             nr_correct += 1
-    print("{}/{} {:.2f}" . format(
-            nr_correct, len(y_test),
+    print 'time elapsed: ', time.time() - start
+    print("{}/{} {:.2f}".format(nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
+
+
+def main():
+    if len(sys.argv) == 1:
+        print("Usage: {} <dir_contains_wav_file> [<dirs> ...]" . format(
+                sys.argv[0]))
+        sys.exit(1)
+
+    dirs = sys.argv[1:]
+
+    nr_person = 50
+    train_duration = 15
+    test_duration = 5
+    nr_test_fragment_per_person = 100
+
+    persons = list(get_corpus(dirs).iteritems())
+    random.shuffle(persons)
+    persons = persons[:nr_person]
+
+    print('generating data ...')
+    X_train, y_train = [], []
+    X_test, y_test = [], []
+    for name, p in persons:
+        y_train.append(name)
+        fs, signal, begin, end = p.get_fragment_with_interval(train_duration)
+        # it is important to remove signal used for training to get
+        # unbiased result
+        p.remove_subsignal(begin, end)
+        X_train.append((fs, signal))
+    for name, p in persons:
+        for i in xrange(nr_test_fragment_per_person):
+            y_test.append(name)
+            X_test.append(gen_data((p, test_duration)))
+
+    print 'raw MFCC'
+    test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
+
+    def mfcc_diff(fs, signal):
+        return MFCC.extract(fs, signal, True)
+
+    print 'MFCC with diff'
+    test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
+
+    print 'bob MFCC'
+    test_mfcc(bob_MFCC.extract, X_train, y_train, X_test, y_test)
+
 
     print(dirs)
     print(nr_person, train_duration, test_duration, nr_test_fragment_per_person)

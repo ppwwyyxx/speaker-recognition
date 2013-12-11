@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Tue Dec 10 23:48:27 2013 +0800
+# $Date: Wed Dec 11 16:39:07 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -148,6 +148,17 @@ def test_mfcc(mfcc_impl, X_train, y_train, X_test, y_test):
     print("{}/{} {:.2f}".format(nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
 
+def mfcc_diff(tup):
+    return MFCC.extract(*tup, diff=True)
+
+def bob_19_6000_40(tup):
+    return bob_MFCC.extract(*tup, n_ceps=19, f_max=6000, n_filters=40)
+
+def bob_13_8000_40(tup):
+    return bob_MFCC.extract(*tup, n_ceps=13, f_max=8000, n_filters=40)
+
+def bob_13_6000_60(tup):
+    return bob_MFCC.extract(*tup, n_ceps=13, f_max=6000, n_filters=60)
 
 def main():
     if len(sys.argv) == 1:
@@ -181,17 +192,20 @@ def main():
             y_test.append(name)
             X_test.append(gen_data((p, test_duration)))
 
-    print 'raw MFCC'
-    test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
+    #print 'raw MFCC'
+    #test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
 
-    def mfcc_diff(fs, signal):
-        return MFCC.extract(fs, signal, True)
-
-    print 'MFCC with diff'
-    test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
-
-    print 'bob MFCC'
+    print 'bob MFCC 13 6000 40'
     test_mfcc(bob_MFCC.extract, X_train, y_train, X_test, y_test)
+
+    print 'bob MFCC 19 6000 40'
+    test_mfcc(bob_19_6000_40, X_train, y_train, X_test, y_test)
+
+    print 'bob MFCC 13 8000 40'
+    test_mfcc(bob_13_8000_40, X_train, y_train, X_test, y_test)
+
+    print 'bob MFCC 13 6000 60'
+    test_mfcc(bob_13_6000_60, X_train, y_train, X_test, y_test)
 
 
     print(dirs)

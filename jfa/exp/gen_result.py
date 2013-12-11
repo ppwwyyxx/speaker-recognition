@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gen_result.py
-# Date: Sat Dec 07 23:59:58 2013 +0800
+# Date: Tue Dec 10 17:32:13 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import operator
@@ -22,8 +22,11 @@ right = 0
 for tst in xrange(len(test_names)):
     match = max([(idx, score[tst]) for (idx, score) in
                  enumerate(scores)], key=operator.itemgetter(1))
-    print "test", tst, test_names[tst], ":"
-    print match, enroll_names[match[0]]
+    print test_names[tst], enroll_names[match[0]],
+    if test_names[tst] != enroll_names[match[0]]:
+        print "  wrong"
+    else:
+        print
     cnt += 1
     if int(test_names[tst]) == int(enroll_names[match[0]]):
         right += 1

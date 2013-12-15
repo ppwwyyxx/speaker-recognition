@@ -1,18 +1,52 @@
 \section{Approach}
 	In this section we will present our aproach to tackle the speaker recognition problem.
 \subsection{Erollment}
+	\label{sec:approach_enrollment}
 	An continuous speech of a user is collected during enrollment of that user. Depending on
 	the number of users we plan to enroll and the accuracy of recognition system, duration
 	of the utterance we need to collect may vary from 15 seconds to 30 seconds.
 
 	Further processing of the utterance follows following steps:
-	\begin{itemize}
+	\begin{enumerate}
 		\item Voice Activity Detection (VAD). \\
-			Due to the channel difference and background noise may occur, which may
-			degrade the performance of the system, non-speech part of the speech are removed
-			from the utterance. As this may lead to information loss % TODO
+			Due to the channel difference and background noise may occur, which
+			may degrade the performance of the system, non-speech part of the
+			speech are removed from the utterance. This may lead to
+			information loss (such as person's voice pause style), which in
+			turns introduced the trade-off between loss of information and
+			noise been modeled.
+
+			As the corpus provided by teacher is nearly noise-free, we use a
+			simple energy-based approach to remove the silence part.
+
 		\item Extract MFCC feature representation. \\
-			The utterance is
-	\end{itemize}
+			The utterance is then transformed to MFCC features with $20ms$
+			frame-duration and $10ms$ frame-shift. Further more, we tuned the
+			parameters of MFCC to yield better result. 40 filter banks and 19
+			cepstral coefficent are found to work well.
+
+		\item use Gaussian Mixture Model (or Continuous Restricted Boltzmann Machine) to model a user. \\
+			As the MFCC feature of a utterance of a user is a high-dimensional point
+			set, which comprised a distribution, we model a user by modeling its
+			MFCC feature distribution. The generative model we have primally adopted is
+			Gaussian Mixture Model(GMM). We have also conducted experiments on other generative model
+			such as continuous version of Restricted Boltzmann Machine(RBM). Although it yields decent
+			performance, but beated slightly by GMM.
+
+		\item JFA: TODO
+
+	\end{enumerate}
 
 \subsection{Recognition}
+	Recognition procedure follows steps below:
+	\begin{enumerate}
+		\item Record a short utterance of the speaker (typically 5 seconds)
+		\item Preprocess the utterance using first two steps described in
+			\secref{approach_enrollment}, e.g, VAD and MFCC feature extraction.
+		\item Compute the 'score' of the MFCC featuresextraced for each model of persons
+			enrolled, and adopt person corresponding the model which gives highest score to be the
+			recognition result.
+
+			A typical form of score is log-likelihood (or enery in RBM case).
+	\end{enumerate}
+

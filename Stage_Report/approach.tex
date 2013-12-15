@@ -19,7 +19,7 @@
 			As the corpus provided by teacher is nearly noise-free, we use a
 			simple energy-based approach to remove the silence part.
 
-		\item \textbf{Extract MFCC feature representation} \\
+		\item \textbf{Extract MFCC Feature } \\
 			The utterance is then transformed to MFCC features with $20ms$
 			frame-duration and $10ms$ frame-shift. Further more, we tuned the
 			parameters of MFCC to yield better result. 40 filter banks and 19
@@ -61,7 +61,8 @@
 			shows great difference on density over space. It shows high correspondency
 			of the theoretical analysis.
 
-		\item \textbf{Gaussian Mixture Model} \\
+		\item \textbf{Gaussian Mixture Model}
+
 			As the MFCC feature of a utterance of a user is a high-dimensional point
 			set, which comprised a distribution, we model a user by modeling its
 			MFCC feature distribution. The generative model we have primally adopted is
@@ -104,12 +105,14 @@
 				is estimated by the average running time of one iteration when training GMM
 				using PyPR (30 miniutes) divides the longest iteration time of our
 			GMM (which is 6 seconds)}
-			when training Universal Background Model(UBM) using 14 cores.
+			when training Universal Background Model(UBM) using 14 cores. This enables us to build a
+            GUI system with more powerful features, if embeded with our GMM training techniques.
 
 			Further more, our implementation of GMM outperforms the GMM library
 			aforementioned by $1\%$ in terms of recognition accuracy.
 
 		\item \textbf{Continuous restricted Boltzmann Machine(CRBM)}
+
 			Restricted Boltzmann Machine(RBM) is generative stochastic neural
 			network that can learn a probability distribution over its set of
 			inputs\cite{rbm_wiki}. But original version of RBM can only deal
@@ -124,8 +127,8 @@
 
 			Both RBM and CRBM can be trained using Contrastive Divergence learning.
 
-			RBM has the ability of given an input(visible layer), reconstruct a visible
-			layer that is similar to the input. This demonstrates the modeling ability
+			RBM has a ability to, given an input(visible layer), reconstruct a visible
+			layer that is similar to the input. This demonstrates the modeling essence
 			of RBM. \figref{crbm} illustrate original MFCC data and the sampled output of
 			reconstructed data from CRBM.
 			\begin{figure}[!ht]
@@ -149,8 +152,7 @@
 			due to the inconsiderate of the time-varing property of sequential
 			signal, although experiments we conducted using CRBM indicate
 			considerable performance on speaker recognition task, using CRBM
-			naively as a substitution of GMM did not yield better result till
-			now.
+			naively as a substitution of GMM did not yield better result till now.
 
 		\item \textbf{JFA}:
 
@@ -177,10 +179,18 @@
           The parameter $ R_s $ and $ R_c$, also referred to as ``Speaker Rank'' and ``Channel Rank'', are two emprical constant selected as first.
           The training of JFA is to calculate the best $ u, v, d$ to fit all the training data.
 
-          However, the original algorithm \cite{jfa-se} for training JFA model is of
+          After our investigation, we found that the original algorithm \cite{jfa-se} for training JFA model is of
           too much complication and hard to implement.
           Therefore, we use the simpler algorithm presented in \cite{jfa-study}
-          to train the JFA model.
+          to train the JFA model. However, from the result, JFA does not seem to outperform our enhanced MFCC and GMM algorithms
+          (but do outperform our old algorithms). It is suspected that the training of a JFA model needs more data than
+          we have provided, since JFA needs data from various source to account for different types of variabilities.
+          Therefore, we might need to add extra data on the training of JFA, but keep the same data scale in the stage of enrollment,
+          to get a better result.
+
+          It is also worth mentioning that the training of JFA will take much longer time than our old method,
+          since the estimation process of $ u, v, d$ does not converge quickly. As a result, it might not be practical to add
+          JFA approach to our GUI system. But we will still test further on the performance of it, compared to other methods.
 	\end{enumerate}
 
 \subsection{Recognition}

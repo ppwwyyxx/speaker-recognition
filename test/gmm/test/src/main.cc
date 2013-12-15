@@ -1,6 +1,6 @@
 /*
  * $File: main.cc
- * $Date: Mon Dec 16 04:45:44 2013 +0800
+ * $Date: Mon Dec 16 04:51:10 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -126,7 +126,7 @@ int main(int argc, char *argv[]) {
 	int nr_mixture = 256;
 	int nr_iter = 1;
 
-	for (int concurrency = 0; concurrency < 16; concurrency ++) {
+	for (int concurrency = 1; concurrency < 16; concurrency ++) {
 		for (int nr_instance = 1000; nr_instance <= 512000 && nr_instance < (int)X.size(); nr_instance *= 2) {
 			GMMTrainerBaseline trainer(nr_iter, 1e-3, 0.01, 0, concurrency);
 			GMM gmm(nr_mixture, COVTYPE_DIAGONAL, &trainer);

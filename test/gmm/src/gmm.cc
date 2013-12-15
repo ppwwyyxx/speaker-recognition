@@ -1,12 +1,14 @@
 /*
  * $File: gmm.cc
- * $Date: Wed Dec 11 13:26:04 2013 +0800
+ * $Date: Wed Dec 11 19:00:57 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #include "gmm.hh"
 #include "timer.hh"
 #include "Threadpool/Threadpool.hpp"
+
+#include "kmeansII.hh"
 
 #include <cassert>
 #include <fstream>
@@ -21,6 +23,9 @@ static const real_t SQRT_2_PI = 2.5066282746310002;
 #include "fastexp.hh"
 
 #define array_exp remez5_0_log2_sse
+
+
+static const real_t EPS = 2.2204460492503131e-16;
 
 Gaussian::Gaussian(int dim, int covariance_type) :
 	dim(dim), covariance_type(covariance_type) {
@@ -305,11 +310,32 @@ static void mult_self(vector<real_t> &a, real_t f) {
 }
 
 GMMTrainerBaseline::GMMTrainerBaseline(int nr_iter, real_t min_covar,
+		real_t threshold,
+		int init_with_kmeans,
 		int concurrency, int verbosity) :
-	nr_iter(nr_iter), min_covar(min_covar), concurrency(concurrency),
+	nr_iter(nr_iter), min_covar(min_covar), threshold(threshold),
+	init_with_kmeans(init_with_kmeans), concurrency(concurrency),
 	verbosity(verbosity) {
 }
 
+
+static void dense2sparse(const std::vector<real_t> &x, Instance &inst) {
+	inst.resize(x.size());
+	for (size_t i = 0; i < x.size(); i ++) {
+		inst[i].first = i;
+		inst[i].second = x[i];
+	}
+}
+
+static void Dense2Sparse(const std::vector<std::vector<real_t>> &X,
+		Dataset &X_sparse) {
+	X_sparse.resize(0);
+	for (auto &x: X) {
+		Instance inst;
+		dense2sparse(x, inst);
+		X_sparse.push_back(inst);
+	}
+}
 
 void GMMTrainerBaseline::init_gaussians(std::vector<std::vector<real_t>> &X) {
 	assert(gmm->covariance_type == COVTYPE_DIAGONAL);
@@ -333,15 +359,38 @@ void GMMTrainerBaseline::init_gaussians(std::vector<std::vector<real_t>> &X) {
 		v = sqrt(v);
 
 	gmm->gaussians.resize(gmm->nr_mixtures);
-	for (auto &g: gmm->gaussians) {
+	for (auto &g: gmm->gaussians)
 		g = new Gaussian(dim, gmm->covariance_type);
-		g->mean = X[random.rand_int(X.size())];
+
+	if (init_with_kmeans) {
+		// kmeans
+		std::vector<std::vector<real_t>> centroids;
+		Dataset X_sparse;
+		KMeansIISolver kmeans(concurrency);
+		Dense2Sparse(X, X_sparse);
+		kmeans.cluster(X_sparse, centroids, gmm->nr_mixtures);
+		assert((int)centroids.size() == gmm->nr_mixtures);
+
+		for (int i = 0; i < gmm->nr_mixtures; i ++) {
+			auto &g = gmm->gaussians[i];
+			assert(g->mean.size() == centroids[i].size());
+			g->mean = centroids[i];
+		}
+	} else {
+		for (int i = 0; i < gmm->nr_mixtures; i ++) {
+			auto &g = gmm->gaussians[i];
+			g->mean = X[random.rand_int(X.size())];
+		}
+	}
+
+	for (auto &g: gmm->gaussians) {
 		g->sigma = initial_sigma;
 	}
 
 	gmm->weights.resize(gmm->nr_mixtures);
-	for (auto &w: gmm->weights)
-		w = random.rand_real();
+	for (auto &w: gmm->weights) {
+		w = 1.0 / gmm->nr_mixtures;
+	}
 	gmm->normalize_weights();
 }
 
@@ -436,8 +485,10 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 		for (auto &gaussian: gmm->gaussians)
 			gassian_set_zero(gaussian);
 
-		for (int k = 0; k < gmm->nr_mixtures; k ++)
+		for (int k = 0; k < gmm->nr_mixtures; k ++) {
+//            gmm->weights[k] = (N_k[k] + EPS * 10) / n + EPS;
 			gmm->weights[k] = N_k[k] / n;
+		}
 
 	}
 	{
@@ -462,6 +513,7 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 	{
 		GuardedTimer timer("update sigma", enable_guarded_timer);
 		{
+			real_t min_sigma = sqrt(min_covar);
 			Threadpool pool(concurrency);
 			for (int k = 0; k < gmm->nr_mixtures; k ++) {
 				auto task = [&](int k) {
@@ -476,7 +528,7 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 					mult_self(gaussian->sigma, 1.0 / N_k[k]);
 					for (auto &s: gaussian->sigma) {
 						s = sqrt(s);
-						s = max(sqrt(min_covar), s);
+						s = max(min_sigma, s);
 					}
 				};
 				pool.enqueue(bind(task, k), 1);
@@ -569,8 +621,9 @@ void GMMTrainerBaseline::train(GMM *gmm, std::vector<std::vector<real_t>> &X) {
 		Timer timer;
 		timer.start();
 		iteration(X);
-		if (verbosity >= 1)
-			printf("iteration time: %.3lfs\n", timer.stop() / 1000.0);
+		if (verbosity >= 1) {
+			printf("iteration time: %.3lfs\n", timer.stop() / 1000.0); fflush(stdout);
+		}
 
 		if (i % 2 == 0)
 			continue;
@@ -579,15 +632,19 @@ void GMMTrainerBaseline::train(GMM *gmm, std::vector<std::vector<real_t>> &X) {
 		real_t ll;
 		//        ll = gmm->log_probability_of(X);
 		ll = threaded_log_probability_of(gmm, X, this->concurrency);
-		if (verbosity >= 1)
-			printf("log_probability_of time: %.3lfs\n", timer.stop() / 1000.0);
-		if (verbosity >= 1)
-			printf("iter %d: ll %lf\n", i, ll);
+		if (verbosity >= 1) {
+			printf("log_probability_of time: %.3lfs\n", timer.stop() / 1000.0); fflush(stdout);
+		}
+		if (verbosity >= 1) {
+			printf("iter %d: ll %lf\n", i, ll); fflush(stdout);
+		}
 
 		real_t ll_diff = ll - last_ll;
-		if (fabs(ll_diff) / fabs(ll) < 1e-8 && ll_diff < 1e-8) {
-			if (verbosity >= 1)
+		if (fabs(ll_diff) / fabs(ll) < threshold && ll_diff < threshold) {
+			if (verbosity >= 1) {
 				printf("too small log likelihood increment, abort iteration.\n");
+				fflush(stdout);
+			}
 			break;
 		}
 		last_ll = ll;

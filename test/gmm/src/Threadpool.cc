@@ -31,11 +31,15 @@ namespace ThreadLib {
 
 	// the destructor joins all threads
 	Threadpool::~Threadpool() {
-		stop = true;
+		{
+			std::unique_lock<std::mutex> lock(queue_mutex);
+			stop = true;
+			condition.notify_all();
+		}
 
-		condition.notify_all();
-
-		for(Threadpool::size_type i = 0; i < workers.size(); ++i)
+		for(Threadpool::size_type i = 0; i < workers.size(); ++i) {
 			workers[i].join();
+		}
+
 	}
 }

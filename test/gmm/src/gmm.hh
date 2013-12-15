@@ -1,6 +1,6 @@
 /*
  * $File: gmm.hh
- * $Date: Wed Dec 11 13:24:50 2013 +0800
+ * $Date: Wed Dec 11 18:42:55 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -54,7 +54,8 @@ class GMMTrainer {
 
 class GMMTrainerBaseline : public GMMTrainer {
 	public:
-		GMMTrainerBaseline(int nr_iter = 10, real_t min_covar = 1e-3, int concurrency = 1,
+		GMMTrainerBaseline(int nr_iter = 10, real_t min_covar = 1e-3, real_t threshold = 0.01,
+				int init_with_kmeans = 1, int concurrency = 1,
 				int verbosity = 0);
 		virtual void train(GMM *gmm, std::vector<std::vector<real_t>> &X);
 		void clear_gaussians();
@@ -71,6 +72,10 @@ class GMMTrainerBaseline : public GMMTrainer {
 
 		int nr_iter;
 		real_t min_covar;
+		real_t threshold;
+
+		int init_with_kmeans;
+
 		int concurrency;
 		int verbosity;
 

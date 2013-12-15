@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: pygmm.py
-# $Date: Sun Dec 15 14:55:42 2013 +0000
+# $Date: Sun Dec 15 18:48:21 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from ctypes import *
@@ -19,8 +19,11 @@ class GMMParameter(Structure):
             ("nr_dim", c_int),
             ("nr_mixture", c_int),
             ("min_covar", c_double),
+            ("threshold", c_double),
             ("nr_iteration", c_int),
-            ("concurrency", c_int)]
+            ("init_with_kmeans", c_int),
+            ("concurrency", c_int),
+            ("verbosity", c_int)]
 
 #pygmm.train_model.argtypes = [c_char_p, POINTER(POINTER(c_double)), POINTER(GMMParameter)]
 pygmm.score_all.restype = c_double
@@ -34,13 +37,15 @@ class GMM(object):
     def __init__(self, nr_mixture = 10,
             covariance_type = COVTYPE_DIAGONAL,
             min_covar = 1e-3,
+            threshold = 0.01,
             nr_iteration = 200,
-            concurrency = 8):
-        self.nr_mixture = nr_mixture
-        self.min_covar = min_covar
-        self.nr_iteration = nr_iteration
-        self.concurrency = concurrency
-        self.covariance_type = covariance_type
+            init_with_kmeans = 1,
+            concurrency = 1,
+            verbosity = 2):
+        for name, c_type in GMMParameter._fields_:
+            if name in ['nr_instance', 'nr_dim']:
+                continue
+            exec("self.{0} = {0}" . format(name))
 
         self.gmm = pygmm.new_gmm(c_int(nr_mixture), c_int(covariance_type))
 
@@ -70,10 +75,11 @@ class GMM(object):
 
     def _gen_param(self, X):
         param = GMMParameter()
-        param.nr_mixture = c_int(self.nr_mixture)
-        param.min_covar = c_double(self.min_covar)
-        param.nr_iteration = c_int(self.nr_iteration)
-        param.concurrency = c_int(self.concurrency)
+        for name, c_type in GMMParameter._fields_:
+            if name in ['nr_instance', 'nr_dim']:
+                continue
+            exec("param.{0} = {1}(self.{0})" . format(name, c_type.__name__))
+
         param.nr_instance = c_int(len(X))
         param.nr_dim = c_int(len(X[0]))
         return param
@@ -94,4 +100,3 @@ class GMM(object):
 
 
 # vim: foldmethod=marker
-

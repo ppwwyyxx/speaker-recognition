@@ -1,6 +1,6 @@
 /*
  * $File: main.cc
- * $Date: Wed Dec 11 12:28:33 2013 +0800
+ * $Date: Wed Dec 11 19:00:29 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -36,6 +36,7 @@ vector<real_t> string_to_double_vector(string line) {
 }
 
 struct Args {
+	int init_with_kmeans;
 	int concurrency;
 	int K;
 	int iteration;
@@ -50,6 +51,7 @@ Args parse_args(int argc, char *argv[]) {
 	try {
 		CmdLine cmd("Gaussian Mixture Model (GMM)", ' ', "0.0.1");
 
+		ValueArg<int> arg_init_with_kmeans("f", "kmeans", "init_with_kmeans", false, 1, "NUMBER");
 		ValueArg<int> arg_concurrency("w", "concurrency", "number of workers", false, 1, "NUMBER");
 		ValueArg<int> arg_K("k", "K", "number of gaussians", true, 10, "NUMBER");
 		ValueArg<double> arg_min_covar("c", "mincovar", "minimum covariance to avoid overfitting, default 1e-3.", false, 1e-3, "FLOAT");
@@ -60,6 +62,7 @@ Args parse_args(int argc, char *argv[]) {
 				false, 200, "NUMBER");
 
 		cmd.add(arg_concurrency);
+		cmd.add(arg_init_with_kmeans);
 		cmd.add(arg_K);
 		cmd.add(arg_min_covar);
 		cmd.add(arg_input_file);
@@ -71,6 +74,7 @@ Args parse_args(int argc, char *argv[]) {
 
 #define GET_VALUE(name) args.name = arg_##name.getValue();
 		GET_VALUE(concurrency);
+		GET_VALUE(init_with_kmeans);
 		GET_VALUE(K);
 		GET_VALUE(min_covar);
 		GET_VALUE(input_file);
@@ -100,16 +104,49 @@ void write_dense_dataset(DenseDataset &X, const char *fname) {
 	}
 }
 
+static vector<real_t> random_vector(int dim, real_t range, Random &random) {
+	vector<real_t> vec(dim);
+	for (auto &v: vec) v = random.rand_real() * range;
+	return vec;
+}
+
+void fill_gaussian(DenseDataset &X, Gaussian *gaussian, int nr_point) {
+	for (int i = 0; i < nr_point; i ++)
+		X.push_back(gaussian->sample());
+}
+
+void gen_high_dim_gaussian_mixture(DenseDataset &X, int dim, int nr_gaussian, int nr_point_per_gaussian) {
+	Random random;
+	for (int i = 0; i < nr_gaussian; i ++) {
+		Gaussian g(dim);
+		g.mean = random_vector(dim, 1, random);
+		g.sigma = random_vector(dim, 0.05 + random.rand_real() * 0.1, random);
+		fill_gaussian(X, &g, nr_point_per_gaussian);
+	}
+}
+
+
+void test() {
+	DenseDataset X;
+//    read_dense_dataset(X, "test.data");
+	gen_high_dim_gaussian_mixture(X, 13, 10, 68000);
+	write_dense_dataset(X, "test.data");
+	printf("start training");
+	GMMTrainerBaseline trainer(100, 1e-3, 0.01, 1, 4, 2);
+	GMM gmm(100, COVTYPE_DIAGONAL, &trainer);
+	gmm.fit(X);
+}
+
 int main(int argc, char *argv[]) {
-	GMM test("python/gmm.model");
+	srand(42); // Answer to The Ultimate Question of Life, the Universe, and Everything
+	test();
 	return 0;
-//    srand(42); // Answer to The Ultimate Question of Life, the Universe, and Everything
 	Args args = parse_args(argc, argv);
 
 	DenseDataset X;
 	read_dense_dataset(X, args.input_file.c_str());
 
-	GMMTrainerBaseline trainer(args.iteration, args.min_covar, args.concurrency);
+	GMMTrainerBaseline trainer(args.iteration, args.min_covar, args.init_with_kmeans, args.concurrency);
 	GMM gmm(args.K, COVTYPE_DIAGONAL, &trainer);
 	printf("start training ...\n"); fflush(stdout);
 	gmm.fit(X);

@@ -1,6 +1,6 @@
 /*
  * $File: pygmm.hh
- * $Date: Wed Dec 11 13:17:34 2013 +0800
+ * $Date: Wed Dec 11 18:50:08 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -16,8 +16,13 @@ struct Parameter {
 	int nr_mixture;
 
 	double min_covar;
+	double threshold;
 	int nr_iteration;
+
+	int init_with_kmeans;
 	int concurrency;
+
+	int verbosity;
 };
 
 GMM *new_gmm(int nr_mixture, int covariance_type);

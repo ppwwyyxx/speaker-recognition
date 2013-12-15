@@ -1,28 +1,29 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test.py
-# $Date: Wed Dec 11 16:14:09 2013 +0800
+# $Date: Wed Dec 11 18:56:21 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import pygmm
+from sklearn.mixture import GMM as SKGMM
+from numpy import *
+import numpy as np
 
 
 def read_data(fname):
     with open(fname) as fin:
         return map(lambda line: map(float, line.rstrip().split()), fin)
 
-from sklearn.mixture import GMM as SKGMM
-
-
 def get_gmm(where):
     nr_mixture = 256
+    nr_iteration = 1000
     if where == 'pygmm':
         return pygmm.GMM(nr_mixture = nr_mixture,
                 min_covar = 1e-3,
-                nr_iteration = 5,
+                nr_iteration = nr_iteration,
                 concurrency = 4)
     elif where == 'sklearn':
-        return SKGMM(nr_mixture, n_iter = 5)
+        return SKGMM(nr_mixture, n_iter = nr_iteration)
     return None
 
 def random_vector(n, dim):
@@ -39,9 +40,10 @@ def extend_X(X, n):
         X.extend(Xt)
 
 X = read_data('../test.data')
-X = random_vector(100, 13)
-extend_X(X, 10)
-print(len(X))
+X.extend(X + X + X)
+#X = random_vector(100, 13)
+#extend_X(X, 10)
+#print(len(X))
 
 
 #gmm_type = 'sklearn'
@@ -61,7 +63,10 @@ def test():
         print(gmm_type)
         gmm = get_gmm(gmm_type)
         timing("gmm.fit(X)")
-        print >> open(gmm_type + '.score.out', 'w'), gmm.score(X)
+        if gmm_type == 'pygmm':
+            gmm.dump('gmm.model')
+        print(np.sum(gmm.score(X)))
+        print("-------")
 
 test()
 

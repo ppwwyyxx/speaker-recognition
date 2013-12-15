@@ -80,7 +80,7 @@ namespace ThreadLib {
 			// synchronization
 			std::mutex queue_mutex;
 			std::condition_variable condition;
-			bool stop;
+			bool volatile stop;
 	};
 }
 

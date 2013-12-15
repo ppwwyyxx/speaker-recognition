@@ -1,6 +1,6 @@
 /*
  * $File: pygmm.cc
- * $Date: Wed Dec 11 13:27:44 2013 +0800
+ * $Date: Wed Dec 11 18:50:31 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -33,8 +33,11 @@ void print_param(Parameter *param) {
 	printf("nr_dim        :   %d\n", param->nr_dim);
 	printf("nr_mixture    :   %d\n", param->nr_mixture);
 	printf("min_covar     :   %f\n", param->min_covar);
+	printf("threshold     :   %f\n", param->threshold);
 	printf("nr_iteration  :   %d\n", param->nr_iteration);
+	printf("init_with_kmeans: %d\n", param->init_with_kmeans);
 	printf("concurrency   :   %d\n", param->concurrency);
+	printf("verbosity     :   %d\n", param->verbosity);
 }
 
 void print_X(double **X) {
@@ -58,8 +61,8 @@ void dump(GMM *gmm, const char *model_file) {
 }
 
 void train_model(GMM *gmm, double **X_in, Parameter *param) {
-//    print_param(param);
-	GMMTrainerBaseline trainer(param->nr_iteration, param->min_covar, param->concurrency);
+	print_param(param);
+	GMMTrainerBaseline trainer(param->nr_iteration, param->min_covar, param->init_with_kmeans, param->concurrency, param->verbosity);
 	gmm->trainer = &trainer;
 	DenseDataset X;
 	conv_double_pp_to_vv(X_in, X, param->nr_instance, param->nr_dim);

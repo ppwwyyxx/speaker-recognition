@@ -8,7 +8,7 @@
 
 	Further processing of the utterance follows following steps:
 	\begin{enumerate}
-		\item Voice Activity Detection (VAD). \\
+		\item \textbf{Voice Activity Detection (VAD)} \\
 			Due to the channel difference and background noise may occur, which
 			may degrade the performance of the system, non-speech part of the
 			speech are removed from the utterance. This may lead to
@@ -19,21 +19,80 @@
 			As the corpus provided by teacher is nearly noise-free, we use a
 			simple energy-based approach to remove the silence part.
 
-		\item Extract MFCC feature representation. \\
+		\item \textbf{Extract MFCC feature representation} \\
 			The utterance is then transformed to MFCC features with $20ms$
 			frame-duration and $10ms$ frame-shift. Further more, we tuned the
 			parameters of MFCC to yield better result. 40 filter banks and 19
 			cepstral coefficent are parameters found to perform best.
 
-		\item
-          use Gaussian Mixture Model (or Continuous Restricted Boltzmann Machine) to model a user.
+			We have extensively examined MFCC feature. We found that, the
+			distribution of a person's MFCC feature is truly a good representation
+			of its vocal characteristics. Here are some plots of the first three
+			dimensions of a spearker's MFCC feature.
+			\begin{figure}[!ht]
+				\begin{minipage}{0.48\linewidth}
+					\centering
+					\includegraphics[width=\linewidth]{res/m_002_03.trimed.png}
+					\caption{The first three dimension of a man's MFCC feature}
+				\end{minipage}
+				\hfill
+				\begin{minipage}{0.48\linewidth}
+					\centering
+					\includegraphics[width=\linewidth]{res/m_004_03.trimed.png}
+					\caption{The first three dimension of another man's MFCC feature}
+				\end{minipage}
+				\vfill
+				\begin{minipage}{0.48\linewidth}
+					\centering
+					\includegraphics[width=\linewidth]{res/f_001_03.trimed.png}
+					\caption{The first three dimension of a woman's MFCC feature}
+				\end{minipage}
+				\hfill
+				\begin{minipage}{0.48\linewidth}
+					\centering
+					\includegraphics[width=\linewidth]{res/f_003_03.trimed.png}
+					\caption{The first three dimension of another woman's MFCC feature}
+				\end{minipage}
+			\end{figure}
 
+			It is clearly showed in the figure that, women's MFCC feature distribution
+			tends to have nice ecliptical shapes in first three-dimension,
+			as women's voice pitch is higher than man. And the two men's MFCC figure
+			shows great difference on density over space. It shows high correspondency
+			of the theoretical analysis.
+
+		\item \textbf{Gaussian Mixture Model} \\
 			As the MFCC feature of a utterance of a user is a high-dimensional point
 			set, which comprised a distribution, we model a user by modeling its
 			MFCC feature distribution. The generative model we have primally adopted is
-			Gaussian Mixture Model(GMM). We have also conducted experiments on other generative model
-			such as continuous version of Restricted Boltzmann Machine(RBM). Although it yields decent
-			performance, but beated slightly by GMM.
+			Gaussian Mixture Model(GMM).
+
+			In order to conduct a proof-of-concept experiments, we consequently conducted
+			experiments using GMM from \textit{scikit-learn}\cite{scikit-learn}
+			and \textit{PyPR}\cite{pypr}, but it turns out that these implementations
+			are neither of efficiency, nor of decent accuracy. Therefore, we implemented
+			our own GMM model with following enhancement:
+			\begin{itemize}
+				\item As GMM is very sensitive to initialization, we use
+					K-Means to initialize the configuration prior to GMM training.
+				\item Further more, we use an improved algorithm of
+					K-means++\cite{arthur2007k} named K-meansII\cite{bahmani2012scalable},
+					which outperforms both naive K-means and K-means++ in both
+					efficiency and accuracy.
+				\item All above algorithms (K-means, K-means++, K-meansII and
+					GMM) are implemented utilizing multi-core CPUs in
+					thread level. Experiments shows that our implementation
+					scales nearly linearly with number of cores.
+				\item In order to futher speed up the training process,
+					we examined the time consuming part of GMM algorithm,
+					which lies in extensive use of exponential function.
+					Therefore, we rewrite exponential function using 5-order polynomial
+					approximation using \textbf{SSE} instructions, which only
+					introduced an numerical error less than $10^{-7}$.
+					The running time of the training process cut by half when using
+					our optimization.
+			\end{itemize}
+
 
 		\item \textbf{JFA}:
 

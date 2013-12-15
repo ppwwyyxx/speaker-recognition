@@ -33,7 +33,17 @@
 			such as continuous version of Restricted Boltzmann Machine(RBM). Although it yields decent
 			performance, but beated slightly by GMM.
 
-		\item JFA: TODO
+		\item \textbf{JFA} \\
+			\textbf{Factor Analysis} is a typical method which behave
+			very well in classification problems, due to its ability to
+			account for different types of variability in training data.
+			Within all the factor analysis methods,
+			\textbf{Joint Factor Analysis (JFA)} \cite{jfa2,jfa-se} was proved to outperform other method
+			in the task of Speaker Recognition.
+			However, the original algorithm \cite{jfa-se} for training JFA model is of
+			too much complication and hard to implement.
+			Therefore, we use the simpler algorithm presented in \cite{jfa-study}
+			to train the JFA model.
 
 	\end{enumerate}
 
@@ -43,10 +53,11 @@
 		\item Record a short utterance of the speaker (typically 5 seconds)
 		\item Preprocess the utterance using first two steps described in
 			\secref{approach_enrollment}, e.g, VAD and MFCC feature extraction.
-		\item Compute the 'score' of the MFCC featuresextraced for each model of persons
+		\item Compute the `score' of the MFCC featuresextraced for each model of persons
 			enrolled, and adopt person corresponding the model which gives highest score to be the
 			recognition result.
 
 			A typical form of score is log-likelihood (or enery in RBM case).
+
 	\end{enumerate}
 

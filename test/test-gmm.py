@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-gmm.py
-# $Date: Sun Dec 15 18:53:18 2013 +0800
+# $Date: Mon Dec 16 00:40:20 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -136,7 +136,7 @@ def test_gmm(X_train, y_train, X_test, y_test):
         if label_pred == label_true:
             nr_correct += 1
     print 'time elapsed: ', time.time() - start
-    print("{}/{} {:.2f}".format(nr_correct, len(y_test),
+    print("{}/{} {:.4f}".format(nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
     pool.terminate()
 

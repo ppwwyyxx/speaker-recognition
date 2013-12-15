@@ -71,7 +71,7 @@
 			experiments using GMM from \textit{scikit-learn}\cite{scikit-learn}
 			and \textit{PyPR}\cite{pypr}, but it turns out that these implementations
 			are neither of efficiency, nor of decent accuracy. Therefore, we implemented
-			our own GMM model with following enhancement:
+			our own GMM model with following improvements:
 			\begin{itemize}
 				\item As GMM is very sensitive to initialization, we use
 					K-Means to initialize the configuration prior to GMM training.
@@ -93,6 +93,17 @@
 					our optimization.
 			\end{itemize}
 
+			Using these optimizations, our GMM training is at least \textbf{300
+			times} faster than that of PyPR \cite{pypr}
+			\footnote{
+				This is an rough estimation which highly biased to PyPR. The factor 300
+				is estimated by the average running time of one iteration when training GMM
+				using PyPR (30 miniutes) divides the longest iteration time of our
+			GMM (which is 6 seconds)}
+			when training Universal Background Model(UBM) using 14 cores.
+
+			Further more, our implementation of GMM outperforms the GMM library
+			aforementioned by $1\%$ in terms of recognition accuracy.
 
 		\item \textbf{JFA}:
 

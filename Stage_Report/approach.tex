@@ -75,14 +75,18 @@
 			\begin{itemize}
 				\item As GMM is very sensitive to initialization, we use
 					K-Means to initialize the configuration prior to GMM training.
+
 				\item Further more, we use an improved algorithm of
 					K-means++\cite{arthur2007k} named K-meansII\cite{bahmani2012scalable},
 					which outperforms both naive K-means and K-means++ in both
-					efficiency and accuracy.
+					efficiency and accuracy. For detailed algorithm description,
+					please consult the orignal paper.
+
 				\item All above algorithms (K-means, K-means++, K-meansII and
 					GMM) are implemented utilizing multi-core CPUs in
 					thread level. Experiments shows that our implementation
 					scales nearly linearly with number of cores.
+
 				\item In order to futher speed up the training process,
 					we examined the time consuming part of GMM algorithm,
 					which lies in extensive use of exponential function.
@@ -104,6 +108,39 @@
 
 			Further more, our implementation of GMM outperforms the GMM library
 			aforementioned by $1\%$ in terms of recognition accuracy.
+
+		\item \textbf{Continuous restricted Boltzmann Machine(CRBM)}
+			Restricted Boltzmann Machine(RBM) is generative stochastic neural
+			network that can learn a probability distribution over its set of
+			inputs\cite{rbm_wiki}. But original version of RBM can only deal
+			with binary inputs. \cite{chen2003continuous} proposed and extension called
+			Continuous restricted Boltzmann Machine, which can deal with real-valued
+			inputs. RBM is a two-layer neural network, in which one layer called
+			visible layer (the input), and another called hidden layer. The neurons
+			in hidden layer controls the model complexity and the performance of
+			the network. Both RBM and CRBM can be trained using Contrastive
+			Divergence learning.
+
+			RBM has the ability of given an input(visible layer), reconstruct a visible
+			layer that is similar to the input. This demonstrates the modeling ability
+			of RBM. \figref{crbm} illustrate original MFCC data and the sampled output of
+			reconstructed data from CRBM.
+			\begin{figure}[!ht]
+				\label{fig:crbm}
+				\begin{minipage}{0.48\linewidth}
+					\centering
+					\includegraphics[width=\linewidth]{res/all.trimed.png}
+					\caption{The first three dimension of a man's MFCC feature}
+				\end{minipage}
+				\hfill
+				\begin{minipage}{0.48\linewidth}
+					\centering
+					\includegraphics[width=\linewidth]{res/50.trimed.png}
+					\caption{The first three dimension of the same man's MFCC feature
+					recontructed by a CRBM with 50-neuron hidden layer. We can
+					see that, the density of these two distributions are alike}
+				\end{minipage}
+			\end{figure}
 
 		\item \textbf{JFA}:
 

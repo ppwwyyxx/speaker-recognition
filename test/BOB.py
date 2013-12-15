@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: BOB.py
-# Date: Wed Dec 11 16:35:35 2013 +0800
+# Date: Sun Dec 15 19:43:51 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -21,7 +21,7 @@ mel_scale = True # Tell whether cepstral features are extracted on a linear (LFC
 
 
 mfcc_extractors = dict()
-def get_mfcc_extractor(fs, n_ceps=13, f_max=6000, n_filters=40):
+def get_mfcc_extractor(fs, n_ceps=19, f_max=6000, n_filters=40):
     global mfcc_extractors
     if fs not in mfcc_extractors:
         mfcc_extractors[fs] = bob.ap.Ceps(fs, win_length_ms, win_shift_ms, n_filters, n_ceps, f_min,

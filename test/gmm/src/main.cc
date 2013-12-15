@@ -1,6 +1,6 @@
 /*
  * $File: main.cc
- * $Date: Wed Dec 11 19:00:29 2013 +0800
+ * $Date: Sun Dec 15 20:27:15 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -38,9 +38,11 @@ vector<real_t> string_to_double_vector(string line) {
 struct Args {
 	int init_with_kmeans;
 	int concurrency;
+	real_t threshold;
 	int K;
 	int iteration;
 	real_t min_covar = 1e-3;
+	int verbosity;
 
 	string input_file;
 	string model_file;
@@ -54,7 +56,9 @@ Args parse_args(int argc, char *argv[]) {
 		ValueArg<int> arg_init_with_kmeans("f", "kmeans", "init_with_kmeans", false, 1, "NUMBER");
 		ValueArg<int> arg_concurrency("w", "concurrency", "number of workers", false, 1, "NUMBER");
 		ValueArg<int> arg_K("k", "K", "number of gaussians", true, 10, "NUMBER");
+		ValueArg<int> arg_verbosity("v", "V", "verbosity", false, -1, "NUMBER");
 		ValueArg<double> arg_min_covar("c", "mincovar", "minimum covariance to avoid overfitting, default 1e-3.", false, 1e-3, "FLOAT");
+		ValueArg<double> arg_threshold("t", "threshold", "threshold", false, 0.01, "FLOAT");
 
 		ValueArg<string> arg_input_file("i", "input", "intput file", true, "", "FILE");
 		ValueArg<string> arg_model_file("m", "model", "model file", true, "", "FILE");
@@ -68,6 +72,8 @@ Args parse_args(int argc, char *argv[]) {
 		cmd.add(arg_input_file);
 		cmd.add(arg_model_file);
 		cmd.add(arg_iteration);
+		cmd.add(arg_threshold);
+		cmd.add(arg_verbosity);
 
 
 		cmd.parse(argc, argv);
@@ -80,6 +86,8 @@ Args parse_args(int argc, char *argv[]) {
 		GET_VALUE(input_file);
 		GET_VALUE(model_file);
 		GET_VALUE(iteration);
+		GET_VALUE(verbosity);
+		GET_VALUE(threshold);
 
 	} catch (ArgException &e) {
 		cerr << "error: " << e.error() << " for arg " << e.argId() << endl;
@@ -138,15 +146,20 @@ void test() {
 }
 
 int main(int argc, char *argv[]) {
-	srand(42); // Answer to The Ultimate Question of Life, the Universe, and Everything
-	test();
-	return 0;
+	/*
+	 *srand(42); // Answer to The Ultimate Question of Life, the Universe, and Everything
+	 *test();
+	 *return 0;
+	 */
 	Args args = parse_args(argc, argv);
 
 	DenseDataset X;
 	read_dense_dataset(X, args.input_file.c_str());
 
-	GMMTrainerBaseline trainer(args.iteration, args.min_covar, args.init_with_kmeans, args.concurrency);
+	GMMTrainerBaseline trainer(
+			args.iteration, args.min_covar, args.threshold,
+			args.init_with_kmeans, args.concurrency,
+			args.verbosity);
 	GMM gmm(args.K, COVTYPE_DIAGONAL, &trainer);
 	printf("start training ...\n"); fflush(stdout);
 	gmm.fit(X);

@@ -1,6 +1,6 @@
 /*
  * $File: pygmm.cc
- * $Date: Wed Dec 11 18:50:31 2013 +0800
+ * $Date: Sun Dec 15 20:15:55 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -62,10 +62,24 @@ void dump(GMM *gmm, const char *model_file) {
 
 void train_model(GMM *gmm, double **X_in, Parameter *param) {
 	print_param(param);
-	GMMTrainerBaseline trainer(param->nr_iteration, param->min_covar, param->init_with_kmeans, param->concurrency, param->verbosity);
+	GMMTrainerBaseline trainer(param->nr_iteration, param->min_covar,
+			param->threshold,
+			param->init_with_kmeans, param->concurrency, param->verbosity);
 	gmm->trainer = &trainer;
 	DenseDataset X;
 	conv_double_pp_to_vv(X_in, X, param->nr_instance, param->nr_dim);
+	/*
+	 *{
+	 *    ofstream of("dump.txt");
+	 *    for (auto & row : X) {
+	 *        for (auto & v : row) {
+	 *            of << v << " ";
+	 *        }
+	 *        of << endl;
+	 *    }
+	 *    of.close();
+	 *}
+	 */
 	gmm->fit(X);
 }
 

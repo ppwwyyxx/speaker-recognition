@@ -1,6 +1,6 @@
 /*
  * $File: kmeans.cc
- * $Date: Wed Dec 11 17:12:03 2013 +0800
+ * $Date: Sun Dec 15 20:22:37 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -152,6 +152,7 @@ real_t KMeansSolver::Lloyds_iteration(
 	printf("entering Lloyds_iteration\n"); fflush(stdout);
 
 	Threadpool p(concurrency);
+	printf("concu..........################: %d\n", concurrency);
 	int n = dataset.size();
 	int m = centroids[0].size();
 	int K = centroids.size();

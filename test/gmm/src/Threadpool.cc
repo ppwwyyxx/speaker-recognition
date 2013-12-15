@@ -1,5 +1,6 @@
 #include "Threadpool/Threadpool.hpp"
 
+#include <iostream>
 namespace ThreadLib {
 
 	void Worker::operator()() {

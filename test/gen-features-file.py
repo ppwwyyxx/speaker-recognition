@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gen-features-file.py
-# Date: Mon Dec 09 13:52:43 2013 +0800
+# Date: Sun Dec 15 20:12:07 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import glob
@@ -12,10 +12,9 @@ import os
 import numpy as np
 import operator
 from collections import defaultdict
-from sklearn.mixture import GMM
 
-#import BOB as MFCC
-import MFCC
+import BOB as MFCC
+#import MFCC
 from sample import Sample
 from multiprocess import MultiProcessWorker
 
@@ -70,7 +69,6 @@ class DataSet(object):
     def __init__(self):
         """list item is of format (name, fs, signal)"""
         self.enroll = []
-        self.train_model = []
         self.test = []
 
     def compute_features(self):
@@ -78,8 +76,6 @@ class DataSet(object):
         self.enroll_feat = self._compute(self.enroll)
         print("Computing test features...")
         self.test_feat = self._compute(self.test)
-        print("Computing train features...")
-        self.train_feat = self._compute(self.train_model)
 
     def _compute(self, data):
         worker = MultiProcessWorker(MFCC.extract)
@@ -99,7 +95,6 @@ class DataSet(object):
             os.makedirs(dirname)
         self._write(self.enroll_feat, "enroll", dirname)
         self._write(self.test_feat, "test", dirname)
-        self._write(self.train_feat, "train", dirname)
 
     def _write(self, data, task_name, dirname):
         datalist = []
@@ -118,25 +113,14 @@ class DataSet(object):
                 f.write("{0}={1}\n".format(line[0], line[1]))
 
 if __name__ == "__main__":
-    segment_duration = 20
-    nr_train_model = 50 #
-    nr_enroll = 50 #
-    enroll_duration = 15
+    nr_enroll = 30 #
+    enroll_duration = 30
     test_duration = 5
-    nr_test_fragment_per_person = 50 #
+    nr_test_fragment_per_person = 100 #
 
     persons = get_corpus(['../corpus.silence-removed/Style_Reading'])
     random.shuffle(persons)
     dataset = DataSet()
-
-    print('segmenting signals ...')
-    for p in persons[-nr_train_model:]:
-        duration = p.sample_duration()
-        tail = segment_duration
-        while tail < duration:
-            fs, now_sample = p.sample.get_interval(tail - segment_duration, tail)
-            tail += segment_duration
-            dataset.train_model.append((p.name, fs, now_sample))
 
     print "generating enroll/test data..."
     for p in persons[:nr_enroll]:

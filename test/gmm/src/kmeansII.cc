@@ -1,6 +1,6 @@
 /*
  * $File: kmeansII.cc
- * $Date: Wed Dec 11 18:52:25 2013 +0800
+ * $Date: Sun Dec 15 20:23:59 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -88,6 +88,7 @@ real_t KMeansIISolver::cluster(const Dataset &dataset, std::vector<Vector> &cent
 		p.resize(m);
 
 	printf("kmeansII initializing ...\n");
+	printf("concurrency II: ######## %d\n", concurrency);
 
 	// initial cluster with one random point
 	std::vector<Vector> centroids(1, centroids_param[0]);

@@ -1,6 +1,6 @@
 /*
  * $File: gmm.cc
- * $Date: Wed Dec 11 19:00:57 2013 +0800
+ * $Date: Sun Dec 15 20:08:45 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -617,7 +617,7 @@ void GMMTrainerBaseline::train(GMM *gmm, std::vector<std::vector<real_t>> &X) {
 
 	real_t last_ll = -numeric_limits<real_t>::max();
 	for (int i = 0; i < nr_iter; i ++) {
-		GuardedTimer iter_time("iteration total time", verbosity);
+		GuardedTimer iter_time("iteration total time", verbosity >= 2);
 		Timer timer;
 		timer.start();
 		iteration(X);

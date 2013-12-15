@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-gmm.py
-# $Date: Sun Dec 15 16:04:44 2013 +0000
+# $Date: Sun Dec 15 18:53:18 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -117,6 +117,31 @@ def predict_task(gmmset, x_test):
 
 def test_gmm(X_train, y_train, X_test, y_test):
     start = time.time()
+    gmmset = GMMSet(gmm_impl=new_GMM)
+    print('training NEW gmm...')
+    gmmset.fit(X_train, y_train)
+    nr_correct = 0
+    print 'time elapsed: ', time.time() - start
+
+    print 'predicting...'
+    start = time.time()
+    predictions = []
+    pool = multiprocessing.Pool(concurrency)
+    for x_test, label_true in zip(*(X_test, y_test)):
+        predictions.append(pool.apply_async(predict_task, args = (gmmset, x_test)))
+    for ind, (x_test, label_true) in enumerate(zip(*(X_test, y_test))):
+        label_pred = predictions[ind].get()
+        #is_wrong = '' if label_pred == label_true else ' wrong'
+        #print("{} {}{}" . format(label_pred, label_true, is_wrong))
+        if label_pred == label_true:
+            nr_correct += 1
+    print 'time elapsed: ', time.time() - start
+    print("{}/{} {:.2f}".format(nr_correct, len(y_test),
+            float(nr_correct) / len(y_test)))
+    pool.terminate()
+
+
+    start = time.time()
     gmmset = GMMSet()
     print('training OLD gmm...')
     gmmset.fit(X_train, y_train)
@@ -138,29 +163,7 @@ def test_gmm(X_train, y_train, X_test, y_test):
     print 'time elapsed: ', time.time() - start
     print("{}/{} {:.2f}".format(nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
-    pool.close()
-
-    start = time.time()
-    gmmset = GMMSet(gmm_impl=new_GMM)
-    print('training NEW gmm...')
-    gmmset.fit(X_train, y_train)
-    nr_correct = 0
-    print 'time elapsed: ', time.time() - start
-
-    print 'predicting...'
-    start = time.time()
-    predictions = []
-    for x_test, label_true in zip(*(X_test, y_test)):
-        predictions.append(predict_task(gmmset, x_test))
-    for ind, (x_test, label_true) in enumerate(zip(*(X_test, y_test))):
-        label_pred = predictions[ind].get()
-        #is_wrong = '' if label_pred == label_true else ' wrong'
-        #print("{} {}{}" . format(label_pred, label_true, is_wrong))
-        if label_pred == label_true:
-            nr_correct += 1
-    print 'time elapsed: ', time.time() - start
-    print("{}/{} {:.2f}".format(nr_correct, len(y_test),
-            float(nr_correct) / len(y_test)))
+    pool.terminate()
 
 def bob_19_6000_40(tup):
     return bob_MFCC.extract(*tup, n_ceps=19, f_max=6000, n_filters=40)

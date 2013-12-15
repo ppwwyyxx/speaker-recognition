@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: pygmm.py
-# $Date: Sun Dec 15 18:48:21 2013 +0800
+# $Date: Sun Dec 15 20:06:52 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from ctypes import *
@@ -40,8 +40,8 @@ class GMM(object):
             threshold = 0.01,
             nr_iteration = 200,
             init_with_kmeans = 1,
-            concurrency = 1,
-            verbosity = 2):
+            concurrency = 8,
+            verbosity = -1):
         for name, c_type in GMMParameter._fields_:
             if name in ['nr_instance', 'nr_dim']:
                 continue

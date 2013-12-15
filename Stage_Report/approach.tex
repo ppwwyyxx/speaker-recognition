@@ -118,8 +118,11 @@
 			inputs. RBM is a two-layer neural network, in which one layer called
 			visible layer (the input), and another called hidden layer. The neurons
 			in hidden layer controls the model complexity and the performance of
-			the network. Both RBM and CRBM can be trained using Contrastive
-			Divergence learning.
+			the network. The Gibbs sampling of hidden layer can be seen as a
+			representation of the original data. Therefore RBMs can be used
+			as an auto feature-extractor.
+
+			Both RBM and CRBM can be trained using Contrastive Divergence learning.
 
 			RBM has the ability of given an input(visible layer), reconstruct a visible
 			layer that is similar to the input. This demonstrates the modeling ability
@@ -130,17 +133,24 @@
 				\begin{minipage}{0.48\linewidth}
 					\centering
 					\includegraphics[width=\linewidth]{res/all.trimed.png}
-					\caption{The first three dimension of a man's MFCC feature}
+					\caption{The first three dimension of a woman's MFCC feature}
 				\end{minipage}
 				\hfill
 				\begin{minipage}{0.48\linewidth}
 					\centering
 					\includegraphics[width=\linewidth]{res/50.trimed.png}
-					\caption{The first three dimension of the same man's MFCC feature
+					\caption{The first three dimension of the same woman's MFCC feature
 					recontructed by a CRBM with 50-neuron hidden layer. We can
 					see that, the density of these two distributions are alike}
 				\end{minipage}
 			\end{figure}
+
+			It turns out that, although CRBM has good modeling ability, but
+			due to the inconsiderate of the time-varing property of sequential
+			signal, although experiments we conducted using CRBM indicate
+			considerable performance on speaker recognition task, using CRBM
+			naively as a substitution of GMM did not yield better result till
+			now.
 
 		\item \textbf{JFA}:
 

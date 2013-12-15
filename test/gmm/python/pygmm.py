@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: pygmm.py
-# $Date: Wed Dec 11 13:21:00 2013 +0800
+# $Date: Sun Dec 15 14:55:42 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from ctypes import *
@@ -35,7 +35,7 @@ class GMM(object):
             covariance_type = COVTYPE_DIAGONAL,
             min_covar = 1e-3,
             nr_iteration = 200,
-            concurrency = 1):
+            concurrency = 8):
         self.nr_mixture = nr_mixture
         self.min_covar = min_covar
         self.nr_iteration = nr_iteration

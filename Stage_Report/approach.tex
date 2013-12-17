@@ -98,23 +98,13 @@
 					our optimization.
 			\end{itemize}
 
-			Using these optimizations, our GMM training is at least \textbf{300
-			times} faster than that of PyPR \cite{pypr}
-			\footnote{
-				This is an rough estimation which highly biased to PyPR. The factor 300
-				is estimated by the average running time of one iteration when training GMM
-				using PyPR (30 miniutes) divides the longest iteration time of our
-				GMM (which is 6 seconds)}
-				when training Universal Background Model(UBM) using 14 cores.
-			As the efficiency of GMM from scikit-learn is much more worse than PyPR,
-			we did not conduct experiments on GMM from scikit-learn training UBM.
-			But as we can infer, our GMM will be much-much faster than that one.
-
 			The efficiency we achieved enables us to build a
             GUI system with more powerful features, if embeded with our GMM training techniques.
 
 			Further more, our implementation of GMM outperforms the GMM library
-			aforementioned by $1\%$ in terms of recognition accuracy.
+			aforementioned in terms of recognition accuracy.
+
+			For detailed efficiency and perfomance benchmark, see \secref{result}
 
 		\item \textbf{Continuous restricted Boltzmann Machine(CRBM)}
 

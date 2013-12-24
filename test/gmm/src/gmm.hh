@@ -1,6 +1,6 @@
 /*
  * $File: gmm.hh
- * $Date: Wed Dec 11 18:42:55 2013 +0800
+ * $Date: Tue Dec 24 16:28:07 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -65,6 +65,10 @@ class GMMTrainerBaseline : public GMMTrainer {
 
 		virtual void iteration(std::vector<std::vector<real_t>> &X);
 
+		virtual void update_weights(std::vector<std::vector<real_t>> &X);
+		virtual void update_means(std::vector<std::vector<real_t>> &X);
+		virtual void update_sigma(std::vector<std::vector<real_t>> &X);
+
 		int dim;
 
 		Random random;
@@ -81,6 +85,16 @@ class GMMTrainerBaseline : public GMMTrainer {
 
 		std::vector<std::vector<real_t>> prob_of_y_given_x; // y, x
 		std::vector<real_t> N_k;
+
+		int n; // training sample size
+};
+
+class GMMUBMTrainerBaseline : public GMMTrainerBaseline {
+	public:
+		GMMUBMTrainerBaseline();
+		virtual void train(GMM *gmm, std::vector<std::vector<real_t>> &X);
+		virtual void init_gaussians(std::vector<std::vector<real_t>> &X);
+		virtual void iteration(std::vector<std::vector<real_t>> &X);
 };
 
 class GMM {

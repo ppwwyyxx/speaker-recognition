@@ -1,6 +1,6 @@
 /*
  * $File: gmm.cc
- * $Date: Sun Dec 15 20:08:45 2013 +0000
+ * $Date: Tue Dec 24 16:29:49 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -419,8 +419,55 @@ static void gassian_set_zero(Gaussian *gaussian) {
 
 }
 
+void GMMTrainerBaseline::update_weights(std::vector<std::vector<real_t>> &) {
+		for (int k = 0; k < gmm->nr_mixtures; k ++) {
+//            gmm->weights[k] = (N_k[k] + EPS * 10) / n + EPS;
+			gmm->weights[k] = N_k[k] / n;
+		}
+}
+
+void GMMTrainerBaseline::update_means(std::vector<std::vector<real_t>> &X) {
+	Threadpool pool(concurrency);
+	for (int k = 0; k < gmm->nr_mixtures; k ++) {
+		auto task = [&](int k) {
+			vector<real_t> tmp(dim);
+			auto &gaussian = gmm->gaussians[k];
+			for (int i = 0; i < n; i ++) {
+				mult(X[i], prob_of_y_given_x[k][i], tmp);
+				add_self(gaussian->mean, tmp);
+			}
+			mult_self(gaussian->mean, 1.0 / N_k[k]);
+		};
+		pool.enqueue(bind(task, k), 1);
+	}
+}
+
+
+void GMMTrainerBaseline::update_sigma(std::vector<std::vector<real_t>> &X) {
+	real_t min_sigma = sqrt(min_covar);
+	Threadpool pool(concurrency);
+	for (int k = 0; k < gmm->nr_mixtures; k ++) {
+		auto task = [&](int k) {
+			vector<real_t> tmp(dim);
+			auto &gaussian = gmm->gaussians[k];
+			for (int i = 0; i < n; i ++) {
+				sub(X[i], gaussian->mean, tmp);
+				for (auto &t: tmp) t = t * t;
+				mult_self(tmp, prob_of_y_given_x[k][i]);
+				add_self(gaussian->sigma, tmp);
+			}
+			mult_self(gaussian->sigma, 1.0 / N_k[k]);
+			for (auto &s: gaussian->sigma) {
+				s = sqrt(s);
+				s = max(min_sigma, s);
+			}
+		};
+		pool.enqueue(bind(task, k), 1);
+	}
+}
+
 void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
-	int n = (int)X.size();
+	n = (int)X.size();
 
 	bool enable_guarded_timer = verbosity >= 2;
 	{
@@ -485,55 +532,18 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 		for (auto &gaussian: gmm->gaussians)
 			gassian_set_zero(gaussian);
 
-		for (int k = 0; k < gmm->nr_mixtures; k ++) {
-//            gmm->weights[k] = (N_k[k] + EPS * 10) / n + EPS;
-			gmm->weights[k] = N_k[k] / n;
-		}
+		update_weights(X);
 
 	}
 	{
-		GuardedTimer timer("update mean", enable_guarded_timer);
-		{
-			Threadpool pool(concurrency);
-			for (int k = 0; k < gmm->nr_mixtures; k ++) {
-				auto task = [&](int k) {
-					vector<real_t> tmp(dim);
-					auto &gaussian = gmm->gaussians[k];
-					for (int i = 0; i < n; i ++) {
-						mult(X[i], prob_of_y_given_x[k][i], tmp);
-						add_self(gaussian->mean, tmp);
-					}
-					mult_self(gaussian->mean, 1.0 / N_k[k]);
-				};
-				pool.enqueue(bind(task, k), 1);
-			}
-		}
+		GuardedTimer timer("update means", enable_guarded_timer);
+		update_means(X);
+
 	}
 
 	{
 		GuardedTimer timer("update sigma", enable_guarded_timer);
-		{
-			real_t min_sigma = sqrt(min_covar);
-			Threadpool pool(concurrency);
-			for (int k = 0; k < gmm->nr_mixtures; k ++) {
-				auto task = [&](int k) {
-					vector<real_t> tmp(dim);
-					auto &gaussian = gmm->gaussians[k];
-					for (int i = 0; i < n; i ++) {
-						sub(X[i], gaussian->mean, tmp);
-						for (auto &t: tmp) t = t * t;
-						mult_self(tmp, prob_of_y_given_x[k][i]);
-						add_self(gaussian->sigma, tmp);
-					}
-					mult_self(gaussian->sigma, 1.0 / N_k[k]);
-					for (auto &s: gaussian->sigma) {
-						s = sqrt(s);
-						s = max(min_sigma, s);
-					}
-				};
-				pool.enqueue(bind(task, k), 1);
-			}
-		}
+		update_sigma(X);
 	}
 
 }

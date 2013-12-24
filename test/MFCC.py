@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: MFCC.py
-# Date: Mon Dec 09 13:52:21 2013 +0800
+# Date: Tue Dec 24 20:37:10 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 POWER_SPECTRUM_FLOOR = 1e-100
@@ -54,7 +54,7 @@ class MFCCExtractor(object):
             signal = mean(signal, axis=1)
         frames = (len(signal) - self.FRAME_LEN) / self.FRAME_SHIFT + 1
         feature = []
-        for f in range(frames):
+        for f in xrange(frames):
             # Windowing
             frame = signal[f * self.FRAME_SHIFT : f * self.FRAME_SHIFT +
                            self.FRAME_LEN] * self.window

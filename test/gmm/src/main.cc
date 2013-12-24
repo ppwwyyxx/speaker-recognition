@@ -1,6 +1,6 @@
 /*
  * $File: main.cc
- * $Date: Sun Dec 15 20:27:15 2013 +0800
+ * $Date: Tue Dec 24 18:02:23 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -137,20 +137,28 @@ void gen_high_dim_gaussian_mixture(DenseDataset &X, int dim, int nr_gaussian, in
 void test() {
 	DenseDataset X;
 //    read_dense_dataset(X, "test.data");
-	gen_high_dim_gaussian_mixture(X, 13, 10, 68000);
-	write_dense_dataset(X, "test.data");
+	gen_high_dim_gaussian_mixture(X, 13, 10, 680);
+//    write_dense_dataset(X, "test.data");
 	printf("start training");
-	GMMTrainerBaseline trainer(100, 1e-3, 0.01, 1, 4, 2);
-	GMM gmm(100, COVTYPE_DIAGONAL, &trainer);
+	GMMTrainerBaseline trainer(10, 1e-3, 0.01, 0, 4, 1);
+	GMM ubm(10, COVTYPE_DIAGONAL, &trainer);
+	ubm.fit(X);
+
+
+	DenseDataset().swap(X);
+	gen_high_dim_gaussian_mixture(X, 13, 10, 1000);
+	GMMUBMTrainerBaseline ubmgmm_trainer(&ubm, 10, 1e-3, 0.01, 4, 1);
+	GMM gmm(10, COVTYPE_DIAGONAL, &ubmgmm_trainer);
+	printf("training ubm ...\n");
 	gmm.fit(X);
 }
 
 int main(int argc, char *argv[]) {
-	/*
-	 *srand(42); // Answer to The Ultimate Question of Life, the Universe, and Everything
-	 *test();
-	 *return 0;
-	 */
+
+//    srand(42); // Answer to The Ultimate Question of Life, the Universe, and Everything
+//    test();
+//    return 0;
+
 	Args args = parse_args(argc, argv);
 
 	DenseDataset X;

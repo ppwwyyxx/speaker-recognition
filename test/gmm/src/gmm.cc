@@ -1,12 +1,13 @@
 /*
  * $File: gmm.cc
- * $Date: Tue Dec 24 16:29:49 2013 +0800
+ * $Date: Tue Dec 24 17:51:35 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #include "gmm.hh"
 #include "timer.hh"
 #include "Threadpool/Threadpool.hpp"
+#include "util.hh"
 
 #include "kmeansII.hh"
 
@@ -38,6 +39,9 @@ Gaussian::Gaussian(int dim, int covariance_type) :
 	mean.resize(dim);
 
 	fast_gaussian_dim = (int)(ceil(dim / 4.0) * 4);
+}
+
+GMMTrainerBaseline::~GMMTrainerBaseline() {
 }
 
 void Gaussian::sample(std::vector<real_t> &x) {
@@ -261,54 +265,6 @@ static vector<real_t> random_vector(int dim, real_t range, Random &random) {
 }
 #endif
 
-static void add(const vector<real_t> &a, const vector<real_t> &b, vector<real_t> &c) {
-	assert(a.size() == b.size() && b.size() == c.size());
-	size_t n = a.size();
-	for (size_t i = 0; i < n; i ++)
-		c[i] = a[i] + b[i];
-}
-
-static void sub(const vector<real_t> &a, const vector<real_t> &b, vector<real_t> &c) {
-	assert(a.size() == b.size() && b.size() == c.size());
-	size_t n = a.size();
-	for (size_t i = 0; i < n; i ++)
-		c[i] = a[i] - b[i];
-}
-
-#if 0
-static void mult(const vector<real_t> &a, const vector<real_t> &b, vector<real_t> &c) {
-	assert(a.size() == b.size() && b.size() == c.size());
-	size_t n = a.size();
-	for (size_t i = 0; i < n; i ++)
-		c[i] = a[i] * b[i];
-}
-#endif
-
-static void mult(const vector<real_t> &a, real_t f, vector<real_t> &b) {
-	assert(a.size() == b.size());
-	size_t n = a.size();
-	for (size_t i = 0; i < n; i ++)
-		b[i] = a[i] * f;
-}
-
-static void add_self(vector<real_t> &a, const vector<real_t> &b) {
-	add(a, b, a);
-}
-
-static void sub_self(vector<real_t> &a, const vector<real_t> &b) {
-	sub(a, b, a);
-}
-
-#if 0
-static void mult_self(vector<real_t> &a, const vector<real_t> &b) {
-	mult(a, b, a);
-}
-#endif
-
-static void mult_self(vector<real_t> &a, real_t f) {
-	mult(a, f, a);
-}
-
 GMMTrainerBaseline::GMMTrainerBaseline(int nr_iter, real_t min_covar,
 		real_t threshold,
 		int init_with_kmeans,
@@ -420,10 +376,10 @@ static void gassian_set_zero(Gaussian *gaussian) {
 }
 
 void GMMTrainerBaseline::update_weights(std::vector<std::vector<real_t>> &) {
-		for (int k = 0; k < gmm->nr_mixtures; k ++) {
-//            gmm->weights[k] = (N_k[k] + EPS * 10) / n + EPS;
-			gmm->weights[k] = N_k[k] / n;
-		}
+	for (int k = 0; k < gmm->nr_mixtures; k ++) {
+//      gmm->weights[k] = (N_k[k] + EPS * 10) / n + EPS;
+		gmm->weights[k] = N_k[k] / n;
+	}
 }
 
 void GMMTrainerBaseline::update_means(std::vector<std::vector<real_t>> &X) {
@@ -432,6 +388,8 @@ void GMMTrainerBaseline::update_means(std::vector<std::vector<real_t>> &X) {
 		auto task = [&](int k) {
 			vector<real_t> tmp(dim);
 			auto &gaussian = gmm->gaussians[k];
+			for (auto &m: gaussian->mean)
+				m = 0;
 			for (int i = 0; i < n; i ++) {
 				mult(X[i], prob_of_y_given_x[k][i], tmp);
 				add_self(gaussian->mean, tmp);
@@ -443,13 +401,14 @@ void GMMTrainerBaseline::update_means(std::vector<std::vector<real_t>> &X) {
 }
 
 
-void GMMTrainerBaseline::update_sigma(std::vector<std::vector<real_t>> &X) {
+void GMMTrainerBaseline::update_variance(std::vector<std::vector<real_t>> &X) {
 	real_t min_sigma = sqrt(min_covar);
 	Threadpool pool(concurrency);
 	for (int k = 0; k < gmm->nr_mixtures; k ++) {
 		auto task = [&](int k) {
 			vector<real_t> tmp(dim);
 			auto &gaussian = gmm->gaussians[k];
+			for (auto &v: gaussian->sigma) v = 0;
 			for (int i = 0; i < n; i ++) {
 				sub(X[i], gaussian->mean, tmp);
 				for (auto &t: tmp) t = t * t;
@@ -528,10 +487,7 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 	}
 
 	{
-		GuardedTimer timer("set zero and calculate weights", enable_guarded_timer);
-		for (auto &gaussian: gmm->gaussians)
-			gassian_set_zero(gaussian);
-
+		GuardedTimer timer("calculate weights", enable_guarded_timer);
 		update_weights(X);
 
 	}
@@ -542,10 +498,9 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 	}
 
 	{
-		GuardedTimer timer("update sigma", enable_guarded_timer);
-		update_sigma(X);
+		GuardedTimer timer("update variance", enable_guarded_timer);
+		update_variance(X);
 	}
-
 }
 
 static void threaded_log_probability_of(GMM *gmm, std::vector<std::vector<real_t>> &X, std::vector<real_t> &prob_buffer, int concurrency) {

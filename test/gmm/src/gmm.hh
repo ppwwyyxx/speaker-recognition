@@ -1,6 +1,6 @@
 /*
  * $File: gmm.hh
- * $Date: Tue Dec 24 16:28:07 2013 +0800
+ * $Date: Tue Dec 24 17:24:45 2013 +0800
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -54,9 +54,13 @@ class GMMTrainer {
 
 class GMMTrainerBaseline : public GMMTrainer {
 	public:
-		GMMTrainerBaseline(int nr_iter = 10, real_t min_covar = 1e-3, real_t threshold = 0.01,
-				int init_with_kmeans = 1, int concurrency = 1,
+		GMMTrainerBaseline(int nr_iter = 10, //!< number of iteration
+				real_t min_covar = 1e-3, //!< minimum covariance to avoid overfitting
+				real_t threshold = 0.01, //!< threshold to stop iteration
+				int init_with_kmeans = 1, //!< initialize using kmeans
+				int concurrency = 1, //!< concurrency
 				int verbosity = 0);
+		~GMMTrainerBaseline();
 		virtual void train(GMM *gmm, std::vector<std::vector<real_t>> &X);
 		void clear_gaussians();
 
@@ -67,7 +71,7 @@ class GMMTrainerBaseline : public GMMTrainer {
 
 		virtual void update_weights(std::vector<std::vector<real_t>> &X);
 		virtual void update_means(std::vector<std::vector<real_t>> &X);
-		virtual void update_sigma(std::vector<std::vector<real_t>> &X);
+		virtual void update_variance(std::vector<std::vector<real_t>> &X);
 
 		int dim;
 
@@ -91,10 +95,28 @@ class GMMTrainerBaseline : public GMMTrainer {
 
 class GMMUBMTrainerBaseline : public GMMTrainerBaseline {
 	public:
-		GMMUBMTrainerBaseline();
-		virtual void train(GMM *gmm, std::vector<std::vector<real_t>> &X);
+		GMMUBMTrainerBaseline(GMM *ubm, int nr_iter = 10,
+				real_t min_covar = 1e-3,
+				real_t threshold = 0.01,
+				int concurrency = 1,
+				int verbosity = 0);
+
 		virtual void init_gaussians(std::vector<std::vector<real_t>> &X);
-		virtual void iteration(std::vector<std::vector<real_t>> &X);
+		virtual void update_weights(std::vector<std::vector<real_t>> &X);
+		virtual void update_means(std::vector<std::vector<real_t>> &X);
+		virtual void update_variance(std::vector<std::vector<real_t>> &X);
+
+		real_t relevance_factor_w = 16; //!< relevance factor of weights
+		real_t relevance_factor_m = 16; //!< relevance factor of means
+		real_t relevance_factor_v = 16; //!< relevance factor of variance
+
+		GMM *ubm;
+
+		/*!
+		 * replace parameters of gmm with ubm.
+		 * the trainer of gmm is set to NULL
+		 */
+		void gmm_replace_with(GMM *gmm, GMM *ubm);
 };
 
 class GMM {

@@ -1,0 +1,14 @@
+Fast GMM
+========
+A fast Gaussian Mixture Model implementation.
+
+Features
+========
+- Multi-thread utilization
+- fast exponential function computation
+
+Thanks
+======
+- fastexp
+- Threadpool
+- tclap

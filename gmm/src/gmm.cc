@@ -1,6 +1,6 @@
 /*
  * $File: gmm.cc
- * $Date: Tue Dec 24 18:38:49 2013 +0800
+ * $Date: Tue Dec 24 20:37:44 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -423,10 +423,6 @@ void GMMTrainerBaseline::update_variance(std::vector<std::vector<real_t>> &X) {
 		};
 		pool.enqueue(bind(task, k), 1);
 	}
-}
-
-real_t GMMTrainerBaseline::compute_prob_of_y_given_x(int y, std::vector<real_t> &x) {
-	return gmm->weights[y] * gmm->gaussians[y]->probability_of(x);
 }
 
 void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {

@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-nperson.py
-# $Date: Mon Dec 16 00:40:16 2013 +0800
+# $Date: Tue Dec 24 16:06:57 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -76,7 +76,7 @@ def get_corpus(dirs):
 class GMMSet(object):
     def __init__(self, gmm_order = 32):
         self.gmms = []
-        self.gmm_order = 32
+        self.gmm_order = gmm_order
         self.y = []
 
     def fit_new(self, x, label):

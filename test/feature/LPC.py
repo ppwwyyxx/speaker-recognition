@@ -1,33 +1,31 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: lpcc.py
-# Date: Wed Dec 25 14:10:49 2013 +0000
+# File: LPC.py
+# Date: Wed Dec 25 15:49:04 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
-import scikits.talkbox as tb
+#import scikits.talkbox as tb
 from scikits.talkbox.linpred import levinson_lpc
-import numpy as np
 from numpy import *
 from scipy.io import  wavfile
+from MFCC import hamming
+from utils import cached_func
 
-def hamming(n):
-    """ Generate a hamming window of n points as a numpy array.  """
-    return 0.54 - 0.46 * cos(2 * pi / n * (arange(n) + 0.5))
-
-class LPCCExtractor(object):
-    def __init__(self, fs, n_lpc=10, n_lpcc=13):
-        self.PRE_EMPH = 0.95
+class LPCExtractor(object):
+    def __init__(self, fs, win_length_ms, win_shift_ms, n_lpc,
+                 pre_emphasis_coef):
+        self.PRE_EMPH = pre_emphasis_coef
         self.n_lpc = n_lpc
-        self.n_lpcc = n_lpcc + 1
+        #self.n_lpcc = n_lpcc + 1
 
-        self.FRAME_LEN = int(0.02 * fs)
-        self.FRAME_SHIFT = int(0.01 * fs)
+        self.FRAME_LEN = int(float(win_length_ms) / 1000 * fs)
+        self.FRAME_SHIFT = int(float(win_shift_ms) / 1000 * fs)
         self.window = hamming(self.FRAME_LEN)
 
 
     def lpc_to_cc(self, lpc):
-        lpcc = np.zeros(self.n_lpcc)
+        lpcc = zeros(self.n_lpcc)
         lpcc[0] = lpc[0]
         for n in range(1, self.n_lpc):
             lpcc[n] = lpc[n]
@@ -42,8 +40,8 @@ class LPCCExtractor(object):
     def lpcc(self, signal):
         lpc = levinson_lpc.lpc(signal, self.n_lpc)[0]
         return lpc[1:]
-        lpcc = self.lpc_to_cc(lpc)
-        return lpcc
+        #lpcc = self.lpc_to_cc(lpc)
+        #return lpcc
 
     def extract(self, signal, diff=False):
         frames = (len(signal) - self.FRAME_LEN) / self.FRAME_SHIFT + 1
@@ -64,8 +62,22 @@ class LPCCExtractor(object):
             return ret
         return feature
 
+@cached_func
+def get_lpc_extractor(fs, win_length_ms=32, win_shift_ms=16,
+                       n_lpc=15, pre_emphasis_coef=0.95):
+    ret = LPCExtractor(fs, win_length_ms, win_shift_ms, n_lpc, pre_emphasis_coef)
+    return ret
 
-def main():
+
+def extract(fs, signal=None, **kwargs):
+    """accept two argument, or one as a tuple"""
+    if signal is None:
+        assert type(fs) == tuple
+        fs, signal = fs[0], fs[1]
+    signal = numpy.cast['float'](signal)
+    return get_lpc_extractor(fs, **kwargs).extract(signal)
+
+if __name__ == "__main__":
     extractor = LPCCExtractor(8000)
     fs, signal = wavfile.read("../corpus.silence-removed/Style_Reading/f_001_03.wav")
     start = time.time()
@@ -73,7 +85,3 @@ def main():
     print len(ret)
     print len(ret[0])
     print time.time() - start
-
-
-if __name__ == "__main__":
-   main()

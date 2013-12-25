@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Wed Dec 25 14:19:41 2013 +0000
+# $Date: Wed Dec 25 15:50:17 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -15,13 +15,14 @@ import multiprocessing
 import operator
 from collections import defaultdict
 from sklearn.mixture import GMM
+
+from multiprocess import MultiProcessWorker
 #from gmm.python.pygmm import GMM
 
 
 concurrency = multiprocessing.cpu_count()
 
-import BOB as bob_MFCC
-import MFCC
+from feature import BOB, LPC, MFCC, get_extractor
 
 from sample import Sample
 
@@ -115,15 +116,15 @@ def gen_data(params):
 def predict_task(gmmset, x_test):
     return gmmset.predict_one(x_test)
 
-def test_mfcc(mfcc_impl, X_train, y_train, X_test, y_test):
+def test_feature(feature_impl, X_train, y_train, X_test, y_test):
     start = time.time()
     print('calculating features...')
-    pool = multiprocessing.Pool(concurrency)
-    X_train = pool.map(mfcc_impl, X_train)
-    pool.terminate()
-    pool = multiprocessing.Pool(concurrency)
-    X_test = pool.map(mfcc_impl, X_test)
-    pool.terminate()
+    worker = MultiProcessWorker(feature_impl)
+    X_train = worker.run(X_train)
+    del worker
+    worker = MultiProcessWorker(feature_impl)
+    X_test = worker.run(X_test)
+    del worker
     print 'time elapsed: ', time.time() - start
 
     start = time.time()
@@ -149,32 +150,6 @@ def test_mfcc(mfcc_impl, X_train, y_train, X_test, y_test):
     print 'time elapsed: ', time.time() - start
     print("{}/{} {:.4f}".format(nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
-
-def mfcc_diff(tup):
-    return MFCC.extract(*tup, diff=True)
-
-def bob_19_6000_40(tup):
-    return bob_MFCC.extract(*tup, n_ceps=19, f_max=6000, n_filters=40)
-
-from lpcc import LPCCExtractor
-lpccextractor = LPCCExtractor(8000)
-def lpcc(tup):
-    return lpccextractor.extract(tup[1])
-def lpccdiff(tup):
-    return lpccextractor.extract(tup[1], diff=True)
-
-lpccextractor12 = LPCCExtractor(8000, n_lpc=12)
-def lpcc12(tup):
-    return lpccextractor12.extract(tup[1])
-
-lpccextractor15 = LPCCExtractor(8000, n_lpc=15, n_lpcc=17)
-def lpcc15(tup):
-    return lpccextractor15.extract(tup[1])
-
-def mfcc_lpcc(tup):
-    m = bob_19_6000_40(tup)
-    l = lpcc(tup)
-    return np.concatenate((m, l), axis=1)
 
 
 def main():
@@ -211,15 +186,12 @@ def main():
 
     #print 'raw MFCC'
     #test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(BOB.extract), X_train, y_train, X_test, y_test)
 
-    test_mfcc(lpcc, X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(MFCC.extract), X_train, y_train, X_test, y_test)
 
-    #test_mfcc(lpcc15, X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
 
-
-    test_mfcc(bob_19_6000_40, X_train, y_train, X_test, y_test)
-
-    test_mfcc(mfcc_lpcc, X_train, y_train, X_test, y_test)
 
 
 

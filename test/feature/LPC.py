@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: LPC.py
-# Date: Wed Dec 25 20:05:08 2013 +0000
+# Date: Wed Dec 25 20:26:36 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -10,7 +10,7 @@ from scikits.talkbox.linpred import levinson_lpc
 from numpy import *
 from scipy.io import  wavfile
 from MFCC import hamming
-from utils import cached_func
+from utils import cached_func, diff_feature
 
 class LPCExtractor(object):
     def __init__(self, fs, win_length_ms, win_shift_ms, n_lpc,
@@ -61,13 +61,16 @@ def get_lpc_extractor(fs, win_length_ms=32, win_shift_ms=16,
     return ret
 
 
-def extract(fs, signal=None, **kwargs):
+def extract(fs, signal=None, diff=False, **kwargs):
     """accept two argument, or one as a tuple"""
     if signal is None:
         assert type(fs) == tuple
         fs, signal = fs[0], fs[1]
     signal = cast['float'](signal)
-    return get_lpc_extractor(fs, **kwargs).extract(signal)
+    ret = get_lpc_extractor(fs, **kwargs).extract(signal)
+    if diff:
+        return diff_feature(ret)
+    return ret
 
 if __name__ == "__main__":
     extractor = LPCCExtractor(8000)

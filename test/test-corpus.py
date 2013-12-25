@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Mon Dec 16 00:40:08 2013 +0800
+# $Date: Wed Dec 25 14:19:41 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -15,6 +15,8 @@ import multiprocessing
 import operator
 from collections import defaultdict
 from sklearn.mixture import GMM
+#from gmm.python.pygmm import GMM
+
 
 concurrency = multiprocessing.cpu_count()
 
@@ -75,7 +77,7 @@ def get_corpus(dirs):
 class GMMSet(object):
     def __init__(self, gmm_order = 32):
         self.gmms = []
-        self.gmm_order = 32
+        self.gmm_order = gmm_order
         self.y = []
 
     def fit_new(self, x, label):
@@ -154,11 +156,26 @@ def mfcc_diff(tup):
 def bob_19_6000_40(tup):
     return bob_MFCC.extract(*tup, n_ceps=19, f_max=6000, n_filters=40)
 
-def bob_13_8000_40(tup):
-    return bob_MFCC.extract(*tup, n_ceps=13, f_max=8000, n_filters=40)
+from lpcc import LPCCExtractor
+lpccextractor = LPCCExtractor(8000)
+def lpcc(tup):
+    return lpccextractor.extract(tup[1])
+def lpccdiff(tup):
+    return lpccextractor.extract(tup[1], diff=True)
 
-def bob_13_6000_60(tup):
-    return bob_MFCC.extract(*tup, n_ceps=13, f_max=6000, n_filters=60)
+lpccextractor12 = LPCCExtractor(8000, n_lpc=12)
+def lpcc12(tup):
+    return lpccextractor12.extract(tup[1])
+
+lpccextractor15 = LPCCExtractor(8000, n_lpc=15, n_lpcc=17)
+def lpcc15(tup):
+    return lpccextractor15.extract(tup[1])
+
+def mfcc_lpcc(tup):
+    m = bob_19_6000_40(tup)
+    l = lpcc(tup)
+    return np.concatenate((m, l), axis=1)
+
 
 def main():
     if len(sys.argv) == 1:
@@ -168,10 +185,10 @@ def main():
 
     dirs = sys.argv[1:]
 
-    nr_person = 50
-    train_duration = 15
+    nr_person = 30
+    train_duration = 20
     test_duration = 5
-    nr_test_fragment_per_person = 100
+    nr_test_fragment_per_person = 50
 
     persons = list(get_corpus(dirs).iteritems())
     random.shuffle(persons)
@@ -195,17 +212,15 @@ def main():
     #print 'raw MFCC'
     #test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
 
-    print 'bob MFCC 13 6000 40'
-    test_mfcc(bob_MFCC.extract, X_train, y_train, X_test, y_test)
+    test_mfcc(lpcc, X_train, y_train, X_test, y_test)
 
-    print 'bob MFCC 19 6000 40'
+    #test_mfcc(lpcc15, X_train, y_train, X_test, y_test)
+
+
     test_mfcc(bob_19_6000_40, X_train, y_train, X_test, y_test)
 
-    print 'bob MFCC 13 8000 40'
-    test_mfcc(bob_13_8000_40, X_train, y_train, X_test, y_test)
+    test_mfcc(mfcc_lpcc, X_train, y_train, X_test, y_test)
 
-    print 'bob MFCC 13 6000 60'
-    test_mfcc(bob_13_6000_60, X_train, y_train, X_test, y_test)
 
 
     print(dirs)

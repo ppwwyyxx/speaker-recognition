@@ -1,15 +1,15 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: BOB.py
-# Date: Sun Dec 15 19:43:51 2013 +0800
+# Date: Wed Dec 25 14:38:02 2013 +0000
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
 import bob
 import numpy
 
-win_length_ms = 20 # The window length of the cepstral analysis in milliseconds
-win_shift_ms = 10 # The window shift of the cepstral analysis in milliseconds
+win_length_ms = 32 # The window length of the cepstral analysis in milliseconds
+win_shift_ms = 16 # The window shift of the cepstral analysis in milliseconds
 #n_filters = 40 # The number of filter bands
 #n_ceps = 19 # The number of cepstral coefficients
 f_min = 0. # The minimal frequency of the filter bank

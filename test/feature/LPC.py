@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: LPC.py
-# Date: Wed Dec 25 15:53:51 2013 +0000
+# Date: Wed Dec 25 20:05:08 2013 +0000
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -43,7 +43,7 @@ class LPCExtractor(object):
         #lpcc = self.lpc_to_cc(lpc)
         #return lpcc
 
-    def extract(self, signal, diff=False):
+    def extract(self, signal):
         frames = (len(signal) - self.FRAME_LEN) / self.FRAME_SHIFT + 1
         feature = []
         for f in xrange(frames):
@@ -52,14 +52,6 @@ class LPCExtractor(object):
             frame[1:] -= frame[:-1] * self.PRE_EMPH
             feature.append(self.lpcc(frame))
 
-        if diff:
-            ret = []
-            for feat in feature:
-                diff = lambda f: [x - f[i - 1] for i, x in enumerate(f)][1:]
-                diff1 = diff(feat)
-                #diff2 = diff(diff1)
-                ret.append(concatenate((feat, diff1)))
-            return ret
         return feature
 
 @cached_func

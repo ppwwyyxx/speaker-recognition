@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Wed Dec 25 19:02:45 2013 +0000
+# $Date: Wed Dec 25 19:37:41 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -161,10 +161,10 @@ def main():
 
     dirs = sys.argv[1:]
 
-    nr_person = 30
+    nr_person = 50
     train_duration = 20
     test_duration = 5
-    nr_test_fragment_per_person = 50
+    nr_test_fragment_per_person = 100
 
     persons = list(get_corpus(dirs).iteritems())
     random.shuffle(persons)

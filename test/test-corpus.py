@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Wed Dec 25 15:50:17 2013 +0800
+# $Date: Wed Dec 25 16:14:14 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -118,7 +118,7 @@ def predict_task(gmmset, x_test):
 
 def test_feature(feature_impl, X_train, y_train, X_test, y_test):
     start = time.time()
-    print('calculating features...')
+    print 'calculating features...',
     worker = MultiProcessWorker(feature_impl)
     X_train = worker.run(X_train)
     del worker
@@ -129,12 +129,12 @@ def test_feature(feature_impl, X_train, y_train, X_test, y_test):
 
     start = time.time()
     gmmset = GMMSet()
-    print('training ...')
+    print 'training ...',
     gmmset.fit(X_train, y_train)
     nr_correct = 0
     print 'time elapsed: ', time.time() - start
 
-    print 'predicting...'
+    print 'predicting...',
     start = time.time()
     pool = multiprocessing.Pool(concurrency)
     predictions = []
@@ -187,10 +187,13 @@ def main():
     #print 'raw MFCC'
     #test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
     test_feature(get_extractor(BOB.extract), X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(BOB.extract, win_length_ms=20, win_shift_ms=10), X_train, y_train, X_test, y_test)
+    #test_feature(get_extractor(BOB.extract, pre_emphasis_coef=0.95), X_train, y_train, X_test, y_test)
+    #test_feature(get_extractor(BOB.extract, n_ceps=25), X_train, y_train, X_test, y_test)
 
-    test_feature(get_extractor(MFCC.extract), X_train, y_train, X_test, y_test)
+    #test_feature(get_extractor(MFCC.extract), X_train, y_train, X_test, y_test)
 
-    test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
+    #test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
 
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: MFCC.py
-# Date: Wed Dec 25 15:48:49 2013 +0800
+# Date: Wed Dec 25 15:53:45 2013 +0000
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 POWER_SPECTRUM_FLOOR = 1e-100
@@ -132,5 +132,5 @@ def extract(fs, signal=None, **kwargs):
     if signal is None:
         assert type(fs) == tuple
         fs, signal = fs[0], fs[1]
-    signal = numpy.cast['float'](signal)
+    signal = cast['float'](signal)
     return get_mfcc_extractor(fs, **kwargs).extract(signal)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: LPC.py
-# Date: Wed Dec 25 15:49:04 2013 +0800
+# Date: Wed Dec 25 15:53:51 2013 +0000
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -74,7 +74,7 @@ def extract(fs, signal=None, **kwargs):
     if signal is None:
         assert type(fs) == tuple
         fs, signal = fs[0], fs[1]
-    signal = numpy.cast['float'](signal)
+    signal = cast['float'](signal)
     return get_lpc_extractor(fs, **kwargs).extract(signal)
 
 if __name__ == "__main__":

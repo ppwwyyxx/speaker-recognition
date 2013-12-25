@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: extract-data.py
-# $Date: Sat Dec 07 01:38:20 2013 +0000
+# $File: extract-mfcc-data.py
+# $Date: Tue Dec 24 20:23:39 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 
@@ -11,13 +11,13 @@ import matplotlib.pyplot as plt
 from collections import defaultdict
 import os
 import glob
-import MFCC
+import BOB as MFCC
 import multiprocessing
 import numpy as np
 import operator
 import errno
 
-concurrency = 4
+concurrency = 8
 
 def mkdirp(path):
     try:

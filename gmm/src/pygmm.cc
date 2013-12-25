@@ -1,6 +1,6 @@
 /*
  * $File: pygmm.cc
- * $Date: Sun Dec 15 20:15:55 2013 +0000
+ * $Date: Wed Dec 25 00:27:10 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -81,6 +81,18 @@ void train_model(GMM *gmm, double **X_in, Parameter *param) {
 	 *}
 	 */
 	gmm->fit(X);
+	gmm->trainer = NULL;
+}
+
+void train_model_from_ubm(GMM *gmm, GMM *ubm, double **X_in, Parameter *param) {
+	print_param(param);
+	GMMUBMTrainerBaseline trainer(ubm, param->nr_iteration, param->min_covar,
+			param->threshold, param->concurrency, param->verbosity);
+	gmm->trainer = &trainer;
+	DenseDataset X;
+	conv_double_pp_to_vv(X_in, X, param->nr_instance, param->nr_dim);
+	gmm->fit(X);
+	gmm->trainer = NULL;
 }
 
 double score_all(GMM *gmm, double **X_in, int nr_instance, int nr_dim, int concurrency) {
@@ -103,6 +115,11 @@ double score_instance(GMM *gmm, double *x_in, int nr_dim) {
 	conv_double_p_to_v(x_in, x, nr_dim);
 	return gmm->log_probability_of_fast_exp(x);
 }
+
+int get_dim(GMM *gmm) { return gmm->dim; }
+int get_nr_mixtures(GMM *gmm) { return gmm->nr_mixtures; }
+
+
 
 /**
  * vim: syntax=cpp11 foldmethod=marker

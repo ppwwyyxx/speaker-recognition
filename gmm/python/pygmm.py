@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: pygmm.py
-# $Date: Sun Dec 15 20:06:52 2013 +0000
+# $Date: Wed Dec 25 00:51:14 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from ctypes import *
@@ -34,20 +34,22 @@ for num, var in enumerate(['COVTYPE_SPHEREICAL', 'COVTYPE_DIAGONAL',
     exec("{} = {}" . format(var, num))
 
 class GMM(object):
+    gmm = None
     def __init__(self, nr_mixture = 10,
             covariance_type = COVTYPE_DIAGONAL,
             min_covar = 1e-3,
             threshold = 0.01,
             nr_iteration = 200,
             init_with_kmeans = 1,
-            concurrency = 8,
+            concurrency = 1,
             verbosity = -1):
         for name, c_type in GMMParameter._fields_:
             if name in ['nr_instance', 'nr_dim']:
                 continue
             exec("self.{0} = {0}" . format(name))
 
-        self.gmm = pygmm.new_gmm(c_int(nr_mixture), c_int(covariance_type))
+        if self.gmm == None:
+            self.gmm = pygmm.new_gmm(c_int(nr_mixture), c_int(covariance_type))
 
 
     def _fill_param_from_model_file(self, model_file):
@@ -59,6 +61,7 @@ class GMM(object):
         gmm = GMM()
         gmm._fill_param_from_model_file(model_file)
         gmm.gmm = pygmm.load(c_char_p(model_file))
+        gmm.__init__()
         return gmm
 
     def dump(self, model_file):
@@ -84,11 +87,17 @@ class GMM(object):
         param.nr_dim = c_int(len(X[0]))
         return param
 
-    def fit(self, X):
+    def fit(self, X, ubm=None):
+        """:param ubm is None or a GMM instnace"""
         X_c = self._double_array_python_to_ctype(X)
         param = self._gen_param(X)
         param_ptr = pointer(param)
-        pygmm.train_model(self.gmm, X_c, param_ptr)
+        if ubm is None:
+            pygmm.train_model(self.gmm, X_c, param_ptr)
+        else:
+            print 'training from ubm ...'
+            pygmm.train_model_from_ubm(self.gmm, ubm.gmm, X_c, param_ptr)
+
 
     def score(self, X):
         X_c = self._double_array_python_to_ctype(X)
@@ -98,5 +107,17 @@ class GMM(object):
                 param.concurrency)
         return array(list(prob))
 
+    def score_all(self, X):
+        X_c = self._double_array_python_to_ctype(X)
+        param = self._gen_param(X)
+        return pygmm.score_all(self.gmm, X_c, param.nr_instance, param.nr_dim,
+                param.concurrency)
+
+
+    def get_dim(self):
+        return pygmm.get_dim(self.gmm)
+
+    def get_nr_mixtures(self):
+        return pygmm.get_nr_mixtures(self.gmm)
 
 # vim: foldmethod=marker

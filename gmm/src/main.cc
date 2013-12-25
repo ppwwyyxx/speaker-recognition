@@ -1,6 +1,6 @@
 /*
  * $File: main.cc
- * $Date: Tue Dec 24 18:28:55 2013 +0800
+ * $Date: Tue Dec 24 23:34:48 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -154,6 +154,9 @@ void test() {
 }
 
 int main(int argc, char *argv[]) {
+	GMM g(10);
+	ifstream fin("model/ubm.model");
+	g.load(fin);
 
 	srand(42); // Answer to The Ultimate Question of Life, the Universe, and Everything
 	test();

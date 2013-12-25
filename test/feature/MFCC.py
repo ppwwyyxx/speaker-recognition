@@ -1,13 +1,14 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: MFCC.py
-# Date: Tue Dec 24 20:37:10 2013 +0800
+# Date: Wed Dec 25 15:48:49 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 POWER_SPECTRUM_FLOOR = 1e-100
 
 from numpy import *
 import numpy.linalg as linalg
+from utils import cached_func
 
 
 def hamming(n):
@@ -16,16 +17,16 @@ def hamming(n):
 
 class MFCCExtractor(object):
 
-    def __init__(self, fs, FFT_SIZE=2048, n_bands=40, n_coefs=13,
-                 PRE_EMPH=0.95, verbose = False):
+    def __init__(self, fs, win_length_ms, win_shift_ms, FFT_SIZE, n_bands, n_coefs,
+                 PRE_EMPH, verbose = False):
         self.PRE_EMPH = PRE_EMPH
         self.fs = fs
         self.n_bands = n_bands
         self.coefs = n_coefs
         self.FFT_SIZE = FFT_SIZE
 
-        self.FRAME_LEN = int(0.02 * fs)
-        self.FRAME_SHIFT = int(0.01 * fs)
+        self.FRAME_LEN = int(float(win_length_ms) / 1000 * fs)
+        self.FRAME_SHIFT = int(float(win_shift_ms) / 1000 * fs)
 
         self.window = hamming(self.FRAME_LEN)
 
@@ -118,18 +119,18 @@ class MFCCExtractor(object):
         D[0] /= sqrt(2)
         return D
 
-extractors = dict()
-def get_mfcc_extractor(fs, verbose = False):
-    global extractors
-    if fs not in extractors:
-        extractors[fs] = MFCCExtractor(fs, verbose = verbose)
-        if verbose:
-            print("new extractor " . format(fs))
-    return extractors[fs]
+@cached_func
+def get_mfcc_extractor(fs, win_length_ms=32, win_shift_ms=16,
+                       FFT_SIZE=2048, n_filters=40, n_ceps=13,
+                       pre_emphasis_coef=0.95):
+    ret = MFCCExtractor(fs, win_length_ms, win_shift_ms, FFT_SIZE, n_filters,
+                       n_ceps, pre_emphasis_coef)
+    return ret
 
-def extract(fs, signal=None):
+def extract(fs, signal=None, **kwargs):
     """accept two argument, or one as a tuple"""
     if signal is None:
         assert type(fs) == tuple
         fs, signal = fs[0], fs[1]
-    return get_mfcc_extractor(fs).extract(signal)
+    signal = numpy.cast['float'](signal)
+    return get_mfcc_extractor(fs, **kwargs).extract(signal)

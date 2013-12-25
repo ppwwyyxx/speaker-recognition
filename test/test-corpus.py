@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Mon Dec 16 00:40:08 2013 +0800
+# $Date: Wed Dec 25 15:50:17 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -16,10 +16,13 @@ import operator
 from collections import defaultdict
 from sklearn.mixture import GMM
 
+from multiprocess import MultiProcessWorker
+#from gmm.python.pygmm import GMM
+
+
 concurrency = multiprocessing.cpu_count()
 
-import BOB as bob_MFCC
-import MFCC
+from feature import BOB, LPC, MFCC, get_extractor
 
 from sample import Sample
 
@@ -75,7 +78,7 @@ def get_corpus(dirs):
 class GMMSet(object):
     def __init__(self, gmm_order = 32):
         self.gmms = []
-        self.gmm_order = 32
+        self.gmm_order = gmm_order
         self.y = []
 
     def fit_new(self, x, label):
@@ -113,15 +116,15 @@ def gen_data(params):
 def predict_task(gmmset, x_test):
     return gmmset.predict_one(x_test)
 
-def test_mfcc(mfcc_impl, X_train, y_train, X_test, y_test):
+def test_feature(feature_impl, X_train, y_train, X_test, y_test):
     start = time.time()
     print('calculating features...')
-    pool = multiprocessing.Pool(concurrency)
-    X_train = pool.map(mfcc_impl, X_train)
-    pool.terminate()
-    pool = multiprocessing.Pool(concurrency)
-    X_test = pool.map(mfcc_impl, X_test)
-    pool.terminate()
+    worker = MultiProcessWorker(feature_impl)
+    X_train = worker.run(X_train)
+    del worker
+    worker = MultiProcessWorker(feature_impl)
+    X_test = worker.run(X_test)
+    del worker
     print 'time elapsed: ', time.time() - start
 
     start = time.time()
@@ -148,17 +151,6 @@ def test_mfcc(mfcc_impl, X_train, y_train, X_test, y_test):
     print("{}/{} {:.4f}".format(nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
 
-def mfcc_diff(tup):
-    return MFCC.extract(*tup, diff=True)
-
-def bob_19_6000_40(tup):
-    return bob_MFCC.extract(*tup, n_ceps=19, f_max=6000, n_filters=40)
-
-def bob_13_8000_40(tup):
-    return bob_MFCC.extract(*tup, n_ceps=13, f_max=8000, n_filters=40)
-
-def bob_13_6000_60(tup):
-    return bob_MFCC.extract(*tup, n_ceps=13, f_max=6000, n_filters=60)
 
 def main():
     if len(sys.argv) == 1:
@@ -168,10 +160,10 @@ def main():
 
     dirs = sys.argv[1:]
 
-    nr_person = 50
-    train_duration = 15
+    nr_person = 30
+    train_duration = 20
     test_duration = 5
-    nr_test_fragment_per_person = 100
+    nr_test_fragment_per_person = 50
 
     persons = list(get_corpus(dirs).iteritems())
     random.shuffle(persons)
@@ -194,18 +186,13 @@ def main():
 
     #print 'raw MFCC'
     #test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(BOB.extract), X_train, y_train, X_test, y_test)
 
-    print 'bob MFCC 13 6000 40'
-    test_mfcc(bob_MFCC.extract, X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(MFCC.extract), X_train, y_train, X_test, y_test)
 
-    print 'bob MFCC 19 6000 40'
-    test_mfcc(bob_19_6000_40, X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
 
-    print 'bob MFCC 13 8000 40'
-    test_mfcc(bob_13_8000_40, X_train, y_train, X_test, y_test)
 
-    print 'bob MFCC 13 6000 60'
-    test_mfcc(bob_13_6000_60, X_train, y_train, X_test, y_test)
 
 
     print(dirs)

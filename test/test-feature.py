@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: test-feature.py
-# $Date: Wed Dec 11 22:01:13 2013 +0800
+# $File: test-corpus.py
+# $Date: Wed Dec 25 20:35:27 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -11,23 +11,75 @@ import random
 import os
 import time
 import numpy as np
-from itertools import izip
+
 import multiprocessing
+from multiprocess import MultiProcessWorker
+
 import operator
 from collections import defaultdict
 from sklearn.mixture import GMM
 
+#from gmm.python.pygmm import GMM
+from feature import BOB, LPC, MFCC, get_extractor
+from sample import Sample
+
+
 concurrency = multiprocessing.cpu_count()
 
-import BOB as bob_MFCC
-import MFCC
 
-from sample import Sample
+class Person(object):
+    def __init__(self, sample = None, name = None, gender = None):
+        self.sample = sample
+        self.name = name
+        self.gender = gender
+        self.samples = []
+
+    def add_sample(self, sample):
+        self.samples.append(sample)
+        if not self.sample:
+            self.sample = sample
+        else:
+            self.sample.add(sample)
+
+    def sample_duration(self):
+        return self.sample.duration()
+
+    def get_fragment(self, duration):
+        return self.sample.get_fragment(duration)
+
+    def get_fragment_with_interval(self, duration):
+        return self.sample.get_fragment_with_interval(duration)
+
+    def remove_subsignal(self, begin, end):
+        self.sample.remove_subsignal(begin, end)
+
+
+def get_corpus(dirs):
+    persons = defaultdict(Person)
+
+    for d in dirs:
+        print("processing {} ..." . format(d))
+        for fname in sorted(glob.glob(os.path.join(d, "*.wav"))):
+            basename = os.path.basename(fname)
+            gender, name, _ = basename.split('_')
+            p = persons[name]
+            p.name, p.gender = name, gender
+            try:
+                orig_sample = Sample.from_wavfile(fname)
+                p.add_sample(orig_sample)
+            except Exception as e:
+                print("Exception occured while reading {}: {} " . format(
+                    fname, e))
+                print("======= traceback =======")
+                print(traceback.format_exc())
+                print("=========================")
+
+    return persons
 
 class GMMSet(object):
     def __init__(self, gmm_order = 32):
         self.gmms = []
-        self.gmm_order = 32
+        self.gmm_order = gmm_order
         self.y = []
 
     def fit_new(self, x, label):
@@ -58,76 +110,103 @@ class GMMSet(object):
     def predict(self, X):
         return map(self.predict_one, X)
 
+def gen_data(params):
+    p, duration = params
+    return p.get_fragment(duration)
+
 def predict_task(gmmset, x_test):
     return gmmset.predict_one(x_test)
 
-def do_test(X_train, y_train, X_test, y_test):
+def test_feature(feature_impl, X_train, y_train, X_test, y_test):
+    start = time.time()
+    print 'calculating features...',
+    worker = MultiProcessWorker(feature_impl)
+    trx = worker.run(X_train)
+    del worker
+    worker = MultiProcessWorker(feature_impl)
+    ttx = worker.run(X_test)
+    del worker
+    print 'time elapsed: ', time.time() - start
+
     start = time.time()
     gmmset = GMMSet()
-    print('training ...')
-    gmmset.fit(X_train, y_train)
+    print 'training ...',
+    gmmset.fit(trx, y_train)
     nr_correct = 0
     print 'time elapsed: ', time.time() - start
 
-    print 'predicting...'
+    print 'predicting...',
     start = time.time()
     pool = multiprocessing.Pool(concurrency)
     predictions = []
-    for x_test, label_true in izip(X_test, y_test):
+    for x_test, label_true in zip(*(ttx, y_test)):
         predictions.append(pool.apply_async(predict_task, args = (gmmset, x_test)))
-    for ind, (x_test, label_true) in enumerate(zip(X_test, y_test)):
+    pool.close()
+    for ind, (x_test, label_true) in enumerate(zip(*(ttx, y_test))):
         label_pred = predictions[ind].get()
-        is_wrong = '' if label_pred == label_true else ' wrong'
-        print("{} {}{}" . format(label_pred, label_true, is_wrong))
+        #is_wrong = '' if label_pred == label_true else ' wrong'
+        #print("{} {}{}" . format(label_pred, label_true, is_wrong))
         if label_pred == label_true:
             nr_correct += 1
     print 'time elapsed: ', time.time() - start
-    print("{}/{} {:.2f}".format(nr_correct, len(y_test),
+    print("{}/{} {:.4f}".format(nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
-    pool.close()
+
 
 def main():
     if len(sys.argv) == 1:
-        print("Usage: {} <dir_contains_feature_file>" . format(
+        print("Usage: {} <dir_contains_wav_file> [<dirs> ...]" . format(
                 sys.argv[0]))
         sys.exit(1)
 
-    dirs = sys.argv[1]
+    dirs = sys.argv[1:]
 
-    print('reading data ...')
+    nr_person = 30
+    train_duration = 20
+    test_duration = 5
+    nr_test_fragment_per_person = 50
+
+    persons = list(get_corpus(dirs).iteritems())
+    random.shuffle(persons)
+    persons = persons[:nr_person]
+
+    print('generating data ...')
     X_train, y_train = [], []
-    with open(os.path.join(dirs, 'enroll.lst')) as f:
-        for line in f:
-            line = line.split('=')
-            label = int(line[0])
-            fname = line[1].strip().rsplit('/')[1]
-            #print label, fname
-            mat = []
-            with open(os.path.join(dirs, fname)) as feaf:
-                for line in feaf:
-                    line = map(float, line.strip().split())
-                    line = np.array(line)
-                    mat.append(line)
-            X_train.append(np.array(mat))
-            y_train.append(label)
-    print "length of X_train: ", len(X_train)
-
     X_test, y_test = [], []
-    with open(os.path.join(dirs, 'test.lst')) as f:
-        for line in f:
-            line = line.split('=')
-            label = int(line[0])
-            fname = line[1].strip().rsplit('/')[1]
-            mat = []
-            with open(os.path.join(dirs, fname)) as feaf:
-                for line in feaf:
-                    line = map(float, line.strip().split())
-                    mat.append(np.array(line))
-            X_test.append(np.array(mat))
-            y_test.append(label)
-    do_test(X_train, y_train, X_test, y_test)
+    for name, p in persons:
+        y_train.append(name)
+        fs, signal, begin, end = p.get_fragment_with_interval(train_duration)
+        # it is important to remove signal used for training to get
+        # unbiased result
+        p.remove_subsignal(begin, end)
+        X_train.append((fs, signal))
+    for name, p in persons:
+        for i in xrange(nr_test_fragment_per_person):
+            y_test.append(name)
+            X_test.append(gen_data((p, test_duration)))
+
+    #print 'raw MFCC'
+    #test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
+
+    def mix(tup):
+        bob = BOB.extract(tup)
+        lpc = LPC.extract(tup)
+        return np.concatenate((bob, lpc), axis=1)
+
+
+    #test_feature(mix, X_train, y_train, X_test, y_test)
+
+    test_feature(get_extractor(BOB.extract), X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(BOB.extract, diff=True), X_train, y_train, X_test, y_test)
+
+    test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(LPC.extract, diff=True), X_train, y_train, X_test, y_test)
+
+
+
 
     print(dirs)
+    print(nr_person, train_duration, test_duration, nr_test_fragment_per_person)
 
 if __name__ == '__main__':
     main()

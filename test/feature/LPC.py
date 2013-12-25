@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: LPC.py
-# Date: Wed Dec 25 20:26:36 2013 +0800
+# Date: Wed Dec 25 20:49:53 2013 +0000
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -52,7 +52,7 @@ class LPCExtractor(object):
             frame[1:] -= frame[:-1] * self.PRE_EMPH
             feature.append(self.lpcc(frame))
 
-        return feature
+        return array(feature)
 
 @cached_func
 def get_lpc_extractor(fs, win_length_ms=32, win_shift_ms=16,

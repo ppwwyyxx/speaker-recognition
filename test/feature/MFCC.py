@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: MFCC.py
-# Date: Wed Dec 25 15:53:45 2013 +0000
+# Date: Wed Dec 25 18:02:20 2013 +0000
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 POWER_SPECTRUM_FLOOR = 1e-100
@@ -121,7 +121,7 @@ class MFCCExtractor(object):
 
 @cached_func
 def get_mfcc_extractor(fs, win_length_ms=32, win_shift_ms=16,
-                       FFT_SIZE=2048, n_filters=40, n_ceps=13,
+                       FFT_SIZE=2048, n_filters=50, n_ceps=13,
                        pre_emphasis_coef=0.95):
     ret = MFCCExtractor(fs, win_length_ms, win_shift_ms, FFT_SIZE, n_filters,
                        n_ceps, pre_emphasis_coef)

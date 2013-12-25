@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-corpus.py
-# $Date: Wed Dec 25 16:14:14 2013 +0000
+# $Date: Wed Dec 25 19:02:45 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -11,20 +11,21 @@ import random
 import os
 import time
 import numpy as np
+
 import multiprocessing
+from multiprocess import MultiProcessWorker
+
 import operator
 from collections import defaultdict
 from sklearn.mixture import GMM
 
-from multiprocess import MultiProcessWorker
 #from gmm.python.pygmm import GMM
+from feature import BOB, LPC, MFCC, get_extractor
+from sample import Sample
 
 
 concurrency = multiprocessing.cpu_count()
 
-from feature import BOB, LPC, MFCC, get_extractor
-
-from sample import Sample
 
 class Person(object):
     def __init__(self, sample = None, name = None, gender = None):
@@ -120,17 +121,17 @@ def test_feature(feature_impl, X_train, y_train, X_test, y_test):
     start = time.time()
     print 'calculating features...',
     worker = MultiProcessWorker(feature_impl)
-    X_train = worker.run(X_train)
+    trx = worker.run(X_train)
     del worker
     worker = MultiProcessWorker(feature_impl)
-    X_test = worker.run(X_test)
+    ttx = worker.run(X_test)
     del worker
     print 'time elapsed: ', time.time() - start
 
     start = time.time()
     gmmset = GMMSet()
     print 'training ...',
-    gmmset.fit(X_train, y_train)
+    gmmset.fit(trx, y_train)
     nr_correct = 0
     print 'time elapsed: ', time.time() - start
 
@@ -138,10 +139,10 @@ def test_feature(feature_impl, X_train, y_train, X_test, y_test):
     start = time.time()
     pool = multiprocessing.Pool(concurrency)
     predictions = []
-    for x_test, label_true in zip(*(X_test, y_test)):
+    for x_test, label_true in zip(*(ttx, y_test)):
         predictions.append(pool.apply_async(predict_task, args = (gmmset, x_test)))
     pool.close()
-    for ind, (x_test, label_true) in enumerate(zip(*(X_test, y_test))):
+    for ind, (x_test, label_true) in enumerate(zip(*(ttx, y_test))):
         label_pred = predictions[ind].get()
         #is_wrong = '' if label_pred == label_true else ' wrong'
         #print("{} {}{}" . format(label_pred, label_true, is_wrong))
@@ -186,14 +187,18 @@ def main():
 
     #print 'raw MFCC'
     #test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
+
+    def mix(tup):
+        bob = BOB.extract(tup)
+        lpc = LPC.extract(tup)
+        return np.concatenate((bob, lpc), axis=1)
+
+
+    test_feature(mix, X_train, y_train, X_test, y_test)
+
     test_feature(get_extractor(BOB.extract), X_train, y_train, X_test, y_test)
-    test_feature(get_extractor(BOB.extract, win_length_ms=20, win_shift_ms=10), X_train, y_train, X_test, y_test)
-    #test_feature(get_extractor(BOB.extract, pre_emphasis_coef=0.95), X_train, y_train, X_test, y_test)
-    #test_feature(get_extractor(BOB.extract, n_ceps=25), X_train, y_train, X_test, y_test)
 
-    #test_feature(get_extractor(MFCC.extract), X_train, y_train, X_test, y_test)
-
-    #test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
+    test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
 
 
 

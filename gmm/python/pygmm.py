@@ -1,13 +1,14 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: pygmm.py
-# $Date: Wed Dec 25 00:51:14 2013 +0000
+# $Date: Wed Dec 25 16:29:10 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from ctypes import *
 import os
 from os import path
 from numpy import array
+from multiprocessing import cpu_count
 
 
 dirname = path.dirname(path.abspath(__file__))
@@ -40,9 +41,9 @@ class GMM(object):
             min_covar = 1e-3,
             threshold = 0.01,
             nr_iteration = 200,
-            init_with_kmeans = 1,
-            concurrency = 1,
-            verbosity = -1):
+            init_with_kmeans = 0,
+            concurrency = cpu_count(),
+            verbosity = 0):
         for name, c_type in GMMParameter._fields_:
             if name in ['nr_instance', 'nr_dim']:
                 continue

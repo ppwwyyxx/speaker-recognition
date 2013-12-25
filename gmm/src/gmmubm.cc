@@ -1,6 +1,6 @@
 /*
  * $File: gmmubm.cc
- * $Date: Tue Dec 24 18:41:09 2013 +0800
+ * $Date: Wed Dec 25 00:32:06 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 

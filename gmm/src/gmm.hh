@@ -1,6 +1,6 @@
 /*
  * $File: gmm.hh
- * $Date: Tue Dec 24 18:43:24 2013 +0800
+ * $Date: Wed Dec 25 01:33:16 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -89,6 +89,7 @@ class GMMTrainerBaseline : public GMMTrainer {
 
 		std::vector<std::vector<real_t>> prob_of_y_given_x; // y, x
 		std::vector<real_t> N_k;
+		std::vector<real_t> prob_sum;
 
 		int n; // training sample size
 };

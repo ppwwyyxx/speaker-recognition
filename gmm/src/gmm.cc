@@ -1,6 +1,6 @@
 /*
  * $File: gmm.cc
- * $Date: Tue Dec 24 20:37:44 2013 +0000
+ * $Date: Wed Dec 25 01:35:42 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -24,6 +24,9 @@ static const real_t SQRT_2_PI = 2.5066282746310002;
 #include "fastexp.hh"
 
 #define array_exp remez5_0_log2_sse
+
+#define dprintf(fmt, ...) \
+	printf(fmt, ##__VA_ARGS__);
 
 
 static const real_t EPS = 2.2204460492503131e-16;
@@ -129,6 +132,7 @@ void Gaussian::load(std::istream &in) {
 			for (auto &s: sigma) in >> s;
 			break;
 		case COVTYPE_FULL:
+			throw "COVTYPE_FULL not implemented";
 			covariance.resize(dim);
 			for (auto &row: covariance) {
 				row.resize(dim);
@@ -466,14 +470,21 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 
 	{
 		GuardedTimer timer("normalize probability", enable_guarded_timer);
-		for (int i = 0; i < n; i ++) {
-			real_t prob_sum = 0;
-			for (int k = 0; k < gmm->nr_mixtures; k ++)
-				prob_sum += prob_of_y_given_x[k][i];
-			assert(prob_sum > 0);
-			for (int k = 0; k < gmm->nr_mixtures; k ++)
-				prob_of_y_given_x[k][i] /= prob_sum;
+		{
+			Threadpool pool(concurrency);
+			for (int i = 0; i < n; i ++) {
+				auto task = [&](int i) {
+					real_t &sum = prob_sum[i] = 0;
+					for (int k = 0; k < gmm->nr_mixtures; k ++)
+						sum += prob_of_y_given_x[k][i];
+					assert(sum > 0);
+				};
+				pool.enqueue(bind(task, i), 1);
+			}
 		}
+		for (int k = 0; k < gmm->nr_mixtures; k ++)
+			for (int i = 0; i < n; i ++)
+				prob_of_y_given_x[k][i] /= prob_sum[i];
 	}
 
 	{
@@ -559,17 +570,19 @@ void GMMTrainerBaseline::train(GMM *gmm, std::vector<std::vector<real_t>> &X) {
 	}
 
 	this->gmm = gmm;
-
 	gmm->dim = dim = X[0].size();
+
+	clear_gaussians();
+	init_gaussians(X);
 
 	prob_of_y_given_x.resize(gmm->nr_mixtures);
 	for (auto &v: prob_of_y_given_x)
 		v.resize(X.size());
 
+	prob_sum.resize(X.size());
+
 	N_k.resize(gmm->nr_mixtures);
 
-	clear_gaussians();
-	init_gaussians(X);
 
 #define PAUSE() \
 	do { \
@@ -592,6 +605,13 @@ void GMMTrainerBaseline::train(GMM *gmm, std::vector<std::vector<real_t>> &X) {
 
 		if (i % 2 == 0)
 			continue;
+		if (gmm->nr_mixtures >= 100) {
+			string dump_file = "gmm-training-intermediate-dump.model";
+			printf("dumping model to %s ...\n", dump_file.c_str());
+			ofstream of(dump_file);
+			gmm->dump(of);
+			printf("model dumped to %s ...\n", dump_file.c_str());
+		}
 		// monitor average log likelihood
 		timer.start();
 		real_t ll;
@@ -626,14 +646,22 @@ void GMM::dump(ostream &out) {
 }
 
 void GMM::load(istream &in) {
+	dim = 0; // of no importance, since it will be overwritten
 	in >> nr_mixtures;
 	weights.resize(nr_mixtures);
 	for (auto &w: weights)
 		in >> w;
 	gaussians.resize(nr_mixtures);
-	for (auto &g: gaussians) {
-		g = new Gaussian(dim, COVTYPE_DIAGONAL);
-		g->load(in);
+	int cnt = 0;
+	try{
+		for (auto &g: gaussians) {
+			g = new Gaussian(dim, COVTYPE_DIAGONAL);
+			g->load(in);
+			dim = g->dim;
+		}
+	} catch (const char *msg) {
+		printf("error loading gmm: %s\n", msg);
+		throw msg;
 	}
 }
 

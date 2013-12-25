@@ -1,6 +1,6 @@
 /*
  * $File: pygmm.hh
- * $Date: Sun Dec 15 20:05:31 2013 +0000
+ * $Date: Tue Dec 24 21:18:00 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -31,10 +31,15 @@ GMM *load(const char *model_file);
 void dump(GMM *gmm, const char *model_file);
 
 void train_model(GMM *gmm, double **X_in, Parameter *param);
+void train_model_from_ubm(GMM *gmm, GMM *ubm, double **X_in, Parameter *param);
 
 double score_all(GMM *gmm, double **X_in, int nr_instance, int nr_dim, int concurrency);
 void score_batch(GMM *gmm, double **X_in, double *prob_out, int nr_instance, int nr_dim, int concurrency);
 double score_instance(GMM *gmm, double *x_in, int nr_dim);
+
+int get_dim(GMM *gmm);
+int get_nr_mixtures(GMM *gmm);
+
 }
 
 /**

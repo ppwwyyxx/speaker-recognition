@@ -26,7 +26,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="Enrollment">
     <attribute name="title">
@@ -635,9 +635,9 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>330</y>
+       <y>340</y>
        <width>411</width>
-       <height>171</height>
+       <height>161</height>
       </rect>
      </property>
      <property name="title">
@@ -681,7 +681,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>80</y>
+        <y>70</y>
         <width>401</width>
         <height>41</height>
        </rect>
@@ -715,7 +715,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>130</y>
+        <y>120</y>
         <width>261</width>
         <height>31</height>
        </rect>
@@ -728,7 +728,7 @@
       <property name="geometry">
        <rect>
         <x>315</x>
-        <y>130</y>
+        <y>120</y>
         <width>96</width>
         <height>31</height>
        </rect>

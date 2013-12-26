@@ -264,6 +264,20 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="dumpBtn">
+         <property name="text">
+          <string>Dump</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="loadBtn">
+         <property name="text">
+          <string>Load</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget_2">

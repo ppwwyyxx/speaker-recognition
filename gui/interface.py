@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Thu Dec 26 18:15:56 2013 +0800
+# Date: Thu Dec 26 18:33:59 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -10,6 +10,7 @@ from scipy.io import wavfile
 import time
 import operator
 import numpy as np
+import cPickle as pickle
 
 from feature import BOB, LPC
 
@@ -63,6 +64,16 @@ class ModelInterface(object):
     def predict(self, fs, signal):
         feat = mix_feature((fs, signal))
         return self.gmmset.predict_one(feat)
+
+    def dump(self, fname):
+        with open(fname, 'w') as f:
+            pickle.dump(self, f, pickle.HIGHEST_PROTOCOL)
+
+    @staticmethod
+    def load(fname):
+        with open(fname, 'r') as f:
+            return pickle.load(f)
+
 
 
 if __name__ == "__main__":

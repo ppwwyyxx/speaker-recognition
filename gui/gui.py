@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 18:29:11 2013 +0800
+# Date: Thu Dec 26 18:41:54 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -48,6 +48,8 @@ class Main(QMainWindow):
         self.enrollFile.clicked.connect(self.enroll_file)
         self.enroll.clicked.connect(self.do_enroll)
         self.startTrain.clicked.connect(self.start_train)
+        self.dumpBtn.clicked.connect(self.dump)
+        self.loadBtn.clicked.connect(self.load)
 
         self.recoRecord.clicked.connect(self.start_record)
         self.stopRecoRecord.clicked.connect(self.stop_reco_record)
@@ -154,6 +156,24 @@ class Main(QMainWindow):
         self.enrollTime.setText(s)
         self.recoTime.setText(s)
         self.convTime.setText(s)
+
+    def dump(self):
+        fname = QFileDialog.getSaveFileName(self, "Save Data to:", "", "")
+        try:
+            self.backend.dump(fname)
+        except Exception as e:
+            self.warn(str(e))
+        else:
+            self.status("Dumped to file: " + fname)
+
+    def load(self):
+        fname = QFileDialog.getOpenFileName(self, "Open Data File:", "", "")
+        try:
+            self.backend = ModelInterface.load(fname)
+        except Exception as e:
+            self.warn(str(e))
+        else:
+            self.status("Loaded from file: " + fname)
 
 
 

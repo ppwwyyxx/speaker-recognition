@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 21:35:51 2013 +0800
+# Date: Thu Dec 26 21:56:15 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -148,8 +148,10 @@ class Main(QMainWindow):
                                   self.conv_now_pos + segment_shift]
         self.conv_now_pos += segment_shift
         signal = np.array(segment, dtype=NPDtype)
-        predict = self.backend.predict(Main.FS, signal)
-        self.convUsername.setText(predict)
+        result = self.backend.predict(Main.FS, signal)
+        label = "h"
+        print result
+        self.convUsername.setText(label)
 
     ###### RECOGNIZE
     def new_reco(self):

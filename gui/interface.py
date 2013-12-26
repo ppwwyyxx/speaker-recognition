@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Thu Dec 26 18:33:59 2013 +0800
+# Date: Thu Dec 26 21:55:41 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -29,12 +29,9 @@ class GMMSet(object):
     def gmm_score(self, gmm, x):
         return np.exp(np.sum(gmm.score(x)) / 1000)
 
-    def predict_one(self, x):
+    def predict(self, x):
         scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
-        return self.y[max(enumerate(scores), key = operator.itemgetter(1))[0]]
-
-    def predict(self, X):
-        return map(self.predict_one, X)
+        return [(self.y[index], value) for (index, value) in enumerate(scores)]
 
 
 def mix_feature(tup):
@@ -63,7 +60,7 @@ class ModelInterface(object):
 
     def predict(self, fs, signal):
         feat = mix_feature((fs, signal))
-        return self.gmmset.predict_one(feat)
+        return self.gmmset.predict(feat)
 
     def dump(self, fname):
         with open(fname, 'w') as f:

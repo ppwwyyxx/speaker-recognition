@@ -15,25 +15,7 @@ from vad import VAD
 
 from feature import BOB, LPC
 
-class GMMSet(object):
-    def __init__(self, gmm_order = 32):
-        self.gmms = []
-        self.gmm_order = gmm_order
-        self.y = []
-
-    def fit_new(self, x, label):
-        self.y.append(label)
-        gmm = GMM(self.gmm_order)
-        gmm.fit(x)
-        self.gmms.append(gmm)
-
-    def gmm_score(self, gmm, x):
-        return np.exp(np.sum(gmm.score(x)) / 10000)
-
-    def predict(self, x):
-        scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
-        return [(self.y[index], value) for (index, value) in enumerate(scores)]
-
+from gmmset import GMMSetPyGMM as GMMSet
 
 def mix_feature(tup):
     bob = BOB.extract(tup)

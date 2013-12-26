@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 17:08:58 2013 +0800
+# Date: Thu Dec 26 18:03:56 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -42,6 +42,7 @@ class Main(QMainWindow):
         self.stopEnrollRecord.clicked.connect(self.stop_enroll_record)
         self.enrollFile.clicked.connect(self.enroll_file)
         self.enroll.clicked.connect(self.do_enroll)
+        self.startTrain.clicked.connect(self.start_train)
 
         self.recoRecord.clicked.connect(self.start_record)
         self.stopRecoRecord.clicked.connect(self.stop_reco_record)
@@ -88,7 +89,9 @@ class Main(QMainWindow):
         if real_len > 100:
             real_len = 100
         self.recoProgressBar.setValue(real_len)
-        print self.backend.predict(Main.FS, self.recoRecordData)
+        predict_name = self.backend.predict(Main.FS, self.recoRecordData)
+        self.recoUsername.setText(predict_name)
+        print predict_name
         write_wav('out.wav', Main.FS, self.recoRecordData)
 
     def reco_file(self):
@@ -100,6 +103,7 @@ class Main(QMainWindow):
     ########## ENROLL
     def enroll_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
+        self.enrollFileName.setText(fname)
         self.status(fname)
         fs, signal = wavfile.read(fname)
         self.enrollWav = (fs, signal)
@@ -118,6 +122,8 @@ class Main(QMainWindow):
         print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
         print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
         self.backend.enroll(name, fs, new_signal)
+
+    def start_train(self):
         self.backend.train()
 
     ############# UTILS

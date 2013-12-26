@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 20:46:51 2013 +0800
+# Date: Thu Dec 26 21:35:51 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -67,7 +67,6 @@ class Main(QMainWindow):
         self.recoFile.clicked.connect(self.reco_file)
         self.new_reco()
 
-<<<<<<< HEAD
         #UI.init
 
         self.UploadImage.clicked.connect(self.upload_avatar)
@@ -78,14 +77,10 @@ class Main(QMainWindow):
         self.UpdateInfo.clicked.connect(self.updateUserInfo)
         #movie test
         self.movie = QMovie(u"image/recording.gif")
-        self.Animation.setMovie(self.movie)
         self.movie.start()
         self.movie.stop()
-
-        self.movie2 = QMovie(u"image/recording.gif")
+        self.Animation.setMovie(self.movie)
         self.Animation_2.setMovie(self.movie)
-        self.movie2.start()
-        self.movie2.stop()
 
         #default user image setting
         self.avatarname = "image/nouser.jpg"
@@ -189,7 +184,6 @@ class Main(QMainWindow):
     ########## ENROLL
     def enroll_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
-        self.enrollFileName.setText(fname)
         self.status(fname)
         fs, signal = wavfile.read(fname)
         self.enrollWav = (fs, signal)
@@ -223,7 +217,7 @@ class Main(QMainWindow):
         if isfile(self.avatarname):
             newimage = QtGui.QPixmap(self.avatarname)
             self.Userimage.setPixmap(newimage)
-    
+
     def getWidget(self, splash):
         t = QtCore.QElapsedTimer()
         t.start()
@@ -238,7 +232,6 @@ class Main(QMainWindow):
                 tmp = line.split()
                 self.userdata.append(tmp)
                 self.Userchooser.addItem(tmp[0])
-        db.close()
 
     def showUserInfo(self):
         for user in self.userdata:
@@ -262,7 +255,7 @@ class Main(QMainWindow):
         if self.Usersex.currentIndex():
             self.userdata[userindex][2] = 'F'
         else:
-            self.userdata[userindex][2] = 'M'  
+            self.userdata[userindex][2] = 'M'
         if self.avatarname:
             self.userdata[userindex][3] = self.avatarname
         print self.userdata

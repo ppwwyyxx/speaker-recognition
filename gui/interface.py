@@ -1,14 +1,13 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Fri Dec 27 02:53:28 2013 +0800
+# Date: Fri Dec 27 02:59:09 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
-from sklearn.mixture import GMM
+#from sklearn.mixture import GMM
 from scipy.io import wavfile
 import time
-import numpy as np
 import cPickle as pickle
 from filters.VAD import VAD
 
@@ -53,7 +52,6 @@ class ModelInterface(object):
     def load(fname):
         with open(fname, 'r') as f:
             return pickle.load(f)
-
 
 
 if __name__ == "__main__":

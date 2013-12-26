@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 03:35:15 2013 +0800
+# Date: Fri Dec 27 03:45:16 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -163,10 +163,14 @@ class Main(QMainWindow):
                                   self.conv_now_pos + segment_shift]
         self.conv_now_pos += segment_shift
         signal = np.array(segment, dtype=NPDtype)
-        label = self.backend.predict(Main.FS, signal)
-        self.convUsername.setText(label)
-        self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
-        self.convUserImage.setPixmap(self.avatars[str(label)])
+        label = self.backend.predict(Main.FS, signal, True)
+        print label
+        if label:
+            self.convUsername.setText(label)
+            self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
+            self.convUserImage.setPixmap(self.avatars[str(label)])
+        else:
+            self.convUsername.setText("Unknown")
 
 
     ###### RECOGNIZE

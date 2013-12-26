@@ -1,9 +1,10 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: vad.py
-# $Date: Thu Dec 26 22:41:32 2013 +0800
+# $Date: Thu Dec 26 23:56:49 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
+import sys
 from scipy.io import wavfile
 import matplotlib.pyplot as plt
 import numpy as np
@@ -32,8 +33,8 @@ class VAD(object):
         res, ltsds = ltsd.compute_with_noise(noise_signal,
                 noise_signal)
         max_ltsd = max(ltsds)
-        self.lambda0 = max_ltsd * 1.1
-        self.lambda1 = self.lambda0 * 2
+        self.lambda0 = max_ltsd * 1.2
+        self.lambda1 = self.lambda0 * 2.0
         print 'max_ltsd =', max_ltsd
         print 'lambda0 =', self.lambda0
         print 'lambda1 =', self.lambda1
@@ -73,11 +74,11 @@ class VAD(object):
 
 
 def main():
-    fs, bg_signal = wavfile.read('bg.wav')
+    fs, bg_signal = wavfile.read(sys.argv[1])
     vad = VAD()
     vad.init_params_by_noise(fs, bg_signal)
 
-    fs, signal = wavfile.read('hello.wav')
+    fs, signal = wavfile.read(sys.argv[2])
     vaded_signal = vad.filter(signal)
 
     wavfile.write('vaded.wav', fs, vaded_signal)

@@ -1,14 +1,14 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 21:56:15 2013 +0800
+# Date: Fri Dec 27 00:15:06 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
 import sys
 import time
+import operator
 import numpy as np
-import wave
 from PyQt4 import uic
 from scipy.io import wavfile
 from PyQt4.QtCore import *
@@ -16,7 +16,6 @@ from PyQt4.QtGui import *
 from PyQt4 import QtCore,QtGui
 
 import pyaudio
-from VAD import remove_silence
 from utils import write_wav, time_str
 from interface import ModelInterface
 
@@ -53,6 +52,10 @@ class Main(QMainWindow):
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.timer_callback)
 
+        self.noiseButton.clicked.connect(self.noise_clicked)
+        self.recording_noise = False
+        self.loadNoise.clicked.connect(self.load_noise)
+
         self.enrollRecord.clicked.connect(self.start_record)
         self.stopEnrollRecord.clicked.connect(self.stop_enroll_record)
         self.enrollFile.clicked.connect(self.enroll_file)
@@ -68,7 +71,6 @@ class Main(QMainWindow):
         self.new_reco()
 
         #UI.init
-
         self.UploadImage.clicked.connect(self.upload_avatar)
         self.userdata =[]
         self.loadUsers()
@@ -149,9 +151,9 @@ class Main(QMainWindow):
         self.conv_now_pos += segment_shift
         signal = np.array(segment, dtype=NPDtype)
         result = self.backend.predict(Main.FS, signal)
-        label = "h"
-        print result
-        self.convUsername.setText(label)
+        p = max(result, key=operator.itemgetter(1))
+        print result, p[0]
+        self.convUsername.setText(p[0])
 
     ###### RECOGNIZE
     def new_reco(self):
@@ -164,18 +166,17 @@ class Main(QMainWindow):
         self.reco_remove_update(Main.FS, signal)
 
     def reco_remove_update(self, fs, signal):
-        fs, new_signal = remove_silence(fs, signal)
+        new_signal = self.backend.filter(signal)
         print "After removed: {0} -> {1}".format(len(signal), len(new_signal))
         self.recoRecordData = np.concatenate((self.recoRecordData, new_signal))
         real_len = float(len(self.recoRecordData)) / Main.FS / Main.TEST_DURATION * 100
         if real_len > 100:
             real_len = 100
         self.recoProgressBar.setValue(real_len)
-        predict_name = self.backend.predict(Main.FS, self.recoRecordData)
-        self.recoUsername.setText(predict_name)
-        print predict_name
+        result = self.backend.predict(Main.FS, self.recoRecordData)
+        print result
         # TODO To Delete
-        write_wav('out.wav', Main.FS, self.recoRecordData)
+        write_wav('reco.wav', Main.FS, self.recoRecordData)
 
     def reco_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
@@ -187,6 +188,7 @@ class Main(QMainWindow):
     def enroll_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
         self.status(fname)
+        self.enrollFileName.setText(fname)
         fs, signal = wavfile.read(fname)
         self.enrollWav = (fs, signal)
 
@@ -196,20 +198,23 @@ class Main(QMainWindow):
         signal = np.array(self.recordData, dtype=NPDtype)
         self.enrollWav = (Main.FS, signal)
 
-        write_wav('out.wav', *self.enrollWav)
+        # TODO To Delete
+        write_wav('enroll.wav', *self.enrollWav)
 
     def do_enroll(self):
         name = self.Username.text().trimmed()
         if not name:
             self.warn("Please Input Your Name")
             return
-        fs, new_signal = remove_silence(*self.enrollWav)
+        new_signal = self.backend.filter(self.enrollWav[1])
         print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
         print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
-        self.backend.enroll(name, fs, new_signal)
+        self.backend.enroll(name, Main.FS, new_signal)
 
     def start_train(self):
+        self.status("Training...")
         self.backend.train()
+        self.status("Training Done.")
 
     ####### UI related
     def upload_avatar(self):
@@ -275,8 +280,6 @@ class Main(QMainWindow):
         defaultimage = QPixmap(u"image/nouser.jpg")
         self.Userimage.setPixmap(defaultimage)
 
-    #def addUserInfo(self):
-    #    for user in self.userdata:
     ############# UTILS
     def warn(self, s):
         QMessageBox.warning(self, "Warning", s)
@@ -308,6 +311,22 @@ class Main(QMainWindow):
         else:
             self.status("Loaded from file: " + fname)
 
+    def noise_clicked(self):
+        self.recording_noise = not self.recording_noise
+        if self.recording_noise:
+            self.noiseButton.setText('Stop Recording Noise')
+            self.start_record()
+        else:
+            self.noiseButton.setText('Recording Background Noise')
+            self.stop_record()
+            signal = np.array(self.recordData, dtype=NPDtype)
+            wavfile.write("bg.wav", Main.FS, signal)
+            self.backend.init_noise(Main.FS, signal)
+
+    def load_noise(self):
+        fname = QFileDialog.getOpenFileName(self, "Open Data File:", "", "Wav File  (*.wav)")
+        fs, signal = wavfile.read(fname)
+        self.backend.init_noise(fs, signal)
 
 
 if __name__ == "__main__":

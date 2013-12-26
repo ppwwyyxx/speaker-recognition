@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Thu Dec 26 21:55:41 2013 +0800
+# Date: Fri Dec 27 00:11:30 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -11,6 +11,7 @@ import time
 import operator
 import numpy as np
 import cPickle as pickle
+from vad import VAD
 
 from feature import BOB, LPC
 
@@ -27,7 +28,7 @@ class GMMSet(object):
         self.gmms.append(gmm)
 
     def gmm_score(self, gmm, x):
-        return np.exp(np.sum(gmm.score(x)) / 1000)
+        return np.sum(gmm.score(x))
 
     def predict(self, x):
         scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
@@ -44,7 +45,13 @@ class ModelInterface(object):
     def __init__(self):
         self.features = defaultdict(list)
         self.gmmset = GMMSet()
-        pass
+        self.vad = VAD()
+
+    def init_noise(self, fs, signal):
+        self.vad.init_params_by_noise(fs, signal)
+
+    def filter(self, signal):
+        return self.vad.filter(signal)
 
     def enroll(self, name, fs, signal):
         feat = mix_feature((fs, signal))

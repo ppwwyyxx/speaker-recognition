@@ -83,12 +83,18 @@ class Main(QMainWindow):
         self.movie.stop()
         self.Animation.setMovie(self.movie)
         self.Animation_2.setMovie(self.movie)
+        self.Animation_3.setMovie(self.movie)
+
+        self.aladingpic = QPixmap(u"image/a_hello.png")
+        self.Alading.setPixmap(self.aladingpic)
+        self.Alading_conv.setPixmap(self.aladingpic)
 
         #default user image setting
         self.avatarname = "image/nouser.jpg"
         defaultimage = QPixmap(self.avatarname)
         self.Userimage.setPixmap(defaultimage)
         self.Reco_Userimage.setPixmap(defaultimage)
+        self.Conv_Userimage.setPixmap(defaultimage)
 
         self.convRecord.clicked.connect(self.start_conv_record)
         self.convStop.clicked.connect(self.stop_conv)
@@ -101,6 +107,8 @@ class Main(QMainWindow):
         self.pyaudio = pyaudio.PyAudio()
         self.status("Recording...")
         self.movie.start()
+        self.Alading.setPixmap(QPixmap(u"image/a_thinking.png"))
+
 
         self.recordData = []
         self.stream = self.pyaudio.open(format=FORMAT, channels=1, rate=Main.FS,
@@ -154,9 +162,13 @@ class Main(QMainWindow):
         p = max(result, key=operator.itemgetter(1))
         print result, p[0]
         self.convUsername.setText(p[0])
+        self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
+        self.Reco_Userimage.setPixmap(QPixmap(getuserpic(p[0])))
+
 
     ###### RECOGNIZE
     def new_reco(self):
+        self.Alading.setPixmap(QPixmap(u"image/a_hello"))
         self.recoRecordData = np.array((), dtype=NPDtype)
         self.recoProgressBar.setValue(0)
 
@@ -177,6 +189,9 @@ class Main(QMainWindow):
         p = max(result, key=operator.itemgetter(1))
         self.recoUsername.setText(p[0])
         print result
+        self.Alading.setPixmap(QPixmap(u"image/a_result.png"))
+        self.Reco_Userimage.setPixmap(QPixmap(getuserpic(p[0])))
+
         # TODO To Delete
         write_wav('reco.wav', Main.FS, self.recoRecordData)
 
@@ -208,6 +223,7 @@ class Main(QMainWindow):
         if not name:
             self.warn("Please Input Your Name")
             return
+        self.addUserInfo()
         new_signal = self.backend.filter(self.enrollWav[1])
         print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
         print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
@@ -275,12 +291,48 @@ class Main(QMainWindow):
             db.write("\n")
         db.close()
 
+    def writeuserdata(self):
+        db = open("userlist.txt","w")
+        for user in self.userdata:
+            for i in range (0,4):
+                db.write(str(user[i]) + " ")
+            db.write("\n")
+        db.close()
+
     def clearUserInfo(self):
         self.Username.setText("")
         self.Userage.setValue(0)
         self.Usersex.setCurrentIndex(0)
         defaultimage = QPixmap(u"image/nouser.jpg")
         self.Userimage.setPixmap(defaultimage)
+    
+    def getuserpic(username):
+        for user in self.userdata:
+            if user[0] == username:
+                from os import isfile
+                if isfile(user[3]):
+                    return user[3]
+        return "image/nouser.jpg"
+
+    def addUserInfo(self):
+        for user in self.userdata:
+            if user[0] == unicode(self.Username.displayText()):
+                return
+        newuser = []
+        newuser.append(unicode(self.Username.displayText()))
+        newuser.append(self.Userage.value())
+        if self.Usersex.currentIndex():
+            newuser.append('F')
+        else:
+            newuser.append('M')
+        if self.avatarname:
+            newuser.append(self.avatarname)
+        else:
+            newuser.append("image/nouser.jpg")
+        self.userdata.append(newuser)
+        self.writeuserdata()
+        self.Userchooser.addItem(unicode(self.Username.displayText()))
+
 
     ############# UTILS
     def warn(self, s):

@@ -1,2 +1,4 @@
-LeeTZ 20 M /home/wyx/Document/work_thu/original/13_aut/signal/speaker-recognition/gui/image/user1.jpg 
-Yuxin 98 F /home/wyx/Document/work_thu/original/13_aut/signal/speaker-recognition/gui/image/user2.jpg 
+LeeTZ 20 M /home/leetz/speaker-recognition/gui/image/user1.jpg 
+Yuxin 98 F /home/leetz/speaker-recognition/gui/image/user2.jpg 
+NewUser 17 F /home/leetz/speaker-recognition/gui/image/nouser.jpg 
+zxytim 29 M /home/leetz/speaker-recognition/gui/image/recordingb.gif 

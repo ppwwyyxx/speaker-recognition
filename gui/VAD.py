@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: VAD.py
-# $Date: Thu Dec 26 15:38:06 2013 +0800
+# $Date: Thu Dec 26 17:08:06 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
@@ -32,8 +32,8 @@ def remove_silence(fs, signal,
 
     siglen = len(signal)
     retsig = np.zeros(siglen, dtype = np.int64)
-    frame_length = frame_duration * fs
-    frame_shift_length = frame_shift * fs
+    frame_length = int(frame_duration * fs)
+    frame_shift_length = int(frame_shift * fs)
     new_siglen = 0
     i = 0
     # NOTE: signal ** 2 where signal is a numpy array

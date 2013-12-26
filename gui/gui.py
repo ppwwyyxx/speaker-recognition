@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 16:28:16 2013 +0800
+# Date: Thu Dec 26 17:08:58 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -15,6 +15,7 @@ from PyQt4.QtGui import *
 import pyaudio
 from VAD import remove_silence
 from utils import write_wav
+from interface import ModelInterface
 
 
 class RecorderThread(QThread):
@@ -47,6 +48,8 @@ class Main(QMainWindow):
         self.newReco.clicked.connect(self.new_reco)
         self.recoFile.clicked.connect(self.reco_file)
         self.new_reco()
+
+        self.backend = ModelInterface()
 
 
     ############ RECORD
@@ -85,6 +88,7 @@ class Main(QMainWindow):
         if real_len > 100:
             real_len = 100
         self.recoProgressBar.setValue(real_len)
+        print self.backend.predict(Main.FS, self.recoRecordData)
         write_wav('out.wav', Main.FS, self.recoRecordData)
 
     def reco_file(self):
@@ -106,14 +110,17 @@ class Main(QMainWindow):
         self.enrollWav = (Main.FS, signal)
 
     def do_enroll(self):
-        name = self.enrollName.text().trimmed()
+        name = self.Username.text().trimmed()
         if not name:
             self.warn("Please Input Your Name")
             return
-        # TODO self.enrollWav
+        fs, new_signal = remove_silence(*self.enrollWav)
+        print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
+        print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
+        self.backend.enroll(name, fs, new_signal)
+        self.backend.train()
 
-
-    ############# UTIL
+    ############# UTILS
     def warn(self, s):
         QMessageBox.warning(self, "Warning", s)
 

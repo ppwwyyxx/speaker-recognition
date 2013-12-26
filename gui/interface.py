@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Thu Dec 26 16:45:40 2013 +0800
+# Date: Thu Dec 26 16:59:57 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -53,6 +53,7 @@ class ModelInterface(object):
         self.features[name].extend(feat)
 
     def train(self):
+        self.gmmset = GMMSet()
         start = time.time()
         print "Start training..."
         for name, feats in self.features.iteritems():

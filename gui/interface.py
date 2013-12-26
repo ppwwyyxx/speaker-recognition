@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Fri Dec 27 03:53:45 2013 +0800
+# Date: Fri Dec 27 04:52:20 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -64,7 +64,11 @@ class ModelInterface(object):
         print time.time() - start, " seconds"
 
     def predict(self, fs, signal, reject=False):
-        feat = mix_feature((fs, signal))
+        try:
+            feat = mix_feature((fs, signal))
+        except Exception as e:
+            print str(e)
+            return None
         if reject:
             try:
                 l = self.gmmset.predict_one_with_rejection(feat)

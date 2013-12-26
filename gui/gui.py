@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 03:45:16 2013 +0800
+# Date: Fri Dec 27 04:48:42 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -42,7 +42,8 @@ class RecorderThread(QThread):
                 break
 
 class Main(QMainWindow):
-    CONV_INTERVAL = 500
+    CONV_INTERVAL = 100
+    CONV_DURATION = 1000
     FS = 8000
     TEST_DURATION = 3
 
@@ -106,6 +107,13 @@ class Main(QMainWindow):
 
         self.backend = ModelInterface()
 
+        #init
+        try:
+            fs, signal = wavfile.read("bg.wav")
+            self.backend.init_noise(fs, signal)
+        except:
+            pass
+
 
     ############ RECORD
     def start_record(self):
@@ -159,16 +167,23 @@ class Main(QMainWindow):
 
     def do_conversation(self):
         segment_shift = int(Main.CONV_INTERVAL * Main.FS / 1000)
-        segment = self.recordData[self.conv_now_pos:
-                                  self.conv_now_pos + segment_shift]
+        segment_len = int(Main.CONV_DURATION * Main.FS / 1000)
         self.conv_now_pos += segment_shift
+        start = self.conv_now_pos - segment_len
+        if start < 0:
+            start = 0
+        segment = self.recordData[start: self.conv_now_pos]
         signal = np.array(segment, dtype=NPDtype)
-        label = self.backend.predict(Main.FS, signal, True)
-        print label
-        if label:
-            self.convUsername.setText(label)
-            self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
-            self.convUserImage.setPixmap(self.avatars[str(label)])
+        signal = self.backend.filter(Main.FS, signal)
+        if len(signal) > 50:
+            label = self.backend.predict(Main.FS, signal, True)
+            print label
+            if label:
+                self.convUsername.setText(label)
+                self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
+                self.convUserImage.setPixmap(self.avatars[str(label)])
+            else:
+                self.convUsername.setText("Unknown")
         else:
             self.convUsername.setText("Unknown")
 

@@ -1,13 +1,14 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 18:41:54 2013 +0800
+# Date: Thu Dec 26 19:34:03 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
 import sys
 import time
 import numpy as np
+import wave
 from PyQt4 import uic
 from scipy.io import wavfile
 from PyQt4.QtCore import *
@@ -18,6 +19,7 @@ from VAD import remove_silence
 from utils import write_wav, time_str
 from interface import ModelInterface
 
+FORMAT=pyaudio.paInt16
 
 class RecorderThread(QThread):
     def __init__(self, main):
@@ -28,13 +30,18 @@ class RecorderThread(QThread):
         self.start_time = time.time()
         while True:
             data = self.main.stream.read(1)
-            self.main.recordData.extend([ord(x) for x in data])
+            self.main.tmp.extend(data)
+            i = ord(data[0]) + 256 * ord(data[1])
+            if i > 32768:
+                i -= 65536
+            self.main.recordData.append(i)
 
 class Main(QMainWindow):
     FS = 8000
     TEST_DURATION = 3
 
     def __init__(self, parent=None):
+        self.tmp = []
         QWidget.__init__(self, parent)
         uic.loadUi("edytor2.ui", self)
         self.statusBar()
@@ -66,7 +73,7 @@ class Main(QMainWindow):
         self.status("Recording...")
 
         self.recordData = []
-        self.stream = self.pyaudio.open(format=pyaudio.paUInt8, channels=1, rate=Main.FS,
+        self.stream = self.pyaudio.open(format=FORMAT, channels=1, rate=Main.FS,
                         input=True, frames_per_buffer=1)
         self.reco_th = RecorderThread(self)
         self.reco_th.start()
@@ -90,12 +97,12 @@ class Main(QMainWindow):
 
     ###### RECOGNIZE
     def new_reco(self):
-        self.recoRecordData = np.array((), dtype='uint8')
+        self.recoRecordData = np.array((), dtype='int16')
         self.recoProgressBar.setValue(0)
 
     def stop_reco_record(self):
         self.stop_record()
-        signal = np.array(self.recordData, dtype='uint8')
+        signal = np.array(self.recordData, dtype='int16')
         self.reco_remove_update(Main.FS, signal)
 
     def reco_remove_update(self, fs, signal):
@@ -128,8 +135,19 @@ class Main(QMainWindow):
 
     def stop_enroll_record(self):
         self.stop_record()
-        signal = np.array(self.recordData, dtype='uint8')
+        print self.recordData[:300]
+        signal = np.array(self.recordData, dtype='int16')
         self.enrollWav = (Main.FS, signal)
+
+        # TODO delete
+        #wf = wave.open("out2.wav", 'wb')
+        #wf.setnchannels(1)
+        #wf.setsampwidth(self.pyaudio.get_sample_size(FORMAT))
+        #wf.setframerate(8000)
+        #wf.writeframes(b''.join(self.tmp))
+        #print self.tmp[:100]
+        #wf.close()
+        write_wav('out.wav', *self.enrollWav)
 
     def do_enroll(self):
         name = self.Username.text().trimmed()

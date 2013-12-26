@@ -1,6 +1,6 @@
 /*
  * $File: gmm.cc
- * $Date: Wed Dec 25 01:35:42 2013 +0000
+ * $Date: Thu Dec 26 12:57:28 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -384,6 +384,7 @@ void GMMTrainerBaseline::update_weights(std::vector<std::vector<real_t>> &) {
 //      gmm->weights[k] = (N_k[k] + EPS * 10) / n + EPS;
 		gmm->weights[k] = N_k[k] / n;
 	}
+	gmm->normalize_weights();
 }
 
 void GMMTrainerBaseline::update_means(std::vector<std::vector<real_t>> &X) {
@@ -488,11 +489,16 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 	}
 
 	{
+		const double min_n_k = 1e-6;
 		GuardedTimer timer("calculate N_k", enable_guarded_timer);
 		for (int k = 0; k < gmm->nr_mixtures; k ++) {
 			N_k[k] = 0;
 			for (int i = 0; i < n; i ++)
 				N_k[k] += prob_of_y_given_x[k][i];
+			if (N_k[k] == 0)
+				N_k[k] = min_n_k;
+			if (!(N_k[k] > 0))
+				printf("N_k[k] = %f\n", N_k[k]);
 			assert(N_k[k] > 0);
 		}
 	}

@@ -1,11 +1,12 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 01:32:20 2013 +0800
+# Date: Fri Dec 27 02:54:46 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
 import sys
+import shutil
 import os.path
 import glob
 import time
@@ -182,7 +183,7 @@ class Main(QMainWindow):
         self.reco_remove_update(Main.FS, signal)
 
     def reco_remove_update(self, fs, signal):
-        new_signal = self.backend.filter(signal)
+        new_signal = self.backend.filter(fs, signal)
         print "After removed: {0} -> {1}".format(len(signal), len(new_signal))
         self.recoRecordData = np.concatenate((self.recoRecordData, new_signal))
         real_len = float(len(self.recoRecordData)) / Main.FS / Main.TEST_DURATION * 100
@@ -209,7 +210,7 @@ class Main(QMainWindow):
         fnames = QFileDialog.getOpenFileNames(self, "Select Wav Files", "", "Files (*.wav)")
         for f in fnames:
             fs, sig = wavfile.read(f)
-            newsig = self.backend.filter(sig)
+            newsig = self.backend.filter(fs, sig)
             result = self.backend.predict(fs, newsig)
             p = max(result, key=operator.itemgetter(1))
             print f, p
@@ -237,7 +238,7 @@ class Main(QMainWindow):
             self.warn("Please Input Your Name")
             return
         self.addUserInfo()
-        new_signal = self.backend.filter(self.enrollWav[1])
+        new_signal = self.backend.filter(*self.enrollWav)
         print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
         print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
         self.backend.enroll(name, Main.FS, new_signal)

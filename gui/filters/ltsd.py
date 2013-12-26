@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: vad.py
-# $Date: Thu Dec 26 23:56:49 2013 +0800
+# $File: ltsd.py
+# $Date: Fri Dec 27 02:46:29 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
@@ -11,8 +11,7 @@ import numpy as np
 
 from pyssp.vad.ltsd import LTSD
 
-class VAD(object):
-
+class LTSD_VAD(object):
     ltsd = None
     order = 5
 
@@ -75,11 +74,11 @@ class VAD(object):
 
 def main():
     fs, bg_signal = wavfile.read(sys.argv[1])
-    vad = VAD()
-    vad.init_params_by_noise(fs, bg_signal)
+    ltsd = LTSD_VAD()
+    ltsd.init_params_by_noise(fs, bg_signal)
 
     fs, signal = wavfile.read(sys.argv[2])
-    vaded_signal = vad.filter(signal)
+    vaded_signal = ltsd.filter(signal)
 
     wavfile.write('vaded.wav', fs, vaded_signal)
 

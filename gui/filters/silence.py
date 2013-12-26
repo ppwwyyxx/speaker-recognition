@@ -1,28 +1,17 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: VAD.py
-# $Date: Thu Dec 26 17:08:06 2013 +0800
+# $File: silence.py
+# $Date: Fri Dec 27 02:51:00 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
-import os
-import glob
 import scipy.io.wavfile as wavfile
 import numpy as np
-import matplotlib.pyplot as plt
-import multiprocessing
-
-def mkdirp(dirname):
-    try:
-        os.makedirs(dirname)
-    except OSError as err:
-        if err.errno!=17:
-            raise
 
 def remove_silence(fs, signal,
         frame_duration = 0.02,
         frame_shift = 0.01,
-        perc = 0.02):
+        perc = 0.15):
     orig_dtype = type(signal[0])
     typeinfo = np.iinfo(orig_dtype)
     is_unsigned = typeinfo.min >= 0
@@ -43,6 +32,7 @@ def remove_silence(fs, signal,
     #       so the energy of the signal is somewhat
     #       right
     average_energy = np.sum(signal ** 2) / float(siglen)
+    #print "Avg Energy: ", average_energy
     while i < siglen:
         subsig = signal[i:i + frame_length]
         ave_energy = np.sum(subsig ** 2) / float(len(subsig))
@@ -56,7 +46,7 @@ def remove_silence(fs, signal,
     retsig = retsig[:new_siglen]
     if is_unsigned:
         retsig = retsig + typeinfo.max / 2
-    return fs, retsig.astype(orig_dtype)
+    return retsig.astype(orig_dtype)
 
 def task(fpath, new_fpath):
     fs, signal = wavfile.read(fpath)

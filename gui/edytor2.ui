@@ -292,7 +292,7 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
-     <widget class="QLabel" name="Recordtime">
+     <widget class="QLabel" name="enrollTime">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -451,7 +451,7 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
-     <widget class="QLabel" name="Recordtime_2">
+     <widget class="QLabel" name="recoTime">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -791,7 +791,7 @@ p, li { white-space: pre-wrap; }
       <string>Record</string>
      </property>
     </widget>
-    <widget class="QLabel" name="Conv_Recordtime">
+    <widget class="QLabel" name="convTime">
      <property name="geometry">
       <rect>
        <x>100</x>

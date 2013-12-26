@@ -1,11 +1,12 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 18:03:56 2013 +0800
+# Date: Thu Dec 26 18:29:11 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
 import sys
+import time
 import numpy as np
 from PyQt4 import uic
 from scipy.io import wavfile
@@ -14,7 +15,7 @@ from PyQt4.QtGui import *
 
 import pyaudio
 from VAD import remove_silence
-from utils import write_wav
+from utils import write_wav, time_str
 from interface import ModelInterface
 
 
@@ -24,6 +25,7 @@ class RecorderThread(QThread):
         self.main = main
 
     def run(self):
+        self.start_time = time.time()
         while True:
             data = self.main.stream.read(1)
             self.main.recordData.extend([ord(x) for x in data])
@@ -37,6 +39,9 @@ class Main(QMainWindow):
         uic.loadUi("edytor2.ui", self)
         self.statusBar()
         self.recoProgressBar.setValue(0)
+
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.timer_callback)
 
         self.enrollRecord.clicked.connect(self.start_record)
         self.stopEnrollRecord.clicked.connect(self.stop_enroll_record)
@@ -64,8 +69,18 @@ class Main(QMainWindow):
         self.reco_th = RecorderThread(self)
         self.reco_th.start()
 
+        self.timer.start(1000)
+        self.record_time = 0
+        self.update_all_timer()
+
+    def timer_callback(self):
+        self.record_time += 1
+        self.status("Recording..." + time_str(self.record_time))
+        self.update_all_timer()
+
     def stop_record(self):
         self.reco_th.terminate()
+        self.timer.stop()
         self.stream.stop_stream()
         self.stream.close()
         self.pyaudio.terminate()
@@ -92,6 +107,7 @@ class Main(QMainWindow):
         predict_name = self.backend.predict(Main.FS, self.recoRecordData)
         self.recoUsername.setText(predict_name)
         print predict_name
+        # TODO To Delete
         write_wav('out.wav', Main.FS, self.recoRecordData)
 
     def reco_file(self):
@@ -132,6 +148,12 @@ class Main(QMainWindow):
 
     def status(self, s=""):
         self.statusBar().showMessage(s)
+
+    def update_all_timer(self):
+        s = time_str(self.record_time)
+        self.enrollTime.setText(s)
+        self.recoTime.setText(s)
+        self.convTime.setText(s)
 
 
 

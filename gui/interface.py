@@ -1,15 +1,15 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Thu Dec 26 16:59:57 2013 +0800
+# Date: Thu Dec 26 18:15:56 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
 from sklearn.mixture import GMM
+from scipy.io import wavfile
 import time
 import operator
 import numpy as np
-from utils import read_wav
 
 from feature import BOB, LPC
 
@@ -67,9 +67,9 @@ class ModelInterface(object):
 
 if __name__ == "__main__":
     m = ModelInterface()
-    fs, signal = read_wav("../corpus.silence-removed/Style_Reading/f_001_03.wav")
+    fs, signal = wavfile.read("../corpus.silence-removed/Style_Reading/f_001_03.wav")
     m.enroll('h', fs, signal[:80000])
-    fs, signal = read_wav("../corpus.silence-removed/Style_Reading/f_003_03.wav")
+    fs, signal = wavfile.read("../corpus.silence-removed/Style_Reading/f_003_03.wav")
     m.enroll('a', fs, signal[:80000])
     m.train()
     print m.predict(fs, signal[:80000])

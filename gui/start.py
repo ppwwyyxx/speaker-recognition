@@ -13,8 +13,6 @@ class StartQt4(QtGui.QMainWindow):
 		QtCore.QObject.connect(self.ui.Startrecord,QtCore.SIGNAL("clicked()"),self.toggle_record)
 		#self.ui.horizontalLayout.addWidget(self.progressBar)
 		
-
-
 		#movie test
 		self.movie = QtGui.QMovie(u"image/recording.gif")
 		self.ui.Animation.setMovie(self.movie)

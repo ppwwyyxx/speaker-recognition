@@ -149,7 +149,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="Userchooser">
       <property name="geometry">
        <rect>
         <x>220</x>
@@ -167,14 +167,27 @@
      <widget class="QPushButton" name="UpdateInfo">
       <property name="geometry">
        <rect>
-        <x>251</x>
-        <y>170</y>
-        <width>139</width>
+        <x>280</x>
+        <y>160</y>
+        <width>111</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string>Update Info</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ClearInfo">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>160</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clear Info</string>
       </property>
      </widget>
     </widget>
@@ -203,9 +216,9 @@
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Cantarell'; font-size:11pt;&quot;&gt;Youth is not a time of life; it is a state of mind; it is not a matter of rosy cheeks, red lips and supple knees; it is a matter of the will, a quality of the imagination, a vigor of the emotions; it is the freshness of the deep springs of life. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Cantarell'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Youth is not a time of life; it is a state of mind; it is not a matter of rosy cheeks, red lips and supple knees; it is a matter of the will, a quality of the imagination, a vigor of the emotions; it is the freshness of the deep springs of life. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">
@@ -224,8 +237,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="Animation">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>170</y>
+        <x>0</x>
+        <y>160</y>
         <width>61</width>
         <height>61</height>
        </rect>
@@ -283,9 +296,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QWidget" name="horizontalLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>140</x>
         <y>180</y>
-        <width>231</width>
+        <width>221</width>
         <height>41</height>
        </rect>
       </property>
@@ -309,7 +322,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="enrollTime">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>73</x>
         <y>190</y>
         <width>51</width>
         <height>21</height>
@@ -326,17 +339,17 @@ p, li { white-space: pre-wrap; }
        <string>00:00</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="enrollFile">
+     <widget class="QToolButton" name="enrollFile">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>186</y>
-        <width>100</width>
-        <height>31</height>
+        <x>370</x>
+        <y>185</y>
+        <width>31</width>
+        <height>29</height>
        </rect>
       </property>
       <property name="text">
-       <string>Choose File...</string>
+       <string>...</string>
       </property>
      </widget>
     </widget>
@@ -468,7 +481,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="recoTime">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>120</x>
         <y>100</y>
         <width>51</width>
         <height>21</height>
@@ -488,11 +501,16 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>67</y>
-        <width>251</width>
+        <x>210</x>
+        <y>62</y>
+        <width>201</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>* Tick and we will verify your identity</string>
@@ -540,9 +558,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QWidget" name="horizontalLayoutWidget_6">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>182</x>
         <y>90</y>
-        <width>181</width>
+        <width>191</width>
         <height>41</height>
        </rect>
       </property>
@@ -572,14 +590,14 @@ p, li { white-space: pre-wrap; }
      <widget class="QToolButton" name="recoFile">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>100</y>
-        <width>96</width>
-        <height>31</height>
+        <x>380</x>
+        <y>95</y>
+        <width>29</width>
+        <height>29</height>
        </rect>
       </property>
       <property name="text">
-       <string>Choose File...</string>
+       <string>...</string>
       </property>
      </widget>
     </widget>

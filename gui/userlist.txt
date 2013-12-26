@@ -1,0 +1,2 @@
+LeeTZ 20 M /home/leetz/speaker-recognition/gui/image/user1.jpg 
+Yuxin 98 F /home/leetz/speaker-recognition/gui/image/user2.jpg 

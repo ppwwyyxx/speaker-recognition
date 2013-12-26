@@ -93,8 +93,10 @@ class Main(QMainWindow):
         self.Userimage.setPixmap(defaultimage)
         self.Reco_Userimage.setPixmap(defaultimage)
 
+=======
         self.convRecord.clicked.connect(self.start_conv_record)
         self.convStop.clicked.connect(self.stop_conv)
+>>>>>>> 66b3f544667d62f84dba91699cc834b6e18250af
 
         self.backend = ModelInterface()
 
@@ -116,9 +118,12 @@ class Main(QMainWindow):
         self.record_time = 0
         self.update_all_timer()
 
+<<<<<<< HEAD
+=======
     def add_record_data(self, i):
         self.recordData.append(i)
         return self.stopped
+>>>>>>> 66b3f544667d62f84dba91699cc834b6e18250af
 
     def timer_callback(self):
         self.record_time += 1
@@ -126,9 +131,13 @@ class Main(QMainWindow):
         self.update_all_timer()
 
     def stop_record(self):
+<<<<<<< HEAD
+        self.reco_th.terminate()
         self.movie.start()
+=======
         self.stopped = True
         self.reco_th.wait()
+>>>>>>> 66b3f544667d62f84dba91699cc834b6e18250af
         self.timer.stop()
         self.stream.stop_stream()
         self.stream.close()

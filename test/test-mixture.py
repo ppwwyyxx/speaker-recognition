@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-mixture.py
-# $Date: Wed Dec 25 22:02:58 2013 +0000
+# $Date: Thu Dec 26 02:07:32 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -154,10 +154,10 @@ def main():
 
     dirs = sys.argv[1:]
 
-    nr_person = 30
-    train_duration = 20
+    nr_person = 50
+    train_duration = 15
     test_duration = 5
-    nr_test_fragment_per_person = 40
+    nr_test_fragment_per_person = 50
 
     persons = list(get_corpus(dirs).iteritems())
     random.shuffle(persons)
@@ -183,11 +183,13 @@ def main():
         lpc = LPC.extract(tup)
         return np.concatenate((bob, lpc), axis=1)
 
+    fout = open("final-log/nmixture.log", 'a')
+    sys.stdout = fout
     test_feature(mix, X_train, y_train, X_test, y_test)
-
-
-    print(dirs)
-    print(nr_person, train_duration, test_duration, nr_test_fragment_per_person)
+    test_feature(mix, X_train, y_train, X_test, y_test)
+    test_feature(mix, X_train, y_train, X_test, y_test)
+    test_feature(mix, X_train, y_train, X_test, y_test)
+    fout.close()
 
 if __name__ == '__main__':
     main()

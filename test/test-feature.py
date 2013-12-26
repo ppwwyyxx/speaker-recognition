@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: test-corpus.py
-# $Date: Wed Dec 25 20:35:27 2013 +0000
+# $File: test-feature.py
+# $Date: Thu Dec 26 02:08:59 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -121,17 +121,17 @@ def test_feature(feature_impl, X_train, y_train, X_test, y_test):
     start = time.time()
     print 'calculating features...',
     worker = MultiProcessWorker(feature_impl)
-    trx = worker.run(X_train)
+    X_train = worker.run(X_train)
     del worker
     worker = MultiProcessWorker(feature_impl)
-    ttx = worker.run(X_test)
+    X_test = worker.run(X_test)
     del worker
     print 'time elapsed: ', time.time() - start
 
     start = time.time()
     gmmset = GMMSet()
     print 'training ...',
-    gmmset.fit(trx, y_train)
+    gmmset.fit(X_train, y_train)
     nr_correct = 0
     print 'time elapsed: ', time.time() - start
 
@@ -139,10 +139,10 @@ def test_feature(feature_impl, X_train, y_train, X_test, y_test):
     start = time.time()
     pool = multiprocessing.Pool(concurrency)
     predictions = []
-    for x_test, label_true in zip(*(ttx, y_test)):
+    for x_test, label_true in zip(*(X_test, y_test)):
         predictions.append(pool.apply_async(predict_task, args = (gmmset, x_test)))
     pool.close()
-    for ind, (x_test, label_true) in enumerate(zip(*(ttx, y_test))):
+    for ind, (x_test, label_true) in enumerate(zip(*(X_test, y_test))):
         label_pred = predictions[ind].get()
         #is_wrong = '' if label_pred == label_true else ' wrong'
         #print("{} {}{}" . format(label_pred, label_true, is_wrong))
@@ -161,7 +161,7 @@ def main():
 
     dirs = sys.argv[1:]
 
-    nr_person = 30
+    nr_person = 40
     train_duration = 20
     test_duration = 5
     nr_test_fragment_per_person = 50
@@ -185,28 +185,69 @@ def main():
             y_test.append(name)
             X_test.append(gen_data((p, test_duration)))
 
-    #print 'raw MFCC'
-    #test_mfcc(MFCC.extract, X_train, y_train, X_test, y_test)
-
     def mix(tup):
         bob = BOB.extract(tup)
         lpc = LPC.extract(tup)
         return np.concatenate((bob, lpc), axis=1)
 
+    def test_bob_nfilter():
+        fname = "final-log/bob-nfilter.log"
+        sys.stdout = open(fname, 'a')
+        for n_f in [20, 25, 30, 35, 40, 45, 50, 55]:
+            print "MFCC NFILTER={}".format(n_f)
+            test_feature(get_extractor(BOB.extract, n_filters=n_f), X_train, y_train, X_test, y_test)
+        sys.stdout.close()
+
+    def test_bob_nceps():
+        fname = "final-log/bob-nceps.log"
+        sys.stdout = open(fname, 'a')
+        for n_c in [13, 15, 17, 19, 23, 25]:
+            print "n_ceps={} MFCC NFILTER=55, WINL=32, WINS=16".format(n_c)
+            test_feature(get_extractor(BOB.extract, n_ceps=n_c), X_train, y_train, X_test, y_test)
+        sys.stdout.close()
+
+    def test_bob_win():
+        fname = "final-log/bob-win.log"
+        sys.stdout = open(fname, 'a')
+        for n_c in [20, 24, 28, 32, 36, 40]:
+            print "n_ceps=19 MFCC NFILTER=55, WINL={0}".format(n_c)
+            test_feature(get_extractor(BOB.extract, win_length_ms=n_c, win_shift_ms=n_c/ 2), X_train, y_train, X_test, y_test)
+        sys.stdout.close()
+
+    def test_lpc_win():
+        fname = "final-log/lpc-win.log"
+        sys.stdout = open(fname, 'a')
+        for n_c in [20, 24, 28, 32, 36, 40]:
+            print "n_dim=15 LPC WINL={0}".format(n_c)
+            test_feature(get_extractor(LPC.extract, win_length_ms=n_c, win_shift_ms=n_c/ 2), X_train, y_train, X_test, y_test)
+        sys.stdout.close()
+
+    def test_lpc_dim():
+        fname = "final-log/lpc-dim.log"
+        sys.stdout = open(fname, 'a')
+        for n_c in [11, 13, 15, 17, 19, 23, 25]:
+            print "n_dim={} LPC WINL=32, WINS=16".format(n_c)
+            test_feature(get_extractor(LPC.extract, n_lpc=n_c), X_train, y_train, X_test, y_test)
+        sys.stdout.close()
+
+
+    test_lpc_win()
+    test_lpc_win()
+    test_lpc_win()
+    test_lpc_dim()
+    test_lpc_dim()
+    test_lpc_dim()
 
     #test_feature(mix, X_train, y_train, X_test, y_test)
 
-    test_feature(get_extractor(BOB.extract), X_train, y_train, X_test, y_test)
-    test_feature(get_extractor(BOB.extract, diff=True), X_train, y_train, X_test, y_test)
+    #test_feature(get_extractor(BOB.extract), X_train, y_train, X_test, y_test)
 
-    test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
-    test_feature(get_extractor(LPC.extract, diff=True), X_train, y_train, X_test, y_test)
-
+    #test_feature(get_extractor(LPC.extract), X_train, y_train, X_test, y_test)
+    #test_feature(get_extractor(LPC.extract, diff=True), X_train, y_train, X_test, y_test)
 
 
 
-    print(dirs)
-    print(nr_person, train_duration, test_duration, nr_test_fragment_per_person)
+
 
 if __name__ == '__main__':
     main()

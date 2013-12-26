@@ -126,7 +126,7 @@ class Main(QMainWindow):
         self.update_all_timer()
 
     def stop_record(self):
-        self.movie.start()
+        self.movie.stop()
         self.stopped = True
         self.reco_th.wait()
         self.timer.stop()

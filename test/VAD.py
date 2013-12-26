@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: VAD.py
-# $Date: Sun Nov 24 22:15:04 2013 +0800
+# $Date: Thu Dec 26 13:39:12 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 # Voice Activity Detectionreturn fs, new_signal

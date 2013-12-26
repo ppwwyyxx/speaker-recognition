@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: VAD.py
-# $Date: Thu Dec 26 15:33:37 2013 +0800
+# $Date: Thu Dec 26 15:38:06 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
@@ -22,13 +22,13 @@ def mkdirp(dirname):
 def remove_silence(fs, signal,
         frame_duration = 0.02,
         frame_shift = 0.01,
-        perc = 0.01):
+        perc = 0.02):
     orig_dtype = type(signal[0])
     typeinfo = np.iinfo(orig_dtype)
     is_unsigned = typeinfo.min >= 0
     signal = signal.astype(np.int64)
     if is_unsigned:
-        signal = signal - typeinfo.max / 2
+        signal = signal - (typeinfo.max + 1) / 2
 
     siglen = len(signal)
     retsig = np.zeros(siglen, dtype = np.int64)
@@ -65,23 +65,7 @@ def task(fpath, new_fpath):
     return fpath
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: {} <orignal_dir> <output_dir>" . format(sys.argv[0]))
-        sys.exit(1)
-
-    ORIG_DIR, OUTPUT_DIR = sys.argv[1:]
-    pool = multiprocessing.Pool(4)
-    result = []
-    for style in glob.glob(os.path.join(ORIG_DIR, '*')):
-        dirname = os.path.basename(style)
-        for fpath in glob.glob(os.path.join(style, '*.wav')):
-            fname = os.path.basename(fpath)
-            new_fpath = os.path.join(OUTPUT_DIR, dirname, fname)
-            mkdirp(os.path.dirname(new_fpath))
-            result.append(pool.apply_async(task, args = (fpath, new_fpath)))
-    pool.close()
-    for r in result:
-        print(r.get())
+    task(sys.argv[1], sys.argv[2])
 
 if __name__ == '__main__':
     main()

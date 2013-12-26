@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 16:09:51 2013 +0800
+# Date: Thu Dec 26 16:28:16 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -71,7 +71,6 @@ class Main(QMainWindow):
     def new_reco(self):
         self.recoRecordData = np.array((), dtype='uint8')
         self.recoProgressBar.setValue(0)
-        self.reco_length = 0
 
     def stop_reco_record(self):
         self.stop_record()
@@ -81,9 +80,10 @@ class Main(QMainWindow):
     def reco_remove_update(self, fs, signal):
         fs, new_signal = remove_silence(fs, signal)
         print "After removed: {0} -> {1}".format(len(signal), len(new_signal))
-        self.reco_length += len(new_signal)
         self.recoRecordData = np.concatenate((self.recoRecordData, new_signal))
-        real_len = float(self.reco_length) / Main.FS / Main.TEST_DURATION * 100
+        real_len = float(len(self.recoRecordData)) / Main.FS / Main.TEST_DURATION * 100
+        if real_len > 100:
+            real_len = 100
         self.recoProgressBar.setValue(real_len)
         write_wav('out.wav', Main.FS, self.recoRecordData)
 

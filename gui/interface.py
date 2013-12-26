@@ -1,11 +1,12 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Fri Dec 27 02:59:09 2013 +0800
+# Date: Fri Dec 27 03:03:31 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
-#from sklearn.mixture import GMM
+from sklearn.mixture import GMM
+import numpy as np
 from scipy.io import wavfile
 import time
 import cPickle as pickle
@@ -13,7 +14,25 @@ from filters.VAD import VAD
 
 from feature import mix_feature
 
-from gmmset import GMMSetPyGMM as GMMSet
+#from gmmset import GMMSetPyGMM as GMMSet
+class GMMSet(object):
+    def __init__(self, gmm_order = 32):
+        self.gmms = []
+        self.gmm_order = gmm_order
+        self.y = []
+
+    def fit_new(self, x, label):
+        self.y.append(label)
+        gmm = GMM(self.gmm_order)
+        gmm.fit(x)
+        self.gmms.append(gmm)
+
+    def gmm_score(self, gmm, x):
+        return np.exp(np.sum(gmm.score(x)) / 10000)
+
+    def predict(self, x):
+        scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
+        return [(self.y[index], value) for (index, value) in enumerate(scores)]
 
 class ModelInterface(object):
 

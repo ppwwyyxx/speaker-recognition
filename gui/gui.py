@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 15:39:04 2013 +0800
+# Date: Thu Dec 26 16:09:51 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -13,7 +13,6 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 import pyaudio
-CHUNK = 1
 from VAD import remove_silence
 from utils import write_wav
 
@@ -25,16 +24,19 @@ class RecorderThread(QThread):
 
     def run(self):
         while True:
-            data = self.main.stream.read(CHUNK)
+            data = self.main.stream.read(1)
             self.main.recordData.extend([ord(x) for x in data])
 
 class Main(QMainWindow):
     FS = 8000
+    TEST_DURATION = 3
 
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)
         uic.loadUi("edytor.ui", self)
         self.statusBar()
+        self.recoProgressBar.setValue(0)
+
         self.enrollRecord.clicked.connect(self.start_record)
         self.stopEnrollRecord.clicked.connect(self.stop_enroll_record)
         self.enrollFile.clicked.connect(self.enroll_file)
@@ -42,6 +44,9 @@ class Main(QMainWindow):
 
         self.recoRecord.clicked.connect(self.start_record)
         self.stopRecoRecord.clicked.connect(self.stop_reco_record)
+        self.newReco.clicked.connect(self.new_reco)
+        self.recoFile.clicked.connect(self.reco_file)
+        self.new_reco()
 
 
     ############ RECORD
@@ -51,7 +56,7 @@ class Main(QMainWindow):
 
         self.recordData = []
         self.stream = self.pyaudio.open(format=pyaudio.paUInt8, channels=1, rate=Main.FS,
-                        input=True, frames_per_buffer=CHUNK)
+                        input=True, frames_per_buffer=1)
         self.reco_th = RecorderThread(self)
         self.reco_th.start()
 
@@ -62,20 +67,36 @@ class Main(QMainWindow):
         self.pyaudio.terminate()
         self.status("Record stopeed")
 
-
     ###### RECOGNIZE
+    def new_reco(self):
+        self.recoRecordData = np.array((), dtype='uint8')
+        self.recoProgressBar.setValue(0)
+        self.reco_length = 0
+
     def stop_reco_record(self):
         self.stop_record()
         signal = np.array(self.recordData, dtype='uint8')
-        fs, new_signal = remove_silence(Main.FS, signal)
-        print "After removed: {0} -> {1}".format(len(signal), len(new_signal))
-        write_wav('out.wav', Main.FS, signal)
+        self.reco_remove_update(Main.FS, signal)
 
+    def reco_remove_update(self, fs, signal):
+        fs, new_signal = remove_silence(fs, signal)
+        print "After removed: {0} -> {1}".format(len(signal), len(new_signal))
+        self.reco_length += len(new_signal)
+        self.recoRecordData = np.concatenate((self.recoRecordData, new_signal))
+        real_len = float(self.reco_length) / Main.FS / Main.TEST_DURATION * 100
+        self.recoProgressBar.setValue(real_len)
+        write_wav('out.wav', Main.FS, self.recoRecordData)
+
+    def reco_file(self):
+        fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
+        self.status(fname)
+        fs, signal = wavfile.read(fname)
+        self.reco_remove_update(fs, signal)
 
     ########## ENROLL
     def enroll_file(self):
-        fname = QFileDialog.getOpenFileName(self, "Open File", "", "Files (*.wav)")
-        self.filename.setText(fname)
+        fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
+        self.status(fname)
         fs, signal = wavfile.read(fname)
         self.enrollWav = (fs, signal)
 

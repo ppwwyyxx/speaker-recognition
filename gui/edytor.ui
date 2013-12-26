@@ -184,8 +184,8 @@
      <widget class="QPushButton" name="enroll">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>150</y>
+        <x>220</x>
+        <y>110</y>
         <width>101</width>
         <height>27</height>
        </rect>
@@ -197,27 +197,14 @@
      <widget class="QPushButton" name="enrollFile">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>100</y>
-        <width>100</width>
+        <x>370</x>
+        <y>50</y>
+        <width>121</width>
         <height>27</height>
        </rect>
       </property>
       <property name="text">
        <string>Choose File...</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="filename">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>100</y>
-        <width>377</width>
-        <height>23</height>
-       </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="enrollRecord">
@@ -264,40 +251,11 @@
      <property name="title">
       <string>Recognition</string>
      </property>
-     <widget class="QWidget" name="horizontalLayoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>100</y>
-        <width>271</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Claim your identity:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Claimname"/>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="horizontalLayoutWidget_4">
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>40</y>
+        <y>90</y>
         <width>401</width>
         <height>51</height>
        </rect>
@@ -318,9 +276,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QProgressBar" name="progressBar">
-         <property name="value">
-          <number>24</number>
+        <widget class="QPushButton" name="recoFile">
+         <property name="text">
+          <string>Choose File...</string>
          </property>
         </widget>
        </item>
@@ -330,7 +288,7 @@
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>160</y>
+        <y>230</y>
         <width>131</width>
         <height>131</height>
        </rect>
@@ -339,8 +297,8 @@
      <widget class="QWidget" name="verticalLayoutWidget_3">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>160</y>
+        <x>170</x>
+        <y>230</y>
         <width>121</width>
         <height>131</height>
        </rect>
@@ -388,7 +346,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>160</y>
+        <y>230</y>
         <width>131</width>
         <height>131</height>
        </rect>
@@ -400,6 +358,69 @@
        </sizepolicy>
       </property>
      </widget>
+     <widget class="QPushButton" name="newReco">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>40</y>
+        <width>90</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>New Task</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>30</y>
+        <width>271</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Claim your identity:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="Claimname"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QProgressBar" name="recoProgressBar">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>160</y>
+        <width>217</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+     <zorder>horizontalLayoutWidget_4</zorder>
+     <zorder>Verificationimage</zorder>
+     <zorder>verticalLayoutWidget_3</zorder>
+     <zorder>UserImage_2</zorder>
+     <zorder>newReco</zorder>
+     <zorder>horizontalLayoutWidget_3</zorder>
+     <zorder>horizontalLayoutWidget_3</zorder>
+     <zorder>recoProgressBar</zorder>
     </widget>
    </widget>
    <widget class="QWidget" name="Conversation">

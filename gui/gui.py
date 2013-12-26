@@ -33,7 +33,7 @@ class Main(QMainWindow):
 
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)
-        uic.loadUi("edytor.ui", self)
+        uic.loadUi("edytor2.ui", self)
         self.statusBar()
         self.recoProgressBar.setValue(0)
 

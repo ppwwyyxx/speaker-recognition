@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 00:15:06 2013 +0800
+# Date: Fri Dec 27 00:24:16 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -174,6 +174,8 @@ class Main(QMainWindow):
             real_len = 100
         self.recoProgressBar.setValue(real_len)
         result = self.backend.predict(Main.FS, self.recoRecordData)
+        p = max(result, key=operator.itemgetter(1))
+        self.recoUsername.setText(p[0])
         print result
         # TODO To Delete
         write_wav('reco.wav', Main.FS, self.recoRecordData)

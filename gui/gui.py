@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Dec 26 19:34:03 2013 +0800
+# Date: Thu Dec 26 20:46:51 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -20,6 +20,7 @@ from utils import write_wav, time_str
 from interface import ModelInterface
 
 FORMAT=pyaudio.paInt16
+NPDtype = 'int16'
 
 class RecorderThread(QThread):
     def __init__(self, main):
@@ -30,18 +31,19 @@ class RecorderThread(QThread):
         self.start_time = time.time()
         while True:
             data = self.main.stream.read(1)
-            self.main.tmp.extend(data)
             i = ord(data[0]) + 256 * ord(data[1])
             if i > 32768:
                 i -= 65536
-            self.main.recordData.append(i)
+            stop = self.main.add_record_data(i)
+            if stop:
+                break
 
 class Main(QMainWindow):
+    CONV_INTERVAL = 500
     FS = 8000
     TEST_DURATION = 3
 
     def __init__(self, parent=None):
-        self.tmp = []
         QWidget.__init__(self, parent)
         uic.loadUi("edytor2.ui", self)
         self.statusBar()
@@ -64,6 +66,9 @@ class Main(QMainWindow):
         self.recoFile.clicked.connect(self.reco_file)
         self.new_reco()
 
+        self.convRecord.clicked.connect(self.start_conv_record)
+        self.convStop.clicked.connect(self.stop_conv)
+
         self.backend = ModelInterface()
 
 
@@ -75,6 +80,7 @@ class Main(QMainWindow):
         self.recordData = []
         self.stream = self.pyaudio.open(format=FORMAT, channels=1, rate=Main.FS,
                         input=True, frames_per_buffer=1)
+        self.stopped = False
         self.reco_th = RecorderThread(self)
         self.reco_th.start()
 
@@ -82,27 +88,53 @@ class Main(QMainWindow):
         self.record_time = 0
         self.update_all_timer()
 
+    def add_record_data(self, i):
+        self.recordData.append(i)
+        return self.stopped
+
     def timer_callback(self):
         self.record_time += 1
         self.status("Recording..." + time_str(self.record_time))
         self.update_all_timer()
 
     def stop_record(self):
-        self.reco_th.terminate()
+        self.stopped = True
+        self.reco_th.wait()
         self.timer.stop()
         self.stream.stop_stream()
         self.stream.close()
         self.pyaudio.terminate()
         self.status("Record stopeed")
 
+    ############## conversation
+    def start_conv_record(self):
+        self.start_record()
+        self.conv_now_pos = 0
+        self.conv_timer = QTimer(self)
+        self.conv_timer.timeout.connect(self.do_conversation)
+        self.conv_timer.start(Main.CONV_INTERVAL)
+
+    def stop_conv(self):
+        self.stop_record()
+        self.conv_timer.stop()
+
+    def do_conversation(self):
+        segment_shift = int(Main.CONV_INTERVAL * Main.FS / 1000)
+        segment = self.recordData[self.conv_now_pos:
+                                  self.conv_now_pos + segment_shift]
+        self.conv_now_pos += segment_shift
+        signal = np.array(segment, dtype=NPDtype)
+        predict = self.backend.predict(Main.FS, signal)
+        self.convUsername.setText(predict)
+
     ###### RECOGNIZE
     def new_reco(self):
-        self.recoRecordData = np.array((), dtype='int16')
+        self.recoRecordData = np.array((), dtype=NPDtype)
         self.recoProgressBar.setValue(0)
 
     def stop_reco_record(self):
         self.stop_record()
-        signal = np.array(self.recordData, dtype='int16')
+        signal = np.array(self.recordData, dtype=NPDtype)
         self.reco_remove_update(Main.FS, signal)
 
     def reco_remove_update(self, fs, signal):
@@ -136,17 +168,9 @@ class Main(QMainWindow):
     def stop_enroll_record(self):
         self.stop_record()
         print self.recordData[:300]
-        signal = np.array(self.recordData, dtype='int16')
+        signal = np.array(self.recordData, dtype=NPDtype)
         self.enrollWav = (Main.FS, signal)
 
-        # TODO delete
-        #wf = wave.open("out2.wav", 'wb')
-        #wf.setnchannels(1)
-        #wf.setsampwidth(self.pyaudio.get_sample_size(FORMAT))
-        #wf.setframerate(8000)
-        #wf.writeframes(b''.join(self.tmp))
-        #print self.tmp[:100]
-        #wf.close()
         write_wav('out.wav', *self.enrollWav)
 
     def do_enroll(self):

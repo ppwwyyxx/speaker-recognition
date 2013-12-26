@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="Enrollment">
     <attribute name="title">
@@ -757,6 +757,9 @@ p, li { white-space: pre-wrap; }
       <string>Current Speaker</string>
      </property>
      <widget class="QLineEdit" name="convUsername">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -792,11 +795,11 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </widget>
-    <widget class="QPushButton" name="Conv_Startrecord">
+    <widget class="QPushButton" name="convRecord">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>60</y>
+       <x>30</x>
+       <y>50</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -842,6 +845,19 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="convStop">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>50</y>
+       <width>90</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stop</string>
      </property>
     </widget>
    </widget>

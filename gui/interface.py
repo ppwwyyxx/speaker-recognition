@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Fri Dec 27 03:03:31 2013 +0800
+# Date: Fri Dec 27 03:35:19 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -28,11 +28,13 @@ class GMMSet(object):
         self.gmms.append(gmm)
 
     def gmm_score(self, gmm, x):
-        return np.exp(np.sum(gmm.score(x)) / 10000)
+        return np.sum(gmm.score(x))
 
     def predict(self, x):
         scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
-        return [(self.y[index], value) for (index, value) in enumerate(scores)]
+        result = [(self.y[index], value) for (index, value) in enumerate(scores)]
+        p = max(result, key=operator.itemgetter(1))
+        return p[0]
 
 class ModelInterface(object):
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 02:54:46 2013 +0800
+# Date: Fri Dec 27 03:35:15 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -163,12 +163,10 @@ class Main(QMainWindow):
                                   self.conv_now_pos + segment_shift]
         self.conv_now_pos += segment_shift
         signal = np.array(segment, dtype=NPDtype)
-        result = self.backend.predict(Main.FS, signal)
-        p = max(result, key=operator.itemgetter(1))
-        print result, p[0]
-        self.convUsername.setText(p[0])
+        label = self.backend.predict(Main.FS, signal)
+        self.convUsername.setText(label)
         self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
-        self.convUserImage.setPixmap(self.avatars[str(p[0])])
+        self.convUserImage.setPixmap(self.avatars[str(label)])
 
 
     ###### RECOGNIZE
@@ -190,12 +188,11 @@ class Main(QMainWindow):
         if real_len > 100:
             real_len = 100
         self.recoProgressBar.setValue(real_len)
-        result = self.backend.predict(Main.FS, self.recoRecordData)
-        p = max(result, key=operator.itemgetter(1))
-        self.recoUsername.setText(p[0])
-        print result
+        label = self.backend.predict(Main.FS, self.recoRecordData)
+        self.recoUsername.setText(label)
+        print label
         self.Alading.setPixmap(QPixmap(u"image/a_result.png"))
-        self.recoUserImage.setPixmap(self.avatars[str(p[0])])
+        self.recoUserImage.setPixmap(self.avatars[str(label)])
 
         # TODO To Delete
         write_wav('reco.wav', Main.FS, self.recoRecordData)
@@ -211,9 +208,8 @@ class Main(QMainWindow):
         for f in fnames:
             fs, sig = wavfile.read(f)
             newsig = self.backend.filter(fs, sig)
-            result = self.backend.predict(fs, newsig)
-            p = max(result, key=operator.itemgetter(1))
-            print f, p
+            label = self.backend.predict(fs, newsig)
+            print f, label
 
     ########## ENROLL
     def enroll_file(self):

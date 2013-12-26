@@ -8,6 +8,7 @@
 import sys
 from PyQt4 import QtGui
 from PyQt4.QtMultimedia import *
+#from PyQt4 import QtMoblity
 from PyQt4.QtCore import *
 
 class Example(QtGui.QMainWindow):

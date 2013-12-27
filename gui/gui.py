@@ -37,7 +37,7 @@ class RecorderThread(QThread):
             i = ord(data[0]) + 256 * ord(data[1])
             if i > 32768:
                 i -= 65536
-            stop = self.main.a  dd_record_data(i)
+            stop = self.main.add_record_data(i)
             if stop:
                 break
 
@@ -320,7 +320,7 @@ class Main(QMainWindow):
                 db.write("\n")
 
     def writeuserdata(self):
-        with open("userlist.txt","w") as db:
+        with open("avatar/metainfo.txt","w") as db:
             for user in self.userdata:
                 for i in range (0,4):
                     db.write(str(user[i]) + " ")

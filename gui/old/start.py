@@ -1,7 +1,6 @@
 import sys
 from PyQt4 import QtCore, QtGui
-from PyQt4 import QtMultimedia
-from edytor import Ui_notepad
+from mainwindow import Ui_notepad
 class StartQt4(QtGui.QMainWindow):
 	def __init__(self, parent=None):
 		QtGui.QWidget.__init__(self, parent)
@@ -9,26 +8,7 @@ class StartQt4(QtGui.QMainWindow):
 		self.ui.setupUi(self)
 		self.createProgressBar()
 		self.active = 0;
-		QtCore.QObject.connect(self.ui.Choose_file,QtCore.SIGNAL("clicked()"),self.file_dialog)
-		QtCore.QObject.connect(self.ui.UploadImage,QtCore.SIGNAL("clicked()"),self.upload_avatar)
-		QtCore.QObject.connect(self.ui.Startrecord,QtCore.SIGNAL("clicked()"),self.toggle_record)
-		#self.ui.horizontalLayout.addWidget(self.progressBar)
-		
-		#movie test
-		self.movie = QtGui.QMovie(u"image/recording.gif")
-		self.ui.Animation.setMovie(self.movie)
-		self.movie.start()
-		self.movie.stop()
 
-		#default user image setting
-		defaultimage = QtGui.QPixmap(u"image/nouser.jpg")
-		self.ui.Userimage.setPixmap(defaultimage)
-
-		#recorder init
-		self.format = QtMultimedia.QAudioFormat()
-		self.format.setFrequency(8000)
-		self.audiorecorder = QtMultimedia.QAudioInput(format,self)
-		self.audiorecorder.setOutputLocation("record/")
 
 	def file_dialog(self):
 		fd = QtGui.QFileDialog(self)
@@ -81,13 +61,6 @@ class StartQt4(QtGui.QMainWindow):
 		timer.start(1000)
 if __name__ == "__main__":
 	app = QtGui.QApplication(sys.argv)
-
-	pixmap = QtGui.QPixmap(u"image/startup.jpg")
-	splash = QtGui.QSplashScreen(pixmap)
-	splash.show()
-	QtCore.QCoreApplication.processEvents()
-
 	myapp = StartQt4()
-	splash.finish(myapp.getWidget(splash))
 	myapp.show()
 	sys.exit(app.exec_())

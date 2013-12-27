@@ -19,17 +19,15 @@ is recorded.
 
 \begin{figure}[!ht]
 	\begin{minipage}{0.48\linewidth}
-		\label{fig:gmm_efficiency}
 		\centering
 		\includegraphics[width=\linewidth]{res/time-comp.pdf}
-		\caption{Comparison on efficiency}
+		\caption{Comparison on efficiency\label{fig:gmm_efficiency}}
 	\end{minipage}
 	\hfill
 	\begin{minipage}{0.48\linewidth}
-		\label{fig:gmm_efficiency_small}
 		\centering
 		\includegraphics[width=\linewidth]{res/time-comp-small.pdf}
-		\caption{Comparison on efficiency when number of MFCC features is small}
+		\caption{Comparison on efficiency when number of MFCC features is small\label{fig:gmm_efficiency_small}}
 	\end{minipage}
 \end{figure}
 
@@ -70,10 +68,9 @@ happens when the number of mixtures is around 32, reaching $0.965$. As
 the number of mixtures increases, the decrease in accuracy
 
 \begin{figure}
-	\label{fig:mixture}
 	\centering
 	\includegraphics[width=\linewidth]{res/mixture-both.pdf}
-	\caption{Accuracy curve on different number of mixtures}
+	\caption{Accuracy curve on different number of mixtures\label{fig:mixture}}
 \end{figure}
 
 \section{Effect On Number Of Speakers}
@@ -92,10 +89,9 @@ The configurations of the test is as followed:
 
 
 \begin{figure}[!ht]
-	\label{fig:nspk_enrolled}
 	\centering
 	\includegraphics[width=\linewidth]{res/nperson.pdf}
-	\caption{Accuracy curve on different number of speakers enrolled}
+	\caption{Accuracy curve on different number of speakers enrolled\label{fig:nspk_enrolled}}
 \end{figure}
 
 Scrunitizing \figref{nspk_enrolled} we would see that, our GMM performs better than

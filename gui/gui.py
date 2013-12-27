@@ -1,11 +1,14 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 00:24:16 2013 +0800
+# Date: Fri Dec 27 02:54:46 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
 import sys
+import shutil
+import os.path
+import glob
 import time
 import operator
 import numpy as np
@@ -45,7 +48,7 @@ class Main(QMainWindow):
 
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)
-        uic.loadUi("edytor2.ui", self)
+        uic.loadUi("edytor.ui", self)
         self.statusBar()
         self.recoProgressBar.setValue(0)
 
@@ -69,26 +72,34 @@ class Main(QMainWindow):
         self.newReco.clicked.connect(self.new_reco)
         self.recoFile.clicked.connect(self.reco_file)
         self.new_reco()
+        self.recoInputFiles.clicked.connect(self.reco_files)
 
         #UI.init
-        self.UploadImage.clicked.connect(self.upload_avatar)
         self.userdata =[]
         self.loadUsers()
         self.Userchooser.currentIndexChanged.connect(self.showUserInfo)
         self.ClearInfo.clicked.connect(self.clearUserInfo)
         self.UpdateInfo.clicked.connect(self.updateUserInfo)
+        self.UploadImage.clicked.connect(self.upload_avatar)
         #movie test
         self.movie = QMovie(u"image/recording.gif")
         self.movie.start()
         self.movie.stop()
         self.Animation.setMovie(self.movie)
         self.Animation_2.setMovie(self.movie)
+        self.Animation_3.setMovie(self.movie)
+
+        self.aladingpic = QPixmap(u"image/a_hello.png")
+        self.Alading.setPixmap(self.aladingpic)
+        self.Alading_conv.setPixmap(self.aladingpic)
 
         #default user image setting
         self.avatarname = "image/nouser.jpg"
         defaultimage = QPixmap(self.avatarname)
         self.Userimage.setPixmap(defaultimage)
-        self.Reco_Userimage.setPixmap(defaultimage)
+        self.recoUserImage.setPixmap(defaultimage)
+        self.convUserImage.setPixmap(defaultimage)
+        self.load_avatar('avatar/')
 
         self.convRecord.clicked.connect(self.start_conv_record)
         self.convStop.clicked.connect(self.stop_conv)
@@ -101,6 +112,8 @@ class Main(QMainWindow):
         self.pyaudio = pyaudio.PyAudio()
         self.status("Recording...")
         self.movie.start()
+        self.Alading.setPixmap(QPixmap(u"image/a_thinking.png"))
+
 
         self.recordData = []
         self.stream = self.pyaudio.open(format=FORMAT, channels=1, rate=Main.FS,
@@ -154,9 +167,13 @@ class Main(QMainWindow):
         p = max(result, key=operator.itemgetter(1))
         print result, p[0]
         self.convUsername.setText(p[0])
+        self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
+        self.convUserImage.setPixmap(self.avatars[str(p[0])])
+
 
     ###### RECOGNIZE
     def new_reco(self):
+        self.Alading.setPixmap(QPixmap(u"image/a_hello"))
         self.recoRecordData = np.array((), dtype=NPDtype)
         self.recoProgressBar.setValue(0)
 
@@ -166,7 +183,7 @@ class Main(QMainWindow):
         self.reco_remove_update(Main.FS, signal)
 
     def reco_remove_update(self, fs, signal):
-        new_signal = self.backend.filter(signal)
+        new_signal = self.backend.filter(fs, signal)
         print "After removed: {0} -> {1}".format(len(signal), len(new_signal))
         self.recoRecordData = np.concatenate((self.recoRecordData, new_signal))
         real_len = float(len(self.recoRecordData)) / Main.FS / Main.TEST_DURATION * 100
@@ -177,6 +194,9 @@ class Main(QMainWindow):
         p = max(result, key=operator.itemgetter(1))
         self.recoUsername.setText(p[0])
         print result
+        self.Alading.setPixmap(QPixmap(u"image/a_result.png"))
+        self.recoUserImage.setPixmap(self.avatars[str(p[0])])
+
         # TODO To Delete
         write_wav('reco.wav', Main.FS, self.recoRecordData)
 
@@ -185,6 +205,15 @@ class Main(QMainWindow):
         self.status(fname)
         fs, signal = wavfile.read(fname)
         self.reco_remove_update(fs, signal)
+
+    def reco_files(self):
+        fnames = QFileDialog.getOpenFileNames(self, "Select Wav Files", "", "Files (*.wav)")
+        for f in fnames:
+            fs, sig = wavfile.read(f)
+            newsig = self.backend.filter(fs, sig)
+            result = self.backend.predict(fs, newsig)
+            p = max(result, key=operator.itemgetter(1))
+            print f, p
 
     ########## ENROLL
     def enroll_file(self):
@@ -208,7 +237,8 @@ class Main(QMainWindow):
         if not name:
             self.warn("Please Input Your Name")
             return
-        new_signal = self.backend.filter(self.enrollWav[1])
+        self.addUserInfo()
+        new_signal = self.backend.filter(*self.enrollWav)
         print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
         print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
         self.backend.enroll(name, Main.FS, new_signal)
@@ -219,13 +249,6 @@ class Main(QMainWindow):
         self.status("Training Done.")
 
     ####### UI related
-    def upload_avatar(self):
-        fd = QtGui.QFileDialog(self)
-        self.avatarname = fd.getOpenFileName()
-        from os.path import isfile
-        if isfile(self.avatarname):
-            newimage = QtGui.QPixmap(self.avatarname)
-            self.Userimage.setPixmap(newimage)
 
     def getWidget(self, splash):
         t = QtCore.QElapsedTimer()
@@ -235,8 +258,13 @@ class Main(QMainWindow):
             splash.showMessage(str)
             QtCore.QCoreApplication.processEvents()
 
+    def upload_avatar(self):
+        fname = QFileDialog.getOpenFileName(self, "Open JPG File", "", "File (*.jpg)")
+        self.avatarname = fname
+        self.Userimage.setPixmap(QPixmap(fname))
+
     def loadUsers(self):
-        with open("userlist.txt") as db:
+        with open("avatar/metainfo.txt") as db:
             for line in db:
                 tmp = line.split()
                 self.userdata.append(tmp)
@@ -251,23 +279,24 @@ class Main(QMainWindow):
                     self.Usersex.setCurrentIndex(1)
                 else:
                     self.Usersex.setCurrentIndex(0)
-                from os.path import isfile
-                if isfile(user[3]):
-                    self.avatarname = user[3]
-                    newimage = QtGui.QPixmap(user[3])
-                    self.Userimage.setPixmap(newimage)
+                self.Userimage.setPixmap(self.avatars[str(user[0])])
 
     def updateUserInfo(self):
         userindex = self.Userchooser.currentIndex() - 1
-        self.userdata[userindex][0] = unicode(self.Username.displayText())
-        self.userdata[userindex][1] = self.Userage.value()
+        u = self.serdata[userindex]
+        u[0] = unicode(self.Username.displayText())
+        u[1] = self.Userage.value()
         if self.Usersex.currentIndex():
-            self.userdata[userindex][2] = 'F'
+            u[2] = 'F'
         else:
-            self.userdata[userindex][2] = 'M'
-        if self.avatarname:
-            self.userdata[userindex][3] = self.avatarname
-        print self.userdata
+            u[2] = 'M'
+        with open("avatar/metainfo.txt","w") as db:
+            for user in self.userdata:
+                for i in range(3):
+                    db.write(str(user[i]) + " ")
+                db.write("\n")
+
+    def writeuserdata(self):
         db = open("userlist.txt","w")
         for user in self.userdata:
             for i in range (0,4):
@@ -281,6 +310,24 @@ class Main(QMainWindow):
         self.Usersex.setCurrentIndex(0)
         defaultimage = QPixmap(u"image/nouser.jpg")
         self.Userimage.setPixmap(defaultimage)
+
+    def addUserInfo(self):
+        for user in self.userdata:
+            if user[0] == unicode(self.Username.displayText()):
+                return
+        newuser = []
+        newuser.append(unicode(self.Username.displayText()))
+        newuser.append(self.Userage.value())
+        if self.Usersex.currentIndex():
+            newuser.append('F')
+        else:
+            newuser.append('M')
+        if self.avatarname:
+            shutil.copy(self.avatarname, 'avatar/' + user[0] + '.jpg')
+        self.userdata.append(newuser)
+        self.writeuserdata()
+        self.Userchooser.addItem(unicode(self.Username.displayText()))
+
 
     ############# UTILS
     def warn(self, s):
@@ -329,6 +376,14 @@ class Main(QMainWindow):
         fname = QFileDialog.getOpenFileName(self, "Open Data File:", "", "Wav File  (*.wav)")
         fs, signal = wavfile.read(fname)
         self.backend.init_noise(fs, signal)
+
+    def load_avatar(self, dirname):
+        self.avatars = {}
+        for f in glob.glob(dirname + '/*.jpg'):
+            name = os.path.basename(f).split('.')[0]
+            print f, name
+            self.avatars[name] = QPixmap(f)
+
 
 
 if __name__ == "__main__":

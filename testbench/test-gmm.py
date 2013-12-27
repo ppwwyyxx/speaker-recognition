@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-gmm.py
-# $Date: Wed Dec 25 15:02:57 2013 +0000
+# $Date: Fri Dec 27 01:42:37 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import os
@@ -27,28 +27,31 @@ def get_training_data_fpaths():
 
 def load_gmmset(labels, nr_person):
     gmmset = GMMSet(concurrency=8)
-    for fpath in sorted(glob.glob('model/*')):
+    for fpath in sorted(glob.glob('model.new-mfcc/*')):
         fname = os.path.basename(fpath)
         base = fname[:fname.find('.')]
         if base not in labels:
             continue
-        if fname.endswith("1024.model"):
+        if fname.endswith("32.model"):
             print base, fname
             gmmset.load_gmm(base, fpath)
     return gmmset
 
 def main():
-    nr_person = 30
+    nr_person = 20
     fpaths = get_training_data_fpaths()
     X_train, y_train, X_test, y_test = datautil.read_data(
             fpaths, nr_person)
+
     print "loading gmms ..."
     gmmset = load_gmmset(y_train, nr_person)
 
 #    print "training ..."
 #    ubm = GMM.load(config.ubm_model_file)
-#    gmmset = GMMSet(ubm=ubm, concurrency=8,
-#            verbosity=1, nr_iteration=10)
+#    ubm = None
+#    gmmset = GMMSet(32,ubm=ubm, concurrency=8,
+#            verbosity=1, nr_iteration=100,
+#            threshold=1e-2)
 #    gmmset.fit(X_train, y_train)
 
     print "predicting ..."

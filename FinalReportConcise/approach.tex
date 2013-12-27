@@ -9,114 +9,77 @@
 		\item \textbf{Voice Activity Detection (VAD)} \\
 			An observation found is that, the corpus provided by teacher is
 			nearly noise-free. Therefore we use a simple energy-based approach
-			to remove the silence part. We devide
+			to remove the silence part. We divide the utterance into 20ms frames,
+			and remove the frames that the average energy is below 0.01 times
+			the average energy of the whole utterance.
 
-		\item \textbf{Extract MFCC Feature } \\
-			The utterance is then transformed to MFCC features with $20ms$
-			frame-duration and $10ms$ frame-shift. Further more, we tuned the
-			parameters of MFCC to yield better result. 40 filter banks and 19
-			cepstral coefficent are parameters found to perform best.
+		\item \textbf{Extract MFCC and LPC Features} \\ We extract
+			Mel-frequency cepstral coefficients(MFCC) and Linear Predictive
+			Coding (LPC) features using following parameter found to be
+			optimal:
 
-			We have extensively examined MFCC feature. We found that, the
-			distribution of a person's MFCC feature is truly a good representation
-			of its vocal characteristics. Here are some plots of the first three
-			dimensions of a spearker's MFCC feature.
-			\begin{figure}[!ht]
-				\begin{minipage}{0.48\linewidth}
-					\centering
-					\includegraphics[width=\linewidth]{res/m_002_03.trimed.png}
-					\caption{The first three dimension of a man's MFCC feature}
-				\end{minipage}
-				\hfill
-				\begin{minipage}{0.48\linewidth}
-					\centering
-					\includegraphics[width=\linewidth]{res/m_004_03.trimed.png}
-					\caption{The first three dimension of another man's MFCC feature}
-				\end{minipage}
-				\vfill
-				\begin{minipage}{0.48\linewidth}
-					\centering
-					\includegraphics[width=\linewidth]{res/f_001_03.trimed.png}
-					\caption{The first three dimension of a woman's MFCC feature}
-				\end{minipage}
-				\hfill
-				\begin{minipage}{0.48\linewidth}
-					\centering
-					\includegraphics[width=\linewidth]{res/f_003_03.trimed.png}
-					\caption{The first three dimension of another woman's MFCC feature}
-				\end{minipage}
-			\end{figure}
-
-			It is clearly showed in the figure that, women's MFCC feature distribution
-			tends to have nice ecliptical shapes in first three-dimension,
-			as women's voice pitch is higher than man. And the two men's MFCC figure
-			shows great difference on density over space. It shows high correspondency
-			of the theoretical analysis.
-
-		\item \textbf{Gaussian Mixture Model}
-
-			As the MFCC feature of a utterance of a user is a high-dimensional point
-			set, which comprised a distribution, we model a user by modeling its
-			MFCC feature distribution. The generative model we have primally adopted is
-			Gaussian Mixture Model(GMM).
-
-			In order to conduct a proof-of-concept experiments, we consequently conducted
-			experiments using GMM from \textit{scikit-learn}\cite{scikit-learn}
-			and \textit{PyPR}\cite{pypr}, but it turns out that these implementations
-			are neither of efficiency, nor of decent accuracy. Therefore, we implemented
-			our own GMM model with following improvements:
 			\begin{itemize}
-				\item As GMM is very sensitive to initialization, we use
-					K-Means to initialize the configuration prior to GMM training.
-
-				\item Further more, we use an improved algorithm of
-					K-means++\cite{arthur2007k} named K-meansII\cite{bahmani2012scalable},
-					which outperforms both naive K-means and K-means++ in both
-					efficiency and accuracy. For detailed algorithm description,
-					please consult the orignal paper.
-
-				\item All above algorithms (K-means, K-means++, K-meansII and
-					GMM) are implemented utilizing multi-core CPUs in
-					thread level. Experiments shows that our implementation
-					scales nearly linearly with number of cores.
-
-				\item In order to futher speed up the training process,
-					we examined the time consuming part of GMM algorithm,
-					which lies in extensive use of exponential function.
-					Therefore, we rewrite exponential function using 5-order polynomial
-					approximation using \textbf{SSE} instructions, which only
-					introduced an numerical error less than $10^{-7}$.
-					The running time of the training process cut by half when using
-					our optimization.
+				\item Common parameters:
+					\begin{itemize}
+						\item Frame size: 32ms
+						\item Frame shift: 16ms
+						\item Preemphasis coefficient: 0.95
+					\end{itemize}
+				\item MFCC parameters:
+					\begin{itemize}
+						\item number of cepstral coefficient: 19
+						\item number of filter banks: 55
+						\item maximal frequency of the filter bank: 6000
+					\end{itemize}
+				\item LPC Parameters:
+					\begin{itemize}
+						\item number of coefficient: 15
+					\end{itemize}
 			\end{itemize}
 
-			The efficiency we achieved enables us to build a
-            GUI system with more powerful features, if embeded with our GMM training techniques.
+			and then concatenate the two feature vectors of the same frame forming
+			a larger feature vector of 19 + 15 = 34 dimension.
 
-			Further more, our implementation of GMM outperforms the GMM library
-			aforementioned in terms of recognition accuracy.
+		\item \textbf{Gaussian Mixture Model}
+			We use Gaussian Mixture Model modeling a speaker. Some improvements made:
+			\begin{itemize}
+				\item Performance: \\
+					We investigate the effect of initialization of GMM during
+					training. We implemented GMM with
+					K-meansII\cite{bahmani2012scalable}, which is an improved
+					version of K-means++\cite{arthur2007k} to initialize the
+					mean vector of GMM. Results shows improvements compared
+					to GMM provided by \textbf{scikit-learn\cite{scikit-learn}}.
+				\item Efficiency: \\
+					\begin{itemize}
+						\item We provide a parallel version of GMM, especially
+							optimized to train large Universal Background Model(UBM).
+						\item We further improve efficiency by utilizing
+							SSE instruction in computing exponential function
+							using polynomial approximation. This can speed up
+							the training procedure by a factor of two.
+					\end{itemize}
 
-			For detailed efficiency and perfomance benchmark, see \secref{result}
+		\item \textbf{Universal Background Model}
+			As we are providing continuous speech close-set diarization function in
+			GUI, we adopt Universal Background Model(UBM) as imposter model,
+			and use likelihood ratio test to make reject
+			decisions.\cite{reynolds2000speaker}
+
+			When using conversation mode in GUI (will be present later),
+			GMM model of each user is adapted from a pre-trained UBM
+			using method described in \cite{reynolds2000speaker}.
 
 		\item \textbf{Continuous restricted Boltzmann Machine(CRBM)}
 
-			Restricted Boltzmann Machine(RBM) is generative stochastic neural
-			network that can learn a probability distribution over its set of
-			inputs\cite{rbm_wiki}. But original version of RBM can only deal
-			with binary inputs. \cite{chen2003continuous} proposed and extension called
-			Continuous restricted Boltzmann Machine, which can deal with real-valued
-			inputs. RBM is a two-layer neural network, in which one layer called
-			visible layer (the input), and another called hidden layer. The neurons
-			in hidden layer controls the model complexity and the performance of
-			the network. The Gibbs sampling of hidden layer can be seen as a
-			representation of the original data. Therefore RBMs can be used
-			as an auto feature-extractor.
-
-			Both RBM and CRBM can be trained using Contrastive Divergence learning.
-
-			RBM has a ability to, given an input(visible layer), reconstruct a visible
-			layer that is similar to the input. This demonstrates the modeling essence
-			of RBM. \figref{crbm} illustrate original MFCC data and the sampled output of
+			Restricted Boltzmann Machine(RBM) is generative stochastic
+			two-layer neural network that can learn a probability distribution
+			over its set of binary inputs\cite{rbm_wiki}.  Continuous
+			restricted Boltzmann Machine(CRBM)\cite{chen2003continuous} extends
+			its ability to real-valued inputs.  RBM has a ability to, given an
+			input(visible layer), reconstruct a visible layer that is similar
+			to the input.  \figref{crbm} illustrate original MFCC data and the
+			sampled output of
 			reconstructed data from CRBM.
 			\begin{figure}[!ht]
 				\label{fig:crbm}
@@ -135,13 +98,9 @@
 				\end{minipage}
 			\end{figure}
 
-			It turns out that, although CRBM has good modeling ability, but
-			due to the inconsiderate of the time-varing property of sequential
-			signal, although experiments we conducted using CRBM indicate
-			considerable performance on speaker recognition task, using CRBM
-			naively as a substitution of GMM did not yield better result till now.
 
 		\item \textbf{JFA}:
+			% TODO: wyx shorter version
 
           \textbf{Factor Analysis} is a typical method which behave
           very well in classification problems, due to its ability to
@@ -183,14 +142,12 @@
 \subsection{Recognition}
 	Recognition procedure follows steps below:
 	\begin{enumerate}
-		\item Record a short utterance of the speaker (typically 5 seconds)
+		\item Record a short utterance of the speaker (typically less than 5 seconds)
 		\item Preprocess the utterance using first two steps described in
-			\secref{approach_enrollment}, e.g, VAD and MFCC feature extraction.
-		\item Compute the `score' of the MFCC featuresextraced for each model of persons
-			enrolled, and adopt person corresponding the model which gives highest score to be the
+			\secref{approach_enrollment}, e.g, VAD, MFCC and LPC feature extraction.
+		\item Compute the `score' of each person enrolled, and adopt person
+			corresponding the model which gives highest score to be the
 			recognition result.
 
-			A typical form of score is log-likelihood (or enery in RBM case).
-
+			A typical form of score is log-likelihood (or energy in RBM case).
 	\end{enumerate}
-

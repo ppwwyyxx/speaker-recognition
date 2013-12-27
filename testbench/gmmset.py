@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: gmmset.py
-# $Date: Fri Dec 27 02:02:14 2013 +0800
+# $Date: Fri Dec 27 03:13:12 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import operator
@@ -42,7 +42,7 @@ class GMMSet(object):
         return Xp, yp
 
     def auto_tune_parameter(self, X, y):
-        if ubm is None:
+        if self.ubm is None:
             return
         # TODO
 

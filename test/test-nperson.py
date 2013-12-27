@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-nperson.py
-# $Date: Thu Dec 26 02:12:57 2013 +0000
+# $Date: Fri Dec 27 03:08:25 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -14,9 +14,11 @@ import numpy as np
 import multiprocessing
 import operator
 from collections import defaultdict
-from sklearn.mixture import GMM
+#from sklearn.mixture import GMM
+from gmm.python.pygmm import GMM
 from feature import BOB, LPC, MFCC, get_extractor
 
+from multiprocess import MultiProcessWorker
 concurrency = multiprocessing.cpu_count()
 from sample import Sample
 
@@ -150,12 +152,12 @@ def main():
 
     dirs = sys.argv[1:]
 
-    fout = open("final-log/nperson-sklearn.log", 'a')
+    fout = open("final-log/nperson-newg-mix-t5.log", 'a')
     sys.stdout = fout
 
     for nr_person in [4, 6, 8, 10, 12, 14, 16, 18, 20, 25, 30, 40, 50, 60, 80]:
         print "Nperson: ", nr_person
-        train_duration = 15
+        train_duration = 20
         test_duration = 5
         nr_test_fragment_per_person = 50
 

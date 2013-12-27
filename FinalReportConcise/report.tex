@@ -1,0 +1,58 @@
+%
+% $File: report.tex
+% $Date: Fri Dec 27 21:19:54 2013 +0800
+%
+
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{zhspacing,url,amsmath,amssymb,verbatim}
+\usepackage{pdfpages}
+\zhspacing
+\usepackage{listings}
+\usepackage[hyperfootnotes=false,colorlinks,linkcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage[backend=biber]{biblatex}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+\usepackage{cases}
+\usepackage{environ}
+\usepackage{array}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage{caption}
+%\usepackage{tikz}
+%\usepackage{dot2texi}
+
+\input{mint-defs.tex}
+%\input{pandoc-defs.tex}
+
+\newcommand{\figref}[1]{\hyperref[fig:#1]{Figure.\ref*{fig:#1}}}
+\newcommand{\tableref}[1]{\hyperref[table:#1]{Table.\ref*{table:#1}}}
+\newcommand{\centerize}[1]{\begin{center} #1 \end{center}}
+\newcommand{\secref}[1]{\hyperref[sec:#1]{Section.\ref*{sec:#1}}}
+\newcommand{\appref}[1]{\hyperref[app:#1]{App.\ref*{app:#1}}}
+
+
+\newcommand{\cmd}[1]{{\it #1}}
+\newcommand{\ccmd}[1]{\centerize{\cmd{#1}}}
+
+\title{Digital Signal Processing: Speaker Recognition \\ Final Report \\ Concise Version}
+\author{Xinyu Zhou, Yuxin Wu, and Tiezheng Li\\ Tsinghua University}
+\date{}
+
+\bibliography{refs.bib}
+\begin{document}
+
+\fontsize{11pt}{1.4em}
+\setlength{\baselineskip}{1.6em}
+\maketitle
+
+\input{dataset}
+\input{approach}
+\input{result}
+\input{gui}
+
+\printbibliography
+
+\end{document}
+

@@ -1,0 +1,61 @@
+\section{GUI}
+	This section describes the design of Graphic User Interface to accomodate our system.
+\subsection{Functional Requirements}
+	The GUI consists of following functions:
+	\begin{itemize}
+		\item \textbf{Enrollment of speaker} \\
+			A new user can be dynamically add to this system.\
+			when enrollment starts, the user is prompted to input
+			his identifications, e.g, name, age, sex, a photo would
+			be better, and so on.
+
+			Then he is required to record a piece of utterance.
+			An article will be prompted to the user in case he/she
+			is introrse to say something, he/she can read the article.
+
+			There are two ways to enroll a user:
+			\begin{itemize}
+				\item \textbf{Enroll by speaking}
+					A progress indicator of enrollment process will be present to user.
+					When enough utterance is collected, the user will be given
+					message about the success of enrollment.
+
+				\item \textbf{Enroll by pre-recorded voice}
+					User can upload a pre-recorded voice of a speaker. The system
+					accepts the voice given and the enrollment of a speaker is done.
+			\end{itemize}
+
+		\item \textbf{Recognition of a user} \\
+			A enrolled user present and record a piece of utterance,
+			the system tells who the person is.
+
+		\item \textbf{Conversation Recognition mode} \\
+			When the system turn into Conversation Recognition mode,
+			it will continuously collect voice data, and determine
+			who is speaking right now. If a photo is given in previous
+			enrollment process, current speaker's photo will show up
+			in screen; otherwise the name will be shown.
+
+		\item \textbf{Verification mode} \\
+			A user first claim its identity, then the system required
+			the user to record a piece of utterance. The system will
+			then display whether the speaker is the speaker that claimed
+			or an impostor.
+
+			The availability of this function is still under our investigation.
+
+	\end{itemize}
+
+\subsection{Non-Functional Requirements}
+	\begin{itemize}
+		\item \textbf{Enrollment Efficiency} \\
+			The enrollment procedure involves training GMM or RBM model, which
+			is a time consuming process. A continuous flow of user enrollment
+			should not be interupted.
+		\item \textbf{Platform-Independency} \\
+			As we program using Python, our program should run on
+			platform that supports Python.
+		\item \textbf{Recognition Accuracy} \\
+			The performance of the system should be good enough to
+			make this system could be carried out in practical use.
+	\end{itemize}

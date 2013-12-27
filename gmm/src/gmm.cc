@@ -1,6 +1,6 @@
 /*
  * $File: gmm.cc
- * $Date: Fri Dec 27 01:53:42 2013 +0000
+ * $Date: Fri Dec 27 02:50:18 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -30,6 +30,12 @@ static const real_t SQRT_2_PI = 2.5066282746310002;
 
 
 static const real_t EPS = 2.2204460492503131e-16;
+
+static real_t safe_log(real_t x) {
+	if (x <= 0)
+		x = 1e-15;
+	return log(x);
+}
 
 Gaussian::Gaussian(int dim, int covariance_type) :
 	dim(dim), covariance_type(covariance_type) {
@@ -82,7 +88,7 @@ real_t Gaussian::log_probability_of(std::vector<real_t> &x) {
 				real_t &s = sigma[i];
 				real_t s2 = s * s;
 				real_t d = (x[i] - mean[i]);
-				prob += -log(SQRT_2_PI * s) - 1.0 / (2 * s2) * d * d;
+				prob += -safe_log(SQRT_2_PI * s) - 1.0 / (2 * s2) * d * d;
 			}
 			break;
 		case COVTYPE_FULL:
@@ -225,7 +231,7 @@ real_t GMM::log_probability_of(std::vector<real_t> &x) {
 	for (int i = 0; i < nr_mixtures; i ++) {
 		prob += weights[i] * gaussians[i]->probability_of(x);
 	}
-	return log(prob);
+	return safe_log(prob);
 }
 
 real_t GMM::log_probability_of_fast_exp(std::vector<real_t> &x, double *buffer) {
@@ -234,7 +240,7 @@ real_t GMM::log_probability_of_fast_exp(std::vector<real_t> &x, double *buffer) 
 	for (int i = 0; i < nr_mixtures; i ++) {
 		prob += weights[i] * gaussians[i]->probability_of_fast_exp(x, buffer);
 	}
-	return log(prob);
+	return safe_log(prob);
 }
 
 real_t GMM::probability_of(std::vector<real_t> &x) {
@@ -473,11 +479,15 @@ void GMMTrainerBaseline::iteration(std::vector<std::vector<real_t>> &X) {
 		GuardedTimer timer("normalize probability", enable_guarded_timer);
 		{
 			Threadpool pool(concurrency);
+			static const double MIN_PROB_SUM = 1e-15;
 			for (int i = 0; i < n; i ++) {
 				auto task = [&](int i) {
 					real_t &sum = prob_sum[i] = 0;
 					for (int k = 0; k < gmm->nr_mixtures; k ++)
 						sum += prob_of_y_given_x[k][i];
+					if (!(sum > 0)) {
+						sum = MIN_PROB_SUM;
+					}
 					assert(sum > 0);
 				};
 				pool.enqueue(bind(task, i), 1);

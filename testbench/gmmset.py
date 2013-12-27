@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: gmmset.py
-# $Date: Fri Dec 27 03:20:50 2013 +0000
+# $Date: Fri Dec 27 03:25:19 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import operator
@@ -75,9 +75,9 @@ class GMMSet(object):
         max_tup = max(enumerate(scores), key=operator.itemgetter(1))
         ubm_score = self.gmm_score(self.ubm, x) / x_len
         if max_tup[1] - ubm_score < self.reject_threshold:
-            print max_tup[1], ubm_score, max_tup[1] - ubm_score
+#            print max_tup[1], ubm_score, max_tup[1] - ubm_score
             return None
-        print scores, ubm_score
+#        print scores, ubm_score
         return self.y[max_tup[0]]
 
     def predict_with_reject(self, X):

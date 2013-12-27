@@ -26,7 +26,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Enrollment">
     <attribute name="title">
@@ -327,7 +327,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Choose File...</string>
+       <string>Choose File</string>
       </property>
      </widget>
      <widget class="QPushButton" name="noiseButton">
@@ -335,7 +335,7 @@
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>191</width>
+        <width>171</width>
         <height>27</height>
        </rect>
       </property>
@@ -359,9 +359,9 @@
      <widget class="QPushButton" name="loadNoise">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>210</x>
         <y>40</y>
-        <width>171</width>
+        <width>181</width>
         <height>27</height>
        </rect>
       </property>
@@ -953,9 +953,9 @@
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>30</x>
        <y>190</y>
-       <width>261</width>
+       <width>291</width>
        <height>51</height>
       </rect>
      </property>

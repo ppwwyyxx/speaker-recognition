@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 11:53:42 2013 +0800
+# Date: Fri Dec 27 12:57:15 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -37,7 +37,7 @@ class RecorderThread(QThread):
             i = ord(data[0]) + 256 * ord(data[1])
             if i > 32768:
                 i -= 65536
-            stop = self.main.add_record_data(i)
+            stop = self.main.a  dd_record_data(i)
             if stop:
                 break
 
@@ -271,7 +271,6 @@ class Main(QMainWindow):
         self.status("Training Done.")
 
     ####### UI related
-
     def getWidget(self, splash):
         t = QtCore.QElapsedTimer()
         t.start()
@@ -321,12 +320,11 @@ class Main(QMainWindow):
                 db.write("\n")
 
     def writeuserdata(self):
-        db = open("userlist.txt","w")
-        for user in self.userdata:
-            for i in range (0,4):
-                db.write(str(user[i]) + " ")
-            db.write("\n")
-        db.close()
+        with open("userlist.txt","w") as db:
+            for user in self.userdata:
+                for i in range (0,4):
+                    db.write(str(user[i]) + " ")
+                db.write("\n")
 
     def clearUserInfo(self):
         self.Username.setText("")
@@ -367,12 +365,13 @@ class Main(QMainWindow):
 
     def dump(self):
         fname = QFileDialog.getSaveFileName(self, "Save Data to:", "", "")
-        try:
-            self.backend.dump(fname)
-        except Exception as e:
-            self.warn(str(e))
-        else:
-            self.status("Dumped to file: " + fname)
+        if fname:
+            try:
+                self.backend.dump(fname)
+            except Exception as e:
+                self.warn(str(e))
+            else:
+                self.status("Dumped to file: " + fname)
 
     def load(self):
         fname = QFileDialog.getOpenFileName(self, "Open Data File:", "", "")

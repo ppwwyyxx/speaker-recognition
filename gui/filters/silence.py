@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: silence.py
-# $Date: Fri Dec 27 04:45:11 2013 +0800
+# $Date: Fri Dec 27 14:38:55 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
@@ -37,7 +37,7 @@ def remove_silence(fs, signal,
     while i < siglen:
         subsig = signal[i:i + frame_length]
         ave_energy = np.sum(subsig ** 2) / float(len(subsig))
-        if ave_energy < average_energy * perc or ave_energy < 10000:
+        if ave_energy < average_energy * perc:
             i += frame_length
         else:
             sigaddlen = min(frame_shift_length, len(subsig))

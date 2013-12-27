@@ -40,7 +40,7 @@ from gmmset import GMM
 
 class ModelInterface(object):
 
-    UBM_MODEL_FILE = 'model/ubm.mixture-256.nperson-300.immature.model'
+    UBM_MODEL_FILE = 'model/ubm.mixture-64.utt-300.model'
 
     def __init__(self):
         self.features = defaultdict(list)

@@ -1,0 +1,1347 @@
+2
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  0.745419025421
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  3.9592730999
+predicting...
+time elapsed:  0.435734033585
+200/200 1.0000
+['../test-data/corpus.silence-removed/Style_Reading/']
+(2, 30, 5, 100)
+4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  1.18562602997
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  9.68766713142
+predicting...
+time elapsed:  1.6238758564
+400/400 1.0000
+['../test-data/corpus.silence-removed/Style_Reading/']
+(4, 30, 5, 100)
+6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  1.68648982048
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  16.6355450153
+predicting...
+time elapsed:  3.56980013847
+595/600 0.9917
+['../test-data/corpus.silence-removed/Style_Reading/']
+(6, 30, 5, 100)
+8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  2.10592699051
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  20.5165629387
+predicting...
+time elapsed:  6.28490495682
+799/800 0.9988
+['../test-data/corpus.silence-removed/Style_Reading/']
+(8, 30, 5, 100)
+10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  2.62911200523
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  26.538667202
+predicting...
+time elapsed:  9.7992618084
+961/1000 0.9610
+['../test-data/corpus.silence-removed/Style_Reading/']
+(10, 30, 5, 100)
+12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  3.03531908989
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  32.0856199265
+predicting...
+time elapsed:  14.065611124
+1162/1200 0.9683
+['../test-data/corpus.silence-removed/Style_Reading/']
+(12, 30, 5, 100)
+14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  3.47357702255
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  43.3572731018
+predicting...
+time elapsed:  19.1620988846
+1357/1400 0.9693
+['../test-data/corpus.silence-removed/Style_Reading/']
+(14, 30, 5, 100)
+16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  3.88108110428
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  47.3894622326
+predicting...
+time elapsed:  25.0075500011
+1556/1600 0.9725
+['../test-data/corpus.silence-removed/Style_Reading/']
+(16, 30, 5, 100)
+18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  4.48738217354
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  46.3400728703
+predicting...
+time elapsed:  31.6036729813
+1696/1800 0.9422
+['../test-data/corpus.silence-removed/Style_Reading/']
+(18, 30, 5, 100)
+20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  4.91884613037
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  53.4277260303
+predicting...
+time elapsed:  39.0011389256
+1957/2000 0.9785
+['../test-data/corpus.silence-removed/Style_Reading/']
+(20, 30, 5, 100)
+25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+generating data ...
+calculating features...
+time elapsed:  6.00244879723
+training ...
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+nr_instance   :   2999
+nr_dim        :   13
+nr_mixture    :   32
+min_covar     :   0.001000
+threshold     :   0.000100
+nr_iteration  :   1000
+init_with_kmeans: 0
+concurrency   :   8
+verbosity     :   -1
+time elapsed:  68.9806621075
+predicting...
+time elapsed:  60.8136060238
+2404/2500 0.9616
+['../test-data/corpus.silence-removed/Style_Reading/']
+(25, 30, 5, 100)

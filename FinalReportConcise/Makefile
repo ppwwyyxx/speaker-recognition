@@ -6,7 +6,7 @@ READER=evince
 all: view
 
 rebuild  output/$(TARGET).pdf: *.tex *.bib output
-	cd output && rm -f *.tex *.bib && ln -s ../*.tex ../*.bib .
+	cd output && rm -f *.tex *.bib && ln -fs ../*.tex ../*.bib ../img .
 	cd output && $(TEX) $(TARGET).tex && $(BIBTEX) $(TARGET) && $(TEX) $(TARGET).tex
 
 output:

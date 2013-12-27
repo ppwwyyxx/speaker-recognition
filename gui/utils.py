@@ -15,5 +15,10 @@ def time_str(seconds):
     sec = int(seconds % 60)
     return "{:02d}:{:02d}".format(minutes, sec)
 
+def monophonic(signal):
+    if signal.ndim > 1:
+        signal = signal[:,0]
+    return signal
+
 if __name__ == "__main__":
     print time_str(100.0)

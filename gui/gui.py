@@ -19,7 +19,7 @@ from PyQt4.QtGui import *
 from PyQt4 import QtCore,QtGui
 
 import pyaudio
-from utils import write_wav, time_str
+from utils import write_wav, time_str, monophonic
 from interface import ModelInterface
 
 FORMAT=pyaudio.paInt16
@@ -241,6 +241,8 @@ class Main(QMainWindow):
         self.status(fname)
         self.enrollFileName.setText(fname)
         fs, signal = wavfile.read(fname)
+        signal = monophonic(signal)
+        print signal
         self.enrollWav = (fs, signal)
 
     def stop_enroll_record(self):

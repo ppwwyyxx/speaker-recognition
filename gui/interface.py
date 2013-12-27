@@ -40,6 +40,8 @@ from gmmset import GMM
 
 class ModelInterface(object):
 
+    UBM_MODEL_FILE = 'model/ubm.mixture-256.nperson-300.immature.model'
+
     def __init__(self):
         self.features = defaultdict(list)
         self.gmmset = GMMSet()
@@ -56,7 +58,7 @@ class ModelInterface(object):
         self.features[name].extend(feat)
 
     def train(self):
-        self.gmmset = GMMSet(ubm=GMM.load('model/ubm.mixture-32.person-20.immature.model'))
+        self.gmmset = GMMSet(ubm=GMM.load(self.UBM_MODEL_FILE))
         start = time.time()
         print "Start training..."
         for name, feats in self.features.iteritems():

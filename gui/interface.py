@@ -1,11 +1,12 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Fri Dec 27 03:03:31 2013 +0800
+# Date: Fri Dec 27 03:53:45 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
-from sklearn.mixture import GMM
+#from sklearn.mixture import GMM
+import operator
 import numpy as np
 from scipy.io import wavfile
 import time
@@ -14,25 +15,28 @@ from filters.VAD import VAD
 
 from feature import mix_feature
 
-#from gmmset import GMMSetPyGMM as GMMSet
-class GMMSet(object):
-    def __init__(self, gmm_order = 32):
-        self.gmms = []
-        self.gmm_order = gmm_order
-        self.y = []
+from gmmset import GMMSetPyGMM as GMMSet
+from gmmset import GMM
+#class GMMSet(object):
+    #def __init__(self, gmm_order = 32):
+        #self.gmms = []
+        #self.gmm_order = gmm_order
+        #self.y = []
 
-    def fit_new(self, x, label):
-        self.y.append(label)
-        gmm = GMM(self.gmm_order)
-        gmm.fit(x)
-        self.gmms.append(gmm)
+    #def fit_new(self, x, label):
+        #self.y.append(label)
+        #gmm = GMM(self.gmm_order)
+        #gmm.fit(x)
+        #self.gmms.append(gmm)
 
-    def gmm_score(self, gmm, x):
-        return np.exp(np.sum(gmm.score(x)) / 10000)
+    #def gmm_score(self, gmm, x):
+        #return np.sum(gmm.score(x))
 
-    def predict(self, x):
-        scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
-        return [(self.y[index], value) for (index, value) in enumerate(scores)]
+    #def predict(self, x):
+        #scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
+        #result = [(self.y[index], value) for (index, value) in enumerate(scores)]
+        #p = max(result, key=operator.itemgetter(1))
+        #return p[0]
 
 class ModelInterface(object):
 
@@ -52,16 +56,22 @@ class ModelInterface(object):
         self.features[name].extend(feat)
 
     def train(self):
-        self.gmmset = GMMSet()
+        self.gmmset = GMMSet(ubm=GMM.load('model/ubm.mixture-32.person-20.immature.model'))
         start = time.time()
         print "Start training..."
         for name, feats in self.features.iteritems():
             self.gmmset.fit_new(feats, name)
         print time.time() - start, " seconds"
 
-    def predict(self, fs, signal):
+    def predict(self, fs, signal, reject=False):
         feat = mix_feature((fs, signal))
-        return self.gmmset.predict(feat)
+        if reject:
+            try:
+                l = self.gmmset.predict_one_with_rejection(feat)
+                return l
+            except Exception as e:
+                print str(e)
+        return self.gmmset.predict_one(feat)
 
     def dump(self, fname):
         with open(fname, 'w') as f:

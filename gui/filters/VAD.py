@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: VAD.py
-# Date: Fri Dec 27 02:50:04 2013 +0800
+# Date: Fri Dec 27 03:36:51 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from noisered import NoiseReduction
@@ -18,6 +18,8 @@ class VAD(object):
         self.nr.init_noise(fs, signal)
 
     def filter(self, fs, signal):
+        if not self.initted:
+            raise "NoiseFilter Not Initialized"
         nred = self.nr.filter(fs, signal)
         removed = remove_silence(fs, nred)
         return removed

@@ -1,6 +1,7 @@
 \section{Approach}
 	In this section we will present our aproach to tackle the speaker recognition problem.
 	There're two steps in a complete speaker recognition system: enrollment and recognition.
+
 \subsection{Erollment}
 	\label{sec:approach_enrollment}
 	An utterance of a user is collected during enrollment procedure.
@@ -12,6 +13,9 @@
 			to remove the silence part. We divide the utterance into 20ms frames,
 			and remove the frames that the average energy is below 0.01 times
 			the average energy of the whole utterance.
+
+            We also tried noise reduction technique from sox and LTSD VAD method.
+        The migrated pipeline of this two method performes better than the naive energy-based VAD.
 
 		\item \textbf{Extract MFCC and LPC Features} \\ We extract
 			Mel-frequency cepstral coefficients(MFCC) and Linear Predictive

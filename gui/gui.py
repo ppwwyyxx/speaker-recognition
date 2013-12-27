@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 04:48:42 2013 +0800
+# Date: Fri Dec 27 11:53:42 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -43,7 +43,7 @@ class RecorderThread(QThread):
 
 class Main(QMainWindow):
     CONV_INTERVAL = 100
-    CONV_DURATION = 1000
+    CONV_DURATION = 2000
     FS = 8000
     TEST_DURATION = 3
 
@@ -96,10 +96,10 @@ class Main(QMainWindow):
 
         #default user image setting
         self.avatarname = "image/nouser.jpg"
-        defaultimage = QPixmap(self.avatarname)
-        self.Userimage.setPixmap(defaultimage)
-        self.recoUserImage.setPixmap(defaultimage)
-        self.convUserImage.setPixmap(defaultimage)
+        self.defaultimage = QPixmap(self.avatarname)
+        self.Userimage.setPixmap(self.defaultimage)
+        self.recoUserImage.setPixmap(self.defaultimage)
+        self.convUserImage.setPixmap(self.defaultimage)
         self.load_avatar('avatar/')
 
         self.convRecord.clicked.connect(self.start_conv_record)
@@ -155,6 +155,7 @@ class Main(QMainWindow):
 
     ############## conversation
     def start_conv_record(self):
+        self.conv_result_list = []
         self.start_record()
         self.conv_now_pos = 0
         self.conv_timer = QTimer(self)
@@ -169,23 +170,23 @@ class Main(QMainWindow):
         segment_shift = int(Main.CONV_INTERVAL * Main.FS / 1000)
         segment_len = int(Main.CONV_DURATION * Main.FS / 1000)
         self.conv_now_pos += segment_shift
-        start = self.conv_now_pos - segment_len
-        if start < 0:
-            start = 0
+        start = max([self.conv_now_pos - segment_len, 0])
         segment = self.recordData[start: self.conv_now_pos]
         signal = np.array(segment, dtype=NPDtype)
-        signal = self.backend.filter(Main.FS, signal)
+        label = None
         if len(signal) > 50:
-            label = self.backend.predict(Main.FS, signal, True)
-            print label
-            if label:
-                self.convUsername.setText(label)
-                self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
-                self.convUserImage.setPixmap(self.avatars[str(label)])
-            else:
-                self.convUsername.setText("Unknown")
+            signal = self.backend.filter(Main.FS, signal)
+            if len(signal) > 50:
+                label = self.backend.predict(Main.FS, signal, True)
+        self.conv_result_list.append(label)
+        print label
+        if label:
+            self.convUsername.setText(label)
+            self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
+            self.convUserImage.setPixmap(self.get_avatar(label))
         else:
             self.convUsername.setText("Unknown")
+            self.convUserImage.setPixmap(self.defaultimage)
 
 
     ###### RECOGNIZE
@@ -211,13 +212,15 @@ class Main(QMainWindow):
         self.recoUsername.setText(label)
         print label
         self.Alading.setPixmap(QPixmap(u"image/a_result.png"))
-        self.recoUserImage.setPixmap(self.avatars[str(label)])
+        self.recoUserImage.setPixmap(self.get_avatar(label))
 
         # TODO To Delete
         write_wav('reco.wav', Main.FS, self.recoRecordData)
 
     def reco_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
+        if not fname:
+            return
         self.status(fname)
         fs, signal = wavfile.read(fname)
         self.reco_remove_update(fs, signal)
@@ -233,6 +236,8 @@ class Main(QMainWindow):
     ########## ENROLL
     def enroll_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
+        if not fname:
+            return
         self.status(fname)
         self.enrollFileName.setText(fname)
         fs, signal = wavfile.read(fname)
@@ -275,6 +280,8 @@ class Main(QMainWindow):
 
     def upload_avatar(self):
         fname = QFileDialog.getOpenFileName(self, "Open JPG File", "", "File (*.jpg)")
+        if not fname:
+            return
         self.avatarname = fname
         self.Userimage.setPixmap(QPixmap(fname))
 
@@ -294,7 +301,7 @@ class Main(QMainWindow):
                     self.Usersex.setCurrentIndex(1)
                 else:
                     self.Usersex.setCurrentIndex(0)
-                self.Userimage.setPixmap(self.avatars[str(user[0])])
+                self.Userimage.setPixmap(self.get_avatar(user[0]))
 
     def updateUserInfo(self):
         userindex = self.Userchooser.currentIndex() - 1
@@ -323,8 +330,7 @@ class Main(QMainWindow):
         self.Username.setText("")
         self.Userage.setValue(0)
         self.Usersex.setCurrentIndex(0)
-        defaultimage = QPixmap(u"image/nouser.jpg")
-        self.Userimage.setPixmap(defaultimage)
+        self.Userimage.setPixmap(self.defaultimage)
 
     def addUserInfo(self):
         for user in self.userdata:
@@ -368,12 +374,13 @@ class Main(QMainWindow):
 
     def load(self):
         fname = QFileDialog.getOpenFileName(self, "Open Data File:", "", "")
-        try:
-            self.backend = ModelInterface.load(fname)
-        except Exception as e:
-            self.warn(str(e))
-        else:
-            self.status("Loaded from file: " + fname)
+        if fname:
+            try:
+                self.backend = ModelInterface.load(fname)
+            except Exception as e:
+                self.warn(str(e))
+            else:
+                self.status("Loaded from file: " + fname)
 
     def noise_clicked(self):
         self.recording_noise = not self.recording_noise
@@ -389,8 +396,9 @@ class Main(QMainWindow):
 
     def load_noise(self):
         fname = QFileDialog.getOpenFileName(self, "Open Data File:", "", "Wav File  (*.wav)")
-        fs, signal = wavfile.read(fname)
-        self.backend.init_noise(fs, signal)
+        if fname:
+            fs, signal = wavfile.read(fname)
+            self.backend.init_noise(fs, signal)
 
     def load_avatar(self, dirname):
         self.avatars = {}
@@ -398,6 +406,13 @@ class Main(QMainWindow):
             name = os.path.basename(f).split('.')[0]
             print f, name
             self.avatars[name] = QPixmap(f)
+
+    def get_avatar(self, username):
+        p = self.avatars.get(str(username), None)
+        if p:
+            return p
+        else:
+            return self.defaultimage
 
 
 

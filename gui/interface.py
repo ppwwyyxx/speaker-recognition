@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Fri Dec 27 04:52:20 2013 +0800
+# Date: Fri Dec 27 11:49:42 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -78,13 +78,18 @@ class ModelInterface(object):
         return self.gmmset.predict_one(feat)
 
     def dump(self, fname):
+        self.gmmset.before_pickle()
         with open(fname, 'w') as f:
             pickle.dump(self, f, pickle.HIGHEST_PROTOCOL)
+        self.gmmset.after_pickle()
 
     @staticmethod
     def load(fname):
         with open(fname, 'r') as f:
-            return pickle.load(f)
+            R = pickle.load(f)
+            R.gmmset.after_pickle()
+            return R
+
 
 
 if __name__ == "__main__":

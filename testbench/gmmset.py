@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: gmmset.py
-# $Date: Fri Dec 27 03:47:01 2013 +0800
+# $Date: Fri Dec 27 11:48:44 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import operator
@@ -95,5 +95,15 @@ class GMMSetPyGMM(GMMSet):
     def predict_one(self, x):
         scores = [gmm.score_all(x) for gmm in self.gmms]
         return self.y[max(enumerate(scores), key=operator.itemgetter(1))[0]]
+
+    def before_pickle(self):
+        self.gmms = [x.dumps() for x in self.gmms]
+        self.ubm = self.ubm.dumps()
+
+    def after_pickle(self):
+        self.gmms = [GMM.loads(x) for x in self.gmms]
+        self.ubm = GMM.loads(self.ubm)
+
+
 
 # vim: foldmethod=marker

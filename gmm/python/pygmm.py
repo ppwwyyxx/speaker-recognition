@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: pygmm.py
-# $Date: Wed Dec 25 16:29:10 2013 +0000
+# $Date: Fri Dec 27 11:51:08 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from ctypes import *
@@ -67,6 +67,23 @@ class GMM(object):
 
     def dump(self, model_file):
         pygmm.dump(self.gmm, c_char_p(model_file))
+
+    def dumps(self):
+        tmp_file = "/tmp/tmp-gmm.dump"
+        self.dump(tmp_file)
+        f = open(tmp_file, 'r')
+        s = f.read()
+        f.close()
+        return s
+
+    @staticmethod
+    def loads(s):
+        tmp_file = "/tmp/tmp-gmm.load"
+        f = open(tmp_file, 'wb')
+        f.write(s)
+        f.close()
+        R = GMM.load(tmp_file)
+        return R
 
 
     def _double_array_python_to_ctype(self, X_py):

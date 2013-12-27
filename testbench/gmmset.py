@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: gmmset.py
-# $Date: Fri Dec 27 03:13:12 2013 +0000
+# $Date: Fri Dec 27 03:20:50 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import operator
@@ -15,7 +15,7 @@ from gmm.python.pygmm import GMM
 
 class GMMSet(object):
     def __init__(self, gmm_order=32, ubm=None,
-            reject_threshold=100,
+            reject_threshold=10,
             **kwargs):
         self.kwargs = kwargs
         self.gmms = []
@@ -60,23 +60,28 @@ class GMMSet(object):
         return [self.gmm_score(gmm, x) for gmm in self.gmms]
 
     def predict_one(self, x):
-        scores = predict_one_scores(x)
+        scores = self.predict_one_scores(x)
         return self.y[max(enumerate(scores), key=operator.itemgetter(1))[0]]
 
     def predict(self, X):
         return map(self.predict_one, X)
 
     def predict_one_with_rejection(self, x):
-        assert ubm is not None, \
+        assert self.ubm is not None, \
             "UBM must be given prior to conduct reject prediction."
+        scores = self.predict_one_scores(x)
+        x_len = len(x) # normalize score
+        scores = map(lambda v: v / x_len, scores)
         max_tup = max(enumerate(scores), key=operator.itemgetter(1))
-        ubm_score = self.gmm_score(ubm, x)
+        ubm_score = self.gmm_score(self.ubm, x) / x_len
         if max_tup[1] - ubm_score < self.reject_threshold:
+            print max_tup[1], ubm_score, max_tup[1] - ubm_score
             return None
-        return max_tup[0]
+        print scores, ubm_score
+        return self.y[max_tup[0]]
 
     def predict_with_reject(self, X):
-        return map(self.predict_one_with_reject, X)
+        return map(self.predict_one_with_rejection, X)
 
     def load_gmm(self, label, fname):
         self.y.append(label)

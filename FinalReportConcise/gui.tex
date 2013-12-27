@@ -1,18 +1,18 @@
 \section{GUI}
-	This section describes the design of Graphic User Interface to accomodate our system.
+	This section describes the design and implementation of Graphic User Interface:
 \subsection{Functional Requirements}
-	The GUI consists of following functions:
+	The GUI contains following tabs:
 	\begin{itemize}
-		\item \textbf{Enrollment of speaker} \\
-			A new user can be dynamically add to this system.\
+		\item \textbf{Enrollment} \\
+			A new user can be dynamically add to this system.
 			when enrollment starts, the user is prompted to input
 			his identifications, e.g, name, age, sex, a photo would
-			be better. Experienced users may choose to update their 
-			info in the user list. 
+			be better. Experienced users may choose to update their
+			info in the user list.
 
-			Next the user needs to provide a piece of utterance for 
-			the enrollment and training process. 
-			 
+			Next the user needs to provide a piece of utterance for
+			the enrollment and training process.
+
 			There are two ways to enroll a user:
 			\begin{itemize}
 				\item \textbf{Enroll by speaking}
@@ -30,7 +30,7 @@
 		\item \textbf{Recognition of a user} \\
 			A enrolled user present or record a piece of utterance,
 			the system tells who the person is and show user's avatar.
-			Recognition of multiple pre-recorded files can be done as well. 
+			Recognition of multiple pre-recorded files can be done as well.
 
 		\item \textbf{Conversation Recognition mode} \\
 			When the system turn into Conversation Recognition mode,
@@ -38,16 +38,16 @@
 			who is speaking right now. Current speaker's anvatar will show up
 			in screen; otherwise the name will be shown. The conversation
 			audio can be downloaded and saved.
-			There are some ways to visualize the speaker-distribution in the 
-			conversation. 
+			There are some ways to visualize the speaker-distribution in the
+			conversation.
 			\begin{itemize}
 				\item \textbf{Conversation log}
 					A detailed log, including start time, stop time,
-					current speaker of each period is generated. 
+					current speaker of each period is generated.
 				\item \textbf{Conversation flow graph}
-					A timeline of the conversation is showed by a number of 
+					A timeline of the conversation is showed by a number of
 					talking-clouds joining together, with start time, stop time
-					and users' avatars labeled. Different users are presented 
+					and users' avatars labeled. Different users are presented
 					with different colors.The timeline will flow to the left dynamically
 					just as time elapses. The visualization of the conversation is done
 					in this way.

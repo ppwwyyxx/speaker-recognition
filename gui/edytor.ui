@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>475</width>
-    <height>582</height>
+    <height>551</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,11 +22,11 @@
      <x>10</x>
      <y>10</y>
      <width>451</width>
-     <height>541</height>
+     <height>511</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="Enrollment">
     <attribute name="title">
@@ -210,7 +210,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>80</y>
+        <y>30</y>
         <width>61</width>
         <height>61</height>
        </rect>
@@ -269,7 +269,7 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>90</y>
+        <y>40</y>
         <width>221</width>
         <height>41</height>
        </rect>
@@ -301,7 +301,7 @@
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>100</y>
+        <y>50</y>
         <width>51</width>
         <height>21</height>
        </rect>
@@ -321,7 +321,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>160</y>
+        <y>100</y>
         <width>101</width>
         <height>29</height>
        </rect>
@@ -333,9 +333,9 @@
      <widget class="QPushButton" name="noiseButton">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>171</width>
+        <x>0</x>
+        <y>160</y>
+        <width>201</width>
         <height>27</height>
        </rect>
       </property>
@@ -350,7 +350,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>160</y>
+        <y>100</y>
         <width>241</width>
         <height>31</height>
        </rect>
@@ -360,8 +360,8 @@
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>40</y>
-        <width>181</width>
+        <y>160</y>
+        <width>201</width>
         <height>27</height>
        </rect>
       </property>
@@ -373,7 +373,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>165</y>
+        <y>106</y>
         <width>21</width>
         <height>21</height>
        </rect>
@@ -635,9 +635,9 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>370</y>
+       <y>350</y>
        <width>411</width>
-       <height>151</height>
+       <height>131</height>
       </rect>
      </property>
      <property name="title">
@@ -647,7 +647,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
+        <y>30</y>
         <width>401</width>
         <height>41</height>
        </rect>
@@ -681,7 +681,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>100</y>
+        <y>80</y>
         <width>261</width>
         <height>31</height>
        </rect>
@@ -694,7 +694,7 @@
       <property name="geometry">
        <rect>
         <x>315</x>
-        <y>100</y>
+        <y>80</y>
         <width>96</width>
         <height>31</height>
        </rect>
@@ -715,7 +715,7 @@
        <x>10</x>
        <y>0</y>
        <width>411</width>
-       <height>301</height>
+       <height>311</height>
       </rect>
      </property>
      <property name="title">
@@ -863,113 +863,83 @@
     <widget class="QGroupBox" name="groupBox_4">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>300</y>
-       <width>201</width>
-       <height>191</height>
+       <x>20</x>
+       <y>310</y>
+       <width>401</width>
+       <height>141</height>
       </rect>
      </property>
      <property name="title">
-      <string>Conversation Info</string>
+      <string>Statistics</string>
      </property>
-     <widget class="QTextBrowser" name="Conv_Info">
+     <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>40</x>
+        <y>60</y>
+        <width>96</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Log</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>60</y>
+        <width>96</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Graph</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>60</y>
+        <width>96</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Wav file</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
         <y>30</y>
-        <width>193</width>
-        <height>111</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="Conv_Saveas">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>150</y>
-        <width>96</width>
-        <height>31</height>
+        <width>331</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>Save as..</string>
+       <string>You can choose to generate...</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="Conv_Clear">
+     <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>150</y>
-        <width>96</width>
-        <height>31</height>
+        <x>20</x>
+        <y>100</y>
+        <width>331</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>Clear</string>
+       <string>of your conversation!</string>
       </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QWidget" name="Video">
-    <attribute name="title">
-     <string>Video Mode</string>
-    </attribute>
-    <widget class="QMdiArea" name="mdiArea">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>301</width>
-       <height>201</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QSlider" name="horizontalSlider">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>310</y>
-       <width>301</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="OpenVideo">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>60</y>
-       <width>96</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Open...</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>190</y>
-       <width>291</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>This page is under construction</string>
-     </property>
-    </widget>
+    <zorder>groupBox_4</zorder>
+    <zorder>groupBox_7</zorder>
    </widget>
   </widget>
  </widget>

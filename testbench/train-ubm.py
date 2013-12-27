@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: train-ubm.py
-# $Date: Fri Dec 27 01:57:39 2013 +0000
+# $Date: Fri Dec 27 04:19:58 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import multiprocessing
@@ -40,15 +40,15 @@ def get_all_data_fpaths():
 
 def train_all_together_ubm():
     global nr_mixture
-    nr_person_in_ubm = 20
+    nr_utt_in_ubm = 300
     fpaths = get_all_data_fpaths()
     random.shuffle(fpaths)
-    fpaths = fpaths[:nr_person_in_ubm]
+    fpaths = fpaths[:nr_utt_in_ubm]
     X = datautil.read_raw_data(fpaths)
     gmm = get_gmm()
     gmm.fit(X)
-    gmm.dump('model/ubm.mixture-{}.person-{}.model' . format(
-        nr_mixture, nr_person_in_ubm))
+    gmm.dump('model/ubm.mixture-{}.utt-{}.model' . format(
+        nr_mixture, nr_utt_in_ubm))
 
 def main():
     train_all_together_ubm()

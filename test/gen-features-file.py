@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gen-features-file.py
-# Date: Sun Dec 15 20:12:07 2013 +0800
+# Date: Wed Dec 25 23:53:05 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import glob
@@ -13,8 +13,7 @@ import numpy as np
 import operator
 from collections import defaultdict
 
-import BOB as MFCC
-#import MFCC
+from feature import BOB, LPC, MFCC, get_extractor
 from sample import Sample
 from multiprocess import MultiProcessWorker
 
@@ -70,15 +69,18 @@ class DataSet(object):
         """list item is of format (name, fs, signal)"""
         self.enroll = []
         self.test = []
+        self.train = []
 
     def compute_features(self):
         print("Computing enrollment features...")
         self.enroll_feat = self._compute(self.enroll)
         print("Computing test features...")
         self.test_feat = self._compute(self.test)
+        print("Computing train features...")
+        self.train_feat = self._compute(self.train)
 
     def _compute(self, data):
-        worker = MultiProcessWorker(MFCC.extract)
+        worker = MultiProcessWorker(BOB.extract)
         args = []
         names = []
         for (name, fs, signal) in data:
@@ -95,6 +97,7 @@ class DataSet(object):
             os.makedirs(dirname)
         self._write(self.enroll_feat, "enroll", dirname)
         self._write(self.test_feat, "test", dirname)
+        self._write(self.train_feat, "train", dirname)
 
     def _write(self, data, task_name, dirname):
         datalist = []
@@ -115,6 +118,8 @@ class DataSet(object):
 if __name__ == "__main__":
     nr_enroll = 30 #
     enroll_duration = 30
+    nr_train_fragment = 20
+    train_duration = 10
     test_duration = 5
     nr_test_fragment_per_person = 100 #
 
@@ -131,6 +136,10 @@ if __name__ == "__main__":
             fs, signal = p.get_fragment(test_duration)
             dataset.test.append((p.name, fs, signal))
 
+    for p in persons[nr_enroll:]:
+        for _ in xrange(nr_train_fragment):
+            fs, signal = p.get_fragment(train_duration)
+            dataset.train.append((p.name, fs, signal))
 
     dataset.compute_features()
     dataset.write('feature-data')

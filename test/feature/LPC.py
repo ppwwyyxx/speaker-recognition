@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: LPC.py
-# Date: Wed Dec 25 15:53:51 2013 +0000
+# Date: Wed Dec 25 20:49:53 2013 +0000
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -10,7 +10,7 @@ from scikits.talkbox.linpred import levinson_lpc
 from numpy import *
 from scipy.io import  wavfile
 from MFCC import hamming
-from utils import cached_func
+from utils import cached_func, diff_feature
 
 class LPCExtractor(object):
     def __init__(self, fs, win_length_ms, win_shift_ms, n_lpc,
@@ -43,7 +43,7 @@ class LPCExtractor(object):
         #lpcc = self.lpc_to_cc(lpc)
         #return lpcc
 
-    def extract(self, signal, diff=False):
+    def extract(self, signal):
         frames = (len(signal) - self.FRAME_LEN) / self.FRAME_SHIFT + 1
         feature = []
         for f in xrange(frames):
@@ -52,15 +52,7 @@ class LPCExtractor(object):
             frame[1:] -= frame[:-1] * self.PRE_EMPH
             feature.append(self.lpcc(frame))
 
-        if diff:
-            ret = []
-            for feat in feature:
-                diff = lambda f: [x - f[i - 1] for i, x in enumerate(f)][1:]
-                diff1 = diff(feat)
-                #diff2 = diff(diff1)
-                ret.append(concatenate((feat, diff1)))
-            return ret
-        return feature
+        return array(feature)
 
 @cached_func
 def get_lpc_extractor(fs, win_length_ms=32, win_shift_ms=16,
@@ -69,13 +61,16 @@ def get_lpc_extractor(fs, win_length_ms=32, win_shift_ms=16,
     return ret
 
 
-def extract(fs, signal=None, **kwargs):
+def extract(fs, signal=None, diff=False, **kwargs):
     """accept two argument, or one as a tuple"""
     if signal is None:
         assert type(fs) == tuple
         fs, signal = fs[0], fs[1]
     signal = cast['float'](signal)
-    return get_lpc_extractor(fs, **kwargs).extract(signal)
+    ret = get_lpc_extractor(fs, **kwargs).extract(signal)
+    if diff:
+        return diff_feature(ret)
+    return ret
 
 if __name__ == "__main__":
     extractor = LPCCExtractor(8000)

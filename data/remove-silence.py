@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: remove-silence.py
-# $Date: Sun Dec 01 14:33:53 2013 +0800
+# $File: VAD.py
+# $Date: Thu Dec 26 15:33:37 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys

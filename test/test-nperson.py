@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: test-nperson.py
-# $Date: Tue Dec 24 16:06:57 2013 +0800
+# $Date: Thu Dec 26 02:12:57 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
@@ -15,13 +15,9 @@ import multiprocessing
 import operator
 from collections import defaultdict
 from sklearn.mixture import GMM
-
+from feature import BOB, LPC, MFCC, get_extractor
 
 concurrency = multiprocessing.cpu_count()
-
-import BOB as bob_MFCC
-import MFCC
-
 from sample import Sample
 
 class Person(object):
@@ -114,25 +110,25 @@ def gen_data(params):
 def predict_task(gmmset, x_test):
     return gmmset.predict_one(x_test)
 
-def test_mfcc(mfcc_impl, X_train, y_train, X_test, y_test):
+def test_feature(feature_impl, X_train, y_train, X_test, y_test):
     start = time.time()
-    print('calculating features...')
-    pool = multiprocessing.Pool(concurrency)
-    X_train = pool.map(mfcc_impl, X_train)
-    pool.terminate()
-    pool = multiprocessing.Pool(concurrency)
-    X_test = pool.map(mfcc_impl, X_test)
-    pool.terminate()
+    print 'calculating features...',
+    worker = MultiProcessWorker(feature_impl)
+    X_train = worker.run(X_train)
+    del worker
+    worker = MultiProcessWorker(feature_impl)
+    X_test = worker.run(X_test)
+    del worker
     print 'time elapsed: ', time.time() - start
 
     start = time.time()
     gmmset = GMMSet()
-    print('training ...')
+    print 'training ...' ,
     gmmset.fit(X_train, y_train)
     nr_correct = 0
     print 'time elapsed: ', time.time() - start
 
-    print 'predicting...'
+    print 'predicting...',
     start = time.time()
     pool = multiprocessing.Pool(concurrency)
     predictions = []
@@ -144,21 +140,8 @@ def test_mfcc(mfcc_impl, X_train, y_train, X_test, y_test):
         if label_pred == label_true:
             nr_correct += 1
     print 'time elapsed: ', time.time() - start
-    print("{}/{} {:.4f}".format(nr_correct, len(y_test),
+    print("{}/{} {:.6f}".format(nr_correct, len(y_test),
             float(nr_correct) / len(y_test)))
-
-def mfcc_diff(tup):
-    return MFCC.extract(*tup, diff=True)
-
-def bob_19_6000_40(tup):
-    return bob_MFCC.extract(*tup, n_ceps=19, f_max=6000, n_filters=40)
-
-def bob_13_8000_40(tup):
-    return bob_MFCC.extract(*tup, n_ceps=13, f_max=8000, n_filters=40)
-
-def bob_13_6000_60(tup):
-    return bob_MFCC.extract(*tup, n_ceps=13, f_max=6000, n_filters=60)
-
 def main():
     if len(sys.argv) == 1:
         print("Usage: {} <dir_contains_wav_file> [<dirs> ...]" . format(
@@ -167,19 +150,19 @@ def main():
 
     dirs = sys.argv[1:]
 
-    for nperson in [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 25, 30, 40]:
+    fout = open("final-log/nperson-sklearn.log", 'a')
+    sys.stdout = fout
 
-        print nperson
-        nr_person = nperson
+    for nr_person in [4, 6, 8, 10, 12, 14, 16, 18, 20, 25, 30, 40, 50, 60, 80]:
+        print "Nperson: ", nr_person
         train_duration = 15
         test_duration = 5
-        nr_test_fragment_per_person = 100
+        nr_test_fragment_per_person = 50
 
         persons = list(get_corpus(dirs).iteritems())
         random.shuffle(persons)
         persons = persons[:nr_person]
 
-        print('generating data ...')
         X_train, y_train = [], []
         X_test, y_test = [], []
         for name, p in persons:
@@ -194,11 +177,13 @@ def main():
                 y_test.append(name)
                 X_test.append(gen_data((p, test_duration)))
 
-        test_mfcc(bob_13_6000_60, X_train, y_train, X_test, y_test)
+        def mix(tup):
+            bob = BOB.extract(tup)
+            lpc = LPC.extract(tup)
+            return np.concatenate((bob, lpc), axis=1)
 
-
-        print(dirs)
-        print(nr_person, train_duration, test_duration, nr_test_fragment_per_person)
+        test_feature(mix, X_train, y_train, X_test, y_test)
+    fout.close()
 
 if __name__ == '__main__':
     main()

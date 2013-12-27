@@ -1,10 +1,10 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: BOB.py
-# Date: Wed Dec 25 18:36:45 2013 +0000
+# Date: Wed Dec 25 20:26:08 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
-from utils import cached_func
+from utils import cached_func, diff_feature
 import bob
 import numpy
 
@@ -17,11 +17,14 @@ def get_bob_extractor(fs, win_length_ms=32, win_shift_ms=16,
             f_max, delta_win, pre_emphasis_coef, mel_scale, dct_norm)
     return ret
 
-def extract(fs, signal=None, **kwargs):
+def extract(fs, signal=None, diff=False, **kwargs):
     """accept two argument, or one as a tuple"""
     if signal is None:
         assert type(fs) == tuple
         fs, signal = fs[0], fs[1]
 
     signal = numpy.cast['float'](signal)
-    return get_bob_extractor(fs, **kwargs)(signal)
+    ret = get_bob_extractor(fs, **kwargs)(signal)
+    if diff:
+        return diff_feature(ret)
+    return ret

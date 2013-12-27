@@ -1,6 +1,6 @@
 /*
  * $File: gmm.cc
- * $Date: Thu Dec 26 12:57:28 2013 +0000
+ * $Date: Fri Dec 27 01:53:42 2013 +0000
  * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
@@ -611,7 +611,7 @@ void GMMTrainerBaseline::train(GMM *gmm, std::vector<std::vector<real_t>> &X) {
 
 		if (i % 2 == 0)
 			continue;
-		if (gmm->nr_mixtures >= 100) {
+		if (true || gmm->nr_mixtures * (long long)X.size() >= 43520000) {
 			string dump_file = "gmm-training-intermediate-dump.model";
 			printf("dumping model to %s ...\n", dump_file.c_str());
 			ofstream of(dump_file);

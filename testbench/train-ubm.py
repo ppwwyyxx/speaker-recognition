@@ -1,27 +1,68 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: train-ubm.py
-# $Date: Wed Dec 25 01:36:59 2013 +0000
+# $Date: Fri Dec 27 01:57:39 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import multiprocessing
 
+import glob
 import config
+import random
 import datautil
 
 from gmmset import GMM
+#from sklearn.mixture import GMM
+
+nr_mixture = 32
+
+def get_gmm():
+    from sklearn.mixture import GMM as skGMM
+    from gmmset import GMM as pyGMM
+    if GMM == skGMM:
+        print 'using GMM from sklearn'
+        return GMM(nr_mixture)
+    else:
+        print 'using pyGMM'
+        return GMM(nr_mixture=nr_mixture, nr_iteration=500,
+                init_with_kmeans=0, concurrency=8,
+                threshold=1e-15,
+                verbosity=2)
+
+
+def get_all_data_fpaths():
+    fpaths = []
+    for style in ['Style_Reading', 'Style_Spontaneous', 'Style_Whisper']:
+        fpaths.extend(glob.glob('test-data/mfcc-lpc-data/{}/*.mfcc-lpc' .
+            format(style)))
+    return fpaths
+
+
+def train_all_together_ubm():
+    global nr_mixture
+    nr_person_in_ubm = 20
+    fpaths = get_all_data_fpaths()
+    random.shuffle(fpaths)
+    fpaths = fpaths[:nr_person_in_ubm]
+    X = datautil.read_raw_data(fpaths)
+    gmm = get_gmm()
+    gmm.fit(X)
+    gmm.dump('model/ubm.mixture-{}.person-{}.model' . format(
+        nr_mixture, nr_person_in_ubm))
 
 def main():
+    train_all_together_ubm()
+    return
+    global nr_mixture
 #    file_pattern = 'test-data/mfcc-data/Style_Reading/*.mfcc'
 #    X_train, y_train, X_test, y_test = datautil.read_data(file_pattern, 10)
-    fpaths = map(lambda x: 'test-data/mfcc-data/Style_Reading/' + x + '.mfcc',
-            config.ubm_set)
+    fpaths = map(lambda x: 'test-data/mfcc-lpc-data/Style_Reading/' + x +
+            '.mfcc', config.ubm_set)
+    print fpaths
     X = datautil.read_raw_data(fpaths)
-    gmm = GMM(nr_mixture=1024, nr_iteration=500,
-            init_with_kmeans=0, concurrency=8,
-            verbosity=2)
+    gmm = get_gmm()
     gmm.fit(X)
-    gmm.dump('model/ubm-1024.model')
+    gmm.dump('model/ubm-{}.model' . format(nr_mixture))
 
 
 if __name__ == '__main__':

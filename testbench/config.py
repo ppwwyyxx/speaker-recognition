@@ -1,16 +1,16 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: config.py
-# $Date: Wed Dec 25 01:21:00 2013 +0000
+# $Date: Thu Dec 26 13:09:07 2013 +0000
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
-frame_duration = 0.02
-frame_shift = 0.01
+frame_duration = 0.032
+frame_shift = 0.016
 nr_frame_per_sec = int(1.0 / frame_shift)
 fs = 8000
 train_duration = 30.0
 train_len = int(train_duration * nr_frame_per_sec)
-nr_test = 20
+nr_test = 50
 test_duration = 5.0
 testcase_len = int(test_duration * nr_frame_per_sec)
 

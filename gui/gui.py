@@ -42,7 +42,7 @@ class RecorderThread(QThread):
                 break
 
 class Main(QMainWindow):
-    CONV_INTERVAL = 100
+    CONV_INTERVAL = 500
     CONV_DURATION = 2000
     FS = 8000
     TEST_DURATION = 3
@@ -259,8 +259,9 @@ class Main(QMainWindow):
         if not name:
             self.warn("Please Input Your Name")
             return
-        self.addUserInfo()
+#        self.addUserInfo()
         new_signal = self.backend.filter(*self.enrollWav)
+        wavfile.write('filtered.wav', Main.FS, new_signal)
         print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
         print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
         self.backend.enroll(name, Main.FS, new_signal)

@@ -15,28 +15,38 @@ from filters.VAD import VAD
 
 from feature import mix_feature
 
-from gmmset import GMMSetPyGMM as GMMSet
-from gmmset import GMM
-#class GMMSet(object):
-    #def __init__(self, gmm_order = 32):
-        #self.gmms = []
-        #self.gmm_order = gmm_order
-        #self.y = []
+#from gmmset import GMMSetPyGMM as GMMSet
+#from gmmset import GMM
 
-    #def fit_new(self, x, label):
-        #self.y.append(label)
-        #gmm = GMM(self.gmm_order)
-        #gmm.fit(x)
-        #self.gmms.append(gmm)
+from sklearn.mixture import GMM
 
-    #def gmm_score(self, gmm, x):
-        #return np.sum(gmm.score(x))
+class GMMSet(object):
+    def __init__(self, gmm_order = 32):
+        self.gmms = []
+        self.gmm_order = gmm_order
+        self.y = []
 
-    #def predict(self, x):
-        #scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
-        #result = [(self.y[index], value) for (index, value) in enumerate(scores)]
-        #p = max(result, key=operator.itemgetter(1))
-        #return p[0]
+    def fit_new(self, x, label):
+        self.y.append(label)
+        gmm = GMM(self.gmm_order)
+        gmm.fit(x)
+        self.gmms.append(gmm)
+
+    def gmm_score(self, gmm, x):
+        return np.sum(gmm.score(x))
+
+    def before_pickle(self):
+        pass
+
+    def after_pickle(self):
+        pass
+
+    def predict_one(self, x):
+        scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
+        print scores
+        result = [(self.y[index], value) for (index, value) in enumerate(scores)]
+        p = max(result, key=operator.itemgetter(1))
+        return p[0]
 
 class ModelInterface(object):
 
@@ -57,8 +67,15 @@ class ModelInterface(object):
         feat = mix_feature((fs, signal))
         self.features[name].extend(feat)
 
+    def _get_gmm_set(self):
+        from gmmset import GMMSetPyGMM
+        if GMMSet is GMMSetPyGMM:
+            return GMMSet(ubm=GMM.load(self.UBM_MODEL_FILE))
+        else:
+            return GMMSet()
+
     def train(self):
-        self.gmmset = GMMSet(ubm=GMM.load(self.UBM_MODEL_FILE))
+        self.gmmset = self._get_gmm_set()
         start = time.time()
         print "Start training..."
         for name, feats in self.features.iteritems():
@@ -66,6 +83,7 @@ class ModelInterface(object):
         print time.time() - start, " seconds"
 
     def predict(self, fs, signal, reject=False):
+        reject = False
         try:
             feat = mix_feature((fs, signal))
         except Exception as e:

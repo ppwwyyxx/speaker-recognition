@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: gmmset.py
-# $Date: Fri Dec 27 11:48:44 2013 +0800
+# $Date: Sat Dec 28 00:51:21 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import operator
@@ -74,10 +74,10 @@ class GMMSet(object):
         scores = map(lambda v: v / x_len, scores)
         max_tup = max(enumerate(scores), key=operator.itemgetter(1))
         ubm_score = self.gmm_score(self.ubm, x) / x_len
+        print scores, ubm_score
         if max_tup[1] - ubm_score < self.reject_threshold:
             print max_tup[1], ubm_score, max_tup[1] - ubm_score
             return None
-        print scores, ubm_score
         return self.y[max_tup[0]]
 
     def predict_with_reject(self, X):
@@ -94,6 +94,7 @@ class GMMSet(object):
 class GMMSetPyGMM(GMMSet):
     def predict_one(self, x):
         scores = [gmm.score_all(x) for gmm in self.gmms]
+        print scores
         return self.y[max(enumerate(scores), key=operator.itemgetter(1))[0]]
 
     def before_pickle(self):

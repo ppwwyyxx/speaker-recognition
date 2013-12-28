@@ -30,7 +30,7 @@ class VAD(object):
         from scipy.io import wavfile
         nred = self.nr.filter(fs, signal)
 #        removed = remove_silence(fs, nred)
-        self.ltsd.plot_ltsd(fs, nred)
+#        self.ltsd.plot_ltsd(fs, nred)
         filtered = self.ltsd.filter(nred)
         return filtered
 

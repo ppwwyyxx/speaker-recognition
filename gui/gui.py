@@ -200,6 +200,16 @@ class Main(QMainWindow):
         signal = np.array(self.recordData, dtype=NPDtype)
         self.reco_remove_update(Main.FS, signal)
 
+    def reco_do_predict(self, fs, signal):
+        label = self.backend.predict(fs, signal)
+        print label
+        self.recoUsername.setText(label)
+        self.Alading.setPixmap(QPixmap(u"image/a_result.png"))
+        self.recoUserImage.setPixmap(self.get_avatar(label))
+
+        # TODO To Delete
+        write_wav('reco.wav', fs, signal)
+
     def reco_remove_update(self, fs, signal):
         new_signal = self.backend.filter(fs, signal)
         print "After removed: {0} -> {1}".format(len(signal), len(new_signal))
@@ -208,25 +218,22 @@ class Main(QMainWindow):
         if real_len > 100:
             real_len = 100
         self.recoProgressBar.setValue(real_len)
-        label = self.backend.predict(Main.FS, self.recoRecordData)
-        self.recoUsername.setText(label)
-        print label
-        self.Alading.setPixmap(QPixmap(u"image/a_result.png"))
-        self.recoUserImage.setPixmap(self.get_avatar(label))
 
-        # TODO To Delete
-        write_wav('reco.wav', Main.FS, self.recoRecordData)
+        self.reco_do_predict(fs, self.recoRecordData)
+
 
     def reco_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
+        print 'reco_file'
         if not fname:
             return
         self.status(fname)
         fs, signal = wavfile.read(fname)
-        self.reco_remove_update(fs, signal)
+        self.reco_do_predict(fs, signal)
 
     def reco_files(self):
         fnames = QFileDialog.getOpenFileNames(self, "Select Wav Files", "", "Files (*.wav)")
+        print 'reco_files'
         for f in fnames:
             fs, sig = wavfile.read(f)
             newsig = self.backend.filter(fs, sig)

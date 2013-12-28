@@ -1,13 +1,10 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Fri Dec 27 11:49:42 2013 +0800
+# Date: Sat Dec 28 21:39:40 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
-#from sklearn.mixture import GMM
-import operator
-import numpy as np
 from scipy.io import wavfile
 import time
 import cPickle as pickle
@@ -17,40 +14,11 @@ from feature import mix_feature
 
 #from gmmset import GMMSetPyGMM as GMMSet
 #from gmmset import GMM
-
-from sklearn.mixture import GMM
-
-class GMMSet(object):
-    def __init__(self, gmm_order = 32):
-        self.gmms = []
-        self.gmm_order = gmm_order
-        self.y = []
-
-    def fit_new(self, x, label):
-        self.y.append(label)
-        gmm = GMM(self.gmm_order)
-        gmm.fit(x)
-        self.gmms.append(gmm)
-
-    def gmm_score(self, gmm, x):
-        return np.sum(gmm.score(x))
-
-    def before_pickle(self):
-        pass
-
-    def after_pickle(self):
-        pass
-
-    def predict_one(self, x):
-        scores = [self.gmm_score(gmm, x) for gmm in self.gmms]
-        print scores
-        result = [(self.y[index], value) for (index, value) in enumerate(scores)]
-        p = max(result, key=operator.itemgetter(1))
-        return p[0]
+from skgmm import GMMSet, GMM
 
 class ModelInterface(object):
 
-    UBM_MODEL_FILE = 'model/ubm.mixture-64.utt-300.model'
+    UBM_MODEL_FILE = 'model/ubm.mixture-32.utt-300.model'
 
     def __init__(self):
         self.features = defaultdict(list)
@@ -61,7 +29,9 @@ class ModelInterface(object):
         self.vad.init_noise(fs, signal)
 
     def filter(self, fs, signal):
-        return self.vad.filter(fs, signal)
+        ret = self.vad.filter(fs, signal)
+        wavfile.write("filtered.wav", fs, ret)
+        return ret
 
     def enroll(self, name, fs, signal):
         feat = mix_feature((fs, signal))
@@ -83,7 +53,10 @@ class ModelInterface(object):
         print time.time() - start, " seconds"
 
     def predict(self, fs, signal, reject=False):
-        reject = False
+        from gmmset import GMMSetPyGMM
+        if GMMSet is not GMMSetPyGMM:
+            reject = False
+        print "Lenth:", len(signal)
         try:
             feat = mix_feature((fs, signal))
         except Exception as e:

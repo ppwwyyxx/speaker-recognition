@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Fri Dec 27 12:57:15 2013 +0800
+# Date: Sat Dec 28 23:25:51 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -10,7 +10,6 @@ import shutil
 import os.path
 import glob
 import time
-import operator
 import numpy as np
 from PyQt4 import uic
 from scipy.io import wavfile
@@ -60,7 +59,7 @@ class Main(QMainWindow):
         self.recording_noise = False
         self.loadNoise.clicked.connect(self.load_noise)
 
-        self.enrollRecord.clicked.connect(self.start_record)
+        self.enrollRecord.clicked.connect(self.start_enroll_record)
         self.stopEnrollRecord.clicked.connect(self.stop_enroll_record)
         self.enrollFile.clicked.connect(self.enroll_file)
         self.enroll.clicked.connect(self.do_enroll)
@@ -106,6 +105,9 @@ class Main(QMainWindow):
         self.convStop.clicked.connect(self.stop_conv)
 
         self.backend = ModelInterface()
+
+        # debug
+        QShortcut(QKeySequence("Ctrl+P"), self, self.printDebug)
 
         #init
         try:
@@ -173,10 +175,11 @@ class Main(QMainWindow):
         start = max([self.conv_now_pos - segment_len, 0])
         segment = self.recordData[start: self.conv_now_pos]
         signal = np.array(segment, dtype=NPDtype)
+        orig_len = len(signal)
         label = None
-        if len(signal) > 50:
+        if orig_len > 50:
             signal = self.backend.filter(Main.FS, signal)
-            if len(signal) > 50:
+            if len(signal) > 50 and len(signal) > orig_len / 3:
                 label = self.backend.predict(Main.FS, signal, True)
         self.conv_result_list.append(label)
         print label
@@ -241,6 +244,11 @@ class Main(QMainWindow):
             print f, label
 
     ########## ENROLL
+    def start_enroll_record(self):
+        self.enrollWav = None
+        self.enrollFileName.setText("")
+        self.start_record()
+
     def enroll_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open Wav File", "", "Files (*.wav)")
         if not fname:
@@ -422,6 +430,13 @@ class Main(QMainWindow):
             return p
         else:
             return self.defaultimage
+
+    def printDebug(self):
+        for name, feat in self.backend.features.iteritems():
+            print name, len(feat)
+        print "GMMs",
+        print len(self.backend.gmmset.gmms)
+
 
 
 

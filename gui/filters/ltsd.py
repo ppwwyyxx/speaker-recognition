@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: ltsd.py
-# $Date: Fri Dec 27 02:46:29 2013 +0800
+# $Date: Sat Dec 28 23:16:25 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
@@ -32,7 +32,7 @@ class LTSD_VAD(object):
         res, ltsds = ltsd.compute_with_noise(noise_signal,
                 noise_signal)
         max_ltsd = max(ltsds)
-        self.lambda0 = max_ltsd * 1.2
+        self.lambda0 = max_ltsd * 1.1
         self.lambda1 = self.lambda0 * 2.0
         print 'max_ltsd =', max_ltsd
         print 'lambda0 =', self.lambda0
@@ -53,7 +53,10 @@ class LTSD_VAD(object):
             begin = start * self.window_size / 2
             end = (finish + 1) * self.window_size / 2
             voice_signals.append(signal[begin:end])
-        return np.concatenate(voice_signals)
+        try:
+            return np.concatenate(voice_signals)
+        except:
+            return np.array()
 
     def _init_window(self, fs):
         self.fs = fs

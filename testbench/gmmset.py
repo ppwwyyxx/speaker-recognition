@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: gmmset.py
-# $Date: Sat Dec 28 00:51:21 2013 +0800
+# $Date: Sat Dec 28 23:12:41 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import operator
@@ -93,8 +93,9 @@ class GMMSet(object):
 
 class GMMSetPyGMM(GMMSet):
     def predict_one(self, x):
-        scores = [gmm.score_all(x) for gmm in self.gmms]
-        print scores
+        scores = [gmm.score_all(x) / len(x) for gmm in self.gmms]
+        p = sorted(scores)
+        print scores, p[-1] - p[-2]
         return self.y[max(enumerate(scores), key=operator.itemgetter(1))[0]]
 
     def before_pickle(self):

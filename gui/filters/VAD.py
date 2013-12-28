@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: VAD.py
-# Date: Fri Dec 27 03:36:51 2013 +0800
+# Date: Sat Dec 28 21:47:47 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from noisered import NoiseReduction
@@ -20,18 +20,17 @@ class VAD(object):
     def init_noise(self, fs, signal):
         self.initted = True
         self.nr.init_noise(fs, signal)
-#        self.ltsd.init_params_by_noise(fs, signal)
-        nred = self.nr.filter(fs, signal)
-        self.ltsd.init_params_by_noise(fs, nred)
+        self.ltsd.init_params_by_noise(fs, signal)
+        #nred = self.nr.filter(fs, signal)
+        #self.ltsd.init_params_by_noise(fs, nred)
 
     def filter(self, fs, signal):
         if not self.initted:
             raise "NoiseFilter Not Initialized"
-        from scipy.io import wavfile
-        nred = self.nr.filter(fs, signal)
+        #nred = self.nr.filter(fs, signal)
 #        removed = remove_silence(fs, nred)
 #        self.ltsd.plot_ltsd(fs, nred)
-        filtered = self.ltsd.filter(nred)
+        filtered = self.ltsd.filter(signal)
         return filtered
 
 

@@ -6,3 +6,8 @@ output
 
 bin
 obj
+gmm/lib
+
+corpus.silence-removed
+
+.vimrc.local

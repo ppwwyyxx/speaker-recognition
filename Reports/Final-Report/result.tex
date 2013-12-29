@@ -104,6 +104,30 @@ significantly longer time to train. Therefore we still use GMM with 32 component
   \includegraphics[width=0.7\textwidth]{img/nmixture.pdf}
 \end{figure}
 
+\subsection{Different GMM Algorithms}
+We compare our implementation of GMM to GMM in scikits-learn.
+
+The configurations of the test is as followed:
+\begin{itemize}
+    \item Only MFCC: frame size is $20 ms $, 19 cepstrums, 40 filterbanks
+	\item Number of mixtures is set to 32, the optimal number we found previously
+	\item GMM from scikit-learn, compared to our GMM.
+	\item 30s training utterance and 5s test utterance
+	\item 100 sampled test utterance for each user
+\end{itemize}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\linewidth]{img/gmm-compare.pdf}
+	\caption{Accuracy curve for two GMM}
+\end{figure}
+
+From this graph we could see that, our GMM performs better than GMM from scikit-learn in general.
+Due to the random selection of test data,
+the variance of the test can be high when the number of speakers is small,
+as is also the case in the next experiment. But this result still shows that
+our optimization on GMM takes effect.
+
 \subsection{Accuracy Curve on Different Number of Speakers}
 
 An apparent trade-off in speaker recognition task is the number of speakers

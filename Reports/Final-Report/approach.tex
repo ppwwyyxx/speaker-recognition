@@ -7,20 +7,23 @@
 	An utterance of a user is collected during enrollment procedure.
 	Further processing of the utterance follows following steps:
 	\begin{enumerate}
-		\item \textbf{Voice Activity Detection (VAD)} \\
-			An observation found is that, the corpus provided by teacher is
-			nearly noise-free. Therefore we use a simple energy-based approach
-			to remove the silence part. We divide the utterance into 20ms frames,
-			and remove the frames that the average energy is below 0.01 times
-			the average energy of the whole utterance.
+		\item \textbf{VAD} \\
+            Signals must be first filtered to rule out the silence part, otherwise the
+            training might be seriously biased. Therefore \textbf{Voice Activity Detection} must
+            be first performed.
+			An observation found is that, the corpus provided is nearly noise-free.
+            Therefore we use a simple energy-based approach
+			to remove the silence part, by simply remove the frames that the average
+            energy is below 0.01 times the average energy of the whole utterance.
 
-            We also tried noise reduction technique from sox and LTSD VAD method.
-        The migrated pipeline of this two method performes better than the naive energy-based VAD.
+            This energy-based method is found to work well on database, but not
+            on GUI. We use LTSD(Long-Term Spectral Divergence) \cite{ltsd1} algorithm on GUI, as well as
+            noise reduction technique from SOX\cite{sox} to gain better result.
 
-		\item \textbf{Extract MFCC and LPC Features} \\ We extract
-			Mel-frequency cepstral coefficients(MFCC) and Linear Predictive
-			Coding (LPC) features using following parameter found to be
-			optimal:
+		\item \textbf{MFCC and LPC Features} \\ We extract
+          \textbf{Mel-frequency cepstral coefficients} and \textbf{Linear Predictive
+			Coding} features using following parameter are found to be
+			optimal, according to our experiments in \secref{result}:
 
 			\begin{itemize}
 				\item Common parameters:
@@ -44,9 +47,9 @@
 			and then concatenate the two feature vectors of the same frame forming
 			a larger feature vector of 15 + 23 = 38 dimension.
 
-		\item \textbf{Gaussian Mixture Model}
+		\item \textbf{GMM}
 
-			We use Gaussian Mixture Model modeling a speaker. Some improvements made:
+			We use \textbf{Gaussian Mixture Model} modeling a speaker. Some improvements made:
 			\begin{itemize}
 				\item Performance: \\
 					We investigate the effect of initialization of GMM during
@@ -66,10 +69,10 @@
 					\end{itemize}
                 \end{itemize}
 
-		\item \textbf{Universal Background Model}
+		\item \textbf{UBM}
 
 			As we are providing continuous speech close-set diarization function in
-			GUI, we adopt Universal Background Model(UBM) as imposter model,
+			GUI, we adopt \textbf{Universal Background Model} as imposter model,
 			and use likelihood ratio test to make reject
 			decisions.\cite{reynolds2000speaker}
 
@@ -77,12 +80,12 @@
 			GMM model of each user is adapted from a pre-trained UBM
 			using method described in \cite{reynolds2000speaker}.
 
-		\item \textbf{Continuous restricted Boltzmann Machine(CRBM)}
+		\item \textbf{CRBM}
 
-			Restricted Boltzmann Machine(RBM) is generative stochastic
+          \textbf{Restricted Boltzmann Machine} is generative stochastic
 			two-layer neural network that can learn a probability distribution
-			over its set of binary inputs\cite{rbm_wiki}.  Continuous
-			restricted Boltzmann Machine(CRBM)\cite{chen2003continuous} extends
+			over its set of binary inputs\cite{rbm_wiki}.  \textbf{Continuous
+			restricted Boltzmann Machine(CRBM)}\cite{chen2003continuous} extends
 			its ability to real-valued inputs.  RBM has a ability to, given an
 			input(visible layer), reconstruct a visible layer that is similar
 			to the input.  \figref{crbm} illustrate original MFCC data and the

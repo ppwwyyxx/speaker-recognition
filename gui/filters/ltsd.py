@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: ltsd.py
-# $Date: Sat Dec 28 23:16:25 2013 +0800
+# $Date: Sun Dec 29 13:12:21 2013 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
@@ -10,6 +10,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from pyssp.vad.ltsd import LTSD
+
+
+MAGIC_NUMBER = 0.04644
 
 class LTSD_VAD(object):
     ltsd = None
@@ -48,19 +51,19 @@ class LTSD_VAD(object):
         signal = self._mononize_signal(signal)
         res, ltsds = self._get_ltsd().compute_with_noise(signal, self.noise_signal)
         voice_signals = []
-        print res, len(ltsds)
+        res = [(start * self.window_size / 2, (finish + 1) * self.window_size
+                / 2) for start, finish in res]
+        print res, len(ltsds) * self.window_size / 2
         for start, finish in res:
-            begin = start * self.window_size / 2
-            end = (finish + 1) * self.window_size / 2
-            voice_signals.append(signal[begin:end])
+            voice_signals.append(signal[start:finish])
         try:
-            return np.concatenate(voice_signals)
+            return np.concatenate(voice_signals), res
         except:
-            return np.array()
+            return np.array([]), []
 
     def _init_window(self, fs):
         self.fs = fs
-        self.window_size = int(0.04644 * fs)
+        self.window_size = int(MAGIC_NUMBER * fs)
         self.window = np.hanning(self.window_size)
 
     def _get_ltsd(self, fs=None):

@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Sat Dec 28 23:25:51 2013 +0800
+# Date: Sun Dec 29 13:18:40 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -9,6 +9,7 @@ import sys
 import shutil
 import os.path
 import glob
+import traceback
 import time
 import numpy as np
 from PyQt4 import uic
@@ -41,8 +42,9 @@ class RecorderThread(QThread):
                 break
 
 class Main(QMainWindow):
-    CONV_INTERVAL = 500
-    CONV_DURATION = 2000
+    CONV_INTERVAL = 0.25
+    CONV_DURATION = 2
+    CONV_FILTER_DURATION = 8
     FS = 8000
     TEST_DURATION = 3
 
@@ -162,27 +164,31 @@ class Main(QMainWindow):
         self.conv_now_pos = 0
         self.conv_timer = QTimer(self)
         self.conv_timer.timeout.connect(self.do_conversation)
-        self.conv_timer.start(Main.CONV_INTERVAL)
+        self.conv_timer.start(Main.CONV_INTERVAL * 1000)
 
     def stop_conv(self):
         self.stop_record()
         self.conv_timer.stop()
 
     def do_conversation(self):
-        segment_shift = int(Main.CONV_INTERVAL * Main.FS / 1000)
-        segment_len = int(Main.CONV_DURATION * Main.FS / 1000)
-        self.conv_now_pos += segment_shift
-        start = max([self.conv_now_pos - segment_len, 0])
-        segment = self.recordData[start: self.conv_now_pos]
-        signal = np.array(segment, dtype=NPDtype)
-        orig_len = len(signal)
+        interval_len = int(Main.CONV_INTERVAL * Main.FS)
+        segment_len = int(Main.CONV_DURATION * Main.FS)
+        filter_len = int(Main.CONV_FILTER_DURATION * Main.FS)
+        self.conv_now_pos += interval_len
+        to_filter = self.recordData[max([self.conv_now_pos - filter_len, 0]):
+                                   self.conv_now_pos]
+        signal = np.array(to_filter, dtype=NPDtype)
         label = None
-        if orig_len > 50:
-            signal = self.backend.filter(Main.FS, signal)
-            if len(signal) > 50 and len(signal) > orig_len / 3:
+        try:
+            signal = self.backend.filter(Main.FS, signal,
+                                         keep_last=segment_len)
+            if len(signal) > 50:
                 label = self.backend.predict(Main.FS, signal, True)
+            print label
+        except Exception as e:
+            print traceback.format_exc()
+            print str(e)
         self.conv_result_list.append(label)
-        print label
         if label:
             self.convUsername.setText(label)
             self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))

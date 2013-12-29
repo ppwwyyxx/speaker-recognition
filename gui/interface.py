@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Sat Dec 28 21:39:40 2013 +0800
+# Date: Sun Dec 29 13:17:02 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -16,6 +16,8 @@ from feature import mix_feature
 #from gmmset import GMM
 from skgmm import GMMSet, GMM
 
+CHECK_ACTIVE_INTERVAL = 1       # seconds
+
 class ModelInterface(object):
 
     UBM_MODEL_FILE = 'model/ubm.mixture-32.utt-300.model'
@@ -28,10 +30,30 @@ class ModelInterface(object):
     def init_noise(self, fs, signal):
         self.vad.init_noise(fs, signal)
 
-    def filter(self, fs, signal):
-        ret = self.vad.filter(fs, signal)
-        wavfile.write("filtered.wav", fs, ret)
-        return ret
+    def filter(self, fs, signal, keep_last=None):
+        ret, intervals = self.vad.filter(fs, signal)
+
+        def get_len_after_point(after):
+            """get sum of interval lengths after specific point"""
+            sum_after = 0
+            for start, end in reversed(intervals):
+                if start >= after:
+                    sum_after += end - start
+                elif end > after:
+                    sum_after += end - after
+            return sum_after
+
+        if keep_last:
+            sum_after = get_len_after_point(len(signal) - keep_last)
+            sum_after_2 = get_len_after_point(len(signal) -
+                                              CHECK_ACTIVE_INTERVAL * fs)
+            print "sum_after", sum_after, "sum_after_2", sum_after_2
+            if sum_after > keep_last / 2:
+                if sum_after_2 > CHECK_ACTIVE_INTERVAL * fs / 2:
+                    return ret[-sum_after:]
+            elif sum_after_2 > CHECK_ACTIVE_INTERVAL * fs / 1.15:
+                return ret[-sum_after_2:]
+            return []
 
     def enroll(self, name, fs, signal):
         feat = mix_feature((fs, signal))
@@ -56,7 +78,7 @@ class ModelInterface(object):
         from gmmset import GMMSetPyGMM
         if GMMSet is not GMMSetPyGMM:
             reject = False
-        print "Lenth:", len(signal)
+        print "Length of signal to predict:", len(signal)
         try:
             feat = mix_feature((fs, signal))
         except Exception as e:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: skgmm.py
-# Date: Sat Dec 28 23:12:31 2013 +0800
+# Date: Sun Dec 29 13:58:17 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import operator
@@ -31,8 +31,9 @@ class GMMSet(object):
 
     def predict_one(self, x):
         scores = [self.gmm_score(gmm, x) / len(x) for gmm in self.gmms]
-        p = sorted(scores)
-        print scores, p[-1] - p[-2]
+        p = sorted(enumerate(scores), key=operator.itemgetter(1), reverse=True)
+        p = [(str(self.y[i]), y, p[0][1] - y) for i, y in p]
+        print p
         result = [(self.y[index], value) for (index, value) in enumerate(scores)]
         p = max(result, key=operator.itemgetter(1))
         return p[0]

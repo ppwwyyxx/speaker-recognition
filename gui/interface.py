@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Sun Dec 29 13:17:02 2013 +0800
+# Date: Sun Dec 29 14:01:12 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -48,12 +48,13 @@ class ModelInterface(object):
             sum_after_2 = get_len_after_point(len(signal) -
                                               CHECK_ACTIVE_INTERVAL * fs)
             print "sum_after", sum_after, "sum_after_2", sum_after_2
-            if sum_after > keep_last / 2:
-                if sum_after_2 > CHECK_ACTIVE_INTERVAL * fs / 2:
-                    return ret[-sum_after:]
+            if sum_after > keep_last / 3:
+                return ret[-sum_after:]
             elif sum_after_2 > CHECK_ACTIVE_INTERVAL * fs / 1.15:
                 return ret[-sum_after_2:]
             return []
+        else:
+            return ret
 
     def enroll(self, name, fs, signal):
         feat = mix_feature((fs, signal))

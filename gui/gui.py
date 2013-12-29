@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Sun Dec 29 13:18:40 2013 +0800
+# Date: Sun Dec 29 14:09:15 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -42,9 +42,9 @@ class RecorderThread(QThread):
                 break
 
 class Main(QMainWindow):
-    CONV_INTERVAL = 0.25
-    CONV_DURATION = 2
-    CONV_FILTER_DURATION = 8
+    CONV_INTERVAL = 0.4
+    CONV_DURATION = 1.5
+    CONV_FILTER_DURATION = CONV_DURATION
     FS = 8000
     TEST_DURATION = 3
 
@@ -180,8 +180,7 @@ class Main(QMainWindow):
         signal = np.array(to_filter, dtype=NPDtype)
         label = None
         try:
-            signal = self.backend.filter(Main.FS, signal,
-                                         keep_last=segment_len)
+            signal = self.backend.filter(Main.FS, signal)
             if len(signal) > 50:
                 label = self.backend.predict(Main.FS, signal, True)
             print label

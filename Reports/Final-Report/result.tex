@@ -153,3 +153,27 @@ average value of 20 independent test with random sampled speakers .
   \centering
   \includegraphics[width=0.9\textwidth]{img/whisper.pdf}
 \end{figure}
+
+\subsection{CRBM Performance Test}
+We also tested RBM using following configuration:
+\begin{itemize}
+  \item MFCC: frame size is $32 ms $, 15 cepstrums, 55 filterbanks
+  \item LPC: frame size is $32 ms $, 23 coefficients
+  \item CRBM with 32 hidden units.
+  \item 50 sampled test utterance for each user
+  \item 5s test utterance
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{img/crbm.pdf}
+  \caption{\label{crbmresult}}
+\end{figure}
+
+Result shown in \figref{crbmresult} indicates that, although CRBM have
+generic modeling ability, applying it on signal features does not fit
+our expectation. To achieve similar results, the training utterance should
+be twice as large as GMM used. Further investigation on using RBM to
+process signal features need to be conducted.
+
+

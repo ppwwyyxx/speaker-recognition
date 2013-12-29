@@ -83,14 +83,17 @@
 		\item \textbf{CRBM}
 
           \textbf{Restricted Boltzmann Machine} is generative stochastic
-			two-layer neural network that can learn a probability distribution
+		  two-layer neural network (see \figref{rbm}) that can learn a probability distribution
 			over its set of binary inputs\cite{rbm_wiki}.  \textbf{Continuous
 			restricted Boltzmann Machine(CRBM)}\cite{chen2003continuous} extends
 			its ability to real-valued inputs.  RBM has a ability to, given an
 			input(visible layer), reconstruct a visible layer that is similar
 			to the input.  \figref{crbm} illustrate original MFCC data and the
-			sampled output of
-			reconstructed data from CRBM.
+			sampled output of reconstructed data from CRBM.
+
+			Previous working using neural network largely focused on speech
+			recognition, such as \cite{deep} \cite{mohamed20111deep}, only a
+			few (\cite{}) on classification task.
 
 			\begin{figure}[!ht]
 				\begin{minipage}{0.48\linewidth}
@@ -109,12 +112,11 @@
                 \caption{\label{fig:crbm}}
 			\end{figure}
 
-			He use CRBM as a substitution of GMM, rather than
+			Here use CRBM as a substitution of GMM, rather than
 			an feature extractor. We train a CRBM per speaker,
 			and estimate reconstruction error without sampling (which is stable).
 			The person corresponds to the lowest reconstruction error CRBM is adopted as
 			recognition result.
-
 
 		\item \textbf{JFA}:
 

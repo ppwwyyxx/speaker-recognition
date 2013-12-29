@@ -109,6 +109,12 @@
                 \caption{\label{fig:crbm}}
 			\end{figure}
 
+			He use CRBM as a substitution of GMM, rather than
+			an feature extractor. We train a CRBM per speaker,
+			and estimate reconstruction error without sampling (which is stable).
+			The person corresponds to the lowest reconstruction error CRBM is adopted as
+			recognition result.
+
 
 		\item \textbf{JFA}:
 

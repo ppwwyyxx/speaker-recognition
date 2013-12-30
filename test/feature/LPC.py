@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: LPC.py
-# Date: Wed Dec 25 20:49:53 2013 +0000
+# Date: Mon Dec 30 21:50:49 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -56,7 +56,7 @@ class LPCExtractor(object):
 
 @cached_func
 def get_lpc_extractor(fs, win_length_ms=32, win_shift_ms=16,
-                       n_lpc=15, pre_emphasis_coef=0.95):
+                       n_lpc=23, pre_emphasis_coef=0.95):
     ret = LPCExtractor(fs, win_length_ms, win_shift_ms, n_lpc, pre_emphasis_coef)
     return ret
 

@@ -1,14 +1,12 @@
 %File: GMM.tex
-%Date: Mon Dec 30 22:05:51 2013 +0800
+%Date: Tue Dec 31 02:15:14 2013 +0800
 %Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 \subsection{GMM-UBM}
 
 \begin{frame}{GMM}
   \textbf{Gaussian Mixture Model}
-  is commonly used to model human's acoustic feature.
-
-  \begin{exampleblock}{}
+  is commonly used to model human's acoustic feature.  \begin{exampleblock}{}
     \[ p(\theta) = \sum_{i=1}^{K}{w_i \mathcal{N}(\mathbf{\mu}_i, \Sigma_i)}\]
   \end{exampleblock}
   \pause
@@ -72,3 +70,24 @@
   \end{reference}
 \end{frame}
 
+
+\begin{frame}{GMM Results}
+  \begin{columns}[t]
+    \begin{column}[t]{0.5\textwidth}
+      \begin{center}
+        \includegraphics[width=0.8\textwidth]{res/reading.pdf}\\
+        \includegraphics[width=0.8\textwidth]{res/spont.pdf}
+      \end{center}
+    \end{column}
+    \begin{column}[t]{0.5\textwidth}
+      \begin{center}
+        \includegraphics[width=0.8\textwidth]{res/whisper.pdf}\\
+        Train duration: 20s
+
+        Random selected test utterance: 50
+
+        Each value in the graph is an average of 20 independent experiments.
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}

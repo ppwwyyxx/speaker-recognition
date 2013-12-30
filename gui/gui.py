@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Tue Dec 31 00:35:12 2013 +0800
+# Date: Tue Dec 31 03:43:26 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -110,8 +110,6 @@ class Main(QMainWindow):
         self.newname = ""
         self.lastname = ""
         self.Graph_button.clicked.connect(self.graphwindow.show)
-        #self.Temp_button.clicked.connect(self.TempButton)
-        #self.Log_button.clicked.connect(self.LogButton)
         self.convRecord.clicked.connect(self.start_conv_record)
         self.convStop.clicked.connect(self.stop_conv)
 
@@ -174,9 +172,8 @@ class Main(QMainWindow):
         self.conv_timer = QTimer(self)
         self.conv_timer.timeout.connect(self.do_conversation)
         self.conv_timer.start(Main.CONV_INTERVAL * 1000)
-        #reset        
+        #reset
         self.graphwindow.wid.reset()
-
 
     def stop_conv(self):
         self.stop_record()
@@ -195,20 +192,29 @@ class Main(QMainWindow):
             signal = self.backend.filter(Main.FS, signal)
             if len(signal) > 50:
                 label = self.backend.predict(Main.FS, signal, True)
-            print label
         except Exception as e:
             print traceback.format_exc()
             print str(e)
-        self.conv_result_list.append(label)
+
+        global last_label_to_show
+        label_to_show = label
         if label:
-            self.convUsername.setText(label)
-            #ADD FOR GRAPH
-            NAMELIST.append(lab)
-            self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
-            self.convUserImage.setPixmap(self.get_avatar(label))
-        else:
-            self.convUsername.setText("Nobody")
-            self.convUserImage.setPixmap(self.defaultimage)
+            last_label = self.conv_result_list[-1]
+            if last_label != label:
+                label_to_show = last_label_to_show
+        self.conv_result_list.append(label)
+
+        print label_to_show, "label to show"
+        last_label_to_show = label_to_show
+
+        #ADD FOR GRAPH
+        if label_to_show is None:
+            label_to_show = 'Unknown'
+        if len(NAMELIST) and NAMELIST[-1] != label_to_show:
+            NAMELIST.append(label_to_show)
+        self.convUsername.setText(label_to_show)
+        self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
+        self.convUserImage.setPixmap(self.get_avatar(label_to_show))
 
 
     ###### RECOGNIZE
@@ -482,10 +488,10 @@ class GraphWindow(QWidget):
 
 
 class BurningWidget(QtGui.QWidget):
-  
-    def __init__(self):      
+
+    def __init__(self):
         super(BurningWidget, self).__init__()
-        
+
         self.initUI()
         self.load_avatar('avatar/')
         self.avatarname = "image/nouser.jpg"
@@ -515,7 +521,7 @@ class BurningWidget(QtGui.QWidget):
                 tmp = line.split()
                 self.namelist.append(tmp[0])
                 self.num.append(int(tmp[1]))
-        
+
         '''
         self.namelistlen = 0
         self.nameset = []
@@ -525,7 +531,7 @@ class BurningWidget(QtGui.QWidget):
         self.timer.start()
         self.timer.timeout.connect(self.timer_out)
 
-        
+
     def timer_out(self):
         self.nowtime += 0.1
         if len(NAMELIST) != self.namelistlen:
@@ -553,20 +559,20 @@ class BurningWidget(QtGui.QWidget):
             return str(minute) + ":0" + str(second)
         else:
             return str(minute) + ":" + str(second)
-    
+
     def paintEvent(self, e):
-      
+
         qp = QtGui.QPainter()
         qp.begin(self)
         self.drawWidget(qp)
         qp.end()
-      
+
     def load_avatar(self, dirname):
         self.avatars = {}
         for f in glob.glob(dirname + '/*.jpg'):
             name = os.path.basename(f).split('.')[0]
             self.avatars[name] = QPixmap(f)
-    
+
     def get_avatar(self, username):
         p = self.avatars.get(str(username), None)
         if p:
@@ -575,7 +581,7 @@ class BurningWidget(QtGui.QWidget):
             return self.defaultimage
 
     def drawWidget(self, qp):
-      
+
         size = self.size()
         w = size.width()
         h = size.height() / 2 + 100
@@ -588,7 +594,7 @@ class BurningWidget(QtGui.QWidget):
         picsize = 180
         margin = -20
         startx = int((900 - len(self.nameset) * 139 - 10) / 2) + 50
-        
+
         font = QtGui.QFont('Arial', 30, QtGui.QFont.Bold)
         qp.setFont(font)
         qp.drawText(10,40,NAMELIST[-1])
@@ -597,26 +603,26 @@ class BurningWidget(QtGui.QWidget):
         qp.setFont(font)
         dot = int(self.nowtime) % 4
         qp.drawText(10,80,"Speaking" + "." * dot)
-        qp.drawText(10,h - 80,"Timeline")    
-           
+        qp.drawText(10,h - 80,"Timeline")
+
         for i in range(0,len(self.nameset)):
             if self.nameset[i] != "Nobody":
-                if NAMELIST[-1] == self.nameset[i]: 
-                    qp.drawImage(int (startx + i *(margin + picsize)) + (picsize - self.updatebigdelta) / 2, (picsize - self.updatebigdelta) / 2, QImage(self.get_avatar(self.nameset[i])).scaled(self.updatebigdelta,self.updatebigdelta)) 
+                if NAMELIST[-1] == self.nameset[i]:
+                    qp.drawImage(int (startx + i *(margin + picsize)) + (picsize - self.updatebigdelta) / 2, (picsize - self.updatebigdelta) / 2, QImage(self.get_avatar(self.nameset[i])).scaled(self.updatebigdelta,self.updatebigdelta))
                 elif NAMELIST[-2] == self.nameset[i]:
-                    qp.drawImage(int (startx + i *(margin + picsize)) + (picsize - self.updatedelta) / 2, (picsize - self.updatedelta) / 2, QImage(self.get_avatar(self.nameset[i])).scaled(self.updatedelta,self.updatedelta)) 
+                    qp.drawImage(int (startx + i *(margin + picsize)) + (picsize - self.updatedelta) / 2, (picsize - self.updatedelta) / 2, QImage(self.get_avatar(self.nameset[i])).scaled(self.updatedelta,self.updatedelta))
                 else:
                     qp.drawImage(int (startx + i *(margin + picsize) + (picsize - 120) / 2), (picsize - 120) / 2, QImage(self.get_avatar(self.nameset[i])).scaled(120,120))
-            
+
         font = QtGui.QFont('Arial', 12, QtGui.QFont.Light)
         qp.setFont(font)
-    
+
         for i in range(0,len(NAMELIST)):
             outside = QPen(QColor(255,255,255))
             inside = QPen(QColor(0,0,0))
             outside.setWidth(4)
             qp.setPen(outside)
-            qp.setBrush(self.colorlist[self.nameset.index(NAMELIST[i])])   
+            qp.setBrush(self.colorlist[self.nameset.index(NAMELIST[i])])
             if i == len(NAMELIST) - 1:
                 if (NAMELIST[i] == "Nobody"):
                     qp.setBrush(self.Unknowncolor)
@@ -626,7 +632,7 @@ class BurningWidget(QtGui.QWidget):
                     qp.setPen(inside)
                     qp.drawText(int(laststart), int (h + 130),NAMELIST[i])
                     qp.drawText(int(laststart), int (h + 150),self.time2string(self.num[i]) + "~" + self.time2string(self.nowtime))
-                    
+
                 #qp.drawImage(380,0,QImage(self.get_avatar(NAMELIST[i])))
             else:
                 if (NAMELIST[i] == "Nobody"):
@@ -639,17 +645,17 @@ class BurningWidget(QtGui.QWidget):
                     qp.setPen(inside)
                     qp.drawText(int(laststart), int (h + 130),NAMELIST[i])
                     qp.drawText(int(laststart), int (h + 150),self.time2string(self.num[i]) + "~" + self.time2string(self.num[i + 1]))
-                laststart = 900 - (self.nowtime - self.num[i + 1]) * zoomer 
-                #laststart + round((self.num[i + 1] - self.num[i]) * zoomer)    
+                laststart = 900 - (self.nowtime - self.num[i + 1]) * zoomer
+                #laststart + round((self.num[i + 1] - self.num[i]) * zoomer)
 
-        pen = QtGui.QPen(QtGui.QColor(20, 20, 20), 1, 
+        pen = QtGui.QPen(QtGui.QColor(20, 20, 20), 1,
             QtCore.Qt.SolidLine)
-            
+
         qp.setPen(pen)
         qp.setBrush(QtCore.Qt.NoBrush)
 
         '''
-        for i in range(0,len(NAMELIST)):  
+        for i in range(0,len(NAMELIST)):
             qp.drawLine(i, 0, i, 5)
             metrics = qp.fontMetrics()
             fw = metrics.width(str(self.num[i]))
@@ -659,8 +665,8 @@ class BurningWidget(QtGui.QWidget):
             else :
                 qp.drawText((int(self.num[i - 1]) * zoomer)-fw/2, 150, str(NAMELIST[i]))
                 qp.drawText((int(self.num[i - 1]) * zoomer)-fw/2, 150 - 15, str(self.num[i]))
-        '''                    
-        
+        '''
+
 
 
 

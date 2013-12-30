@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: BOB.py
-# Date: Mon Dec 30 21:50:56 2013 +0800
+# Date: Mon Dec 30 22:55:07 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from utils import cached_func, diff_feature
@@ -10,7 +10,7 @@ import numpy
 
 @cached_func
 def get_bob_extractor(fs, win_length_ms=32, win_shift_ms=16,
-                      n_filters=55, n_ceps=15, f_min=0., f_max=6000,
+                      n_filters=55, n_ceps=19, f_min=0., f_max=6000,
                       delta_win=2, pre_emphasis_coef=0.95, dct_norm=True,
                       mel_scale=True):
     ret = bob.ap.Ceps(fs, win_length_ms, win_shift_ms, n_filters, n_ceps, f_min,

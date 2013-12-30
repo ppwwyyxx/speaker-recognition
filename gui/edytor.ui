@@ -400,53 +400,11 @@
      <property name="title">
       <string>Recognition</string>
      </property>
-     <widget class="QWidget" name="horizontalLayoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>30</y>
-        <width>271</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <item>
-        <widget class="QCheckBox" name="Reco_Verificationcheckbox">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Claim identity:</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>24</width>
-           <height>24</height>
-          </size>
-         </property>
-         <property name="tristate">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Reco_Verification">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QLabel" name="Animation_2">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>70</y>
+        <y>40</y>
         <width>61</width>
         <height>61</height>
        </rect>
@@ -465,7 +423,7 @@
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>180</y>
+        <y>140</y>
         <width>131</width>
         <height>161</height>
        </rect>
@@ -512,7 +470,7 @@
       <property name="geometry">
        <rect>
         <x>77</x>
-        <y>109</y>
+        <y>50</y>
         <width>51</width>
         <height>21</height>
        </rect>
@@ -528,29 +486,11 @@
        <string>00:00</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>62</y>
-        <width>201</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>* Tick and we will verify your identity</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="Alading">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>180</y>
+        <y>140</y>
         <width>231</width>
         <height>151</height>
        </rect>
@@ -559,24 +499,11 @@
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="newReco">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>35</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>New Task</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="horizontalLayoutWidget_6">
       <property name="geometry">
        <rect>
         <x>130</x>
-        <y>97</y>
+        <y>40</y>
         <width>191</width>
         <height>41</height>
        </rect>
@@ -608,7 +535,7 @@
       <property name="geometry">
        <rect>
         <x>328</x>
-        <y>104</y>
+        <y>45</y>
         <width>81</width>
         <height>29</height>
        </rect>
@@ -931,22 +858,5 @@
   </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>Reco_Verificationcheckbox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Reco_Verification</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>186</x>
-     <y>108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>343</x>
-     <y>107</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

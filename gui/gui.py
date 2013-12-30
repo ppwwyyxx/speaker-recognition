@@ -111,7 +111,7 @@ class Main(QMainWindow):
         self.lastname = ""
         self.Graph_button.clicked.connect(self.graphwindow.show)
         self.Temp_button.clicked.connect(self.TempButton)
-               
+        self.Log_button.clicked.connect(self.LogButton)
         self.convRecord.clicked.connect(self.start_conv_record)
         self.convStop.clicked.connect(self.stop_conv)
 
@@ -464,6 +464,8 @@ class Main(QMainWindow):
         NAMELIST.append(self.newname)
         self.lastname = self.newname
 
+    def LogButton(self):
+        self.graphwindow.wid.reset()
 
 class GraphWindow(QWidget):
     def __init__(self,parent = None):
@@ -490,6 +492,17 @@ class BurningWidget(QtGui.QWidget):
         self.defaultimage = QPixmap(self.avatarname)
         self.updateflag = False
         self.updatedelta = 0
+
+    def reset(self):
+        self.num = []
+        self.nameset = []
+        self.nowtime = 0
+        self.namelistlen = 0
+        self.timer.stop()
+        self.timer.start()
+        self.updateflag = False
+        global NAMELIST
+        NAMELIST = []
 
     def initUI(self):
         self.setMinimumSize(1, 510)

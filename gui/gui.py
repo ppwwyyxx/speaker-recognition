@@ -110,8 +110,8 @@ class Main(QMainWindow):
         self.newname = ""
         self.lastname = ""
         self.Graph_button.clicked.connect(self.graphwindow.show)
-        self.Temp_button.clicked.connect(self.TempButton)
-        self.Log_button.clicked.connect(self.LogButton)
+        #self.Temp_button.clicked.connect(self.TempButton)
+        #self.Log_button.clicked.connect(self.LogButton)
         self.convRecord.clicked.connect(self.start_conv_record)
         self.convStop.clicked.connect(self.stop_conv)
 
@@ -174,9 +174,9 @@ class Main(QMainWindow):
         self.conv_timer = QTimer(self)
         self.conv_timer.timeout.connect(self.do_conversation)
         self.conv_timer.start(Main.CONV_INTERVAL * 1000)
-        
-        
-        self.graphwindow.nowtime = 0
+        #reset        
+        self.graphwindow.wid.reset()
+
 
     def stop_conv(self):
         self.stop_record()
@@ -455,7 +455,7 @@ class Main(QMainWindow):
             print name, len(feat)
         print "GMMs",
         print len(self.backend.gmmset.gmms)
-
+    '''
     def TempButton(self):
         import random
         randomnamelist = ["ltz","wyx","zxy","Nobody"]
@@ -466,7 +466,7 @@ class Main(QMainWindow):
 
     def LogButton(self):
         self.graphwindow.wid.reset()
-
+    '''
 class GraphWindow(QWidget):
     def __init__(self,parent = None):
         super(GraphWindow,self).__init__(parent)

@@ -107,11 +107,11 @@ class Main(QMainWindow):
 
         # Graph Window init
         self.graphwindow = GraphWindow()
-        self.Graph_button.clicked.connect(self.graphwindow.show)
-        self.Temp_button.clicked.connect(self.TempButton)
         self.newname = ""
         self.lastname = ""
-
+        self.Graph_button.clicked.connect(self.graphwindow.show)
+        self.Temp_button.clicked.connect(self.TempButton)
+               
         self.convRecord.clicked.connect(self.start_conv_record)
         self.convStop.clicked.connect(self.stop_conv)
 
@@ -174,6 +174,9 @@ class Main(QMainWindow):
         self.conv_timer = QTimer(self)
         self.conv_timer.timeout.connect(self.do_conversation)
         self.conv_timer.start(Main.CONV_INTERVAL * 1000)
+        
+        
+        self.graphwindow.nowtime = 0
 
     def stop_conv(self):
         self.stop_record()
@@ -200,7 +203,7 @@ class Main(QMainWindow):
         if label:
             self.convUsername.setText(label)
             #ADD FOR GRAPH
-            NAMELIST.append(label)
+            NAMELIST.append(lab)
             self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
             self.convUserImage.setPixmap(self.get_avatar(label))
         else:
@@ -485,9 +488,10 @@ class BurningWidget(QtGui.QWidget):
         self.load_avatar('avatar/')
         self.avatarname = "image/nouser.jpg"
         self.defaultimage = QPixmap(self.avatarname)
+        self.updateflag = False
+        self.updatedelta = 0
 
     def initUI(self):
-        
         self.setMinimumSize(1, 510)
         self.num = []
         self.Unknowncolor = QColor(139,136,137)
@@ -508,6 +512,7 @@ class BurningWidget(QtGui.QWidget):
         self.timer.start()
         self.timer.timeout.connect(self.timer_out)
 
+        
     def timer_out(self):
         self.nowtime += 0.1
         if len(NAMELIST) != self.namelistlen:
@@ -515,8 +520,27 @@ class BurningWidget(QtGui.QWidget):
             self.num.append(self.nowtime)
             if NAMELIST[self.namelistlen - 1] not in self.nameset:
                 self.nameset.append(NAMELIST[self.namelistlen - 1])
+            self.updateflag = True
+            self.updatedelta = 180
+            self.updatebigdelta = 120
+        if (self.updateflag):
+            if (self.updatedelta > 120):
+                self.updatedelta -= 15
+                self.updatebigdelta += 15
+            else:
+                self.updateflag = False
+        self.timer.start()
         self.repaint()
 
+    def time2string(self,time):
+        totalsec = int(time)
+        minute = totalsec / 60
+        second = totalsec % 60
+        if second < 10:
+            return str(minute) + ":0" + str(second)
+        else:
+            return str(minute) + ":" + str(second)
+    
     def paintEvent(self, e):
       
         qp = QtGui.QPainter()
@@ -539,41 +563,62 @@ class BurningWidget(QtGui.QWidget):
 
     def drawWidget(self, qp):
       
-        font = QtGui.QFont('Serif', 8, QtGui.QFont.Light)
-        qp.setFont(font)
-
         size = self.size()
         w = size.width()
-        h = size.height() / 2
-        barheight = 100
+        h = size.height() / 2 + 100
+        barheight = 50
 
-        total = 30
+        total = 20
         zoomer = w / total
-        laststart = 900 - self.nowtime * 30
+        laststart = 900 - self.nowtime * 45
 
-        picsize = 129
-        margin = 10
-        startx = int((900 - len(self.nameset) * 139 - 10) / 2)
+        picsize = 180
+        margin = -20
+        startx = int((900 - len(self.nameset) * 139 - 10) / 2) + 50
+        
+        font = QtGui.QFont('Arial', 30, QtGui.QFont.Bold)
+        qp.setFont(font)
+        qp.drawText(10,40,NAMELIST[-1])
 
+        font = QtGui.QFont('Arial', 20, QtGui.QFont.Bold)
+        qp.setFont(font)
+        dot = int(self.nowtime) % 4
+        qp.drawText(10,80,"Speaking" + "." * dot)
+        qp.drawText(10,h - 80,"Timeline")    
+           
         for i in range(0,len(self.nameset)):
             if NAMELIST[-1] == self.nameset[i]: 
-                qp.drawImage(int (startx + i *(margin + picsize)), 0, QImage(self.get_avatar(self.nameset[i])))
+                qp.drawImage(int (startx + i *(margin + picsize)) + (picsize - self.updatebigdelta) / 2, (picsize - self.updatebigdelta) / 2, QImage(self.get_avatar(self.nameset[i])).scaled(self.updatebigdelta,self.updatebigdelta)) 
+            elif NAMELIST[-2] == self.nameset[i]:
+                qp.drawImage(int (startx + i *(margin + picsize)) + (picsize - self.updatedelta) / 2, (picsize - self.updatedelta) / 2, QImage(self.get_avatar(self.nameset[i])).scaled(self.updatedelta,self.updatedelta)) 
             else:
-                qp.drawImage(int (startx + i *(margin + picsize)), 0, QImage(self.get_avatar(self.nameset[i])).scaled(70,70)) 
+                qp.drawImage(int (startx + i *(margin + picsize) + (picsize - 120) / 2), (picsize - 120) / 2, QImage(self.get_avatar(self.nameset[i])).scaled(120,120))
+        
+        font = QtGui.QFont('Arial', 12, QtGui.QFont.Light)
+        qp.setFont(font)
+    
         for i in range(0,len(NAMELIST)):
             outside = QPen(QColor(255,255,255))
+            inside = QPen(QColor(0,0,0))
             outside.setWidth(4)
             qp.setPen(outside)
             qp.setBrush(self.colorlist[self.nameset.index(NAMELIST[i])])   
             if i == len(NAMELIST) - 1:
-                qp.drawRoundRect(laststart, h - barheight, 900, barheight,3,3)
-                qp.drawImage(int(laststart), int(h + 65),QImage(self.get_avatar(NAMELIST[i])).scaled(70,70))
+                qp.drawRoundRect(laststart, h - barheight, 900, barheight,10,10)
+                qp.drawImage(int(laststart), int(h + 35),QImage(self.get_avatar(NAMELIST[i])).scaled(70,70))
+                qp.setPen(inside)
+                qp.drawText(int(laststart), int (h + 130),NAMELIST[i])
+                qp.drawText(int(laststart), int (h + 150),self.time2string(self.num[i]) + "~" + self.time2string(self.nowtime))
+                
                 #qp.drawImage(380,0,QImage(self.get_avatar(NAMELIST[i])))
             else:
                 qp.drawRoundRect(laststart, h - barheight, int((self.num[i + 1] - self.num[i]) * zoomer), barheight,30,30)
-                qp.drawImage(int(laststart), int(h + 65),QImage(self.get_avatar(NAMELIST[i])).scaled(70,70))
-                qp.drawEllipse(laststart + int((self.num[i + 1] - self.num[i]) * zoomer) / 2 - 10, h + 20,20,15)
-                qp.drawEllipse(int(laststart) + 40, h + 45,15,10)
+                qp.drawImage(int(laststart), int(h + 35),QImage(self.get_avatar(NAMELIST[i])).scaled(70,70))
+                qp.drawEllipse(int(laststart) + 60, h,20,15)
+                qp.drawEllipse(int(laststart) + 30, h + 15,15,10)
+                qp.setPen(inside)
+                qp.drawText(int(laststart), int (h + 130),NAMELIST[i])
+                qp.drawText(int(laststart), int (h + 150),self.time2string(self.num[i]) + "~" + self.time2string(self.num[i + 1]))
                 laststart = laststart + int((self.num[i + 1] - self.num[i]) * zoomer)    
 
         pen = QtGui.QPen(QtGui.QColor(20, 20, 20), 1, 

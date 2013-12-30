@@ -1,0 +1,81 @@
+% $File: report.tex
+% $Date: Mon Dec 30 22:21:17 2013 +0800
+%Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
+\documentclass {beamer}
+%\usetheme{JuanLesPins}
+\usetheme{Copenhagen}
+\setbeamertemplate{itemize items}[ball]
+\setbeamercovered{transparent}
+\setbeamertemplate{itemize subitem}[circle] % if you wnat a circle
+\setbeamertemplate{blocks}[rounded][shadow=true]
+%\usetheme[height=7mm]{Rochester}
+\useoutertheme{infolines}
+\usepackage{fontspec,amsmath,amssymb,zhspacing,verbatim}
+\usepackage[backend=biber]{biblatex}
+
+
+\let\Oldsum\sum
+\renewcommand{\sum}{\displaystyle\Oldsum}
+\let\Oldprod\prod
+\renewcommand{\prod}{\displaystyle\Oldprod}
+
+\theoremstyle{plain}
+
+\usepackage[absolute,overlay]{textpos}
+\newenvironment{reference}[2]{%
+  \begin{textblock*}{\textwidth}(#1,#2)
+      \footnotesize\it\bgroup\color{red!50!black}}{\egroup\end{textblock*}}
+
+\zhspacing
+
+\setbeamertemplate{footline} {
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex]{corporatecolor}
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}
+        \insertshortauthor
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}
+        \insertshorttitle
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+        \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+        \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+      \end{beamercolorbox}
+    \end{beamercolorbox}
+  }%
+  \vskip0pt%
+}
+
+\title{Speaker Recognition}
+\subtitle{SRT project of Signal Processing}
+\author {Xinyu Zhou, Yuxin Wu, Tiezheng Li}
+\institute{
+  Department of Computer Science and Technology\\
+  Tsinghua University\\
+}
+\date{\today}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}{Overview}
+\tableofcontents
+\end{frame}
+
+\input{VAD}
+\input{features}
+\section{Model}
+\input{GMM}
+\input{RBM}
+\input{JFA}
+\begin{frame}{GUI Demo}
+
+\end{frame}
+
+\end{document}
+

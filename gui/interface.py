@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Sun Dec 29 14:01:12 2013 +0800
+# Date: Tue Dec 31 00:47:36 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -32,6 +32,7 @@ class ModelInterface(object):
 
     def filter(self, fs, signal, keep_last=None):
         ret, intervals = self.vad.filter(fs, signal)
+        orig_len = len(signal)
 
         def get_len_after_point(after):
             """get sum of interval lengths after specific point"""
@@ -54,7 +55,9 @@ class ModelInterface(object):
                 return ret[-sum_after_2:]
             return []
         else:
-            return ret
+            if len(ret) > orig_len / 3:
+                return ret
+            return []
 
     def enroll(self, name, fs, signal):
         feat = mix_feature((fs, signal))

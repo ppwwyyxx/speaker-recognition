@@ -1,6 +1,5 @@
 % $File: report.tex
-% $Date: Tue Dec 31 01:58:41 2013 +0800
-%Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+% $Date: Tue Dec 31 03:31:23 2013 +0800
 
 \documentclass {beamer}
 %\usetheme{JuanLesPins}
@@ -64,6 +63,16 @@
 \frame[plain]{\titlepage}
 
 \begin{frame}{Overview}
+\begin{exampleblock}{\textbf{Speaker Recognition}}
+  Identification of the person who is speaking by characteristics of their voice biometrics.
+\end{exampleblock}
+\textbf{Primary Goal}:
+
+\textbf{Efficient} and \textbf{Accurate} speaker recognition with short utterance.
+
+
+\end{frame}
+\begin{frame}{Content}
 \tableofcontents
 \end{frame}
 
@@ -75,6 +84,19 @@
 %\input{JFA}
 \begin{frame}{GUI Demo}
 
+\end{frame}
+\begin{frame}{Conclusion}
+  \begin{itemize}
+      \item We implemented a faster GMM, also with better performance.
+      \item Accuracy is kept even under short training and testing utterance.
+      \item Our system is highly accurate, can almost response in real-time.
+      \item 97\% accuracy for 20$\sim$30 speakers, 95\% for 70$\sim$80 speakers.
+  \end{itemize}
+\end{frame}
+\begin{frame}{}
+  \begin{center}
+  \Huge Thanks!
+\end{center}
 \end{frame}
 
 \end{document}

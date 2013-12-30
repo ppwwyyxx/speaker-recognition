@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Tue Dec 31 03:52:45 2013 +0800
+# Date: Tue Dec 31 04:14:46 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -53,7 +53,6 @@ class Main(QMainWindow):
         QWidget.__init__(self, parent)
         uic.loadUi("edytor.ui", self)
         self.statusBar()
-        self.recoProgressBar.setValue(0)
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.timer_callback)
@@ -70,11 +69,10 @@ class Main(QMainWindow):
         self.dumpBtn.clicked.connect(self.dump)
         self.loadBtn.clicked.connect(self.load)
 
-        self.recoRecord.clicked.connect(self.start_record)
+        self.recoRecord.clicked.connect(self.start_reco_record)
         self.stopRecoRecord.clicked.connect(self.stop_reco_record)
-        self.newReco.clicked.connect(self.new_reco)
+#        self.newReco.clicked.connect(self.new_reco)
         self.recoFile.clicked.connect(self.reco_file)
-        self.new_reco()
         self.recoInputFiles.clicked.connect(self.reco_files)
 
         #UI.init
@@ -197,7 +195,7 @@ class Main(QMainWindow):
 
         global last_label_to_show
         label_to_show = label
-        if label:
+        if label and self.conv_result_list:
             last_label = self.conv_result_list[-1]
             if last_label != label:
                 label_to_show = last_label_to_show
@@ -217,10 +215,10 @@ class Main(QMainWindow):
 
 
     ###### RECOGNIZE
-    def new_reco(self):
+    def start_reco_record(self):
         self.Alading.setPixmap(QPixmap(u"image/a_hello"))
         self.recoRecordData = np.array((), dtype=NPDtype)
-        self.recoProgressBar.setValue(0)
+        self.start_record()
 
     def stop_reco_record(self):
         self.stop_record()
@@ -229,6 +227,8 @@ class Main(QMainWindow):
 
     def reco_do_predict(self, fs, signal):
         label = self.backend.predict(fs, signal)
+        if not label:
+            label = "Nobody"
         print label
         self.recoUsername.setText(label)
         self.Alading.setPixmap(QPixmap(u"image/a_result.png"))
@@ -244,7 +244,6 @@ class Main(QMainWindow):
         real_len = float(len(self.recoRecordData)) / Main.FS / Main.TEST_DURATION * 100
         if real_len > 100:
             real_len = 100
-        self.recoProgressBar.setValue(real_len)
 
         self.reco_do_predict(fs, self.recoRecordData)
 

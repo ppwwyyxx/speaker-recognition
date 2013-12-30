@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Tue Dec 31 03:43:26 2013 +0800
+# Date: Tue Dec 31 03:52:45 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -24,7 +24,6 @@ from interface import ModelInterface
 
 FORMAT=pyaudio.paInt16
 NPDtype = 'int16'
-
 NAMELIST = ['Nobody']
 
 class RecorderThread(QThread):
@@ -209,7 +208,7 @@ class Main(QMainWindow):
 
         #ADD FOR GRAPH
         if label_to_show is None:
-            label_to_show = 'Unknown'
+            label_to_show = 'Nobody'
         if len(NAMELIST) and NAMELIST[-1] != label_to_show:
             NAMELIST.append(label_to_show)
         self.convUsername.setText(label_to_show)
@@ -508,7 +507,7 @@ class BurningWidget(QtGui.QWidget):
         self.timer.start()
         self.updateflag = False
         global NAMELIST
-        NAMELIST = []
+        NAMELIST = ["Nobody"]
 
     def initUI(self):
         self.setMinimumSize(1, 510)

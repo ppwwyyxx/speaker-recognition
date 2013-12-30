@@ -199,6 +199,8 @@ class Main(QMainWindow):
         self.conv_result_list.append(label)
         if label:
             self.convUsername.setText(label)
+            #ADD FOR GRAPH
+            NAMELIST.append(label)
             self.Alading_conv.setPixmap(QPixmap(u"image/a_result.png"))
             self.convUserImage.setPixmap(self.get_avatar(label))
         else:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Tue Dec 31 04:14:46 2013 +0800
+# Date: Tue Dec 31 04:24:11 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -197,7 +197,7 @@ class Main(QMainWindow):
         label_to_show = label
         if label and self.conv_result_list:
             last_label = self.conv_result_list[-1]
-            if last_label != label:
+            if last_label and last_label != label:
                 label_to_show = last_label_to_show
         self.conv_result_list.append(label)
 
@@ -512,7 +512,7 @@ class BurningWidget(QtGui.QWidget):
         self.setMinimumSize(1, 510)
         self.num = []
         self.Unknowncolor = QColor(204,204,204)
-        self.colorlist = [QColor(255,102,102),QColor(255,255,0),QColor(51,153,204),QColor(0,153,51)]
+        self.colorlist = [QColor(255,102,102), QColor(255,255,0), QColor(51,153,204), QColor(0,153,51), QColor(0, 255, 255)]
         '''
         with open("timeline.txt") as db:
             for line in db:

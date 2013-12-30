@@ -872,7 +872,7 @@
      <property name="title">
       <string>Statistics</string>
      </property>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="Log_button">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -885,7 +885,7 @@
        <string>Log</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="Graph_button">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -935,6 +935,19 @@
       </property>
       <property name="text">
        <string>of your conversation!</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Temp_button">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>10</y>
+        <width>96</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Temp</string>
       </property>
      </widget>
     </widget>

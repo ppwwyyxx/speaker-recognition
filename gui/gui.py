@@ -25,6 +25,8 @@ from interface import ModelInterface
 FORMAT=pyaudio.paInt16
 NPDtype = 'int16'
 
+NAMELIST = ['Unknown']
+
 class RecorderThread(QThread):
     def __init__(self, main):
         QThread.__init__(self)
@@ -102,6 +104,13 @@ class Main(QMainWindow):
         self.recoUserImage.setPixmap(self.defaultimage)
         self.convUserImage.setPixmap(self.defaultimage)
         self.load_avatar('avatar/')
+
+        # Graph Window init
+        self.graphwindow = GraphWindow()
+        self.Graph_button.clicked.connect(self.graphwindow.show)
+        self.Temp_button.clicked.connect(self.TempButton)
+        self.newname = ""
+        self.lastname = ""
 
         self.convRecord.clicked.connect(self.start_conv_record)
         self.convStop.clicked.connect(self.stop_conv)
@@ -442,6 +451,148 @@ class Main(QMainWindow):
         print "GMMs",
         print len(self.backend.gmmset.gmms)
 
+    def TempButton(self):
+        import random
+        randomnamelist = ["ltz","wyx","zxy"]
+        while self.newname == self.lastname:
+            self.newname = randomnamelist[int(random.randrange(0,3))]
+        NAMELIST.append(self.newname)
+        self.lastname = self.newname
+
+
+class GraphWindow(QWidget):
+    def __init__(self,parent = None):
+        super(GraphWindow,self).__init__(parent)
+        self.setGeometry(300, 100, 920, 510)
+        self.setWindowTitle('Conversation Flow Graph')
+        self.wid = BurningWidget()
+        hbox = QtGui.QHBoxLayout()
+        hbox.addWidget(self.wid)
+        vbox = QtGui.QVBoxLayout()
+        vbox.addStretch(1)
+        vbox.addLayout(hbox)
+        self.setLayout(vbox)
+
+
+class BurningWidget(QtGui.QWidget):
+  
+    def __init__(self):      
+        super(BurningWidget, self).__init__()
+        
+        self.initUI()
+        self.load_avatar('avatar/')
+        self.avatarname = "image/nouser.jpg"
+        self.defaultimage = QPixmap(self.avatarname)
+
+    def initUI(self):
+        
+        self.setMinimumSize(1, 510)
+        self.num = []
+        self.Unknowncolor = QColor(139,136,137)
+        self.colorlist = [QColor(255,102,102),QColor(255,255,0),QColor(51,153,204),QColor(0,153,51)]
+        '''
+        with open("timeline.txt") as db:
+            for line in db:
+                tmp = line.split()
+                self.namelist.append(tmp[0])
+                self.num.append(int(tmp[1]))
+        
+        '''
+        self.namelistlen = 0
+        self.nameset = []
+        self.timer = QTimer(self)
+        self.timer.setInterval(100)
+        self.nowtime = 0
+        self.timer.start()
+        self.timer.timeout.connect(self.timer_out)
+
+    def timer_out(self):
+        self.nowtime += 0.1
+        if len(NAMELIST) != self.namelistlen:
+            self.namelistlen += 1
+            self.num.append(self.nowtime)
+            if NAMELIST[self.namelistlen - 1] not in self.nameset:
+                self.nameset.append(NAMELIST[self.namelistlen - 1])
+        self.repaint()
+
+    def paintEvent(self, e):
+      
+        qp = QtGui.QPainter()
+        qp.begin(self)
+        self.drawWidget(qp)
+        qp.end()
+      
+    def load_avatar(self, dirname):
+        self.avatars = {}
+        for f in glob.glob(dirname + '/*.jpg'):
+            name = os.path.basename(f).split('.')[0]
+            self.avatars[name] = QPixmap(f)
+    
+    def get_avatar(self, username):
+        p = self.avatars.get(str(username), None)
+        if p:
+            return p
+        else:
+            return self.defaultimage
+
+    def drawWidget(self, qp):
+      
+        font = QtGui.QFont('Serif', 8, QtGui.QFont.Light)
+        qp.setFont(font)
+
+        size = self.size()
+        w = size.width()
+        h = size.height() / 2
+        barheight = 100
+
+        total = 30
+        zoomer = w / total
+        laststart = 900 - self.nowtime * 30
+
+        picsize = 129
+        margin = 10
+        startx = int((900 - len(self.nameset) * 139 - 10) / 2)
+
+        for i in range(0,len(self.nameset)):
+            if NAMELIST[-1] == self.nameset[i]: 
+                qp.drawImage(int (startx + i *(margin + picsize)), 0, QImage(self.get_avatar(self.nameset[i])))
+            else:
+                qp.drawImage(int (startx + i *(margin + picsize)), 0, QImage(self.get_avatar(self.nameset[i])).scaled(70,70)) 
+        for i in range(0,len(NAMELIST)):
+            outside = QPen(QColor(255,255,255))
+            outside.setWidth(4)
+            qp.setPen(outside)
+            qp.setBrush(self.colorlist[self.nameset.index(NAMELIST[i])])   
+            if i == len(NAMELIST) - 1:
+                qp.drawRoundRect(laststart, h - barheight, 900, barheight,3,3)
+                qp.drawImage(int(laststart), int(h + 65),QImage(self.get_avatar(NAMELIST[i])).scaled(70,70))
+                #qp.drawImage(380,0,QImage(self.get_avatar(NAMELIST[i])))
+            else:
+                qp.drawRoundRect(laststart, h - barheight, int((self.num[i + 1] - self.num[i]) * zoomer), barheight,30,30)
+                qp.drawImage(int(laststart), int(h + 65),QImage(self.get_avatar(NAMELIST[i])).scaled(70,70))
+                qp.drawEllipse(laststart + int((self.num[i + 1] - self.num[i]) * zoomer) / 2 - 10, h + 20,20,15)
+                qp.drawEllipse(int(laststart) + 40, h + 45,15,10)
+                laststart = laststart + int((self.num[i + 1] - self.num[i]) * zoomer)    
+
+        pen = QtGui.QPen(QtGui.QColor(20, 20, 20), 1, 
+            QtCore.Qt.SolidLine)
+            
+        qp.setPen(pen)
+        qp.setBrush(QtCore.Qt.NoBrush)
+
+        '''
+        for i in range(0,len(NAMELIST)):  
+            qp.drawLine(i, 0, i, 5)
+            metrics = qp.fontMetrics()
+            fw = metrics.width(str(self.num[i]))
+            if not i:
+                qp.drawText(0, 150, str(NAMELIST[i]))
+                qp.drawText(0, 150 - 15, str(self.num[i]))
+            else :
+                qp.drawText((int(self.num[i - 1]) * zoomer)-fw/2, 150, str(NAMELIST[i]))
+                qp.drawText((int(self.num[i - 1]) * zoomer)-fw/2, 150 - 15, str(self.num[i]))
+        '''                    
+        
 
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Tue Dec 31 04:24:11 2013 +0800
+# Date: Tue Dec 31 09:44:21 2013 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -44,7 +44,7 @@ class RecorderThread(QThread):
 
 class Main(QMainWindow):
     CONV_INTERVAL = 0.4
-    CONV_DURATION = 1.5
+    CONV_DURATION = 2.0
     CONV_FILTER_DURATION = CONV_DURATION
     FS = 8000
     TEST_DURATION = 3

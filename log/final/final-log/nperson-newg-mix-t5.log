@@ -1,0 +1,1800 @@
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.4366838932
+training ... time elapsed:  5.1057639122
+predicting... time elapsed:  0.997303009033
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.04761886597
+training ... time elapsed:  8.01681399345
+predicting... time elapsed:  2.17226004601
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.6914229393
+training ... time elapsed:  9.41886901855
+predicting... time elapsed:  3.81808614731
+400/400 1.000000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.36722898483
+training ... time elapsed:  16.4452979565
+predicting... time elapsed:  5.95397591591
+494/500 0.988000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.91913294792
+training ... time elapsed:  20.3747031689
+predicting... time elapsed:  8.54552698135
+570/600 0.950000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.54041290283
+training ... time elapsed:  23.191920042
+predicting... time elapsed:  11.6978619099
+682/700 0.974286
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.12185502052
+training ... time elapsed:  26.4502551556
+predicting... time elapsed:  15.148624897
+790/800 0.987500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.93946480751
+training ... time elapsed:  26.5793209076
+predicting... time elapsed:  19.326308012
+897/900 0.996667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.739112854
+training ... time elapsed:  29.2090330124
+predicting... time elapsed:  23.6515660286
+983/1000 0.983000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.11626505852
+training ... time elapsed:  32.1043479443
+predicting... time elapsed:  37.6550300121
+1234/1250 0.987200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.54277396202
+training ... time elapsed:  53.6425409317
+predicting... time elapsed:  53.4455909729
+1456/1500 0.970667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.9245839119
+training ... time elapsed:  63.7264411449
+predicting... time elapsed:  95.752532959
+1924/2000 0.962000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  15.891092062
+training ... time elapsed:  81.6313450336
+predicting... time elapsed:  148.837343216
+2395/2500 0.958000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.1714048386
+training ... time elapsed:  87.6738028526
+predicting... time elapsed:  213.489598989
+2897/3000 0.965667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.1803488731
+training ... time elapsed:  125.681485891
+predicting... time elapsed:  378.203752995
+3736/4000 0.934000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.44286203384
+training ... time elapsed:  7.13316392899
+predicting... time elapsed:  0.99368596077
+197/200 0.985000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.07661414146
+training ... time elapsed:  9.67171788216
+predicting... time elapsed:  2.18217611313
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.67796397209
+training ... time elapsed:  12.0041909218
+predicting... time elapsed:  3.79938697815
+336/400 0.840000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.34153103828
+training ... time elapsed:  14.5241589546
+predicting... time elapsed:  5.98033213615
+500/500 1.000000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.9364991188
+training ... time elapsed:  18.9592030048
+predicting... time elapsed:  8.48808598518
+524/600 0.873333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.5659930706
+training ... time elapsed:  20.3234670162
+predicting... time elapsed:  11.5925979614
+684/700 0.977143
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.16290283203
+training ... time elapsed:  25.5783221722
+predicting... time elapsed:  15.1464488506
+787/800 0.983750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.93547391891
+training ... time elapsed:  26.7237169743
+predicting... time elapsed:  19.0851511955
+836/900 0.928889
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.55124306679
+training ... time elapsed:  26.736093998
+predicting... time elapsed:  23.6883950233
+952/1000 0.952000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.09916186333
+training ... time elapsed:  40.0753371716
+predicting... time elapsed:  36.9339210987
+1219/1250 0.975200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.62288498878
+training ... time elapsed:  42.7202131748
+predicting... time elapsed:  53.7996900082
+1479/1500 0.986000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  13.0786788464
+training ... time elapsed:  61.0243079662
+predicting... time elapsed:  94.2665929794
+1813/2000 0.906500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.0373868942
+training ... time elapsed:  69.7320640087
+predicting... time elapsed:  147.809039116
+2384/2500 0.953600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.2203369141
+training ... time elapsed:  94.5653030872
+predicting... time elapsed:  211.955953121
+2812/3000 0.937333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.4696109295
+training ... time elapsed:  123.994747162
+predicting... time elapsed:  377.137865067
+3782/4000 0.945500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.42981696129
+training ... time elapsed:  5.78024196625
+predicting... time elapsed:  1.00458192825
+197/200 0.985000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.05897402763
+training ... time elapsed:  8.62928104401
+predicting... time elapsed:  2.21020889282
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.67067694664
+training ... time elapsed:  12.6588881016
+predicting... time elapsed:  3.8890349865
+389/400 0.972500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.33624005318
+training ... time elapsed:  14.7175149918
+predicting... time elapsed:  6.02683615685
+495/500 0.990000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.89387202263
+training ... time elapsed:  21.956097126
+predicting... time elapsed:  8.66871190071
+550/600 0.916667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.5336830616
+training ... time elapsed:  22.0624239445
+predicting... time elapsed:  11.7619781494
+697/700 0.995714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.12739300728
+training ... time elapsed:  23.6545481682
+predicting... time elapsed:  15.1885240078
+704/800 0.880000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.90519785881
+training ... time elapsed:  24.6974761486
+predicting... time elapsed:  19.4279198647
+864/900 0.960000
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.5322701931
+training ... time elapsed:  31.530053854
+predicting... time elapsed:  23.9807040691
+968/1000 0.968000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.01523208618
+training ... time elapsed:  41.6725821495
+predicting... time elapsed:  37.3254401684
+1198/1250 0.958400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.54199409485
+training ... time elapsed:  46.5743429661
+predicting... time elapsed:  53.839771986
+1429/1500 0.952667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.6440241337
+training ... time elapsed:  66.9392459393
+predicting... time elapsed:  95.7546198368
+1882/2000 0.941000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  15.9494578838
+training ... time elapsed:  72.931178093
+predicting... time elapsed:  157.830253124
+2400/2500 0.960000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  20.4730169773
+training ... time elapsed:  123.223949909
+predicting... time elapsed:  285.444052935
+2840/3000 0.946667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  35.5847811699
+training ... time elapsed:  150.449951172
+predicting... time elapsed:  509.39986515
+3766/4000 0.941500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.30165696144
+training ... time elapsed:  8.21889901161
+predicting... time elapsed:  1.26027488708
+170/200 0.850000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.44047904015
+training ... time elapsed:  9.18207788467
+predicting... time elapsed:  2.38529706001
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.79249405861
+training ... time elapsed:  17.396985054
+predicting... time elapsed:  4.20046591759
+388/400 0.970000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.20489001274
+training ... time elapsed:  23.4480509758
+predicting... time elapsed:  6.62767100334
+441/500 0.882000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.06138896942
+training ... time elapsed:  25.0545239449
+predicting... time elapsed:  12.0381171703
+575/600 0.958333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.10842013359
+training ... time elapsed:  31.9389078617
+predicting... time elapsed:  14.8376419544
+680/700 0.971429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.75961613655
+training ... time elapsed:  34.3632872105
+predicting... time elapsed:  18.3642919064
+759/800 0.948750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.74669909477
+training ... time elapsed:  29.0834109783
+predicting... time elapsed:  24.3653991222
+880/900 0.977778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.85121417046
+training ... time elapsed:  38.1893661022
+predicting... time elapsed:  32.2737419605
+929/1000 0.929000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  10.4917230606
+training ... time elapsed:  48.9935059547
+predicting... time elapsed:  47.3372981548
+1115/1250 0.892000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  13.2477090359
+training ... time elapsed:  63.5847239494
+predicting... time elapsed:  59.3428750038
+1397/1500 0.931333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  13.7237541676
+training ... time elapsed:  65.0244231224
+predicting... time elapsed:  99.6373698711
+1900/2000 0.950000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  20.6623520851
+training ... time elapsed:  106.270498037
+predicting... time elapsed:  194.44801712
+2379/2500 0.951600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  23.0898220539
+training ... time elapsed:  119.083945036
+predicting... time elapsed:  281.664269924
+2858/3000 0.952667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  32.4000930786
+training ... time elapsed:  170.779500008
+predicting... time elapsed:  497.992390871
+3788/4000 0.947000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.84379911423
+training ... time elapsed:  6.31177210808
+predicting... time elapsed:  1.10083508492
+198/200 0.990000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.40828704834
+training ... time elapsed:  16.2657649517
+predicting... time elapsed:  2.99872899055
+294/300 0.980000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.22828912735
+training ... time elapsed:  13.6922838688
+predicting... time elapsed:  4.54946017265
+390/400 0.975000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.13513493538
+training ... time elapsed:  16.3868131638
+predicting... time elapsed:  7.62519884109
+495/500 0.990000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.09517407417
+training ... time elapsed:  23.1927611828
+predicting... time elapsed:  11.3456470966
+579/600 0.965000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.07859897614
+training ... time elapsed:  34.3068680763
+predicting... time elapsed:  13.2300260067
+689/700 0.984286
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.57453393936
+training ... time elapsed:  29.2013778687
+predicting... time elapsed:  20.9188129902
+785/800 0.981250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.63320994377
+training ... time elapsed:  36.5615310669
+predicting... time elapsed:  27.5159950256
+875/900 0.972222
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.33144021034
+training ... time elapsed:  39.3769710064
+predicting... time elapsed:  31.9149339199
+957/1000 0.957000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  10.0229830742
+training ... time elapsed:  50.164000988
+predicting... time elapsed:  48.4006609917
+1181/1250 0.944800
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  14.2420611382
+training ... time elapsed:  60.6357030869
+predicting... time elapsed:  69.7919671535
+1444/1500 0.962667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  15.4952709675
+training ... time elapsed:  87.4511330128
+predicting... time elapsed:  124.50716114
+1843/2000 0.921500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  21.5552430153
+training ... time elapsed:  107.887020111
+predicting... time elapsed:  197.062023878
+2424/2500 0.969600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  21.9897270203
+training ... time elapsed:  122.240512848
+predicting... time elapsed:  282.766578913
+2867/3000 0.955667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  32.8578681946
+training ... time elapsed:  170.381747007
+predicting... time elapsed:  504.56308794
+3743/4000 0.935750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.69837784767
+training ... time elapsed:  11.3555338383
+predicting... time elapsed:  1.51938390732
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.67288088799
+training ... time elapsed:  9.27937984467
+predicting... time elapsed:  2.41856813431
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.94221711159
+training ... time elapsed:  17.1187639236
+predicting... time elapsed:  4.74544095993
+400/400 1.000000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.74882483482
+training ... time elapsed:  24.9127850533
+predicting... time elapsed:  6.53471708298
+495/500 0.990000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.93376612663
+training ... time elapsed:  27.219219923
+predicting... time elapsed:  11.3784730434
+595/600 0.991667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.11604094505
+training ... time elapsed:  26.1698811054
+predicting... time elapsed:  15.9420471191
+656/700 0.937143
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.77354001999
+training ... time elapsed:  29.2714262009
+predicting... time elapsed:  20.8028957844
+769/800 0.961250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.5285089016
+training ... time elapsed:  32.9878361225
+predicting... time elapsed:  25.1465549469
+833/900 0.925556
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.49701499939
+training ... time elapsed:  39.2469170094
+predicting... time elapsed:  33.1859068871
+949/1000 0.949000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.29978704453
+training ... time elapsed:  54.7829430103
+predicting... time elapsed:  46.8171730042
+1159/1250 0.927200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  14.1635160446
+training ... time elapsed:  66.9839060307
+predicting... time elapsed:  70.633163929
+1427/1500 0.951333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  14.3879551888
+training ... time elapsed:  84.0774359703
+predicting... time elapsed:  124.283921957
+1932/2000 0.966000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  21.4678039551
+training ... time elapsed:  99.7184751034
+predicting... time elapsed:  194.916750908
+2350/2500 0.940000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  24.630259037
+training ... time elapsed:  125.973610163
+predicting... time elapsed:  281.907034159
+2771/3000 0.923667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  31.6962409019
+training ... time elapsed:  171.524980068
+predicting... time elapsed:  500.378074884
+3694/4000 0.923500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.70908594131
+training ... time elapsed:  6.27197504044
+predicting... time elapsed:  1.10345411301
+180/200 0.900000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.04442596436
+training ... time elapsed:  16.9985530376
+predicting... time elapsed:  2.42334794998
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.07299804688
+training ... time elapsed:  22.178606987
+predicting... time elapsed:  4.24311304092
+400/400 1.000000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.77959489822
+training ... time elapsed:  25.2439258099
+predicting... time elapsed:  7.50792908669
+500/500 1.000000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.10752797127
+training ... time elapsed:  21.7569060326
+predicting... time elapsed:  10.9080660343
+586/600 0.976667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.14557909966
+training ... time elapsed:  27.049216032
+predicting... time elapsed:  16.1280119419
+679/700 0.970000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.85660886765
+training ... time elapsed:  30.8843548298
+predicting... time elapsed:  20.9025580883
+798/800 0.997500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.57897305489
+training ... time elapsed:  38.4364309311
+predicting... time elapsed:  26.2916500568
+876/900 0.973333
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.72812604904
+training ... time elapsed:  39.7381498814
+predicting... time elapsed:  33.9122471809
+994/1000 0.994000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.20057988167
+training ... time elapsed:  52.6387059689
+predicting... time elapsed:  47.1090970039
+1221/1250 0.976800
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  14.1176729202
+training ... time elapsed:  61.7979581356
+predicting... time elapsed:  71.2615830898
+1450/1500 0.966667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  17.2128989697
+training ... time elapsed:  80.1187851429
+predicting... time elapsed:  125.98120594
+1890/2000 0.945000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  22.4926481247
+training ... time elapsed:  106.517044067
+predicting... time elapsed:  196.873924971
+2329/2500 0.931600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  24.4890911579
+training ... time elapsed:  125.512079954
+predicting... time elapsed:  284.628003836
+2825/3000 0.941667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  33.0338308811
+training ... time elapsed:  174.445651054
+predicting... time elapsed:  505.716840029
+3730/4000 0.932500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.27918100357
+training ... time elapsed:  6.97768807411
+predicting... time elapsed:  1.08541202545
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.40431690216
+training ... time elapsed:  12.3257188797
+predicting... time elapsed:  3.19858312607
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.06572008133
+training ... time elapsed:  16.4643919468
+predicting... time elapsed:  4.1697280407
+390/400 0.975000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.21002578735
+training ... time elapsed:  20.4564769268
+predicting... time elapsed:  7.6556019783
+484/500 0.968000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.075496912
+training ... time elapsed:  25.7254068851
+predicting... time elapsed:  11.7797961235
+598/600 0.996667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.95615100861
+training ... time elapsed:  33.129513979
+predicting... time elapsed:  12.9446480274
+698/700 0.997143
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.72085118294
+training ... time elapsed:  34.6425378323
+predicting... time elapsed:  19.293763876
+738/800 0.922500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.0246720314
+training ... time elapsed:  35.9309999943
+predicting... time elapsed:  24.3164820671
+881/900 0.978889
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.78056406975
+training ... time elapsed:  45.4167158604
+predicting... time elapsed:  30.3989419937
+979/1000 0.979000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.06569600105
+training ... time elapsed:  50.6220009327
+predicting... time elapsed:  47.8931391239
+1169/1250 0.935200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  11.2995250225
+training ... time elapsed:  59.384043932
+predicting... time elapsed:  70.2181229591
+1403/1500 0.935333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  18.5631389618
+training ... time elapsed:  87.7650740147
+predicting... time elapsed:  122.944988966
+1937/2000 0.968500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  21.2570300102
+training ... time elapsed:  105.257919073
+predicting... time elapsed:  192.554857969
+2355/2500 0.942000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.8307108879
+training ... time elapsed:  131.094637156
+predicting... time elapsed:  280.192305088
+2817/3000 0.939000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  30.8216428757
+training ... time elapsed:  166.61463213
+predicting... time elapsed:  499.05582881
+3780/4000 0.945000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.31728291512
+training ... time elapsed:  6.63377904892
+predicting... time elapsed:  1.10503697395
+199/200 0.995000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.41724514961
+training ... time elapsed:  14.676350832
+predicting... time elapsed:  2.74849891663
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.75752019882
+training ... time elapsed:  14.6250121593
+predicting... time elapsed:  4.20512390137
+395/400 0.987500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.21165394783
+training ... time elapsed:  20.2655100822
+predicting... time elapsed:  8.08391189575
+497/500 0.994000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.0615170002
+training ... time elapsed:  23.017370224
+predicting... time elapsed:  11.7001020908
+575/600 0.958333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.14617609978
+training ... time elapsed:  32.729571104
+predicting... time elapsed:  12.963299036
+591/700 0.844286
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.26448202133
+training ... time elapsed:  36.2464220524
+predicting... time elapsed:  19.1854948997
+789/800 0.986250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.84075403214
+training ... time elapsed:  46.3478369713
+predicting... time elapsed:  25.2478508949
+883/900 0.981111
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.65218400955
+training ... time elapsed:  36.8696548939
+predicting... time elapsed:  30.5158531666
+976/1000 0.976000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.1064748764
+training ... time elapsed:  51.9749820232
+predicting... time elapsed:  48.0325870514
+1232/1250 0.985600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.5713670254
+training ... time elapsed:  69.378921032
+predicting... time elapsed:  70.0373020172
+1455/1500 0.970000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  14.795979023
+training ... time elapsed:  86.2293198109
+predicting... time elapsed:  123.104071856
+1863/2000 0.931500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  21.8506278992
+training ... time elapsed:  109.465490818
+predicting... time elapsed:  193.680653095
+2442/2500 0.976800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  27.1807339191
+training ... time elapsed:  130.759079933
+predicting... time elapsed:  279.260699987
+2855/3000 0.951667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  32.347607851
+training ... time elapsed:  170.709198952
+predicting... time elapsed:  498.308891058
+3718/4000 0.929500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.64855885506
+training ... time elapsed:  7.5992269516
+predicting... time elapsed:  1.10597395897
+199/200 0.995000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.44232606888
+training ... time elapsed:  14.2008030415
+predicting... time elapsed:  2.34439992905
+296/300 0.986667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.09741806984
+training ... time elapsed:  15.6096389294
+predicting... time elapsed:  5.60060286522
+399/400 0.997500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.10842609406
+training ... time elapsed:  22.4348399639
+predicting... time elapsed:  8.39124107361
+497/500 0.994000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.18521714211
+training ... time elapsed:  23.1518909931
+predicting... time elapsed:  11.638669014
+590/600 0.983333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.10964798927
+training ... time elapsed:  29.4673988819
+predicting... time elapsed:  14.2043290138
+650/700 0.928571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.04092597961
+training ... time elapsed:  31.0656490326
+predicting... time elapsed:  18.6187660694
+772/800 0.965000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.7830889225
+training ... time elapsed:  41.518086195
+predicting... time elapsed:  23.9952349663
+865/900 0.961111
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.61805796623
+training ... time elapsed:  35.1789550781
+predicting... time elapsed:  31.2670090199
+964/1000 0.964000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  11.1829559803
+training ... time elapsed:  46.647947073
+predicting... time elapsed:  49.4942808151
+1211/1250 0.968800
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  10.8868999481
+training ... time elapsed:  57.9914848804
+predicting... time elapsed:  70.6671030521
+1460/1500 0.973333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.032859087
+training ... time elapsed:  88.8412480354
+predicting... time elapsed:  124.85518384
+1848/2000 0.924000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  20.5374288559
+training ... time elapsed:  114.562396049
+predicting... time elapsed:  192.887509108
+2408/2500 0.963200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  26.8949708939
+training ... time elapsed:  123.522449017
+predicting... time elapsed:  280.608458996
+2831/3000 0.943667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  31.3453760147
+training ... time elapsed:  168.120558977
+predicting... time elapsed:  498.897302866
+3729/4000 0.932250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.23168802261
+training ... time elapsed:  8.4620308876
+predicting... time elapsed:  1.1187210083
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.4048678875
+training ... time elapsed:  16.2787621021
+predicting... time elapsed:  2.41203713417
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.10502290726
+training ... time elapsed:  15.4693779945
+predicting... time elapsed:  4.65637493134
+399/400 0.997500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.09412693977
+training ... time elapsed:  22.4104559422
+predicting... time elapsed:  8.80950498581
+491/500 0.982000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.24881005287
+training ... time elapsed:  30.4799120426
+predicting... time elapsed:  10.3287620544
+571/600 0.951667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.21145701408
+training ... time elapsed:  28.3931388855
+predicting... time elapsed:  16.9508638382
+672/700 0.960000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  7.5939078331
+training ... time elapsed:  33.5881521702
+predicting... time elapsed:  19.6634058952
+724/800 0.905000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.31284093857
+training ... time elapsed:  41.1144018173
+predicting... time elapsed:  26.1394019127
+887/900 0.985556
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.73594093323
+training ... time elapsed:  37.4763598442
+predicting... time elapsed:  33.6333880424
+949/1000 0.949000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.23054099083
+training ... time elapsed:  51.7429890633
+predicting... time elapsed:  46.7638521194
+1164/1250 0.931200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  14.5521178246
+training ... time elapsed:  67.505261898
+predicting... time elapsed:  69.9534201622
+1406/1500 0.937333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  15.90143013
+training ... time elapsed:  83.5133929253
+predicting... time elapsed:  124.663605928
+1889/2000 0.944500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  21.8922250271
+training ... time elapsed:  108.93662405
+predicting... time elapsed:  198.186743021
+2369/2500 0.947600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  21.8927900791
+training ... time elapsed:  131.84274888
+predicting... time elapsed:  281.293795109
+2788/3000 0.929333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  31.6801128387
+training ... time elapsed:  123.734795809
+predicting... time elapsed:  382.631657124
+3709/4000 0.927250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.4477660656
+training ... time elapsed:  5.83434581757
+predicting... time elapsed:  0.991619825363
+190/200 0.950000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.06432390213
+training ... time elapsed:  12.1849939823
+predicting... time elapsed:  2.19337391853
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.69817399979
+training ... time elapsed:  14.792167902
+predicting... time elapsed:  3.77990412712
+343/400 0.857500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.35870909691
+training ... time elapsed:  16.9314260483
+predicting... time elapsed:  5.97252202034
+483/500 0.966000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.94464707375
+training ... time elapsed:  19.1385369301
+predicting... time elapsed:  8.57236480713
+600/600 1.000000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.53246092796
+training ... time elapsed:  16.5288469791
+predicting... time elapsed:  11.634665966
+694/700 0.991429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.18414306641
+training ... time elapsed:  22.8696260452
+predicting... time elapsed:  15.2142708302
+762/800 0.952500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.94596815109
+training ... time elapsed:  27.0043389797
+predicting... time elapsed:  19.2046411037
+884/900 0.982222
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.56236314774
+training ... time elapsed:  36.6589000225
+predicting... time elapsed:  23.7013030052
+966/1000 0.966000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.05393791199
+training ... time elapsed:  37.6743910313
+predicting... time elapsed:  36.9413790703
+1147/1250 0.917600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.62794804573
+training ... time elapsed:  46.689797163
+predicting... time elapsed:  54.3475151062
+1412/1500 0.941333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.944491148
+training ... time elapsed:  65.3305280209
+predicting... time elapsed:  94.4043650627
+1834/2000 0.917000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.0836081505
+training ... time elapsed:  83.0045688152
+predicting... time elapsed:  148.017655134
+2388/2500 0.955200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.2252531052
+training ... time elapsed:  96.8059427738
+predicting... time elapsed:  212.970030069
+2770/3000 0.923333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.6046319008
+training ... time elapsed:  126.377563
+predicting... time elapsed:  378.642888784
+3673/4000 0.918250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.43549394608
+training ... time elapsed:  7.07554793358
+predicting... time elapsed:  1.00214481354
+195/200 0.975000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.07953286171
+training ... time elapsed:  8.62675714493
+predicting... time elapsed:  2.18814992905
+298/300 0.993333
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.6843290329
+training ... time elapsed:  13.6613540649
+predicting... time elapsed:  3.83772611618
+388/400 0.970000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.32659888268
+training ... time elapsed:  14.9115359783
+predicting... time elapsed:  5.9846971035
+473/500 0.946000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.92180490494
+training ... time elapsed:  19.1456840038
+predicting... time elapsed:  8.5908010006
+584/600 0.973333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.53036904335
+training ... time elapsed:  21.4823558331
+predicting... time elapsed:  11.6365299225
+674/700 0.962857
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.13028812408
+training ... time elapsed:  21.8631711006
+predicting... time elapsed:  15.1638150215
+743/800 0.928750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.91822385788
+training ... time elapsed:  27.1229069233
+predicting... time elapsed:  19.2242970467
+855/900 0.950000
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.49423408508
+training ... time elapsed:  27.6801409721
+predicting... time elapsed:  23.8142549992
+992/1000 0.992000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.03512811661
+training ... time elapsed:  40.3100659847
+predicting... time elapsed:  37.2023191452
+1227/1250 0.981600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.58026409149
+training ... time elapsed:  47.4485719204
+predicting... time elapsed:  53.5647161007
+1417/1500 0.944667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.7203979492
+training ... time elapsed:  62.4269318581
+predicting... time elapsed:  95.2474651337
+1907/2000 0.953500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.0156888962
+training ... time elapsed:  76.0206651688
+predicting... time elapsed:  148.761495113
+2401/2500 0.960400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.1235799789
+training ... time elapsed:  100.815685987
+predicting... time elapsed:  213.986912966
+2799/3000 0.933000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.4011769295
+training ... time elapsed:  131.371631861
+predicting... time elapsed:  380.602492094
+3735/4000 0.933750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.4397380352
+training ... time elapsed:  8.3443479538
+predicting... time elapsed:  0.999464988708
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.0862300396
+training ... time elapsed:  8.03260207176
+predicting... time elapsed:  2.19564294815
+278/300 0.926667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.65581202507
+training ... time elapsed:  11.6681408882
+predicting... time elapsed:  3.82550692558
+387/400 0.967500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.32045507431
+training ... time elapsed:  14.0732018948
+predicting... time elapsed:  5.95793294907
+491/500 0.982000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.92758893967
+training ... time elapsed:  22.9030570984
+predicting... time elapsed:  8.55459308624
+566/600 0.943333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.53917789459
+training ... time elapsed:  22.1704750061
+predicting... time elapsed:  11.6273131371
+677/700 0.967143
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.1670999527
+training ... time elapsed:  23.7344720364
+predicting... time elapsed:  15.1508448124
+798/800 0.997500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.91148209572
+training ... time elapsed:  26.939977169
+predicting... time elapsed:  19.0849759579
+841/900 0.934444
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.48582005501
+training ... time elapsed:  32.1611919403
+predicting... time elapsed:  23.7012150288
+962/1000 0.962000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.05702519417
+training ... time elapsed:  39.2717690468
+predicting... time elapsed:  37.0240838528
+1237/1250 0.989600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.61277985573
+training ... time elapsed:  41.7041921616
+predicting... time elapsed:  53.2260141373
+1439/1500 0.959333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.7362310886
+training ... time elapsed:  65.2629308701
+predicting... time elapsed:  94.6968560219
+1928/2000 0.964000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.4457581043
+training ... time elapsed:  82.1514070034
+predicting... time elapsed:  150.967046022
+2405/2500 0.962000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.5986409187
+training ... time elapsed:  90.5672278404
+predicting... time elapsed:  216.863113165
+2827/3000 0.942333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.9287071228
+training ... time elapsed:  135.324912071
+predicting... time elapsed:  386.282691002
+3762/4000 0.940500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.44036316872
+training ... time elapsed:  6.49802494049
+predicting... time elapsed:  1.02766108513
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.19776296616
+training ... time elapsed:  9.52232503891
+predicting... time elapsed:  2.2393682003
+281/300 0.936667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.7349960804
+training ... time elapsed:  14.0517940521
+predicting... time elapsed:  3.82563018799
+388/400 0.970000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.42482089996
+training ... time elapsed:  19.2816870213
+predicting... time elapsed:  6.07675099373
+469/500 0.938000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.00718712807
+training ... time elapsed:  22.6625390053
+predicting... time elapsed:  8.73787903786
+545/600 0.908333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.6053340435
+training ... time elapsed:  22.5958769321
+predicting... time elapsed:  11.6753070354
+697/700 0.995714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.20502901077
+training ... time elapsed:  22.878330946
+predicting... time elapsed:  15.6427278519
+782/800 0.977500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.24244904518
+training ... time elapsed:  28.245650053
+predicting... time elapsed:  19.4752218723
+879/900 0.976667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.80503797531
+training ... time elapsed:  29.4151301384
+predicting... time elapsed:  24.1286320686
+970/1000 0.970000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.34492015839
+training ... time elapsed:  40.1198878288
+predicting... time elapsed:  37.6333880424
+1197/1250 0.957600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.64818286896
+training ... time elapsed:  48.4016041756
+predicting... time elapsed:  54.0582318306
+1451/1500 0.967333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.7972459793
+training ... time elapsed:  61.2458889484
+predicting... time elapsed:  96.0698518753
+1848/2000 0.924000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.173235178
+training ... time elapsed:  82.8727080822
+predicting... time elapsed:  149.793928862
+2291/2500 0.916400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.6975319386
+training ... time elapsed:  91.4963130951
+predicting... time elapsed:  216.767647982
+2824/3000 0.941333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  26.0902519226
+training ... time elapsed:  125.747781992
+predicting... time elapsed:  378.412005901
+3766/4000 0.941500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.44444084167
+training ... time elapsed:  5.79993200302
+predicting... time elapsed:  0.98747086525
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.10309791565
+training ... time elapsed:  10.2666330338
+predicting... time elapsed:  2.18354606628
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.68099117279
+training ... time elapsed:  10.4810400009
+predicting... time elapsed:  3.84251999855
+394/400 0.985000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.33429598808
+training ... time elapsed:  18.8012869358
+predicting... time elapsed:  5.98171281815
+493/500 0.986000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.93001508713
+training ... time elapsed:  22.8403880596
+predicting... time elapsed:  8.50970005989
+543/600 0.905000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.58549404144
+training ... time elapsed:  20.0803940296
+predicting... time elapsed:  11.6418979168
+660/700 0.942857
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.17783808708
+training ... time elapsed:  25.6973798275
+predicting... time elapsed:  15.2354738712
+780/800 0.975000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.9429359436
+training ... time elapsed:  23.7773499489
+predicting... time elapsed:  19.2561061382
+882/900 0.980000
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.55320096016
+training ... time elapsed:  25.7907350063
+predicting... time elapsed:  23.7444550991
+983/1000 0.983000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.10728907585
+training ... time elapsed:  42.4827871323
+predicting... time elapsed:  36.971255064
+1164/1250 0.931200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.63146686554
+training ... time elapsed:  46.5773229599
+predicting... time elapsed:  53.3903608322
+1443/1500 0.962000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.7915160656
+training ... time elapsed:  66.5474460125
+predicting... time elapsed:  94.7215559483
+1905/2000 0.952500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.0982980728
+training ... time elapsed:  80.332406044
+predicting... time elapsed:  148.221472979
+2377/2500 0.950800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.1698617935
+training ... time elapsed:  89.9742109776
+predicting... time elapsed:  214.027215958
+2794/3000 0.931333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.520581007
+training ... time elapsed:  112.449082851
+predicting... time elapsed:  379.989582062
+3756/4000 0.939000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.44869399071
+training ... time elapsed:  4.54778599739
+predicting... time elapsed:  0.985049962997
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.08599996567
+training ... time elapsed:  8.82481884956
+predicting... time elapsed:  2.18291592598
+297/300 0.990000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.67299199104
+training ... time elapsed:  13.4422039986
+predicting... time elapsed:  3.82251191139
+386/400 0.965000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.34747481346
+training ... time elapsed:  16.0329780579
+predicting... time elapsed:  5.93320512772
+499/500 0.998000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.95305395126
+training ... time elapsed:  18.7539761066
+predicting... time elapsed:  8.5671710968
+599/600 0.998333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.57213377953
+training ... time elapsed:  20.8026578426
+predicting... time elapsed:  11.5755019188
+677/700 0.967143
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.18599295616
+training ... time elapsed:  20.4336321354
+predicting... time elapsed:  15.1560230255
+796/800 0.995000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.93916392326
+training ... time elapsed:  29.026006937
+predicting... time elapsed:  19.1632208824
+862/900 0.957778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.5226020813
+training ... time elapsed:  32.1204490662
+predicting... time elapsed:  23.5914211273
+927/1000 0.927000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.1163020134
+training ... time elapsed:  36.3418960571
+predicting... time elapsed:  36.9002809525
+1195/1250 0.956000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.59163808823
+training ... time elapsed:  46.4791989326
+predicting... time elapsed:  52.8869040012
+1425/1500 0.950000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.7871570587
+training ... time elapsed:  67.8331170082
+predicting... time elapsed:  93.9762539864
+1871/2000 0.935500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.040430069
+training ... time elapsed:  81.7465410233
+predicting... time elapsed:  146.999196053
+2394/2500 0.957600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.270870924
+training ... time elapsed:  91.5385909081
+predicting... time elapsed:  212.299718142
+2847/3000 0.949000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.5859069824
+training ... time elapsed:  120.5722332
+predicting... time elapsed:  383.411520958
+3664/4000 0.916000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.46296310425
+training ... time elapsed:  6.67211699486
+predicting... time elapsed:  0.996881008148
+198/200 0.990000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.10884714127
+training ... time elapsed:  11.8216760159
+predicting... time elapsed:  2.19455313683
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.72793889046
+training ... time elapsed:  13.3854601383
+predicting... time elapsed:  3.92932105064
+398/400 0.995000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.41980481148
+training ... time elapsed:  16.3172230721
+predicting... time elapsed:  6.01267719269
+499/500 0.998000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.06355285645
+training ... time elapsed:  16.4751751423
+predicting... time elapsed:  8.67133712769
+599/600 0.998333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.58982110023
+training ... time elapsed:  23.077903986
+predicting... time elapsed:  12.0580010414
+677/700 0.967143
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.20340013504
+training ... time elapsed:  27.0013971329
+predicting... time elapsed:  15.5234091282
+794/800 0.992500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.10227489471
+training ... time elapsed:  29.2327990532
+predicting... time elapsed:  19.2736289501
+880/900 0.977778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.60146403313
+training ... time elapsed:  29.4332010746
+predicting... time elapsed:  23.7927000523
+979/1000 0.979000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.13601899147
+training ... time elapsed:  41.2249081135
+predicting... time elapsed:  37.1618278027
+1215/1250 0.972000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.71145105362
+training ... time elapsed:  42.0888459682
+predicting... time elapsed:  53.3928968906
+1453/1500 0.968667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.9670059681
+training ... time elapsed:  62.8191518784
+predicting... time elapsed:  94.8906080723
+1936/2000 0.968000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.1829888821
+training ... time elapsed:  78.7381560802
+predicting... time elapsed:  148.336764812
+2365/2500 0.946000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.2905220985
+training ... time elapsed:  95.2272200584
+predicting... time elapsed:  213.258908033
+2794/3000 0.931333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.8317329884
+training ... time elapsed:  114.928156853
+predicting... time elapsed:  379.417684078
+3699/4000 0.924750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.44080591202
+training ... time elapsed:  6.62216305733
+predicting... time elapsed:  0.994360923767
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.07917499542
+training ... time elapsed:  10.7076480389
+predicting... time elapsed:  2.18108892441
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.70247483253
+training ... time elapsed:  12.0998020172
+predicting... time elapsed:  3.82943987846
+363/400 0.907500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.35351896286
+training ... time elapsed:  14.528742075
+predicting... time elapsed:  5.94727611542
+500/500 1.000000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.94108891487
+training ... time elapsed:  17.6993441582
+predicting... time elapsed:  8.54268693924
+593/600 0.988333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.55836296082
+training ... time elapsed:  22.6763801575
+predicting... time elapsed:  11.5694150925
+692/700 0.988571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.19662594795
+training ... time elapsed:  25.6176950932
+predicting... time elapsed:  15.1740949154
+797/800 0.996250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.99242305756
+training ... time elapsed:  28.072165966
+predicting... time elapsed:  19.2250111103
+860/900 0.955556
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.53316402435
+training ... time elapsed:  32.60739398
+predicting... time elapsed:  23.5046539307
+933/1000 0.933000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.07994508743
+training ... time elapsed:  38.3839800358
+predicting... time elapsed:  36.7711348534
+1168/1250 0.934400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.62399888039
+training ... time elapsed:  46.6182267666
+predicting... time elapsed:  52.9490001202
+1422/1500 0.948000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  12.8234379292
+training ... time elapsed:  60.883890152
+predicting... time elapsed:  94.5468728542
+1961/2000 0.980500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.0804638863
+training ... time elapsed:  74.609454155
+predicting... time elapsed:  147.49051404
+2363/2500 0.945200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.2021400928
+training ... time elapsed:  96.6454539299
+predicting... time elapsed:  212.595281124
+2840/3000 0.946667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  25.4591240883
+training ... time elapsed:  126.086402893
+predicting... time elapsed:  377.768666983
+3748/4000 0.937000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  1.45790696144
+training ... time elapsed:  4.21970891953
+predicting... time elapsed:  0.994661092758
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.07911300659
+training ... time elapsed:  6.83965086937
+predicting... time elapsed:  2.19216895103
+297/300 0.990000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  2.66954612732
+training ... time elapsed:  12.8665618896
+predicting... time elapsed:  3.85602498055
+392/400 0.980000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.33350801468
+training ... time elapsed:  17.2487959862
+predicting... time elapsed:  5.96407914162
+498/500 0.996000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  3.95268702507
+training ... time elapsed:  17.7577998638
+predicting... time elapsed:  8.48865103722
+543/600 0.905000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  4.5687391758
+training ... time elapsed:  24.6186921597
+predicting... time elapsed:  11.6296021938
+672/700 0.960000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.16429305077
+training ... time elapsed:  25.9250671864
+predicting... time elapsed:  15.1726648808
+777/800 0.971250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  5.9241809845
+training ... time elapsed:  28.6878910065
+predicting... time elapsed:  19.19480896
+857/900 0.952222
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  6.54931998253
+training ... time elapsed:  33.1907930374
+predicting... time elapsed:  23.8660058975
+988/1000 0.988000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  8.23081612587
+training ... time elapsed:  38.2607090473
+predicting... time elapsed:  37.1627850533
+1180/1250 0.944000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  9.83629202843
+training ... time elapsed:  50.2877941132
+predicting... time elapsed:  54.6895010471
+1387/1500 0.924667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  13.4633510113
+training ... time elapsed:  61.2138462067
+predicting... time elapsed:  95.4815449715
+1875/2000 0.937500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  16.1257798672
+training ... time elapsed:  75.1222040653
+predicting... time elapsed:  149.888427973
+2299/2500 0.919600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  19.7768650055
+training ... time elapsed:  97.9426851273
+predicting... time elapsed:  216.158686876
+2885/3000 0.961667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+calculating features... time elapsed:  26.2422089577
+training ... time elapsed:  115.066630125
+predicting... time elapsed:  385.63885808
+3813/4000 0.953250

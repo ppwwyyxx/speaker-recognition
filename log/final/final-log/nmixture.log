@@ -1,0 +1,132 @@
+calculating features... time elapsed:  17.4065179825
+nmixture:  16
+training ... time elapsed:  45.4784598351
+predicting... time elapsed:  22.6040320396
+2380/2500 0.952000
+nmixture:  32
+training ... time elapsed:  44.7530260086
+predicting... time elapsed:  22.4215230942
+2369/2500 0.947600
+nmixture:  48
+training ... time elapsed:  41.8806459904
+predicting... time elapsed:  21.0194990635
+2373/2500 0.949200
+nmixture:  64
+training ... time elapsed:  33.9269587994
+predicting... time elapsed:  21.0144059658
+2362/2500 0.944800
+nmixture:  80
+training ... time elapsed:  33.6696019173
+predicting... time elapsed:  21.0267159939
+2361/2500 0.944400
+nmixture:  96
+training ... time elapsed:  34.2148549557
+predicting... time elapsed:  21.18343997
+2371/2500 0.948400
+nmixture:  120
+training ... time elapsed:  33.5226449966
+predicting... time elapsed:  21.1980080605
+2362/2500 0.944800
+nmixture:  144
+training ... time elapsed:  33.9683089256
+predicting... time elapsed:  21.0772790909
+2363/2500 0.945200
+calculating features... time elapsed:  16.1802840233
+nmixture:  16
+training ... time elapsed:  33.9428310394
+predicting... time elapsed:  20.9480528831
+2375/2500 0.950000
+nmixture:  32
+training ... time elapsed:  33.1877100468
+predicting... time elapsed:  21.1845190525
+2359/2500 0.943600
+nmixture:  48
+training ... time elapsed:  34.0368471146
+predicting... time elapsed:  21.1705479622
+2358/2500 0.943200
+nmixture:  64
+training ... time elapsed:  34.8106560707
+predicting... time elapsed:  21.1216440201
+2363/2500 0.945200
+nmixture:  80
+training ... time elapsed:  33.9441931248
+predicting... time elapsed:  21.020567894
+2365/2500 0.946000
+nmixture:  96
+training ... time elapsed:  34.8189198971
+predicting... time elapsed:  21.0638899803
+2370/2500 0.948000
+nmixture:  120
+training ... time elapsed:  33.43069911
+predicting... time elapsed:  21.2350740433
+2363/2500 0.945200
+nmixture:  144
+training ... time elapsed:  32.4913289547
+predicting... time elapsed:  21.2581551075
+2367/2500 0.946800
+calculating features... time elapsed:  16.1968319416
+nmixture:  16
+training ... time elapsed:  33.1575939655
+predicting... time elapsed:  21.2549071312
+2367/2500 0.946800
+nmixture:  32
+training ... time elapsed:  34.3619370461
+predicting... time elapsed:  21.0168571472
+2359/2500 0.943600
+nmixture:  48
+training ... time elapsed:  33.9310932159
+predicting... time elapsed:  21.210919857
+2368/2500 0.947200
+nmixture:  64
+training ... time elapsed:  32.7230491638
+predicting... time elapsed:  21.2284898758
+2370/2500 0.948000
+nmixture:  80
+training ... time elapsed:  35.2051820755
+predicting... time elapsed:  21.0059130192
+2374/2500 0.949600
+nmixture:  96
+training ... time elapsed:  33.3236699104
+predicting... time elapsed:  21.1524538994
+2371/2500 0.948400
+nmixture:  120
+training ... time elapsed:  34.4793069363
+predicting... time elapsed:  21.2247941494
+2362/2500 0.944800
+nmixture:  144
+training ... time elapsed:  34.4010429382
+predicting... time elapsed:  21.2843739986
+2368/2500 0.947200
+calculating features... time elapsed:  16.2724339962
+nmixture:  16
+training ... time elapsed:  34.2459080219
+predicting... time elapsed:  20.9776411057
+2364/2500 0.945600
+nmixture:  32
+training ... time elapsed:  34.4602499008
+predicting... time elapsed:  21.1417479515
+2385/2500 0.954000
+nmixture:  48
+training ... time elapsed:  34.2220668793
+predicting... time elapsed:  21.0360040665
+2377/2500 0.950800
+nmixture:  64
+training ... time elapsed:  34.8885030746
+predicting... time elapsed:  21.095913887
+2373/2500 0.949200
+nmixture:  80
+training ... time elapsed:  34.3232619762
+predicting... time elapsed:  21.1857888699
+2367/2500 0.946800
+nmixture:  96
+training ... time elapsed:  34.8022119999
+predicting... time elapsed:  21.2143220901
+2370/2500 0.948000
+nmixture:  120
+training ... time elapsed:  34.4392938614
+predicting... time elapsed:  21.061770916
+2368/2500 0.947200
+nmixture:  144
+training ... time elapsed:  34.1729938984
+predicting... time elapsed:  21.0554468632
+2363/2500 0.945200

@@ -1,0 +1,2100 @@
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.850610971451
+training ... time elapsed:  5.74641799927
+predicting... time elapsed:  0.175969839096
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.22684884071
+training ... time elapsed:  7.83497309685
+predicting... time elapsed:  0.472629070282
+296/300 0.986667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.58337116241
+training ... time elapsed:  10.7275698185
+predicting... time elapsed:  0.539974927902
+347/400 0.867500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.10061717033
+training ... time elapsed:  12.8976211548
+predicting... time elapsed:  0.795530080795
+492/500 0.984000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.2024769783
+training ... time elapsed:  14.6542658806
+predicting... time elapsed:  3.43452596664
+573/600 0.955000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.49085497856
+training ... time elapsed:  17.7032079697
+predicting... time elapsed:  1.71951794624
+671/700 0.958571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.3023481369
+training ... time elapsed:  22.5371878147
+predicting... time elapsed:  1.83145880699
+758/800 0.947500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.25723004341
+training ... time elapsed:  26.9751639366
+predicting... time elapsed:  2.30998110771
+849/900 0.943333
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.57268214226
+training ... time elapsed:  28.534651041
+predicting... time elapsed:  2.7642261982
+954/1000 0.954000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.38595795631
+training ... time elapsed:  37.4694550037
+predicting... time elapsed:  3.97354197502
+1183/1250 0.946400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.18735098839
+training ... time elapsed:  45.8375048637
+predicting... time elapsed:  5.67065000534
+1365/1500 0.910000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.95701694489
+training ... time elapsed:  60.8664479256
+predicting... time elapsed:  9.77566695213
+1859/2000 0.929500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.59545898438
+training ... time elapsed:  75.5537369251
+predicting... time elapsed:  22.2097730637
+2317/2500 0.926800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2213869095
+training ... time elapsed:  87.1166460514
+predicting... time elapsed:  38.5635609627
+2686/3000 0.895333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5407621861
+training ... time elapsed:  111.375717163
+predicting... time elapsed:  58.8437120914
+3673/4000 0.918250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.86710691452
+training ... time elapsed:  5.18338894844
+predicting... time elapsed:  0.975419998169
+196/200 0.980000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.82443881035
+training ... time elapsed:  6.25512099266
+predicting... time elapsed:  0.329679012299
+296/300 0.986667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.59844207764
+training ... time elapsed:  10.6287839413
+predicting... time elapsed:  0.550328969955
+393/400 0.982500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.92071199417
+training ... time elapsed:  12.6129908562
+predicting... time elapsed:  0.780845880508
+490/500 0.980000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.21758008003
+training ... time elapsed:  16.975976944
+predicting... time elapsed:  1.07997298241
+590/600 0.983333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.50121998787
+training ... time elapsed:  20.791023016
+predicting... time elapsed:  1.36322402954
+685/700 0.978571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.9101421833
+training ... time elapsed:  24.3709561825
+predicting... time elapsed:  1.77109313011
+764/800 0.955000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.3317899704
+training ... time elapsed:  25.595610857
+predicting... time elapsed:  2.13910079002
+834/900 0.926667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.63879203796
+training ... time elapsed:  24.1240019798
+predicting... time elapsed:  3.02267599106
+960/1000 0.960000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.40872192383
+training ... time elapsed:  32.7385549545
+predicting... time elapsed:  4.01804304123
+1182/1250 0.945600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.2125480175
+training ... time elapsed:  44.7992050648
+predicting... time elapsed:  5.60666203499
+1441/1500 0.960667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.95878887177
+training ... time elapsed:  59.3343601227
+predicting... time elapsed:  11.2243490219
+1902/2000 0.951000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.70748591423
+training ... time elapsed:  73.5361101627
+predicting... time elapsed:  22.1161081791
+2331/2500 0.932400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.320002079
+training ... time elapsed:  92.1316521168
+predicting... time elapsed:  32.8960068226
+2723/3000 0.907667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.726583004
+training ... time elapsed:  114.147479057
+predicting... time elapsed:  55.2200889587
+3593/4000 0.898250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.28879499435
+training ... time elapsed:  5.00940799713
+predicting... time elapsed:  0.184449195862
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.21708893776
+training ... time elapsed:  8.00706791878
+predicting... time elapsed:  0.349858045578
+287/300 0.956667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.81994509697
+training ... time elapsed:  10.4950428009
+predicting... time elapsed:  0.543906927109
+399/400 0.997500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.97671294212
+training ... time elapsed:  13.6809639931
+predicting... time elapsed:  0.782060861588
+481/500 0.962000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.20823407173
+training ... time elapsed:  15.2811961174
+predicting... time elapsed:  1.14354801178
+569/600 0.948333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.82094597816
+training ... time elapsed:  19.717236042
+predicting... time elapsed:  1.39774799347
+648/700 0.925714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.85937285423
+training ... time elapsed:  22.4052131176
+predicting... time elapsed:  1.81226706505
+771/800 0.963750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.33010101318
+training ... time elapsed:  25.7983000278
+predicting... time elapsed:  2.22455906868
+856/900 0.951111
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.5995619297
+training ... time elapsed:  26.9441609383
+predicting... time elapsed:  6.32110595703
+952/1000 0.952000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.44862294197
+training ... time elapsed:  32.416326046
+predicting... time elapsed:  5.5195069313
+1194/1250 0.955200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.42139291763
+training ... time elapsed:  43.1620588303
+predicting... time elapsed:  5.6619951725
+1393/1500 0.928667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.96061611176
+training ... time elapsed:  61.2279000282
+predicting... time elapsed:  9.82441902161
+1910/2000 0.955000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.66451597214
+training ... time elapsed:  73.6877651215
+predicting... time elapsed:  20.3261358738
+2247/2500 0.898800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2939939499
+training ... time elapsed:  92.5833871365
+predicting... time elapsed:  29.5604670048
+2767/3000 0.922333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.6503410339
+training ... time elapsed:  116.905395985
+predicting... time elapsed:  54.0932488441
+3677/4000 0.919250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.859449863434
+training ... time elapsed:  5.15848493576
+predicting... time elapsed:  0.179785013199
+191/200 0.955000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.22779011726
+training ... time elapsed:  8.87967419624
+predicting... time elapsed:  0.339923858643
+297/300 0.990000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.59450292587
+training ... time elapsed:  10.490634203
+predicting... time elapsed:  0.564496994019
+380/400 0.950000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.02348399162
+training ... time elapsed:  13.2106409073
+predicting... time elapsed:  0.786225795746
+495/500 0.990000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.28677892685
+training ... time elapsed:  17.3107581139
+predicting... time elapsed:  1.09536910057
+578/600 0.963333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.50768399239
+training ... time elapsed:  19.6274540424
+predicting... time elapsed:  4.18688702583
+637/700 0.910000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.92742013931
+training ... time elapsed:  20.4508290291
+predicting... time elapsed:  1.86893701553
+786/800 0.982500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.60359692574
+training ... time elapsed:  24.7220950127
+predicting... time elapsed:  2.19456887245
+856/900 0.951111
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.62911009789
+training ... time elapsed:  28.4163060188
+predicting... time elapsed:  2.67155694962
+942/1000 0.942000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.44114589691
+training ... time elapsed:  33.3078889847
+predicting... time elapsed:  10.6441841125
+1195/1250 0.956000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.22622013092
+training ... time elapsed:  38.4650731087
+predicting... time elapsed:  5.59162998199
+1398/1500 0.932000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.93104219437
+training ... time elapsed:  61.8754279613
+predicting... time elapsed:  9.83980989456
+1911/2000 0.955500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.68160796165
+training ... time elapsed:  79.2276070118
+predicting... time elapsed:  15.0312080383
+2326/2500 0.930400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2670860291
+training ... time elapsed:  97.1379311085
+predicting... time elapsed:  21.2286119461
+2734/3000 0.911333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.6429979801
+training ... time elapsed:  117.939049959
+predicting... time elapsed:  52.7268640995
+3603/4000 0.900750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.870344877243
+training ... time elapsed:  5.12769198418
+predicting... time elapsed:  0.190301895142
+195/200 0.975000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.24521398544
+training ... time elapsed:  5.95000314713
+predicting... time elapsed:  0.344359874725
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.58909702301
+training ... time elapsed:  11.7132918835
+predicting... time elapsed:  0.545383930206
+383/400 0.957500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.86705613136
+training ... time elapsed:  12.9768218994
+predicting... time elapsed:  0.792201042175
+494/500 0.988000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.1819050312
+training ... time elapsed:  18.5271470547
+predicting... time elapsed:  1.05068492889
+588/600 0.980000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.48907089233
+training ... time elapsed:  19.4797790051
+predicting... time elapsed:  2.67049598694
+651/700 0.930000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.18781805038
+training ... time elapsed:  18.7970740795
+predicting... time elapsed:  3.37668180466
+791/800 0.988750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.37887215614
+training ... time elapsed:  23.2038249969
+predicting... time elapsed:  2.19181585312
+838/900 0.931111
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.76964688301
+training ... time elapsed:  29.1484661102
+predicting... time elapsed:  2.65283107758
+960/1000 0.960000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.40253615379
+training ... time elapsed:  36.9306771755
+predicting... time elapsed:  3.90659999847
+1185/1250 0.948000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.15366005898
+training ... time elapsed:  39.3085858822
+predicting... time elapsed:  9.94843816757
+1408/1500 0.938667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.52247691154
+training ... time elapsed:  58.0838279724
+predicting... time elapsed:  9.70014309883
+1873/2000 0.936500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.60436010361
+training ... time elapsed:  77.5427339077
+predicting... time elapsed:  15.1735591888
+2319/2500 0.927600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2334671021
+training ... time elapsed:  89.7370889187
+predicting... time elapsed:  30.0971729755
+2761/3000 0.920333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5431950092
+training ... time elapsed:  109.651417017
+predicting... time elapsed:  59.6787369251
+3702/4000 0.925500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.50388598442
+training ... time elapsed:  4.28213095665
+predicting... time elapsed:  0.185305118561
+197/200 0.985000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.22458004951
+training ... time elapsed:  8.63923716545
+predicting... time elapsed:  0.605731010437
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.85898399353
+training ... time elapsed:  10.7146551609
+predicting... time elapsed:  0.733329057693
+394/400 0.985000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.9163479805
+training ... time elapsed:  12.232640028
+predicting... time elapsed:  2.71107602119
+494/500 0.988000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.42039704323
+training ... time elapsed:  15.0458109379
+predicting... time elapsed:  1.09408402443
+574/600 0.956667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.50673484802
+training ... time elapsed:  20.1890518665
+predicting... time elapsed:  1.39634108543
+677/700 0.967143
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.86573386192
+training ... time elapsed:  22.0125381947
+predicting... time elapsed:  1.73837590218
+781/800 0.976250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.31444787979
+training ... time elapsed:  23.6221621037
+predicting... time elapsed:  2.16363096237
+879/900 0.976667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.11476302147
+training ... time elapsed:  28.6715610027
+predicting... time elapsed:  2.70613217354
+970/1000 0.970000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.39119791985
+training ... time elapsed:  38.1647350788
+predicting... time elapsed:  4.06715202332
+1164/1250 0.931200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.21827101707
+training ... time elapsed:  39.5037748814
+predicting... time elapsed:  10.1757240295
+1455/1500 0.970000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  9.63072109222
+training ... time elapsed:  54.4640769958
+predicting... time elapsed:  9.62585902214
+1899/2000 0.949500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.64364480972
+training ... time elapsed:  77.9339261055
+predicting... time elapsed:  17.370059967
+2293/2500 0.917200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2771339417
+training ... time elapsed:  91.7106690407
+predicting... time elapsed:  30.5871808529
+2777/3000 0.925667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5518641472
+training ... time elapsed:  115.589741945
+predicting... time elapsed:  54.1562640667
+3575/4000 0.893750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.62606787682
+training ... time elapsed:  4.52368283272
+predicting... time elapsed:  0.191976070404
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.220952034
+training ... time elapsed:  9.67495799065
+predicting... time elapsed:  0.86461687088
+297/300 0.990000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.6069009304
+training ... time elapsed:  9.33306407928
+predicting... time elapsed:  2.08569979668
+399/400 0.997500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.90212798119
+training ... time elapsed:  14.056650877
+predicting... time elapsed:  0.792009115219
+462/500 0.924000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.41152310371
+training ... time elapsed:  16.4163100719
+predicting... time elapsed:  3.66445684433
+587/600 0.978333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.73741412163
+training ... time elapsed:  17.740913868
+predicting... time elapsed:  1.40007805824
+685/700 0.978571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.87448406219
+training ... time elapsed:  23.6693751812
+predicting... time elapsed:  1.90884304047
+774/800 0.967500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.31311106682
+training ... time elapsed:  25.4012551308
+predicting... time elapsed:  2.36941790581
+878/900 0.975556
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.60113811493
+training ... time elapsed:  24.7559418678
+predicting... time elapsed:  2.68520998955
+939/1000 0.939000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.41028189659
+training ... time elapsed:  37.1142981052
+predicting... time elapsed:  4.17986512184
+1193/1250 0.954400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.21482586861
+training ... time elapsed:  46.671143055
+predicting... time elapsed:  6.92275500298
+1408/1500 0.938667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.93593502045
+training ... time elapsed:  53.6018779278
+predicting... time elapsed:  12.9497609138
+1892/2000 0.946000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  11.0545949936
+training ... time elapsed:  73.8151659966
+predicting... time elapsed:  14.9877548218
+2295/2500 0.918000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2504038811
+training ... time elapsed:  97.2336030006
+predicting... time elapsed:  20.6953139305
+2746/3000 0.915333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5534069538
+training ... time elapsed:  119.467365026
+predicting... time elapsed:  47.7262129784
+3590/4000 0.897500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.860660791397
+training ... time elapsed:  4.98707890511
+predicting... time elapsed:  0.184228181839
+196/200 0.980000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.22924804688
+training ... time elapsed:  8.9917550087
+predicting... time elapsed:  0.332846164703
+290/300 0.966667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.59784412384
+training ... time elapsed:  10.5120151043
+predicting... time elapsed:  0.542895078659
+374/400 0.935000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.90409517288
+training ... time elapsed:  15.2356359959
+predicting... time elapsed:  0.793179035187
+472/500 0.944000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.20255994797
+training ... time elapsed:  16.3410971165
+predicting... time elapsed:  1.08494591713
+590/600 0.983333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.48544001579
+training ... time elapsed:  17.9615528584
+predicting... time elapsed:  2.72972583771
+689/700 0.984286
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.865858078
+training ... time elapsed:  20.5539460182
+predicting... time elapsed:  1.74908900261
+762/800 0.952500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.65018987656
+training ... time elapsed:  24.1824278831
+predicting... time elapsed:  6.62466597557
+871/900 0.967778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.97104310989
+training ... time elapsed:  25.1133580208
+predicting... time elapsed:  2.74048399925
+978/1000 0.978000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.38908696175
+training ... time elapsed:  38.0451660156
+predicting... time elapsed:  3.93437600136
+1197/1250 0.957600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.18134117126
+training ... time elapsed:  48.1352090836
+predicting... time elapsed:  5.52949690819
+1426/1500 0.950667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.94257903099
+training ... time elapsed:  55.274461031
+predicting... time elapsed:  13.8318591118
+1903/2000 0.951500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.934691906
+training ... time elapsed:  75.3867301941
+predicting... time elapsed:  14.9470610619
+2291/2500 0.916400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2404580116
+training ... time elapsed:  100.704656124
+predicting... time elapsed:  21.1759769917
+2803/3000 0.934333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5467069149
+training ... time elapsed:  122.367214918
+predicting... time elapsed:  43.1278698444
+3611/4000 0.902750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.871068000793
+training ... time elapsed:  6.19833707809
+predicting... time elapsed:  0.378392934799
+199/200 0.995000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.20897197723
+training ... time elapsed:  6.65746498108
+predicting... time elapsed:  0.34843993187
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.61770701408
+training ... time elapsed:  10.7414371967
+predicting... time elapsed:  1.01470303535
+398/400 0.995000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.57696509361
+training ... time elapsed:  11.2972221375
+predicting... time elapsed:  0.783816099167
+464/500 0.928000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.20984220505
+training ... time elapsed:  17.1058261395
+predicting... time elapsed:  1.07640504837
+582/600 0.970000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.50380396843
+training ... time elapsed:  18.1017928123
+predicting... time elapsed:  1.4046599865
+679/700 0.970000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.84562897682
+training ... time elapsed:  21.936715126
+predicting... time elapsed:  1.8483080864
+758/800 0.947500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.34330511093
+training ... time elapsed:  24.010876894
+predicting... time elapsed:  5.68656301498
+857/900 0.952222
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.3257818222
+training ... time elapsed:  22.7649798393
+predicting... time elapsed:  2.65999603271
+953/1000 0.953000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.44180703163
+training ... time elapsed:  37.8350651264
+predicting... time elapsed:  4.07197594643
+1172/1250 0.937600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.24779391289
+training ... time elapsed:  42.4513449669
+predicting... time elapsed:  9.5356400013
+1420/1500 0.946667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.98904085159
+training ... time elapsed:  53.6459810734
+predicting... time elapsed:  11.3844349384
+1886/2000 0.943000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  11.0860691071
+training ... time elapsed:  75.9530761242
+predicting... time elapsed:  14.9674789906
+2310/2500 0.924000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.310628891
+training ... time elapsed:  99.2729558945
+predicting... time elapsed:  21.4205977917
+2727/3000 0.909000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5951869488
+training ... time elapsed:  124.033015966
+predicting... time elapsed:  42.9834120274
+3635/4000 0.908750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.853404998779
+training ... time elapsed:  5.78761506081
+predicting... time elapsed:  0.185533046722
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.2430961132
+training ... time elapsed:  7.9924018383
+predicting... time elapsed:  0.354252099991
+297/300 0.990000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.58153915405
+training ... time elapsed:  10.6516990662
+predicting... time elapsed:  0.537467002869
+370/400 0.925000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.91763401031
+training ... time elapsed:  13.6027469635
+predicting... time elapsed:  1.4233379364
+480/500 0.960000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.81406211853
+training ... time elapsed:  15.6451079845
+predicting... time elapsed:  3.59209489822
+593/600 0.988333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.47136092186
+training ... time elapsed:  17.8057940006
+predicting... time elapsed:  1.39529204369
+687/700 0.981429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.85825490952
+training ... time elapsed:  24.0984129906
+predicting... time elapsed:  1.76689720154
+791/800 0.988750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.32784414291
+training ... time elapsed:  23.9376268387
+predicting... time elapsed:  5.7541000843
+869/900 0.965556
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.58802819252
+training ... time elapsed:  22.1297721863
+predicting... time elapsed:  4.77224397659
+965/1000 0.965000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  7.7463991642
+training ... time elapsed:  33.6732521057
+predicting... time elapsed:  3.92524790764
+1192/1250 0.953600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.17359495163
+training ... time elapsed:  46.8385801315
+predicting... time elapsed:  7.42034077644
+1380/1500 0.920000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.92287707329
+training ... time elapsed:  53.4052700996
+predicting... time elapsed:  14.8192789555
+1859/2000 0.929500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.8341729641
+training ... time elapsed:  73.7044451237
+predicting... time elapsed:  14.7945439816
+2283/2500 0.913200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.1909339428
+training ... time elapsed:  96.6928961277
+predicting... time elapsed:  21.2831590176
+2783/3000 0.927667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.46600914
+training ... time elapsed:  118.434537888
+predicting... time elapsed:  42.8758900166
+3576/4000 0.894000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.873140096664
+training ... time elapsed:  4.98452115059
+predicting... time elapsed:  0.187510967255
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.21980500221
+training ... time elapsed:  7.2466711998
+predicting... time elapsed:  0.348045110703
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.60719299316
+training ... time elapsed:  10.8287661076
+predicting... time elapsed:  0.871255159378
+392/400 0.980000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.11681604385
+training ... time elapsed:  12.1079349518
+predicting... time elapsed:  1.60801410675
+494/500 0.988000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.23481893539
+training ... time elapsed:  15.5963191986
+predicting... time elapsed:  1.03646588326
+559/600 0.931667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.50549912453
+training ... time elapsed:  18.6802229881
+predicting... time elapsed:  1.39047598839
+661/700 0.944286
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.85355114937
+training ... time elapsed:  20.8162050247
+predicting... time elapsed:  4.33025503159
+745/800 0.931250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.62503695488
+training ... time elapsed:  24.0159819126
+predicting... time elapsed:  4.63318800926
+872/900 0.968889
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.6362490654
+training ... time elapsed:  25.79088521
+predicting... time elapsed:  2.77316093445
+965/1000 0.965000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.52054905891
+training ... time elapsed:  39.5263271332
+predicting... time elapsed:  4.01964688301
+1158/1250 0.926400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.16427588463
+training ... time elapsed:  38.8897500038
+predicting... time elapsed:  9.50194692612
+1439/1500 0.959333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.61707615852
+training ... time elapsed:  56.0386989117
+predicting... time elapsed:  9.71966314316
+1826/2000 0.913000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.62255120277
+training ... time elapsed:  79.4420599937
+predicting... time elapsed:  14.939357996
+2322/2500 0.928800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.183355093
+training ... time elapsed:  95.0461537838
+predicting... time elapsed:  20.3623359203
+2827/3000 0.942333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5302791595
+training ... time elapsed:  119.021421909
+predicting... time elapsed:  45.9754629135
+3648/4000 0.912000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.56641292572
+training ... time elapsed:  4.7027630806
+predicting... time elapsed:  0.192093133926
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.20870113373
+training ... time elapsed:  8.58553695679
+predicting... time elapsed:  1.44109606743
+274/300 0.913333
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.59203886986
+training ... time elapsed:  9.04588007927
+predicting... time elapsed:  0.853504896164
+386/400 0.965000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.20956897736
+training ... time elapsed:  13.5790240765
+predicting... time elapsed:  0.767215013504
+488/500 0.976000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.21633696556
+training ... time elapsed:  16.3873388767
+predicting... time elapsed:  1.06023192406
+561/600 0.935000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.52399396896
+training ... time elapsed:  17.9575130939
+predicting... time elapsed:  5.10725998878
+672/700 0.960000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.90561103821
+training ... time elapsed:  19.1141979694
+predicting... time elapsed:  2.97942113876
+745/800 0.931250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.26343297958
+training ... time elapsed:  23.2716040611
+predicting... time elapsed:  2.16691708565
+834/900 0.926667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.61354398727
+training ... time elapsed:  29.7308340073
+predicting... time elapsed:  2.63718795776
+945/1000 0.945000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.41599702835
+training ... time elapsed:  35.2284231186
+predicting... time elapsed:  7.56146907806
+1202/1250 0.961600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.23741292953
+training ... time elapsed:  38.2938079834
+predicting... time elapsed:  5.68479013443
+1443/1500 0.962000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.9267950058
+training ... time elapsed:  62.0587658882
+predicting... time elapsed:  9.7995929718
+1826/2000 0.913000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.61234617233
+training ... time elapsed:  75.9686889648
+predicting... time elapsed:  14.985090971
+2276/2500 0.910400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.202008009
+training ... time elapsed:  97.3911449909
+predicting... time elapsed:  21.2145009041
+2759/3000 0.919667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5997750759
+training ... time elapsed:  121.97536397
+predicting... time elapsed:  45.5691180229
+3615/4000 0.903750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.57753181458
+training ... time elapsed:  4.2562661171
+predicting... time elapsed:  0.185290813446
+194/200 0.970000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.22760105133
+training ... time elapsed:  8.88972997665
+predicting... time elapsed:  1.11382484436
+280/300 0.933333
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.99970698357
+training ... time elapsed:  8.70402503014
+predicting... time elapsed:  0.523494005203
+394/400 0.985000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.89423394203
+training ... time elapsed:  13.7575409412
+predicting... time elapsed:  0.80681681633
+493/500 0.986000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.2021958828
+training ... time elapsed:  16.528441906
+predicting... time elapsed:  2.54982805252
+559/600 0.931667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.50534009933
+training ... time elapsed:  17.8856220245
+predicting... time elapsed:  3.00740385056
+650/700 0.928571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.36426091194
+training ... time elapsed:  20.3981599808
+predicting... time elapsed:  3.32608890533
+772/800 0.965000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.0596511364
+training ... time elapsed:  23.9087049961
+predicting... time elapsed:  4.70646214485
+832/900 0.924444
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.44313693047
+training ... time elapsed:  27.6488640308
+predicting... time elapsed:  2.67893600464
+970/1000 0.970000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.57886981964
+training ... time elapsed:  36.9557189941
+predicting... time elapsed:  5.72157001495
+1195/1250 0.956000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.19122385979
+training ... time elapsed:  39.2825219631
+predicting... time elapsed:  5.62615394592
+1429/1500 0.952667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  7.47597384453
+training ... time elapsed:  60.128674984
+predicting... time elapsed:  9.79000401497
+1887/2000 0.943500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.64364385605
+training ... time elapsed:  78.4122059345
+predicting... time elapsed:  15.14113307
+2228/2500 0.891200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2733638287
+training ... time elapsed:  97.0922839642
+predicting... time elapsed:  21.347317934
+2723/3000 0.907667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5606369972
+training ... time elapsed:  116.130054951
+predicting... time elapsed:  45.7933039665
+3693/4000 0.923250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.57736301422
+training ... time elapsed:  4.67309403419
+predicting... time elapsed:  0.188557863235
+194/200 0.970000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.31037282944
+training ... time elapsed:  7.58073210716
+predicting... time elapsed:  0.333510875702
+295/300 0.983333
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.61212396622
+training ... time elapsed:  12.3804008961
+predicting... time elapsed:  0.530018806458
+400/400 1.000000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.9309990406
+training ... time elapsed:  13.1748511791
+predicting... time elapsed:  3.35351204872
+489/500 0.978000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.22024202347
+training ... time elapsed:  14.0034880638
+predicting... time elapsed:  1.81675100327
+584/600 0.973333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.49594306946
+training ... time elapsed:  18.4774229527
+predicting... time elapsed:  1.41344499588
+688/700 0.982857
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.9027299881
+training ... time elapsed:  22.9322969913
+predicting... time elapsed:  1.76792001724
+762/800 0.952500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.34656691551
+training ... time elapsed:  25.1628000736
+predicting... time elapsed:  2.18806004524
+879/900 0.976667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.64563393593
+training ... time elapsed:  28.6884000301
+predicting... time elapsed:  5.55781292915
+893/1000 0.893000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.48399186134
+training ... time elapsed:  32.8508021832
+predicting... time elapsed:  5.87946891785
+1209/1250 0.967200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.45998096466
+training ... time elapsed:  43.9034559727
+predicting... time elapsed:  5.6454539299
+1419/1500 0.946000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.9553129673
+training ... time elapsed:  61.0537440777
+predicting... time elapsed:  9.80730199814
+1835/2000 0.917500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.65772914886
+training ... time elapsed:  76.8061499596
+predicting... time elapsed:  15.0077250004
+2289/2500 0.915600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.3546628952
+training ... time elapsed:  92.8972530365
+predicting... time elapsed:  27.1730000973
+2719/3000 0.906333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.685778141
+training ... time elapsed:  115.05845809
+predicting... time elapsed:  54.0883500576
+3643/4000 0.910750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.68037199974
+training ... time elapsed:  5.24492502213
+predicting... time elapsed:  0.186711072922
+168/200 0.840000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.23086214066
+training ... time elapsed:  7.23465704918
+predicting... time elapsed:  0.343286991119
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.59822487831
+training ... time elapsed:  10.4747579098
+predicting... time elapsed:  0.864267110825
+398/400 0.995000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.39632701874
+training ... time elapsed:  13.0451509953
+predicting... time elapsed:  0.8029088974
+493/500 0.986000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.19396209717
+training ... time elapsed:  15.4325859547
+predicting... time elapsed:  1.03051900864
+580/600 0.966667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.67339396477
+training ... time elapsed:  18.8451631069
+predicting... time elapsed:  1.46380496025
+676/700 0.965714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.85078001022
+training ... time elapsed:  22.6911218166
+predicting... time elapsed:  1.85586023331
+767/800 0.958750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.28236699104
+training ... time elapsed:  25.5979249477
+predicting... time elapsed:  2.24926710129
+858/900 0.953333
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.59720420837
+training ... time elapsed:  24.7423529625
+predicting... time elapsed:  4.88564705849
+989/1000 0.989000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  7.88435101509
+training ... time elapsed:  31.7657129765
+predicting... time elapsed:  3.95203709602
+1172/1250 0.937600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.59138894081
+training ... time elapsed:  41.7630028725
+predicting... time elapsed:  9.35226106644
+1444/1500 0.962667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  6.91062784195
+training ... time elapsed:  58.98781991
+predicting... time elapsed:  15.6349430084
+1868/2000 0.934000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.59433102608
+training ... time elapsed:  71.4149990082
+predicting... time elapsed:  25.3449790478
+2229/2500 0.891600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2547121048
+training ... time elapsed:  91.7691428661
+predicting... time elapsed:  33.5999121666
+2798/3000 0.932667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.560683012
+training ... time elapsed:  111.298233032
+predicting... time elapsed:  55.7743549347
+3590/4000 0.897500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.65493321419
+training ... time elapsed:  5.62704396248
+predicting... time elapsed:  0.181490898132
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.21527504921
+training ... time elapsed:  8.06314611435
+predicting... time elapsed:  0.330318927765
+294/300 0.980000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.57858014107
+training ... time elapsed:  12.5551738739
+predicting... time elapsed:  0.567731142044
+380/400 0.950000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.92782497406
+training ... time elapsed:  12.4691588879
+predicting... time elapsed:  1.4153418541
+465/500 0.930000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.23367905617
+training ... time elapsed:  16.185218811
+predicting... time elapsed:  1.09577894211
+569/600 0.948333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.57334804535
+training ... time elapsed:  19.0021240711
+predicting... time elapsed:  1.41595101357
+664/700 0.948571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.84633612633
+training ... time elapsed:  21.1245510578
+predicting... time elapsed:  4.41151094437
+771/800 0.963750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.30411982536
+training ... time elapsed:  24.2292859554
+predicting... time elapsed:  2.31139707565
+867/900 0.963333
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.63787603378
+training ... time elapsed:  29.0320489407
+predicting... time elapsed:  2.71678900719
+973/1000 0.973000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.41727900505
+training ... time elapsed:  37.0907289982
+predicting... time elapsed:  4.04279112816
+1188/1250 0.950400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.18068504333
+training ... time elapsed:  38.3881561756
+predicting... time elapsed:  6.31020712852
+1430/1500 0.953333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.70801115036
+training ... time elapsed:  57.898968935
+predicting... time elapsed:  9.87366890907
+1835/2000 0.917500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.55629992485
+training ... time elapsed:  79.1210379601
+predicting... time elapsed:  14.9361588955
+2343/2500 0.937200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2310700417
+training ... time elapsed:  97.0150220394
+predicting... time elapsed:  22.3924767971
+2737/3000 0.912333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.6025528908
+training ... time elapsed:  112.11264205
+predicting... time elapsed:  52.5880138874
+3634/4000 0.908500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.859383821487
+training ... time elapsed:  4.5049469471
+predicting... time elapsed:  0.188534021378
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.27826690674
+training ... time elapsed:  10.0379629135
+predicting... time elapsed:  0.348864078522
+297/300 0.990000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.61426186562
+training ... time elapsed:  10.1142318249
+predicting... time elapsed:  0.546666145325
+370/400 0.925000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.16115903854
+training ... time elapsed:  13.3709390163
+predicting... time elapsed:  1.54259085655
+488/500 0.976000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.70892214775
+training ... time elapsed:  15.1837379932
+predicting... time elapsed:  1.1071460247
+546/600 0.910000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.48106598854
+training ... time elapsed:  17.2383670807
+predicting... time elapsed:  2.52708601952
+671/700 0.958571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.95400595665
+training ... time elapsed:  20.7205700874
+predicting... time elapsed:  1.83693885803
+772/800 0.965000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.29698610306
+training ... time elapsed:  27.0143630505
+predicting... time elapsed:  2.21311903
+823/900 0.914444
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.64341807365
+training ... time elapsed:  30.1424710751
+predicting... time elapsed:  2.67874193192
+958/1000 0.958000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.44208693504
+training ... time elapsed:  37.9747269154
+predicting... time elapsed:  3.98543810844
+1198/1250 0.958400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.21427106857
+training ... time elapsed:  39.8466479778
+predicting... time elapsed:  8.94432592392
+1443/1500 0.962000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.89616107941
+training ... time elapsed:  57.8252930641
+predicting... time elapsed:  9.79340100288
+1853/2000 0.926500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.70763802528
+training ... time elapsed:  79.3428621292
+predicting... time elapsed:  14.7186992168
+2283/2500 0.913200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.3287961483
+training ... time elapsed:  96.9572100639
+predicting... time elapsed:  20.5543158054
+2763/3000 0.921000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.719810009
+training ... time elapsed:  119.169367075
+predicting... time elapsed:  48.2000370026
+3623/4000 0.905750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.92623090744
+training ... time elapsed:  6.27737593651
+predicting... time elapsed:  0.766499996185
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.0050599575
+training ... time elapsed:  7.3946518898
+predicting... time elapsed:  0.335172891617
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.7859249115
+training ... time elapsed:  10.4703848362
+predicting... time elapsed:  2.00982093811
+392/400 0.980000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.91073918343
+training ... time elapsed:  13.3836069107
+predicting... time elapsed:  0.805997133255
+465/500 0.930000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.19152212143
+training ... time elapsed:  16.9720060825
+predicting... time elapsed:  1.08174610138
+585/600 0.975000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.50369000435
+training ... time elapsed:  18.4014029503
+predicting... time elapsed:  2.50453996658
+682/700 0.974286
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.90725803375
+training ... time elapsed:  19.3962619305
+predicting... time elapsed:  3.97605919838
+781/800 0.976250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.40178513527
+training ... time elapsed:  22.9411051273
+predicting... time elapsed:  2.15709590912
+891/900 0.990000
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.61470007896
+training ... time elapsed:  29.688284874
+predicting... time elapsed:  2.66677999496
+940/1000 0.940000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.40087008476
+training ... time elapsed:  38.6786589622
+predicting... time elapsed:  3.99266505241
+1126/1250 0.900800
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.22564911842
+training ... time elapsed:  41.500950098
+predicting... time elapsed:  10.0867569447
+1417/1500 0.944667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.62804794312
+training ... time elapsed:  58.142072916
+predicting... time elapsed:  9.96879696846
+1832/2000 0.916000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.60216116905
+training ... time elapsed:  77.1750540733
+predicting... time elapsed:  15.0196681023
+2277/2500 0.910800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.1948609352
+training ... time elapsed:  93.6638770103
+predicting... time elapsed:  21.5156390667
+2747/3000 0.915667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.5694210529
+training ... time elapsed:  119.449595928
+predicting... time elapsed:  46.5533030033
+3579/4000 0.894750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.862888097763
+training ... time elapsed:  6.29727697372
+predicting... time elapsed:  0.181823015213
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.24512600899
+training ... time elapsed:  7.12905907631
+predicting... time elapsed:  0.359762907028
+291/300 0.970000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.63237714767
+training ... time elapsed:  11.988008976
+predicting... time elapsed:  0.556526184082
+399/400 0.997500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.92743206024
+training ... time elapsed:  12.7814519405
+predicting... time elapsed:  0.826319932938
+465/500 0.930000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.21463298798
+training ... time elapsed:  17.23508811
+predicting... time elapsed:  1.70612215996
+573/600 0.955000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.51787900925
+training ... time elapsed:  18.1720149517
+predicting... time elapsed:  2.165776968
+652/700 0.931429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.8760831356
+training ... time elapsed:  20.237308979
+predicting... time elapsed:  4.70440101624
+753/800 0.941250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.80022001266
+training ... time elapsed:  23.124630928
+predicting... time elapsed:  2.14187717438
+866/900 0.962222
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.62679290771
+training ... time elapsed:  30.6507110596
+predicting... time elapsed:  2.65776109695
+963/1000 0.963000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.4274969101
+training ... time elapsed:  38.3642880917
+predicting... time elapsed:  4.03609704971
+1173/1250 0.938400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.23615503311
+training ... time elapsed:  40.4894499779
+predicting... time elapsed:  10.0555150509
+1373/1500 0.915333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.6534888744
+training ... time elapsed:  55.8779060841
+predicting... time elapsed:  9.73780107498
+1844/2000 0.922000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.64090204239
+training ... time elapsed:  76.5887248516
+predicting... time elapsed:  14.9541928768
+2276/2500 0.910400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.2629070282
+training ... time elapsed:  96.6513190269
+predicting... time elapsed:  22.6296718121
+2763/3000 0.921000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.6531069279
+training ... time elapsed:  122.623629808
+predicting... time elapsed:  41.8140928745
+3647/4000 0.911750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  0.867757081985
+training ... time elapsed:  5.29240608215
+predicting... time elapsed:  0.367234945297
+199/200 0.995000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.98219394684
+training ... time elapsed:  7.45194101334
+predicting... time elapsed:  0.35773396492
+293/300 0.976667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  1.59689307213
+training ... time elapsed:  9.95403981209
+predicting... time elapsed:  1.07488083839
+365/400 0.912500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.7937309742
+training ... time elapsed:  13.5073969364
+predicting... time elapsed:  0.820177793503
+496/500 0.992000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.19777584076
+training ... time elapsed:  17.3832218647
+predicting... time elapsed:  1.07065796852
+591/600 0.985000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  2.48652696609
+training ... time elapsed:  15.9935069084
+predicting... time elapsed:  4.38734698296
+687/700 0.981429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.4193649292
+training ... time elapsed:  18.6999208927
+predicting... time elapsed:  1.77205610275
+779/800 0.973750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.32092809677
+training ... time elapsed:  26.7457728386
+predicting... time elapsed:  2.19555187225
+816/900 0.906667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  3.57441210747
+training ... time elapsed:  27.9188628197
+predicting... time elapsed:  2.65170693398
+925/1000 0.925000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  4.40070915222
+training ... time elapsed:  35.2984440327
+predicting... time elapsed:  6.65279817581
+1190/1250 0.952000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  5.1995370388
+training ... time elapsed:  38.4748530388
+predicting... time elapsed:  5.58318781853
+1375/1500 0.916667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  7.36459302902
+training ... time elapsed:  59.8231298923
+predicting... time elapsed:  9.76992702484
+1902/2000 0.951000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  8.5944211483
+training ... time elapsed:  76.5030479431
+predicting... time elapsed:  14.7153949738
+2313/2500 0.925200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  10.1940939426
+training ... time elapsed:  90.7515590191
+predicting... time elapsed:  28.3965270519
+2759/3000 0.919667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Whisper/ ...
+processing ./final-log/nperson-mix-1523-t2-whisper.log ...
+calculating features... time elapsed:  13.557500124
+training ... time elapsed:  105.53079319
+predicting... time elapsed:  48.5835409164
+3670/4000 0.917500

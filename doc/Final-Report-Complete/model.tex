@@ -118,14 +118,6 @@ using method described in \cite{reynolds2000speaker}.
 
 \subsection{CRBM}
 
-
-			Both RBM and CRBM can be trained using Contrastive Divergence learning.
-
-			RBM has a ability to, given an input(visible layer), reconstruct a visible
-			layer that is similar to the input. This demonstrates the modeling essence
-			of RBM. \figref{crbm} illustrate original MFCC data and the sampled output of
-			reconstructed data from CRBM.
-
 \textbf{Restricted Boltzmann Machine} is generative stochastic
 two-layer neural network that can learn a probability distribution
 over its set of binary inputs\cite{rbm_wiki}.  \textbf{Continuous
@@ -139,6 +131,12 @@ representation of the original data. Therefore RBMs can be used
 as an auto feature-extractor.
 \figref{crbm} illustrate original MFCC data and the
 sampled output of reconstructed data from CRBM.
+
+Both RBM and CRBM can be trained using Contrastive Divergence learning,
+with subtle difference in update equation.
+
+As details about CRBM are too verbose to be covered here, for interested,
+we recommend reading original papers.
 
 Previous works using neural network largely focused on speech
 recognition, such as \cite{deep},\cite{mohamed2011deep}.
@@ -160,10 +158,11 @@ recognition, such as \cite{deep},\cite{mohamed2011deep}.
   \caption{\label{fig:crbm}}
 \end{figure}
 
-TO use CRBM as a substitution of GMM, rather than
+To use CRBM as a substitution of GMM, rather than
 an feature extractor, we train a CRBM per speaker,
 and estimate reconstruction error without sampling (which is stable).
 The person whose corresponding CRBM has lowest reconstruction error is chosen as
+
 recognition result.
 
 \subsection{JFA}

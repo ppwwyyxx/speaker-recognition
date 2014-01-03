@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: main.py
-# $Date: Tue Dec 31 03:39:04 2013 +0800
+# $Date: Fri Jan 03 22:01:46 2014 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from dataextractor import DataExtractor as DE
@@ -185,8 +185,8 @@ def main():
             y_min = min(y_min, min(map(lambda p: p[0] - p[1], zip(y, yerr))))
 #            plt.errorbar(x, y, yerr, lw=2, label=ser['label'])
             plt.plot(x, y, lw=2, label=ser['label'])
-        plt.xlabel(cfg['xlabel'], fontsize=25)
-        plt.ylabel(cfg['ylabel'], fontsize=20)
+        plt.xlabel(cfg['xlabel'], fontsize=13)
+        plt.ylabel(cfg['ylabel'], fontsize=13)
         plt.yticks(fontsize=15)
         if 'xlim' in cfg:
             plt.xlim(cfg['xlim'])

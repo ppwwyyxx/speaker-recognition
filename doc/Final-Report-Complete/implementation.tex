@@ -1,5 +1,5 @@
 %File: implementation.tex
-%Date: Fri Jan 03 21:09:50 2014 +0800
+%Date: Fri Jan 03 21:51:56 2014 +0800
 %Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 \section{Implementation}
@@ -53,7 +53,7 @@ The system strongly relies on the support of the numpy\cite{numpy} and scipy\cit
       they suffer a common problem of inefficency.
       For the consideration of speed, a C++ version of GMM with K-MeansII initialization and
       concurrency support
-      was implemented and located in \verb|src/gmm/|. It requires \verb|g++ >= 4.7| to compile.
+      was implemented and located in \verb|src/gmm/|. It requires \verb|g++>=4.7| to compile.
       This implementation of GMM also provides a python binding which have similar interface to the GMM in
       scikit-learn.
 

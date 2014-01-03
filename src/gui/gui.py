@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Tue Dec 31 09:44:21 2013 +0800
+# Date: Thu Jan 02 23:47:25 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -44,7 +44,7 @@ class RecorderThread(QThread):
 
 class Main(QMainWindow):
     CONV_INTERVAL = 0.4
-    CONV_DURATION = 2.0
+    CONV_DURATION = 1.5
     CONV_FILTER_DURATION = CONV_DURATION
     FS = 8000
     TEST_DURATION = 3
@@ -179,9 +179,8 @@ class Main(QMainWindow):
     def do_conversation(self):
         interval_len = int(Main.CONV_INTERVAL * Main.FS)
         segment_len = int(Main.CONV_DURATION * Main.FS)
-        filter_len = int(Main.CONV_FILTER_DURATION * Main.FS)
         self.conv_now_pos += interval_len
-        to_filter = self.recordData[max([self.conv_now_pos - filter_len, 0]):
+        to_filter = self.recordData[max([self.conv_now_pos - segment_len, 0]):
                                    self.conv_now_pos]
         signal = np.array(to_filter, dtype=NPDtype)
         label = None
@@ -280,7 +279,6 @@ class Main(QMainWindow):
         self.enrollFileName.setText(fname)
         fs, signal = wavfile.read(fname)
         signal = monophonic(signal)
-        print signal
         self.enrollWav = (fs, signal)
 
     def stop_enroll_record(self):
@@ -299,7 +297,6 @@ class Main(QMainWindow):
             return
 #        self.addUserInfo()
         new_signal = self.backend.filter(*self.enrollWav)
-        wavfile.write('filtered.wav', Main.FS, new_signal)
         print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
         print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
         self.backend.enroll(name, Main.FS, new_signal)

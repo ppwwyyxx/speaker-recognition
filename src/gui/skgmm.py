@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: skgmm.py
-# Date: Sun Dec 29 13:58:17 2013 +0800
+# Date: Thu Jan 02 23:09:54 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import operator

@@ -1,12 +1,13 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Tue Dec 31 00:47:36 2013 +0800
+# Date: Thu Jan 02 23:07:40 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
 from scipy.io import wavfile
 import time
+import numpy as np
 import cPickle as pickle
 from filters.VAD import VAD
 
@@ -30,34 +31,13 @@ class ModelInterface(object):
     def init_noise(self, fs, signal):
         self.vad.init_noise(fs, signal)
 
-    def filter(self, fs, signal, keep_last=None):
+    def filter(self, fs, signal):
         ret, intervals = self.vad.filter(fs, signal)
         orig_len = len(signal)
 
-        def get_len_after_point(after):
-            """get sum of interval lengths after specific point"""
-            sum_after = 0
-            for start, end in reversed(intervals):
-                if start >= after:
-                    sum_after += end - start
-                elif end > after:
-                    sum_after += end - after
-            return sum_after
-
-        if keep_last:
-            sum_after = get_len_after_point(len(signal) - keep_last)
-            sum_after_2 = get_len_after_point(len(signal) -
-                                              CHECK_ACTIVE_INTERVAL * fs)
-            print "sum_after", sum_after, "sum_after_2", sum_after_2
-            if sum_after > keep_last / 3:
-                return ret[-sum_after:]
-            elif sum_after_2 > CHECK_ACTIVE_INTERVAL * fs / 1.15:
-                return ret[-sum_after_2:]
-            return []
-        else:
-            if len(ret) > orig_len / 3:
-                return ret
-            return []
+        if len(ret) > orig_len / 3:
+            return ret
+        return np.array([])
 
     def enroll(self, name, fs, signal):
         feat = mix_feature((fs, signal))

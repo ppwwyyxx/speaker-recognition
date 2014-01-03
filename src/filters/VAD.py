@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: VAD.py
-# Date: Tue Dec 31 11:05:40 2013 +0800
+# Date: Thu Jan 02 23:07:32 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from noisered import NoiseReduction

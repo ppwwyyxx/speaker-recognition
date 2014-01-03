@@ -1,0 +1,90 @@
+n_ceps=19 MFCC NFILTER=55, WINL=20
+calculating features... time elapsed:  4.81275701523
+training ... time elapsed:  61.6694819927
+predicting... time elapsed:  17.0434930325
+1804/2000 0.9020
+n_ceps=19 MFCC NFILTER=55, WINL=24
+calculating features... time elapsed:  4.15977191925
+training ... time elapsed:  51.7396349907
+predicting... time elapsed:  14.7040390968
+1844/2000 0.9220
+n_ceps=19 MFCC NFILTER=55, WINL=28
+calculating features... time elapsed:  3.60163807869
+training ... time elapsed:  43.5160870552
+predicting... time elapsed:  13.029722929
+1827/2000 0.9135
+n_ceps=19 MFCC NFILTER=55, WINL=32
+calculating features... time elapsed:  3.23451399803
+training ... time elapsed:  36.1505899429
+predicting... time elapsed:  11.8506600857
+1848/2000 0.9240
+n_ceps=19 MFCC NFILTER=55, WINL=36
+calculating features... time elapsed:  3.84450602531
+training ... time elapsed:  29.6922109127
+predicting... time elapsed:  10.8997030258
+1772/2000 0.8860
+n_ceps=19 MFCC NFILTER=55, WINL=40
+calculating features... time elapsed:  3.5126349926
+training ... time elapsed:  27.9028859138
+predicting... time elapsed:  10.2488329411
+1774/2000 0.8870
+n_ceps=19 MFCC NFILTER=55, WINL=20
+calculating features... time elapsed:  4.80887293816
+training ... time elapsed:  63.5291218758
+predicting... time elapsed:  17.0547840595
+1822/2000 0.9110
+n_ceps=19 MFCC NFILTER=55, WINL=24
+calculating features... time elapsed:  4.17001605034
+training ... time elapsed:  49.9289739132
+predicting... time elapsed:  14.6717708111
+1843/2000 0.9215
+n_ceps=19 MFCC NFILTER=55, WINL=28
+calculating features... time elapsed:  3.62448501587
+training ... time elapsed:  43.6670629978
+predicting... time elapsed:  13.0726158619
+1821/2000 0.9105
+n_ceps=19 MFCC NFILTER=55, WINL=32
+calculating features... time elapsed:  3.24264287949
+training ... time elapsed:  36.1240730286
+predicting... time elapsed:  11.8379790783
+1878/2000 0.9390
+n_ceps=19 MFCC NFILTER=55, WINL=36
+calculating features... time elapsed:  3.85983490944
+training ... time elapsed:  28.1977870464
+predicting... time elapsed:  10.9757380486
+1780/2000 0.8900
+n_ceps=19 MFCC NFILTER=55, WINL=40
+calculating features... time elapsed:  3.53004598618
+training ... time elapsed:  28.1282720566
+predicting... time elapsed:  10.1389250755
+1795/2000 0.8975
+n_ceps=19 MFCC NFILTER=55, WINL=20
+calculating features... time elapsed:  4.90600013733
+training ... time elapsed:  60.2948031425
+predicting... time elapsed:  16.9426579475
+1801/2000 0.9005
+n_ceps=19 MFCC NFILTER=55, WINL=24
+calculating features... time elapsed:  4.17853999138
+training ... time elapsed:  52.2988598347
+predicting... time elapsed:  14.70657897
+1816/2000 0.9080
+n_ceps=19 MFCC NFILTER=55, WINL=28
+calculating features... time elapsed:  3.64388012886
+training ... time elapsed:  43.7633869648
+predicting... time elapsed:  13.0685400963
+1802/2000 0.9010
+n_ceps=19 MFCC NFILTER=55, WINL=32
+calculating features... time elapsed:  3.23979091644
+training ... time elapsed:  35.9980340004
+predicting... time elapsed:  11.8652329445
+1873/2000 0.9365
+n_ceps=19 MFCC NFILTER=55, WINL=36
+calculating features... time elapsed:  3.88028693199
+training ... time elapsed:  28.4060399532
+predicting... time elapsed:  10.9573090076
+1783/2000 0.8915
+n_ceps=19 MFCC NFILTER=55, WINL=40
+calculating features... time elapsed:  3.50665903091
+training ... time elapsed:  26.7751691341
+predicting... time elapsed:  10.175796032
+1824/2000 0.9120

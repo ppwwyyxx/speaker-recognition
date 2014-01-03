@@ -1,0 +1,2100 @@
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.784115076065
+training ... time elapsed:  4.52722501755
+predicting... time elapsed:  0.145627975464
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.10566282272
+training ... time elapsed:  6.56576800346
+predicting... time elapsed:  0.310412168503
+298/300 0.993333
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.50318694115
+training ... time elapsed:  9.60132908821
+predicting... time elapsed:  1.66299915314
+378/400 0.945000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.89910197258
+training ... time elapsed:  13.1751928329
+predicting... time elapsed:  0.77192902565
+470/500 0.940000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.22218513489
+training ... time elapsed:  15.5036699772
+predicting... time elapsed:  1.06136894226
+583/600 0.971667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.51551795006
+training ... time elapsed:  19.4069411755
+predicting... time elapsed:  1.39170098305
+693/700 0.990000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.25260019302
+training ... time elapsed:  21.3970990181
+predicting... time elapsed:  4.362814188
+790/800 0.987500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.29165005684
+training ... time elapsed:  24.4934549332
+predicting... time elapsed:  2.21085500717
+875/900 0.972222
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.59406709671
+training ... time elapsed:  27.9293940067
+predicting... time elapsed:  2.65272784233
+925/1000 0.925000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.41262197495
+training ... time elapsed:  34.6354491711
+predicting... time elapsed:  3.98766899109
+1114/1250 0.891200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.19021701813
+training ... time elapsed:  42.3372609615
+predicting... time elapsed:  5.60510802269
+1406/1500 0.937333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  7.27778601646
+training ... time elapsed:  56.8696670532
+predicting... time elapsed:  9.91560101509
+1798/2000 0.899000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.7785460949
+training ... time elapsed:  70.9637048244
+predicting... time elapsed:  14.8642349243
+2285/2500 0.914000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.0426511765
+training ... time elapsed:  88.2275898457
+predicting... time elapsed:  22.8780870438
+2854/3000 0.951333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  17.471157074
+training ... time elapsed:  116.092704058
+predicting... time elapsed:  43.9588820934
+3596/4000 0.899000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.21197009087
+training ... time elapsed:  7.55958104134
+predicting... time elapsed:  0.993276119232
+190/200 0.950000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.05313611031
+training ... time elapsed:  12.0334768295
+predicting... time elapsed:  1.9371650219
+297/300 0.990000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.59749007225
+training ... time elapsed:  16.4429299831
+predicting... time elapsed:  3.09617781639
+399/400 0.997500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.1135430336
+training ... time elapsed:  16.9040539265
+predicting... time elapsed:  0.811860084534
+480/500 0.960000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.98245191574
+training ... time elapsed:  16.2724301815
+predicting... time elapsed:  1.10107779503
+588/600 0.980000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.49389505386
+training ... time elapsed:  19.0096538067
+predicting... time elapsed:  1.43220686913
+666/700 0.951429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.84291505814
+training ... time elapsed:  20.9593551159
+predicting... time elapsed:  1.80129694939
+755/800 0.943750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.5039639473
+training ... time elapsed:  23.5494167805
+predicting... time elapsed:  3.39544200897
+882/900 0.980000
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.98593115807
+training ... time elapsed:  26.1373100281
+predicting... time elapsed:  5.00380110741
+959/1000 0.959000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.38815498352
+training ... time elapsed:  33.2312319279
+predicting... time elapsed:  8.01519989967
+1167/1250 0.933600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.21154618263
+training ... time elapsed:  42.0595748425
+predicting... time elapsed:  5.39996314049
+1421/1500 0.947333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.89621090889
+training ... time elapsed:  56.4975488186
+predicting... time elapsed:  9.75265598297
+1866/2000 0.933000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.6009311676
+training ... time elapsed:  71.4697289467
+predicting... time elapsed:  14.9588410854
+2304/2500 0.921600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2959339619
+training ... time elapsed:  89.0645918846
+predicting... time elapsed:  21.5463268757
+2706/3000 0.902000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  16.0927670002
+training ... time elapsed:  119.564204931
+predicting... time elapsed:  40.9316990376
+3607/4000 0.901750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.24939608574
+training ... time elapsed:  6.19455695152
+predicting... time elapsed:  0.68879699707
+194/200 0.970000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.75881791115
+training ... time elapsed:  11.2654080391
+predicting... time elapsed:  2.02854394913
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.52977895737
+training ... time elapsed:  17.1801841259
+predicting... time elapsed:  3.09712696075
+394/400 0.985000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.11302304268
+training ... time elapsed:  19.0834300518
+predicting... time elapsed:  2.80156588554
+489/500 0.978000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.63197994232
+training ... time elapsed:  15.2910089493
+predicting... time elapsed:  2.24750185013
+567/600 0.945000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.48881411552
+training ... time elapsed:  17.6185750961
+predicting... time elapsed:  1.40672111511
+676/700 0.965714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.8382089138
+training ... time elapsed:  21.6455130577
+predicting... time elapsed:  3.66969394684
+762/800 0.952500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.28289794922
+training ... time elapsed:  23.8305850029
+predicting... time elapsed:  2.19113087654
+867/900 0.963333
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.03236699104
+training ... time elapsed:  26.3910710812
+predicting... time elapsed:  3.37288498878
+957/1000 0.957000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.92454600334
+training ... time elapsed:  34.9228928089
+predicting... time elapsed:  4.03563404083
+1196/1250 0.956800
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.87844491005
+training ... time elapsed:  40.448153019
+predicting... time elapsed:  11.1945281029
+1403/1500 0.935333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.87661099434
+training ... time elapsed:  56.4760329723
+predicting... time elapsed:  9.66926288605
+1867/2000 0.933500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.62569403648
+training ... time elapsed:  72.3101570606
+predicting... time elapsed:  15.0003600121
+2299/2500 0.919600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.1928339005
+training ... time elapsed:  87.9014220238
+predicting... time elapsed:  20.5109910965
+2753/3000 0.917667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.5653648376
+training ... time elapsed:  123.651684046
+predicting... time elapsed:  38.0965518951
+3597/4000 0.899250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.865464925766
+training ... time elapsed:  7.26962304115
+predicting... time elapsed:  0.691792964935
+195/200 0.975000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.86290311813
+training ... time elapsed:  11.1464221478
+predicting... time elapsed:  1.25513219833
+298/300 0.993333
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.10585999489
+training ... time elapsed:  17.6984949112
+predicting... time elapsed:  3.13727211952
+388/400 0.970000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.15929293633
+training ... time elapsed:  18.480175972
+predicting... time elapsed:  2.98592400551
+473/500 0.946000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.0061981678
+training ... time elapsed:  17.0708789825
+predicting... time elapsed:  1.0514318943
+573/600 0.955000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.62423300743
+training ... time elapsed:  18.185708046
+predicting... time elapsed:  2.13043808937
+676/700 0.965714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.85566806793
+training ... time elapsed:  21.9935958385
+predicting... time elapsed:  1.84269881248
+781/800 0.976250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.29858613014
+training ... time elapsed:  23.2448079586
+predicting... time elapsed:  2.21626186371
+871/900 0.967778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.08063697815
+training ... time elapsed:  26.8424189091
+predicting... time elapsed:  4.5579431057
+969/1000 0.969000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.02925515175
+training ... time elapsed:  36.1168599129
+predicting... time elapsed:  5.77730989456
+1167/1250 0.933600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.2186729908
+training ... time elapsed:  40.7629370689
+predicting... time elapsed:  6.28383898735
+1392/1500 0.928000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.27076888084
+training ... time elapsed:  57.1273400784
+predicting... time elapsed:  9.72870516777
+1867/2000 0.933500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.64482593536
+training ... time elapsed:  71.8717010021
+predicting... time elapsed:  15.0909910202
+2321/2500 0.928400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2604560852
+training ... time elapsed:  86.6014761925
+predicting... time elapsed:  21.3189721107
+2715/3000 0.905000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.6541349888
+training ... time elapsed:  119.121172905
+predicting... time elapsed:  37.923055172
+3601/4000 0.900250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.862852096558
+training ... time elapsed:  5.16040992737
+predicting... time elapsed:  0.189998149872
+188/200 0.940000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.22053289413
+training ... time elapsed:  9.16677808762
+predicting... time elapsed:  1.31981801987
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.25093197823
+training ... time elapsed:  13.7540130615
+predicting... time elapsed:  1.85857701302
+388/400 0.970000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.61242604256
+training ... time elapsed:  20.4171929359
+predicting... time elapsed:  2.50783014297
+499/500 0.998000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.99286794662
+training ... time elapsed:  21.5016140938
+predicting... time elapsed:  3.29195308685
+553/600 0.921667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.26097083092
+training ... time elapsed:  19.8542380333
+predicting... time elapsed:  2.1826581955
+648/700 0.925714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.90262579918
+training ... time elapsed:  22.0968720913
+predicting... time elapsed:  1.77578306198
+742/800 0.927500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.29391479492
+training ... time elapsed:  22.8643679619
+predicting... time elapsed:  2.21975803375
+867/900 0.963333
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.5768558979
+training ... time elapsed:  27.0948770046
+predicting... time elapsed:  2.74180388451
+940/1000 0.940000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.58752894402
+training ... time elapsed:  32.5645399094
+predicting... time elapsed:  5.46755695343
+1167/1250 0.933600
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.09573197365
+training ... time elapsed:  39.065294981
+predicting... time elapsed:  11.4786379337
+1394/1500 0.929333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.86887979507
+training ... time elapsed:  54.0322470665
+predicting... time elapsed:  19.3444328308
+1861/2000 0.930500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.55026197433
+training ... time elapsed:  73.0240261555
+predicting... time elapsed:  15.0664670467
+2263/2500 0.905200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.1857349873
+training ... time elapsed:  85.9166049957
+predicting... time elapsed:  21.4623692036
+2728/3000 0.909333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.5783088207
+training ... time elapsed:  118.65414691
+predicting... time elapsed:  39.7402949333
+3549/4000 0.887250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.875314950943
+training ... time elapsed:  5.7404589653
+predicting... time elapsed:  0.182246923447
+199/200 0.995000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.24799203873
+training ... time elapsed:  6.53378391266
+predicting... time elapsed:  0.346136808395
+297/300 0.990000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.69805192947
+training ... time elapsed:  14.5547890663
+predicting... time elapsed:  1.82104802132
+391/400 0.977500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.76029515266
+training ... time elapsed:  19.6176638603
+predicting... time elapsed:  3.79510807991
+485/500 0.970000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.68781399727
+training ... time elapsed:  22.6002290249
+predicting... time elapsed:  3.05732679367
+586/600 0.976667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.51307320595
+training ... time elapsed:  18.7087180614
+predicting... time elapsed:  2.69664812088
+679/700 0.970000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.87087106705
+training ... time elapsed:  19.2955110073
+predicting... time elapsed:  1.82563209534
+777/800 0.971250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.51330399513
+training ... time elapsed:  23.4764420986
+predicting... time elapsed:  5.02213597298
+853/900 0.947778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.61275887489
+training ... time elapsed:  27.1157879829
+predicting... time elapsed:  2.57217121124
+915/1000 0.915000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.41572999954
+training ... time elapsed:  34.3036000729
+predicting... time elapsed:  5.72152519226
+1184/1250 0.947200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.2208969593
+training ... time elapsed:  39.7674400806
+predicting... time elapsed:  5.88697600365
+1397/1500 0.931333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.28439307213
+training ... time elapsed:  59.0024058819
+predicting... time elapsed:  17.1617910862
+1817/2000 0.908500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.4667429924
+training ... time elapsed:  72.3568580151
+predicting... time elapsed:  15.1121661663
+2304/2500 0.921600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2672359943
+training ... time elapsed:  89.8438160419
+predicting... time elapsed:  21.4521420002
+2753/3000 0.917667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.6845061779
+training ... time elapsed:  120.555331945
+predicting... time elapsed:  37.1019239426
+3616/4000 0.904000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.862475156784
+training ... time elapsed:  5.04215312004
+predicting... time elapsed:  0.186656951904
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.22526192665
+training ... time elapsed:  6.16192817688
+predicting... time elapsed:  0.345446825027
+298/300 0.993333
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.59526181221
+training ... time elapsed:  12.7155342102
+predicting... time elapsed:  2.0916390419
+399/400 0.997500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.66296696663
+training ... time elapsed:  17.693696022
+predicting... time elapsed:  3.89553689957
+483/500 0.966000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.73974490166
+training ... time elapsed:  21.899834156
+predicting... time elapsed:  4.29471302032
+595/600 0.991667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.47474694252
+training ... time elapsed:  22.1385490894
+predicting... time elapsed:  1.87517905235
+672/700 0.960000
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.8799829483
+training ... time elapsed:  19.5364630222
+predicting... time elapsed:  1.8241751194
+749/800 0.936250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.3215379715
+training ... time elapsed:  21.623924017
+predicting... time elapsed:  2.31693792343
+874/900 0.971111
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.05831098557
+training ... time elapsed:  28.378857851
+predicting... time elapsed:  5.29298400879
+957/1000 0.957000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.42866683006
+training ... time elapsed:  32.0038869381
+predicting... time elapsed:  3.9518699646
+1194/1250 0.955200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.24232411385
+training ... time elapsed:  43.3753008842
+predicting... time elapsed:  5.62484002113
+1436/1500 0.957333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  7.34489989281
+training ... time elapsed:  56.6034009457
+predicting... time elapsed:  10.803000927
+1846/2000 0.923000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.96898412704
+training ... time elapsed:  70.9952738285
+predicting... time elapsed:  25.3052129745
+2311/2500 0.924400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2965519428
+training ... time elapsed:  89.5203149319
+predicting... time elapsed:  20.5171229839
+2728/3000 0.909333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.654815197
+training ... time elapsed:  120.386143923
+predicting... time elapsed:  38.0639560223
+3615/4000 0.903750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.863829851151
+training ... time elapsed:  4.551623106
+predicting... time elapsed:  0.189255952835
+198/200 0.990000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.21783804893
+training ... time elapsed:  6.52181601524
+predicting... time elapsed:  0.338861942291
+296/300 0.986667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.56999611855
+training ... time elapsed:  14.3738269806
+predicting... time elapsed:  2.00500488281
+384/400 0.960000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.51446413994
+training ... time elapsed:  16.8963458538
+predicting... time elapsed:  3.78351807594
+492/500 0.984000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.64468312263
+training ... time elapsed:  21.7539820671
+predicting... time elapsed:  3.50723481178
+583/600 0.971667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.22723197937
+training ... time elapsed:  21.7851729393
+predicting... time elapsed:  1.39099502563
+676/700 0.965714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.85760998726
+training ... time elapsed:  22.0215809345
+predicting... time elapsed:  4.2616250515
+766/800 0.957500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.26392292976
+training ... time elapsed:  24.9140548706
+predicting... time elapsed:  2.22939777374
+862/900 0.957778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.57729291916
+training ... time elapsed:  26.7502999306
+predicting... time elapsed:  2.65835905075
+945/1000 0.945000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.39388108253
+training ... time elapsed:  31.5114140511
+predicting... time elapsed:  4.07227993011
+1203/1250 0.962400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.99342703819
+training ... time elapsed:  41.0908880234
+predicting... time elapsed:  7.92315411568
+1411/1500 0.940667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  11.1412889957
+training ... time elapsed:  53.4396789074
+predicting... time elapsed:  9.6901538372
+1837/2000 0.918500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.63489890099
+training ... time elapsed:  72.3893251419
+predicting... time elapsed:  25.7210748196
+2352/2500 0.940800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2501850128
+training ... time elapsed:  88.1314470768
+predicting... time elapsed:  20.4120490551
+2732/3000 0.910667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.632598877
+training ... time elapsed:  119.177650928
+predicting... time elapsed:  37.2458600998
+3662/4000 0.915500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.859601974487
+training ... time elapsed:  4.42274999619
+predicting... time elapsed:  0.187011003494
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.21608781815
+training ... time elapsed:  6.57101202011
+predicting... time elapsed:  0.355035066605
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.04485106468
+training ... time elapsed:  14.3029341698
+predicting... time elapsed:  1.99588894844
+372/400 0.930000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.60145306587
+training ... time elapsed:  18.6886739731
+predicting... time elapsed:  1.3520720005
+479/500 0.958000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.71013498306
+training ... time elapsed:  19.5032300949
+predicting... time elapsed:  3.53473997116
+581/600 0.968333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.47189593315
+training ... time elapsed:  23.9442210197
+predicting... time elapsed:  1.49199008942
+680/700 0.971429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.88743495941
+training ... time elapsed:  22.2376408577
+predicting... time elapsed:  1.79413294792
+763/800 0.953750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.83858895302
+training ... time elapsed:  24.0296378136
+predicting... time elapsed:  2.3088581562
+850/900 0.944444
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.59225797653
+training ... time elapsed:  28.8064630032
+predicting... time elapsed:  2.67844510078
+967/1000 0.967000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.4349219799
+training ... time elapsed:  32.2051119804
+predicting... time elapsed:  4.2474489212
+1174/1250 0.939200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.86932992935
+training ... time elapsed:  46.1039390564
+predicting... time elapsed:  8.53046011925
+1369/1500 0.912667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.93568515778
+training ... time elapsed:  54.5495061874
+predicting... time elapsed:  9.80641794205
+1853/2000 0.926500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  9.667085886
+training ... time elapsed:  71.993252039
+predicting... time elapsed:  23.7154738903
+2307/2500 0.922800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2803430557
+training ... time elapsed:  89.7308349609
+predicting... time elapsed:  21.4002859592
+2763/3000 0.921000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.6706137657
+training ... time elapsed:  118.585942984
+predicting... time elapsed:  37.9730942249
+3576/4000 0.894000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.859550952911
+training ... time elapsed:  6.2965991497
+predicting... time elapsed:  0.711100101471
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.85162901878
+training ... time elapsed:  9.47514414787
+predicting... time elapsed:  1.29254508018
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.16606712341
+training ... time elapsed:  13.8936431408
+predicting... time elapsed:  1.94176602364
+398/400 0.995000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.5607790947
+training ... time elapsed:  13.4833490849
+predicting... time elapsed:  0.81871509552
+493/500 0.986000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.18940901756
+training ... time elapsed:  20.5251181126
+predicting... time elapsed:  3.9844558239
+589/600 0.981667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.10495996475
+training ... time elapsed:  23.4499089718
+predicting... time elapsed:  1.61009597778
+676/700 0.965714
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.87613105774
+training ... time elapsed:  20.9180099964
+predicting... time elapsed:  1.8783929348
+751/800 0.938750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.33679819107
+training ... time elapsed:  24.4823307991
+predicting... time elapsed:  2.25215578079
+825/900 0.916667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.05321192741
+training ... time elapsed:  28.1060528755
+predicting... time elapsed:  2.67474508286
+927/1000 0.927000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.64594602585
+training ... time elapsed:  33.7662980556
+predicting... time elapsed:  7.56624913216
+1206/1250 0.964800
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.82260417938
+training ... time elapsed:  45.204832077
+predicting... time elapsed:  5.6724691391
+1431/1500 0.954000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.91925597191
+training ... time elapsed:  54.8574371338
+predicting... time elapsed:  9.81100106239
+1874/2000 0.937000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  9.11159300804
+training ... time elapsed:  68.1380429268
+predicting... time elapsed:  26.8348851204
+2277/2500 0.910800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2609159946
+training ... time elapsed:  89.2893979549
+predicting... time elapsed:  20.6678950787
+2685/3000 0.895000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.6059691906
+training ... time elapsed:  119.882607937
+predicting... time elapsed:  38.0835168362
+3607/4000 0.901750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.873265981674
+training ... time elapsed:  5.87568497658
+predicting... time elapsed:  0.629132986069
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.82833409309
+training ... time elapsed:  10.1238648891
+predicting... time elapsed:  1.26332402229
+296/300 0.986667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.15605711937
+training ... time elapsed:  13.7111370564
+predicting... time elapsed:  1.93218994141
+386/400 0.965000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.50784897804
+training ... time elapsed:  14.7189819813
+predicting... time elapsed:  3.22565293312
+488/500 0.976000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.10135889053
+training ... time elapsed:  25.946130991
+predicting... time elapsed:  3.8831319809
+597/600 0.995000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.30583786964
+training ... time elapsed:  19.1586961746
+predicting... time elapsed:  1.47014594078
+673/700 0.961429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.84113717079
+training ... time elapsed:  20.1106500626
+predicting... time elapsed:  2.54573988914
+766/800 0.957500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.36282610893
+training ... time elapsed:  24.0466039181
+predicting... time elapsed:  2.58151888847
+885/900 0.983333
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.14999198914
+training ... time elapsed:  28.952534914
+predicting... time elapsed:  5.8641910553
+962/1000 0.962000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.66263890266
+training ... time elapsed:  34.6179418564
+predicting... time elapsed:  4.01227283478
+1180/1250 0.944000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.19801211357
+training ... time elapsed:  41.2145960331
+predicting... time elapsed:  5.6166741848
+1415/1500 0.943333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.9099509716
+training ... time elapsed:  54.5041480064
+predicting... time elapsed:  19.2655229568
+1845/2000 0.922500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.60783195496
+training ... time elapsed:  73.3204009533
+predicting... time elapsed:  14.9769508839
+2289/2500 0.915600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.1744129658
+training ... time elapsed:  87.9905049801
+predicting... time elapsed:  21.3096170425
+2735/3000 0.911667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  15.3034701347
+training ... time elapsed:  119.390676022
+predicting... time elapsed:  40.1494500637
+3607/4000 0.901750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.28108596802
+training ... time elapsed:  7.64819502831
+predicting... time elapsed:  0.591675043106
+194/200 0.970000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.73314905167
+training ... time elapsed:  11.1180510521
+predicting... time elapsed:  1.19060087204
+279/300 0.930000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.22598409653
+training ... time elapsed:  14.6493928432
+predicting... time elapsed:  1.81596302986
+378/400 0.945000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.54965281487
+training ... time elapsed:  17.7311599255
+predicting... time elapsed:  2.4963350296
+482/500 0.964000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.10529589653
+training ... time elapsed:  19.4375650883
+predicting... time elapsed:  1.08300995827
+588/600 0.980000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.53851294518
+training ... time elapsed:  17.1083340645
+predicting... time elapsed:  3.13703298569
+668/700 0.954286
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.89174389839
+training ... time elapsed:  19.8458909988
+predicting... time elapsed:  1.78582119942
+785/800 0.981250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.45626401901
+training ... time elapsed:  24.8771798611
+predicting... time elapsed:  6.13622498512
+844/900 0.937778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.82303500175
+training ... time elapsed:  28.3240280151
+predicting... time elapsed:  2.68541002274
+939/1000 0.939000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.45113492012
+training ... time elapsed:  34.3028268814
+predicting... time elapsed:  3.99456596375
+1173/1250 0.938400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.23744392395
+training ... time elapsed:  40.6657109261
+predicting... time elapsed:  5.67045521736
+1383/1500 0.922000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  7.66841816902
+training ... time elapsed:  59.7478129864
+predicting... time elapsed:  9.83021402359
+1870/2000 0.935000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.67296695709
+training ... time elapsed:  72.3683390617
+predicting... time elapsed:  15.1888489723
+2260/2500 0.904000
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.297549963
+training ... time elapsed:  90.5409300327
+predicting... time elapsed:  20.6628248692
+2694/3000 0.898000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.6317338943
+training ... time elapsed:  120.334076166
+predicting... time elapsed:  42.5402848721
+3591/4000 0.897750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.2585940361
+training ... time elapsed:  5.87478995323
+predicting... time elapsed:  0.698421001434
+190/200 0.950000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.77112698555
+training ... time elapsed:  10.5566279888
+predicting... time elapsed:  1.35572695732
+300/300 1.000000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.20889592171
+training ... time elapsed:  14.0064768791
+predicting... time elapsed:  1.97271609306
+391/400 0.977500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.58975219727
+training ... time elapsed:  19.0789029598
+predicting... time elapsed:  2.72622013092
+492/500 0.984000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.0242369175
+training ... time elapsed:  19.1592550278
+predicting... time elapsed:  1.10123586655
+565/600 0.941667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.48576188087
+training ... time elapsed:  19.220500946
+predicting... time elapsed:  1.4663541317
+671/700 0.958571
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.21053481102
+training ... time elapsed:  20.3051190376
+predicting... time elapsed:  4.18006205559
+772/800 0.965000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.45718312263
+training ... time elapsed:  24.1609110832
+predicting... time elapsed:  4.57013607025
+856/900 0.951111
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.58633708954
+training ... time elapsed:  27.5819039345
+predicting... time elapsed:  2.61865997314
+946/1000 0.946000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.38690495491
+training ... time elapsed:  35.1371231079
+predicting... time elapsed:  4.07191610336
+1206/1250 0.964800
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.2072930336
+training ... time elapsed:  40.4067909718
+predicting... time elapsed:  5.60882210732
+1377/1500 0.918000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  7.23690700531
+training ... time elapsed:  57.9754588604
+predicting... time elapsed:  12.2371559143
+1857/2000 0.928500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.56988501549
+training ... time elapsed:  72.30042696
+predicting... time elapsed:  14.6482510567
+2309/2500 0.923600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  12.2550768852
+training ... time elapsed:  89.4059588909
+predicting... time elapsed:  23.9199538231
+2665/3000 0.888333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  17.618678093
+training ... time elapsed:  114.771415949
+predicting... time elapsed:  45.132363081
+3634/4000 0.908500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.25696492195
+training ... time elapsed:  6.99564814568
+predicting... time elapsed:  0.739362001419
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.79390501976
+training ... time elapsed:  11.2794060707
+predicting... time elapsed:  2.03723192215
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.67104315758
+training ... time elapsed:  15.2018141747
+predicting... time elapsed:  2.43040013313
+394/400 0.985000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.89365005493
+training ... time elapsed:  19.5532150269
+predicting... time elapsed:  1.11810517311
+463/500 0.926000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.76135921478
+training ... time elapsed:  16.494396925
+predicting... time elapsed:  1.1005320549
+589/600 0.981667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.49251389503
+training ... time elapsed:  18.8249568939
+predicting... time elapsed:  2.31914687157
+680/700 0.971429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.45933818817
+training ... time elapsed:  18.9065709114
+predicting... time elapsed:  5.84106516838
+765/800 0.956250
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.31722283363
+training ... time elapsed:  24.631841898
+predicting... time elapsed:  2.2325258255
+857/900 0.952222
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.63441705704
+training ... time elapsed:  27.7775120735
+predicting... time elapsed:  2.7157959938
+961/1000 0.961000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.42441391945
+training ... time elapsed:  34.2287061214
+predicting... time elapsed:  3.98346090317
+1206/1250 0.964800
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.74038004875
+training ... time elapsed:  40.609664917
+predicting... time elapsed:  11.6657328606
+1408/1500 0.938667
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.95496487617
+training ... time elapsed:  54.5950300694
+predicting... time elapsed:  9.76661109924
+1890/2000 0.945000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.64187288284
+training ... time elapsed:  73.0236780643
+predicting... time elapsed:  14.8186249733
+2392/2500 0.956800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2966980934
+training ... time elapsed:  90.4072091579
+predicting... time elapsed:  21.3198320866
+2662/3000 0.887333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  15.1480619907
+training ... time elapsed:  120.888089895
+predicting... time elapsed:  41.9360218048
+3589/4000 0.897250
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.26098680496
+training ... time elapsed:  5.59053206444
+predicting... time elapsed:  0.71337389946
+195/200 0.975000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.76616096497
+training ... time elapsed:  12.2985441685
+predicting... time elapsed:  1.96280312538
+284/300 0.946667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.59830784798
+training ... time elapsed:  17.7997879982
+predicting... time elapsed:  2.18597006798
+398/400 0.995000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.54747200012
+training ... time elapsed:  19.3497080803
+predicting... time elapsed:  3.35194802284
+496/500 0.992000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.72383785248
+training ... time elapsed:  15.9180181026
+predicting... time elapsed:  1.03965711594
+586/600 0.976667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.51298189163
+training ... time elapsed:  18.4295220375
+predicting... time elapsed:  1.42031502724
+680/700 0.971429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.85490703583
+training ... time elapsed:  21.8648040295
+predicting... time elapsed:  2.83756995201
+763/800 0.953750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.45071697235
+training ... time elapsed:  23.3014409542
+predicting... time elapsed:  2.20354294777
+862/900 0.957778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.86208796501
+training ... time elapsed:  26.774034977
+predicting... time elapsed:  3.97759389877
+976/1000 0.976000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  7.13945388794
+training ... time elapsed:  33.9097409248
+predicting... time elapsed:  5.66528081894
+1205/1250 0.964000
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.6358859539
+training ... time elapsed:  38.5545921326
+predicting... time elapsed:  7.45224499702
+1320/1500 0.880000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.91229701042
+training ... time elapsed:  57.1455118656
+predicting... time elapsed:  9.71263694763
+1851/2000 0.925500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.64844322205
+training ... time elapsed:  72.2825160027
+predicting... time elapsed:  14.9122400284
+2279/2500 0.911600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.1940789223
+training ... time elapsed:  90.3098609447
+predicting... time elapsed:  21.3841969967
+2764/3000 0.921333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.5532431602
+training ... time elapsed:  121.731323957
+predicting... time elapsed:  38.7606728077
+3571/4000 0.892750
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.867655992508
+training ... time elapsed:  4.73245811462
+predicting... time elapsed:  0.179754018784
+196/200 0.980000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.28884100914
+training ... time elapsed:  10.7043631077
+predicting... time elapsed:  1.37052297592
+294/300 0.980000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.13686990738
+training ... time elapsed:  14.2560908794
+predicting... time elapsed:  2.81711101532
+399/400 0.997500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.20989990234
+training ... time elapsed:  18.6906471252
+predicting... time elapsed:  2.90837407112
+498/500 0.996000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.94410586357
+training ... time elapsed:  19.4394578934
+predicting... time elapsed:  1.04820179939
+554/600 0.923333
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.50914597511
+training ... time elapsed:  18.1722478867
+predicting... time elapsed:  1.4305639267
+687/700 0.981429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.8770442009
+training ... time elapsed:  19.9323239326
+predicting... time elapsed:  5.34369802475
+766/800 0.957500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.30022215843
+training ... time elapsed:  23.2460608482
+predicting... time elapsed:  2.21055579185
+834/900 0.926667
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.58308792114
+training ... time elapsed:  26.5542581081
+predicting... time elapsed:  2.65112090111
+927/1000 0.927000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.73657894135
+training ... time elapsed:  34.4859280586
+predicting... time elapsed:  4.21266007423
+1178/1250 0.942400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.02754998207
+training ... time elapsed:  42.3732469082
+predicting... time elapsed:  9.05862092972
+1424/1500 0.949333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.88461518288
+training ... time elapsed:  56.7528381348
+predicting... time elapsed:  16.518447876
+1868/2000 0.934000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.61016988754
+training ... time elapsed:  72.9233541489
+predicting... time elapsed:  15.1903021336
+2271/2500 0.908400
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2322189808
+training ... time elapsed:  90.384275198
+predicting... time elapsed:  21.165858984
+2744/3000 0.914667
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.4969079494
+training ... time elapsed:  117.878179073
+predicting... time elapsed:  39.0521008968
+3608/4000 0.902000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.849658966064
+training ... time elapsed:  4.55472183228
+predicting... time elapsed:  0.724468946457
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.78722596169
+training ... time elapsed:  10.1413190365
+predicting... time elapsed:  1.11108708382
+291/300 0.970000
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.17201709747
+training ... time elapsed:  16.2081460953
+predicting... time elapsed:  2.89229798317
+398/400 0.995000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.08888196945
+training ... time elapsed:  20.2666919231
+predicting... time elapsed:  3.26974797249
+498/500 0.996000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.01029610634
+training ... time elapsed:  19.4749679565
+predicting... time elapsed:  1.76879310608
+573/600 0.955000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.86518502235
+training ... time elapsed:  18.0978870392
+predicting... time elapsed:  2.67744398117
+694/700 0.991429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.86450219154
+training ... time elapsed:  21.4625079632
+predicting... time elapsed:  1.835034132
+768/800 0.960000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.31156206131
+training ... time elapsed:  23.606662035
+predicting... time elapsed:  2.94817495346
+860/900 0.955556
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.83281612396
+training ... time elapsed:  25.4991559982
+predicting... time elapsed:  2.66905999184
+949/1000 0.949000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.40262508392
+training ... time elapsed:  32.8389260769
+predicting... time elapsed:  8.14578604698
+1149/1250 0.919200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.20624494553
+training ... time elapsed:  38.6830589771
+predicting... time elapsed:  5.54521393776
+1416/1500 0.944000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.91694998741
+training ... time elapsed:  54.0528929234
+predicting... time elapsed:  18.3766241074
+1847/2000 0.923500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.63795185089
+training ... time elapsed:  75.0010650158
+predicting... time elapsed:  14.9246549606
+2289/2500 0.915600
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.3022911549
+training ... time elapsed:  89.483743906
+predicting... time elapsed:  21.2417461872
+2724/3000 0.908000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.5896520615
+training ... time elapsed:  123.06623888
+predicting... time elapsed:  37.1710329056
+3662/4000 0.915500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.86500787735
+training ... time elapsed:  6.92783498764
+predicting... time elapsed:  0.789236068726
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.79882192612
+training ... time elapsed:  12.2866110802
+predicting... time elapsed:  1.41918087006
+299/300 0.996667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.12125396729
+training ... time elapsed:  14.2127349377
+predicting... time elapsed:  3.2957239151
+385/400 0.962500
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.13590502739
+training ... time elapsed:  16.9730291367
+predicting... time elapsed:  2.70513105392
+460/500 0.920000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.62262010574
+training ... time elapsed:  19.1957149506
+predicting... time elapsed:  1.05222296715
+588/600 0.980000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.06570887566
+training ... time elapsed:  17.7171831131
+predicting... time elapsed:  1.4831609726
+695/700 0.992857
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.97463202477
+training ... time elapsed:  21.5295341015
+predicting... time elapsed:  1.87410521507
+772/800 0.965000
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.31173586845
+training ... time elapsed:  24.026184082
+predicting... time elapsed:  2.18299198151
+848/900 0.942222
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.62976312637
+training ... time elapsed:  26.2512559891
+predicting... time elapsed:  3.1955370903
+940/1000 0.940000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.63068413734
+training ... time elapsed:  32.6439399719
+predicting... time elapsed:  7.3734369278
+1174/1250 0.939200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.56425690651
+training ... time elapsed:  41.4862098694
+predicting... time elapsed:  5.62663602829
+1433/1500 0.955333
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.86124515533
+training ... time elapsed:  55.0294530392
+predicting... time elapsed:  19.1142098904
+1876/2000 0.938000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.61906814575
+training ... time elapsed:  72.044162035
+predicting... time elapsed:  14.9431049824
+2263/2500 0.905200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2405390739
+training ... time elapsed:  87.3096079826
+predicting... time elapsed:  21.3389620781
+2745/3000 0.915000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.5788550377
+training ... time elapsed:  120.218405008
+predicting... time elapsed:  37.6020758152
+3520/4000 0.880000
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.864862918854
+training ... time elapsed:  4.87509298325
+predicting... time elapsed:  0.674028873444
+200/200 1.000000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.74774289131
+training ... time elapsed:  10.8299899101
+predicting... time elapsed:  1.17842197418
+295/300 0.983333
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.1113550663
+training ... time elapsed:  15.4862971306
+predicting... time elapsed:  1.77223205566
+400/400 1.000000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.70781183243
+training ... time elapsed:  18.4808399677
+predicting... time elapsed:  3.26275515556
+469/500 0.938000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.0514960289
+training ... time elapsed:  21.6264929771
+predicting... time elapsed:  1.16626119614
+592/600 0.986667
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.5780608654
+training ... time elapsed:  18.3788690567
+predicting... time elapsed:  1.44485712051
+673/700 0.961429
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.87183308601
+training ... time elapsed:  21.2221269608
+predicting... time elapsed:  1.8303091526
+751/800 0.938750
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.29740905762
+training ... time elapsed:  23.6304988861
+predicting... time elapsed:  2.14877390862
+860/900 0.955556
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.59851694107
+training ... time elapsed:  26.2768640518
+predicting... time elapsed:  2.72394990921
+968/1000 0.968000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  4.79698395729
+training ... time elapsed:  35.8452079296
+predicting... time elapsed:  6.42106509209
+1188/1250 0.950400
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  7.98510313034
+training ... time elapsed:  40.6051690578
+predicting... time elapsed:  5.64282798767
+1416/1500 0.944000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  6.8647248745
+training ... time elapsed:  54.2817759514
+predicting... time elapsed:  15.8311450481
+1830/2000 0.915000
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  11.578122139
+training ... time elapsed:  72.2405259609
+predicting... time elapsed:  14.97326684
+2243/2500 0.897200
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.2407810688
+training ... time elapsed:  90.159277916
+predicting... time elapsed:  20.5321860313
+2745/3000 0.915000
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.4816827774
+training ... time elapsed:  121.363048792
+predicting... time elapsed:  39.0879640579
+3582/4000 0.895500
+Nperson:  4
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  0.852697134018
+training ... time elapsed:  4.20642709732
+predicting... time elapsed:  0.184242963791
+199/200 0.995000
+Nperson:  6
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  1.53426504135
+training ... time elapsed:  12.4587931633
+predicting... time elapsed:  1.42666196823
+293/300 0.976667
+Nperson:  8
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.16995096207
+training ... time elapsed:  15.788572073
+predicting... time elapsed:  2.12252402306
+348/400 0.870000
+Nperson:  10
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  2.61475205421
+training ... time elapsed:  20.9714608192
+predicting... time elapsed:  3.18802499771
+467/500 0.934000
+Nperson:  12
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.1434340477
+training ... time elapsed:  21.0289139748
+predicting... time elapsed:  1.14661002159
+579/600 0.965000
+Nperson:  14
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.29822492599
+training ... time elapsed:  17.8521420956
+predicting... time elapsed:  1.97553491592
+677/700 0.967143
+Nperson:  16
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.80699300766
+training ... time elapsed:  21.2145938873
+predicting... time elapsed:  1.82867884636
+746/800 0.932500
+Nperson:  18
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  3.29847598076
+training ... time elapsed:  24.0869219303
+predicting... time elapsed:  3.08612418175
+844/900 0.937778
+Nperson:  20
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.44155192375
+training ... time elapsed:  26.9576151371
+predicting... time elapsed:  4.12226104736
+921/1000 0.921000
+Nperson:  25
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  7.06397294998
+training ... time elapsed:  32.7681019306
+predicting... time elapsed:  4.05259418488
+1174/1250 0.939200
+Nperson:  30
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  5.19336700439
+training ... time elapsed:  39.7937390804
+predicting... time elapsed:  5.59274506569
+1371/1500 0.914000
+Nperson:  40
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  7.34052610397
+training ... time elapsed:  57.4182181358
+predicting... time elapsed:  11.3798530102
+1893/2000 0.946500
+Nperson:  50
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  8.59202408791
+training ... time elapsed:  70.1918818951
+predicting... time elapsed:  15.1237361431
+2222/2500 0.888800
+Nperson:  60
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  10.1969850063
+training ... time elapsed:  88.0964891911
+predicting... time elapsed:  20.4616448879
+2815/3000 0.938333
+Nperson:  80
+processing ../test-data/corpus.silence-removed/Style_Reading/ ...
+processing ./final-log/nperson-mix-1523-t2.log ...
+calculating features... time elapsed:  13.5850150585
+training ... time elapsed:  122.483712912
+predicting... time elapsed:  38.9556279182
+3583/4000 0.895750

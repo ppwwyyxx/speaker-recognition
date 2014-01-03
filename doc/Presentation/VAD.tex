@@ -1,0 +1,35 @@
+%File: VAD.tex
+%Date: Tue Dec 31 01:12:04 2013 +0800
+%Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
+\section{VAD}
+\begin{frame}{VAD}
+  \textbf{Voice Activity Detection} shall be applied for all signals as a pre-filter.
+  We've tried 2 different approaches:
+  \pause
+  \begin{itemize}
+    \item Energy-Based:
+      \begin{itemize}
+        \item Filter out the intervals with relatively low energy.
+        \item Work perfectly for high-quality recordings.
+        \item Sensitive to noise.
+      \end{itemize}
+      \pause
+
+    \item Long-Term Spectral Divergence
+      \begin{itemize}
+        \item Compare long-term spectral envelope with noise spectrum.
+        \item More robust to noise, used in our GUI.
+        \item
+            \footnotesize\it\color{red!50!black}
+            Efficient voice activity detection algorithms using long-term speech information,
+            Ramırez, Javier, 2004
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{LTSD}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{res/ltsd.png}
+  \end{center}
+\end{frame}

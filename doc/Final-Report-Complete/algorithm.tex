@@ -1,0 +1,31 @@
+\section{Algorithms}
+	In this section we will present our aproach to tackle the speaker recognition problem.
+
+    An utterance of a user is collected during enrollment procedure.
+    Further processing of the utterance follows following steps:
+    \subsection{VAD}
+        Signals must be first filtered to rule out the silence part, otherwise the
+        training might be seriously biased. Therefore \textbf{Voice Activity Detection} must
+        be first performed.
+
+        An observation found is that, the corpus provided is nearly noise-free.
+        Therefore we use a simple energy-based approach
+        to remove the silence part, by simply remove the frames that the average
+        energy is below 0.01 times the average energy of the whole utterance.
+
+        This energy-based method is found to work well on database, but not
+        on GUI.
+        We use LTSD(Long-Term Spectral Divergence) \cite{ltsd1}\cite{ltsd2}
+        algorithm on GUI, as well as noise reduction technique from SOX\cite{sox} to gain better result.
+
+        LTSD algorithm splits a utterance into overlapped frames, and give scores for each frame on
+        the probability that there is voice activity in this frame. This probability will be accumulated
+        to extract all the intervals with voice activity. A picture showing the principle of LTSD is as followed:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.6\textwidth]{img/ltsd.png}
+        \end{figure}
+
+        \input{feature}
+        \input{model}

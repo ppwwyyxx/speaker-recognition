@@ -1,0 +1,112 @@
+% $File: report.tex
+% $Date: Tue Dec 31 09:48:11 2013 +0800
+
+\documentclass {beamer}
+%\usetheme{JuanLesPins}
+\usetheme{Copenhagen}
+\setbeamertemplate{itemize items}[ball]
+\setbeamercovered{transparent}
+\setbeamertemplate{itemize subitem}[circle] % if you wnat a circle
+\setbeamertemplate{blocks}[rounded][shadow=true]
+%\usetheme[height=7mm]{Rochester}
+\useoutertheme{infolines}
+\usepackage{fontspec,amsmath,amssymb,zhspacing,verbatim}
+\usepackage[backend=biber]{biblatex}
+
+
+\let\Oldsum\sum
+\renewcommand{\sum}{\displaystyle\Oldsum}
+\let\Oldprod\prod
+\renewcommand{\prod}{\displaystyle\Oldprod}
+
+\theoremstyle{plain}
+
+\usepackage[absolute,overlay]{textpos}
+\newenvironment{reference}[2]{%
+  \begin{textblock*}{\textwidth}(#1,#2)
+      \footnotesize\it\bgroup\color{red!50!black}}{\egroup\end{textblock*}}
+
+\zhspacing
+
+\setbeamertemplate{footline} {
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex]{corporatecolor}
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}
+        \insertshortauthor
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}
+        \insertshorttitle
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+        \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+        \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+      \end{beamercolorbox}
+    \end{beamercolorbox}
+  }%
+  \vskip0pt%
+}
+
+\title{Speaker Recognition}
+\subtitle{SRT project of Signal Processing}
+\author {Xinyu Zhou, Yuxin Wu, Tiezheng Li}
+\institute{
+  Department of Computer Science and Technology\\
+  Tsinghua University\\
+}
+\date{\today}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}{Overview}
+\begin{exampleblock}{\textbf{Speaker Recognition}}
+  Identification of the person who is speaking by characteristics of their voice biometrics.
+\end{exampleblock}
+\textbf{Primary Goal}:
+
+\begin{itemize}
+    \item \textbf{Accurate} and \textbf{Efficient} \textbf{Short} utterance speaker recognition.
+\end{itemize}
+
+\textbf{Additional Goal}:
+\begin{itemize}
+  \item Scalability over large number of speakers.
+  \item Low Latency Real-Time recognition
+  \item A working Real-Time recognition system.
+\end{itemize}
+
+
+\end{frame}
+\begin{frame}{Content}
+\tableofcontents
+\end{frame}
+
+\input{VAD}
+\input{features}
+\section{Model}
+\input{GMM}
+\input{RBM}
+%\input{JFA}
+\begin{frame}{GUI Demo}
+
+\end{frame}
+\begin{frame}{Conclusion}
+  \begin{itemize}
+      \item We implemented a faster GMM, also with better performance.
+      \item Accuracy is kept even under short training and testing utterance.
+      \item Our system is highly accurate, can almost response in real-time.
+      \item 97\% accuracy for 20$\sim$30 speakers, 95\% for 70$\sim$80 speakers.
+  \end{itemize}
+\end{frame}
+\begin{frame}{}
+  \begin{center}
+  \Huge Thanks!
+\end{center}
+\end{frame}
+
+\end{document}
+

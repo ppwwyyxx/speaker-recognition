@@ -1,0 +1,105 @@
+n_dim=11 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.016903162
+training ... time elapsed:  30.6010620594
+predicting... time elapsed:  10.7724850178
+1818/2000 0.9090
+n_dim=13 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2169010639
+training ... time elapsed:  32.009223938
+predicting... time elapsed:  11.0043358803
+1847/2000 0.9235
+n_dim=15 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2570979595
+training ... time elapsed:  32.8408908844
+predicting... time elapsed:  11.2944161892
+1846/2000 0.9230
+n_dim=17 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2657690048
+training ... time elapsed:  31.6532590389
+predicting... time elapsed:  11.5868179798
+1848/2000 0.9240
+n_dim=19 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2979850769
+training ... time elapsed:  33.3089849949
+predicting... time elapsed:  11.7970271111
+1868/2000 0.9340
+n_dim=23 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.3691329956
+training ... time elapsed:  34.5264689922
+predicting... time elapsed:  12.2782299519
+1861/2000 0.9305
+n_dim=25 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.4377889633
+training ... time elapsed:  38.869920969
+predicting... time elapsed:  12.4859149456
+1875/2000 0.9375
+n_dim=11 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.0478579998
+training ... time elapsed:  29.9914929867
+predicting... time elapsed:  10.7985050678
+1813/2000 0.9065
+n_dim=13 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2377111912
+training ... time elapsed:  32.2853319645
+predicting... time elapsed:  11.0077259541
+1851/2000 0.9255
+n_dim=15 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2737500668
+training ... time elapsed:  32.5824828148
+predicting... time elapsed:  11.2934658527
+1855/2000 0.9275
+n_dim=17 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2809929848
+training ... time elapsed:  32.8150918484
+predicting... time elapsed:  11.510627985
+1848/2000 0.9240
+n_dim=19 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.3411328793
+training ... time elapsed:  33.6167628765
+predicting... time elapsed:  11.8325388432
+1868/2000 0.9340
+n_dim=23 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.4260439873
+training ... time elapsed:  34.8856861591
+predicting... time elapsed:  12.3154480457
+1873/2000 0.9365
+n_dim=25 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.4628770351
+training ... time elapsed:  35.8797090054
+predicting... time elapsed:  12.5265870094
+1863/2000 0.9315
+n_dim=11 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.0116391182
+training ... time elapsed:  31.1680738926
+predicting... time elapsed:  10.7772321701
+1836/2000 0.9180
+n_dim=13 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2198650837
+training ... time elapsed:  32.2569258213
+predicting... time elapsed:  11.01806283
+1846/2000 0.9230
+n_dim=15 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2693428993
+training ... time elapsed:  32.5319139957
+predicting... time elapsed:  11.3295929432
+1857/2000 0.9285
+n_dim=17 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.3057279587
+training ... time elapsed:  32.8547348976
+predicting... time elapsed:  11.5398180485
+1849/2000 0.9245
+n_dim=19 LPC WINL=32, WINS=16
+calculating features... time elapsed:  10.2930002213
+training ... time elapsed:  40.5906980038
+predicting... time elapsed:  14.2299559116
+1852/2000 0.9260
+n_dim=23 LPC WINL=32, WINS=16
+calculating features... time elapsed:  11.1158769131
+training ... time elapsed:  47.7214920521
+predicting... time elapsed:  13.1395230293
+1886/2000 0.9430
+n_dim=25 LPC WINL=32, WINS=16
+calculating features... time elapsed:  11.1644048691
+training ... time elapsed:  46.3249080181
+predicting... time elapsed:  13.3707079887
+1869/2000 0.9345

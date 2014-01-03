@@ -1,4 +1,0 @@
-ltz 20 M
-wyx 20 M
-zxy 20 M
-zyk 20 M

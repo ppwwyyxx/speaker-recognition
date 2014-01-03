@@ -1,0 +1,60 @@
+n_ceps=13 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.03859806061
+training ... time elapsed:  36.8411200047
+predicting... time elapsed:  11.0407321453
+1911/2000 0.9555
+n_ceps=15 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.11694192886
+training ... time elapsed:  37.4344480038
+predicting... time elapsed:  11.2804448605
+1913/2000 0.9565
+n_ceps=17 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.16141200066
+training ... time elapsed:  37.4581980705
+predicting... time elapsed:  11.5201311111
+1904/2000 0.9520
+n_ceps=19 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.20586490631
+training ... time elapsed:  39.8971810341
+predicting... time elapsed:  11.7244620323
+1892/2000 0.9460
+n_ceps=23 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.25583004951
+training ... time elapsed:  41.7878100872
+predicting... time elapsed:  12.2406218052
+1858/2000 0.9290
+n_ceps=25 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.27614808083
+training ... time elapsed:  42.5076150894
+predicting... time elapsed:  12.4812309742
+1842/2000 0.9210
+n_ceps=13 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.03397393227
+training ... time elapsed:  32.4227170944
+predicting... time elapsed:  11.0287430286
+1847/2000 0.9235
+n_ceps=15 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.1278090477
+training ... time elapsed:  34.097951889
+predicting... time elapsed:  11.3101611137
+1849/2000 0.9245
+n_ceps=17 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.16484689713
+training ... time elapsed:  35.1945109367
+predicting... time elapsed:  11.5513811111
+1824/2000 0.9120
+n_ceps=19 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.20404696465
+training ... time elapsed:  35.6420719624
+predicting... time elapsed:  11.8356411457
+1811/2000 0.9055
+n_ceps=23 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.23904514313
+training ... time elapsed:  35.8448140621
+predicting... time elapsed:  12.2951889038
+1797/2000 0.8985
+n_ceps=25 MFCC NFILTER=55, WINL=20, WINS=10
+calculating features... time elapsed:  3.28710007668
+training ... time elapsed:  38.9966540337
+predicting... time elapsed:  12.5663750172
+1785/2000 0.8925

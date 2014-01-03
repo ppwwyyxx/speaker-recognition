@@ -1,6 +1,6 @@
 %
 % $File: report.tex
-% $Date: Fri Jan 03 18:37:42 2014 +0800
+% $Date: Fri Jan 03 21:16:42 2014 +0800
 %
 
 \documentclass{article}
@@ -66,6 +66,12 @@ basicstyle=\footnotesize\ttfamily}
 \setlength{\baselineskip}{1.6em}
 \maketitle
 \tableofcontents
+
+%thick shline
+\newlength\savewidth
+\newcommand\shline{\noalign{\global\savewidth\arrayrulewidth\global\arrayrulewidth 1pt}
+                   \hline
+                   \noalign{\global\arrayrulewidth\savewidth}}
 
 \input{intro}
 \input{algorithm}

@@ -1,6 +1,7 @@
 ## Introduction
 
-This is a speaker-recognition system with GUI, served as an SRT project for the course *Signal Processing* (2013fall) in Tsinghua Univ.
+This is a [Speaker Recognition](https://en.wikipedia.org/wiki/Speaker_recognition) system with GUI,
+served as an SRT project for the course *Signal Processing (2013Fall)* in Tsinghua University.
 
 ## Dependencies
 
@@ -13,13 +14,19 @@ This is a speaker-recognition system with GUI, served as an SRT project for the 
 + [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
 + gcc >= 4.7
 
-## Algorithm Used
+## Algorithms Used
 
-_Voice Activity Detection_(VAD): Energy-Based, Long-Term Spectral Divergence(LTSD)
+_Voice Activity Detection_(VAD): Long-Term Spectral Divergence ([LTSD](http://www.sciencedirect.com/science/article/pii/S0167639303001201))
 
-_Feature_: Mel-Frequency Cepstral Coefficient(MFCC), Linear Prediction Coding(LPC)
+_Feature_:
++ [Mel-Frequency Cepstral Coefficient](http://en.wikipedia.org/wiki/Mel-frequency_cepstrum) (MFCC)
++ [Linear Predictive Coding](http://en.wikipedia.org/wiki/Linear_predictive_coding) (LPC)
 
-_Model_: Gaussian Mixture Model(GMM), Universal Background Model(UBM), Continuous Restricted Boltzman Machine(CRBM), Joint Factor Analysis(JFA)
+_Model_:
++ [Gaussian Mixture Model](http://en.wikipedia.org/wiki/Mixture_model#Gaussian_mixture_model) (GMM)
++ [Universal Background Model](http://www.sciencedirect.com/science/article/pii/S1051200499903615) (UBM)
++ Continuous [Restricted Boltzman Machine](https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine) (CRBM)
++ [Joint Factor Analysis](http://speech.fit.vutbr.cz/software/joint-factor-analysis-matlab-demo) (JFA)
 
 For more details of this project, please see:
 

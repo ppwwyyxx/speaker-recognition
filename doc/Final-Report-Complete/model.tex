@@ -1,5 +1,5 @@
 %File: model.tex
-%Date: Fri Jan 03 18:35:53 2014 +0800
+%Date: Fri Jan 03 21:06:49 2014 +0800
 %Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 \subsection{GMM}
@@ -142,15 +142,3 @@ for the ``Inter-Channel Variability''.
 The parameter $ R_s $ and $ R_c$, also referred to as ``Speaker Rank'' and ``Channel Rank'', are two emprical constant selected as first.
 The training of JFA is to calculate the best $ u, v, d$ to fit all the training data.
 
-After our investigation, we found that the original algorithm \cite{jfa-se} for training JFA model is of
-too much complication and hard to implement.
-Therefore, we use the simpler algorithm presented in \cite{jfa-study}
-to train the JFA model. However, from the result, JFA does not seem to outperform our enhanced MFCC and GMM algorithms
-(but do outperform our old algorithms). It is suspected that the training of a JFA model needs more data than
-we have provided, since JFA needs data from various source to account for different types of variabilities.
-Therefore, we might need to add extra data on the training of JFA, but keep the same data scale in the stage of enrollment,
-to get a better result.
-
-It is also worth mentioning that the training of JFA will take much longer time than our old method,
-since the estimation process of $ u, v, d$ does not converge quickly. As a result, it might not be practical to add
-JFA approach to our GUI system. But we will still test further on the performance of it, compared to other methods.

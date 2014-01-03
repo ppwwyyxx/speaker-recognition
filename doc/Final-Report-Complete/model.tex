@@ -1,10 +1,10 @@
 %File: model.tex
-%Date: Fri Jan 03 17:51:29 2014 +0800
+%Date: Fri Jan 03 18:35:53 2014 +0800
 %Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 \subsection{GMM}
 \textbf{Gaussian Mixture Model} is commonly used in acoustic learning task such as speech/speaker recognition,
-since it describes the varied distribution of all the feature vector.
+since it describes the varied distribution of all the feature vector.\cite{GMM}
 GMM assumes that the probability of a feature vector $ \theta$ belonging to the model is the following:
     \[ p(\theta) = \sum_{i=1}^{K}{w_i \mathcal{N}(\mathbf{\mu}_i, \Sigma_i)}\]
 
@@ -33,85 +33,124 @@ all the components. However, we can first use K-Means algorithm\cite{kmeans} to 
 to all the vectors, then use the clustered centers to initialize the training of GMM.
 This enhancement can speed up the trainig, also gives a better training result.
 
+On the calculation of K-Means, an algorithm call K-MeansII\cite{bahmani2012scalable},
+which is an improved version of K-Means++\cite{arthur2007k} can be used for better accuracy.
 
-\begin{itemize}
-  \item Performance: \\
-    We investigate the effect of initialization of GMM during
-    training. We implemented GMM with
-    K-meansII\cite{bahmani2012scalable}, which is an improved
-    version of K-means++\cite{arthur2007k} to initialize the
-    mean vector of GMM. Results shows improvements compared
-    to GMM provided by \textbf{scikit-learn\cite{scikit-learn}}.
-  \item Efficiency:
-    \begin{itemize}
-      \item We provide a parallel version of GMM, especially
-        optimized to train large Universal Background Model(UBM).
-      \item We further improve efficiency by utilizing
-        SSE instruction in computing exponential function
-        using polynomial approximation. This can speed up
-        the training procedure by a factor of two.
-    \end{itemize}
-\end{itemize}
+%\begin{itemize}
+  %\item Performance: \\ We investigate the effect of initialization of GMM during
+    %training. We implemented GMM with
+    %K-meansII\cite{bahmani2012scalable}, which is an improved
+    %version of K-means++\cite{arthur2007k} to initialize the
+    %mean vector of GMM. Results shows improvements compared
+    %to GMM provided by \textbf{scikit-learn\cite{scikit-learn}}.
+  %\item Efficiency:
+    %\begin{itemize}
+      %\item We provide a parallel version of GMM, especially
+        %optimized to train large Universal Background Model(UBM).
+      %\item We further improve efficiency by utilizing
+        %SSE instruction in computing exponential function
+        %using polynomial approximation. This can speed up
+        %the training procedure by a factor of two.
+    %\end{itemize}
+%\end{itemize}
 
-%\item \textbf{UBM}
+\subsection{UBM}
 
-%As we are providing continuous speech close-set diarization function in
-%GUI, we adopt \textbf{Universal Background Model} as imposter model,
-%and use likelihood ratio test to make reject
-%decisions.\cite{reynolds2000speaker}
+\textbf{Universal Background Model} is a GMM trained on giant number of speakers.
+It therefore describes common acoustic features of human voices.\cite{UBM}
 
-%When using conversation mode in GUI (will be present later),
-%GMM model of each user is adapted from a pre-trained UBM
-%using method described in \cite{reynolds2000speaker}.
+As we are providing continuous speech close-set diarization function in
+GUI, we adopt \textbf{Universal Background Model} as imposter model,
+and use likelihood ratio test to make reject decisions as proposed in\cite{reynolds2000speaker}.
 
-%\item \textbf{CRBM}
+When using conversation mode in GUI (will be present later),
+GMM model of each user is adapted from a pre-trained UBM
+using method described in \cite{reynolds2000speaker}.
 
-%\textbf{Restricted Boltzmann Machine} is generative stochastic
-%two-layer neural network (see \figref{rbm}) that can learn a probability distribution
-%over its set of binary inputs\cite{rbm_wiki}.  \textbf{Continuous
-%restricted Boltzmann Machine(CRBM)}\cite{chen2003continuous} extends
-%its ability to real-valued inputs.  RBM has a ability to, given an
-%input(visible layer), reconstruct a visible layer that is similar
-%to the input.  \figref{crbm} illustrate original MFCC data and the
-%sampled output of reconstructed data from CRBM.
+\subsection{CRBM}
 
-%Previous working using neural network largely focused on speech
-%recognition, such as \cite{deep} \cite{mohamed20111deep}, only a
-%few (\cite{}) on classification task.
 
-%\begin{figure}[!ht]
-%\begin{minipage}{0.48\linewidth}
-%\centering
-%\includegraphics[width=\linewidth]{img/all.trimed.png}
-%\caption{The first three dimension of a woman's MFCC feature}
-%\end{minipage}
-%\hfill
-%\begin{minipage}{0.48\linewidth}
-%\centering
-%\includegraphics[width=\linewidth]{img/50.trimed.png}
-%\caption{The first three dimension of the same woman's MFCC feature
-%recontructed by a CRBM with 50-neuron hidden layer. We can
-%see that, the density of these two distributions are alike}
-%\end{minipage}
-%\caption{\label{fig:crbm}}
-%\end{figure}
+			Both RBM and CRBM can be trained using Contrastive Divergence learning.
 
-%Here use CRBM as a substitution of GMM, rather than
-%an feature extractor. We train a CRBM per speaker,
-%and estimate reconstruction error without sampling (which is stable).
-%The person corresponds to the lowest reconstruction error CRBM is adopted as
-%recognition result.
+			RBM has a ability to, given an input(visible layer), reconstruct a visible
+			layer that is similar to the input. This demonstrates the modeling essence
+			of RBM. \figref{crbm} illustrate original MFCC data and the sampled output of
+			reconstructed data from CRBM.
 
-%\item \textbf{JFA}:
+\textbf{Restricted Boltzmann Machine} is generative stochastic
+two-layer neural network that can learn a probability distribution
+over its set of binary inputs\cite{rbm_wiki}.  \textbf{Continuous
+restricted Boltzmann Machine(CRBM)}\cite{chen2003continuous} extends
+its ability to real-valued inputs.  RBM has a ability to, given an
+input(visible layer), reconstruct a hidden layer that is similar
+to the input.  The neurons
+in hidden layer controls the model complexity and the performance of
+the network. The Gibbs sampling of hidden layer can be seen as a
+representation of the original data. Therefore RBMs can be used
+as an auto feature-extractor.
+\figref{crbm} illustrate original MFCC data and the
+sampled output of reconstructed data from CRBM.
 
-%\textbf{Joint Factor Analysis} \cite{jfa2,jfa-se} was generally considered to perform better than other method
-%in the task of Speaker Recognition, by modeling different types of variabilities in the training data, including session variability and
-%speaker variability.
+Previous works using neural network largely focused on speech
+recognition, such as \cite{deep},\cite{mohamed2011deep}.
 
-%Therefore, we use a simpler algorithm presented in \cite{jfa-study} to train the JFA model.
-%However, the result shows that JFA does not seem to outperform GMM.
-%We suspected that the training of a JFA model needs more data than
-%we provided, since JFA needs data from various source to account for different types of variabilities.
-%To get a higher accuracy in JFA, We might need to add extra data for training.
-%\end{enumerate}
+\begin{figure}[H]
+  \begin{minipage}{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/rbm-original.png}
+    \caption*{The first three dimension of a woman's MFCC feature}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/rbm-reconstruct.png}
+    \caption*{The first three dimension of the same woman's MFCC feature
+      recontructed by a CRBM with 50-neuron hidden layer. We can
+      see that, the density of these two distributions are alike}
+  \end{minipage}
+  \caption{\label{fig:crbm}}
+\end{figure}
 
+TO use CRBM as a substitution of GMM, rather than
+an feature extractor, we train a CRBM per speaker,
+and estimate reconstruction error without sampling (which is stable).
+The person whose corresponding CRBM has lowest reconstruction error is chosen as
+recognition result.
+
+\subsection{JFA}
+
+\textbf{Factor Analysis} is a typical method which behave
+very well in classification problems, due to its ability to
+account for different types of variability in training data.
+Within all the factor analysis methods,
+Joint Factor Analysis (JFA)\cite{jfa2,jfa-se} was proved to outperform other method
+in the task of Speaker Recognition.
+
+JFA models the user by ``supervector'' , i.e. a $C\times F $ dimension vector, where $C$ is
+the number of components in the Universal Background Model, trained by GMM on all the training data,
+and $ F$ is the dimension of the acoustic feature vector. The supervector of an utterance is obtained by concatenate
+all the $C $ means vectors in the trained GMM model. The basic assumption of JFA on describing a supervector is:
+
+\[ \vec{M} = \vec{ m } + vy + dz + ux, \]
+
+where $m$ is a supervector usually selected to be the one trained from UBM, $v$ is a $ CF \times R_s$ dimension matrix,
+$ u$ is a $ CF \times R_c$ dimension matrix, and $d$ is a diagonal matrix.
+This four variables are considered independent of all kinds of variabilities and remain constant after training, and
+$x, y, z $ are matrixes computed for each utterance sample.
+In this formulation, $ m + vy + dz$ is commonly believed to account for the ``Inter-Speaker Variability'', and $ux $ accounts
+for the ``Inter-Channel Variability''.
+The parameter $ R_s $ and $ R_c$, also referred to as ``Speaker Rank'' and ``Channel Rank'', are two emprical constant selected as first.
+The training of JFA is to calculate the best $ u, v, d$ to fit all the training data.
+
+After our investigation, we found that the original algorithm \cite{jfa-se} for training JFA model is of
+too much complication and hard to implement.
+Therefore, we use the simpler algorithm presented in \cite{jfa-study}
+to train the JFA model. However, from the result, JFA does not seem to outperform our enhanced MFCC and GMM algorithms
+(but do outperform our old algorithms). It is suspected that the training of a JFA model needs more data than
+we have provided, since JFA needs data from various source to account for different types of variabilities.
+Therefore, we might need to add extra data on the training of JFA, but keep the same data scale in the stage of enrollment,
+to get a better result.
+
+It is also worth mentioning that the training of JFA will take much longer time than our old method,
+since the estimation process of $ u, v, d$ does not converge quickly. As a result, it might not be practical to add
+JFA approach to our GUI system. But we will still test further on the performance of it, compared to other methods.

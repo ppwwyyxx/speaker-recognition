@@ -15,17 +15,21 @@
 
         This energy-based method is found to work well on database, but not
         on GUI.
-        We use LTSD(Long-Term Spectral Divergence) \cite{ltsd1}\cite{ltsd2}
-        algorithm on GUI, as well as noise reduction technique from SOX\cite{sox} to gain better result.
+        We use LTSD(Long-Term Spectral Divergence) \cite{ltsd1}
+        algorithm on GUI, as well as noise reduction technique from SOX\cite{sox} to gain better result in real-life application.
 
         LTSD algorithm splits a utterance into overlapped frames, and give scores for each frame on
         the probability that there is voice activity in this frame. This probability will be accumulated
-        to extract all the intervals with voice activity. A picture showing the principle of LTSD is as followed:
+        to extract all the intervals with voice activity. A picture depicting the principle of LTSD is as followed:
 
         \begin{figure}[H]
           \centering
           \includegraphics[width=0.6\textwidth]{img/ltsd.png}
         \end{figure}
+		Since this is not our primary-task, we shall not expand details here. For further
+		information on how these works, please consult original paper.
+
 
         \input{feature}
         \input{model}
+

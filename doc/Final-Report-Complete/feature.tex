@@ -35,16 +35,19 @@ based on a linear cosine transform of a log power spectrum on a nonlinear mel-sc
 MFCC is the mostly widely used features in Automatic Speech Recognition(ASR), and it can also be applied to Speaker Recognition task.
 
 
-The process to extract MFCC feature is as followed:
-\begin{figure}[H]
+The process to extract MFCC feature is demonstrated in \figref{mfcc}
+\begin{figure}
+
   \centering
   \includegraphics[width=\textwidth]{img/MFCC.png}
+  \caption{MFCC feature extraction process\label{fig:mfcc}}
+
 \end{figure}
 
 First, the input speech should be divided into successive short-time frames of length $L$,
 neighboring frames shall have overlap $R$.
-Those frames are then windowed by Hamming Window, as shown in \figref{framming}
-\begin{figure}[H]
+Those frames are then windowed by Hamming Window, as shown in \figref{framming}.
+\begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{img/MFCC-windowing-frames.png}
   \caption{Framing and Windowing \label{fig:framming}}
@@ -57,10 +60,11 @@ magnitude and phase of that frequency component in the original signal.
 Considering the fact that human hearing is not equally sensitive to all frequency bands, and especially,
 it has lower resolution at higher frequencies.
 Scaling methods like Mel-scale are aimed at scaling the frequency domain to better fit human auditory perception.
-They are approximately linear below 1 kHz and logarithmic above 1 kHz, as shown below:
+They are approximately linear below 1 kHz and logarithmic above 1 kHz, as shown below in \figref{melscale}:
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{img/mel-scale.png}
+  \caption{Mel-scale plot \label{fig:melscale}}
 \end{figure}
 
 In MFCC, Mel-scale is applied on the spectrums of the signals.

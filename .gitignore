@@ -6,7 +6,8 @@ output
 
 bin
 obj
-gmm/lib
+src/gmm/lib
+src/gui/*.model
 
 corpus.silence-removed
 

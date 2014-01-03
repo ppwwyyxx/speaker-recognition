@@ -1,5 +1,98 @@
 %File: implementation.tex
-%Date: Fri Jan 03 18:37:07 2014 +0800
+%Date: Fri Jan 03 21:09:50 2014 +0800
 %Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 \section{Implementation}
+The whole system is written mainly in python, together with some code in C++ and matlab.
+The system strongly relies on the support of the numpy\cite{numpy} and scipy\cite{scipy} library.
+
+\begin{enumerate}
+    \item VAD
+
+      Three types of  VAD filters are located in \verb|src/filters/|.
+
+      \verb|silence.py| implements an energy-based VAD algorithm.
+      \verb|ltsd.py| is a wrapper for LTSD algorithm, relying on pyssp\cite{pyssp}.
+      \verb|noisered.py| is a wrapper for SOX noise reduction tools, relying on SOX \cite{sox} being
+      installed in the system.
+
+    \item Feature
+
+      Implementations for feature extraction are locaed in \verb|src/feature/|.
+
+      \verb|MFCC.py| is a self-implemented MFCC feature extractor.
+      \verb|BOB.py| is a wrapper for the MFCC feature extraction in the bob \cite{bob2012} library.
+      \verb|LPC.py| is a LPC feature extractor, relying on \verb|scikits.talkbox| \cite{talkbox}.
+      All the three extractor have the same interface, with configurable parameters.
+
+      In the implemention, we have  tried different parameters of these features.
+      The test script can be found as \verb|src/test/test-feature.py|
+      According to our experiments, we have found that the following parameters are optimal:
+      \begin{itemize}
+        \item Common parameters:
+          \begin{itemize}
+            \item Frame size: 32ms
+            \item Frame shift: 16ms
+            \item Preemphasis coefficient: 0.95
+          \end{itemize}
+        \item MFCC parameters:
+          \begin{itemize}
+            \item number of cepstral coefficient: 15
+            \item number of filter banks: 55
+            \item maximal frequency of the filter bank: 6000
+          \end{itemize}
+        \item LPC Parameters:
+          \begin{itemize}
+            \item number of coefficient: 23
+          \end{itemize}
+      \end{itemize}
+
+    \item GMM
+
+      We have tried GMM from scikit-learn \cite{scikit-learn} as well as pypr \cite{pypr}, but
+      they suffer a common problem of inefficency.
+      For the consideration of speed, a C++ version of GMM with K-MeansII initialization and
+      concurrency support
+      was implemented and located in \verb|src/gmm/|. It requires \verb|g++ >= 4.7| to compile.
+      This implementation of GMM also provides a python binding which have similar interface to the GMM in
+      scikit-learn.
+
+      The new version of GMM, has enhancement in both speed and accuracy. A more detailed discussion
+      will be in \secref{result}.
+
+      At last, we used GMM with 32 components, which is found to be optimal according to our experiment.
+      The covariance matrix of every Gaussian component is assumed to be diagonal,
+      since each dimension of the feature vector are independent.
+
+    \item CRBM
+
+      CRBM is implemented in C++, located in \verb|src/nn|. It also has concurrency support.
+
+    \item JFA
+
+      From our investigation, we found that the original algorithm \cite{jfa-se} for training JFA model is of
+      too much complication and hard to implement.
+      Therefore, we use the simpler algorithm presented in \cite{jfa-study}
+      to train the JFA model.
+      This JFA implementation is based on JFA cookbook\cite{cookbook}.
+      To generate feature files for JFA, \verb|test/gen-features-file.py| shall be used.
+      After \verb|train.lst, test.lst, enroll.lst| are properly located in \verb|jfa/feature-data|,
+      the script \verb|run_all.m| will do the training and testing, and \verb|exp/gen_result.py|
+      will calculate the accuracy.
+
+      However, from the result, JFA does not seem to outperform our enhanced MFCC and GMM algorithms
+      (but do outperform our old algorithms). It is suspected that the training of a JFA model needs more data than
+      we have provided, since JFA needs data from various source to account for different types of variabilities.
+      Therefore, we might need to add extra data on the training of JFA, but keep the same data scale in the stage of enrollment,
+      to get a better result.
+
+      It is also worth mentioning that the training of JFA will take much longer time than our old method,
+      since the estimation process of $ u, v, d$ does not converge quickly. As a result, it might not be practical to add
+      JFA approach to our GUI system. But we will still test further on the performance of it, compared to other methods.
+
+    \item GUI
+
+      GUI is implemented based on PyQt\cite{pyqt} and PyAudio\cite{pyaudio}.
+      \verb|gui.py| is the entrance point. The usage of GUI will be introduced in \secref{gui}.
+  \end{enumerate}
+

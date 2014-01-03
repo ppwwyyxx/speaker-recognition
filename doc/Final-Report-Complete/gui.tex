@@ -1,4 +1,5 @@
 \section{GUI}
+\label{sec:gui}
 The GUI contains following tabs:
 \begin{itemize}
   \item \textbf{Enrollment} \\
@@ -38,9 +39,9 @@ The GUI contains following tabs:
       \includegraphics[width=0.8\textwidth]{img/recognition.png}
     \end{figure}
 
-    A enrolled user present or record a piece of utterance,
-    the system tells who the person is and show user's avatar.
-    Recognition of multiple pre-recorded files can be done as well.
+    An user present  can record a piece of utterance, or provide a wav file,
+    then the system will tell who the person is and show his/her avatar.
+    Recognition of multiple pre-recorded files can be done as well, the result will be printed in the command line.
 
   \item \textbf{Conversation Recognition Mode} \\
     \begin{figure}[H]
@@ -53,26 +54,17 @@ The GUI contains following tabs:
     together near the microphone. Same recording procedure as above.
     The system will continuously collect voice data, and determine
     who is speaking right now. Current speaker's anvatar will show up
-    in screen; otherwise the name will be shown. The conversation
-    audio can be downloaded and saved.
-    There are some ways to visualize the speaker-distribution in the
-    conversation.
-    \begin{itemize}
-      \item \textbf{Conversation log}
-        A detailed log, including start time, stop time,
-        current speaker of each period is generated.
-      \item \textbf{Conversation flow graph}
-        \begin{figure}[H]
-          \centering
-          \includegraphics[width=0.8\textwidth]{img/conversationgraph.png}
-        \end{figure}
+    in screen; otherwise the name will be shown.
 
-        A timeline of the conversation will be shown by a number of
-        talking-clouds joining together, with start time, stop time
-        and users' avatars labeled. Different users are presented
-        with different colors.The timeline will flow to the left dynamically
-        just as time elapses. The visualization of the conversation is done
-        in this way. This functionality is still under development.
-    \end{itemize}
+    We can show a \textbf{Conversation flow graph} to visualize the recognition.
+    A timeline of the conversation will be shown by a number of
+    talking-clouds joining together, with start time, stop time
+    and users' avatars labeled. The avatar of the talking person will also be larger than the others.
+    Different users are displayed with different colors in the timeline,
+    and the timeline flows to the left dynamically just as time elapses.
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.8\textwidth]{img/gui-graph.png}
+    \end{figure}
 
 \end{itemize}

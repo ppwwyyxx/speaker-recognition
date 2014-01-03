@@ -1,0 +1,79 @@
+%
+% $File: report.tex
+% $Date: Fri Jan 03 17:05:17 2014 +0800
+%
+
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{zhspacing,url,amsmath,amssymb,verbatim}
+\usepackage{pdfpages}
+\zhspacing
+\usepackage{listings}
+\usepackage[hyperfootnotes=false,colorlinks,linkcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage[backend=biber]{biblatex}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+\usepackage{cases}
+\usepackage{float}			% don't automatically change location of figure [H]
+\usepackage{chngpage}		% use \changetext to change page size
+\usepackage{environ}
+\usepackage{array}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage{caption}\captionsetup{hypcap=true}  % ref to jump to object instead of caption
+\newfontfamily\zhfont[BoldFont=SimHei,ItalicFont=KaiTi_GB2312]{SimSun}
+\lstset{keywordstyle=\color{blue!70}, commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
+basicstyle=\footnotesize\ttfamily}
+
+\setlength{\parindent}{2em}
+
+\input{mint-defs.tex}
+%\input{pandoc-defs.tex}
+
+\newcommand{\figref}[1]{\hyperref[fig:#1]{Figure.\ref*{fig:#1}}}
+\newcommand{\tableref}[1]{\hyperref[table:#1]{Table.\ref*{table:#1}}}
+\newcommand{\centerize}[1]{\begin{center} #1 \end{center}}
+\newcommand{\secref}[1]{\hyperref[sec:#1]{Section.\ref*{sec:#1}}}
+\newcommand{\appref}[1]{\hyperref[app:#1]{App.\ref*{app:#1}}}
+
+
+\usepackage{fancyhdr}
+\changetext{}{2.2cm}{-1.1cm}{-1.1cm}{}
+\pagestyle{fancy}
+\setlength{\headheight}{15.2pt}
+\lhead[]{}\rhead[]{}
+\fancyhead[C]{\emph{Speaker Recognition}}
+
+% math function
+\let\Oldsum\sum
+\renewcommand{\sum}{\displaystyle\Oldsum}
+\let\Oldprod\prod
+\renewcommand{\prod}{\displaystyle\Oldprod}
+
+
+\newcommand{\cmd}[1]{{\it #1}}
+\newcommand{\ccmd}[1]{\centerize{\cmd{#1}}}
+
+\title{Digital Signal Processing: Speaker Recognition \\ Final Report \\ Complete Version}
+\author{Xinyu Zhou, Yuxin Wu, and Tiezheng Li\\ Tsinghua University}
+\date{}
+
+\bibliography{refs.bib}
+\begin{document}
+
+\fontsize{11pt}{1.4em}
+\setlength{\baselineskip}{1.6em}
+\maketitle
+
+\input{intro}
+\input{algorithm}
+\input{implementation}
+\input{dataset}
+\input{result}
+\input{gui}
+
+\printbibliography
+
+\end{document}
+

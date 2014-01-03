@@ -1,5 +1,5 @@
 %File: GMM.tex
-%Date: Tue Dec 31 09:25:28 2013 +0800
+%Date: Fri Jan 03 17:55:16 2014 +0800
 %Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 \subsection{GMM-UBM}
@@ -27,7 +27,7 @@
 \begin{frame}{Optimized GMM}
   \begin{itemize}
     \item Basic GMM training: random initialize, estimate parameters with EM.
-    \item Improvment: initialize with a parallel KMeans++.
+    \item Improvment: initialize with a parallel KMeansII.
     \item Improvment: parallel training implementation in C++.
     \item Compared to GMM from scikit-learn:
   \end{itemize}
@@ -43,13 +43,14 @@
       \visible<2>{ \includegraphics[width=\textwidth]{res/time-comp-small.pdf} }
     \end{column}
   \end{columns}
-  \vspace{2em}
+  \vspace{3em}
 
   \begin{reference}{4mm}{85mm}
     Arthur, David, Sergei, 2007,
     k-means++: The advantages of careful seeding.
 
-    Scikit-learn: Machine Learning in {P}ython. \url{http://scikit-learn.org}
+    Bahmani, et. al, 2012,
+    Scalable K-means++
   \end{reference}
 \end{frame}
 

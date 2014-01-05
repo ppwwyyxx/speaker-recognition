@@ -1,12 +1,14 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: lpc_jp.py
-# Date: Mon Dec 30 00:22:53 2013 +0800
+# Date: Sat Jan 04 11:48:02 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import numpy as np
 from pylab import *
 import scikits.talkbox as tb
+from scikits.talkbox.linpred import levinson_lpc
+from scipy.io import wavfile
 
 def autocorr(x, nlags=None):
     """自己相関関数を求める
@@ -63,11 +65,12 @@ def LevinsonDurbin(r, lpcOrder):
     return a, e[-1]
 
 if __name__ == "__main__":
-    original = np.zeros(128)
-    for i in range(len(original)):
-        original[i] = np.sin(i * 0.01) + 0.75 * np.sin(i * 0.03) + 0.5 * np.sin(i * 0.05) + 0.25 * np.sin(i * 0.11)
+    #original = np.zeros(128)
+    #for i in range(len(original)):
+        #original[i] = np.sin(i * 0.01) + 0.75 * np.sin(i * 0.03) + 0.5 * np.sin(i * 0.05) + 0.25 * np.sin(i * 0.11)
+    fs, original = wavfile.read("a.wav")
 
-    #print tb.lpc(original, 16)
+    print levinson_lpc.lpc(original, 16)
 
     lpcOrder = 16  # LPC係数の次数
 

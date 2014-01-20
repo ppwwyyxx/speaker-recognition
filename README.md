@@ -1,7 +1,12 @@
-## Introduction
+## About
 
 This is a [Speaker Recognition](https://en.wikipedia.org/wiki/Speaker_recognition) system with GUI,
 served as an SRT project for the course *Signal Processing (2013Fall)* in Tsinghua University.
+
+For more details of this project, please see:
+
++ Our [presentation slides](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Presentation.pdf)
++ Our [complete report](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Final-Report-Complete.pdf)
 
 ## Dependencies
 
@@ -16,7 +21,8 @@ served as an SRT project for the course *Signal Processing (2013Fall)* in Tsingh
 
 ## Algorithms Used
 
-_Voice Activity Detection_(VAD): Long-Term Spectral Divergence ([LTSD](http://www.sciencedirect.com/science/article/pii/S0167639303001201))
+_Voice Activity Detection_(VAD):
++ [Long-Term Spectral Divergence](http://www.sciencedirect.com/science/article/pii/S0167639303001201) (LTSD)
 
 _Feature_:
 + [Mel-Frequency Cepstral Coefficient](http://en.wikipedia.org/wiki/Mel-frequency_cepstrum) (MFCC)
@@ -27,11 +33,6 @@ _Model_:
 + [Universal Background Model](http://www.sciencedirect.com/science/article/pii/S1051200499903615) (UBM)
 + Continuous [Restricted Boltzman Machine](https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine) (CRBM)
 + [Joint Factor Analysis](http://speech.fit.vutbr.cz/software/joint-factor-analysis-matlab-demo) (JFA)
-
-For more details of this project, please see:
-
-+ Our [presentation slides](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Presentation.pdf)
-+ Our [complete report](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Final-Report-Complete.pdf)
 
 ## GUI demo
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: speaker-recognition.py
-# Date: Tue Jun 10 17:01:18 2014 +0800
+# Date: Tue Jun 10 17:08:13 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import argparse
@@ -71,7 +71,8 @@ def task_predict(input_files, input_model):
     m = ModelInterface.load(input_model)
     for f in glob.glob(input_files):
         fs, signal = wavfile.read(f)
-        print m.predict(fs, signal)
+        label = m.predict(fs, signal)
+        print f, '->', label
 
 if __name__ == '__main__':
     global args

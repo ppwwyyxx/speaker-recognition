@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Tue Jun 10 15:41:11 2014 +0800
+# Date: Tue Jun 10 17:05:42 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -62,7 +62,6 @@ class ModelInterface(object):
         from gmmset import GMMSetPyGMM
         if GMMSet is not GMMSetPyGMM:
             reject = False
-        print "Length of signal to predict:", len(signal)
         try:
             feat = mix_feature((fs, signal))
         except Exception as e:

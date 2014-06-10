@@ -5,7 +5,7 @@ READER=mupdf
 
 all: rebuild
 
-rebuild  output/$(TARGET).pdf: *.tex *.bib output
+rebuild output/$(TARGET).pdf: *.tex *.bib output
 	cd output && rm -f *.tex *.bib && ln -fs ../*.tex ../*.bib ../img .
 	pgrep -a $(TEX) || cd output && $(TEX) $(TARGET).tex && $(BIBTEX) $(TARGET) #&& $(TEX) $(TARGET).tex
 

@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: silence.py
-# $Date: Fri Dec 27 14:38:55 2013 +0800
+# $Date: Tue Jun 10 15:18:40 2014 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys

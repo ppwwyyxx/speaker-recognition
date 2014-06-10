@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: VAD.py
-# Date: Thu Jan 02 23:07:32 2014 +0800
+# Date: Tue Jun 10 15:17:26 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from noisered import NoiseReduction
@@ -32,7 +32,6 @@ class VAD(object):
 #        self.ltsd.plot_ltsd(fs, nred)
         filtered, intervals = self.ltsd.filter(signal)
         return filtered, intervals
-
 
 
 if __name__ == "__main__":

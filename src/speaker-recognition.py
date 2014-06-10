@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: speaker-recognition.py
-# Date: Tue Jun 10 15:47:32 2014 +0800
+# Date: Tue Jun 10 17:01:18 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import argparse
@@ -19,7 +19,18 @@ from filters.silence import remove_silence
 
 def get_args():
     desc = "Speaker Recognition Command Line Tool"
-    parser = argparse.ArgumentParser(description = desc)
+    epilog = """
+Note that wildcard inputs should be *quoted*, and they will be sent to glob
+
+Examples:
+    Train:
+    ./speaker-recognition.py -t enroll -i "/tmp/person* ./mary" -m model.out
+
+    Predict:
+    ./speaker-recognition.py -t predict -i "./*.wav" -m model.out
+"""
+    parser = argparse.ArgumentParser(description=desc,epilog=epilog,
+                                    formatter_class=argparse.RawDescriptionHelpFormatter)
 
     parser.add_argument('-t', '--task',
                        help='Task to do. Either "enroll", "predict"',

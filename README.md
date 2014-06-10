@@ -34,10 +34,34 @@ _Model_:
 + Continuous [Restricted Boltzman Machine](https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine) (CRBM)
 + [Joint Factor Analysis](http://speech.fit.vutbr.cz/software/joint-factor-analysis-matlab-demo) (JFA)
 
-## GUI demo
+## GUI Demo
 
 Our GUI not only has basic functionality for recording, enrollment, training and testing, but also has a visualization of real-time speaker recognition:
 
 ![graph](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Final-Report-Complete/img/gui-graph.png)
 
 See our [demo video](https://github.com/ppwwyyxx/speaker-recognition/raw/master/demo.avi) (in Chinese) for more details.
+
+## Command Line Tools
+```sh
+usage: speaker-recognition.py [-h] -t TASK -i INPUT -m MODEL
+
+Speaker Recognition Command Line Tool
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t TASK, --task TASK  Task to do. Either "enroll", "predict"
+  -i INPUT, --input INPUT
+                        Input Files(to predict) or Directories(to enroll)
+  -m MODEL, --model MODEL
+                        Model file to save(in enroll) or use(in predict)
+
+Note that wildcard inputs should be *quoted*, and they will be sent to glob
+
+Examples:
+    Train:
+    ./speaker-recognition.py -t enroll -i "/tmp/person* ./mary" -m model.out
+
+    Predict:
+    ./speaker-recognition.py -t predict -i "./*.wav" -m model.out
+```

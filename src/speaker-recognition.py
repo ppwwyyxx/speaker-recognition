@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: speaker-recognition.py
-# Date: Tue Jun 10 17:08:13 2014 +0800
+# Date: Wed Jun 11 11:15:00 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import argparse
@@ -20,7 +20,8 @@ from filters.silence import remove_silence
 def get_args():
     desc = "Speaker Recognition Command Line Tool"
     epilog = """
-Note that wildcard inputs should be *quoted*, and they will be sent to glob
+Wav files in each input directory will be labeled as the basename of the directory.
+Note that wildcard inputs should be *quoted*, and they will be sent to glob module.
 
 Examples:
     Train:
@@ -33,7 +34,7 @@ Examples:
                                     formatter_class=argparse.RawDescriptionHelpFormatter)
 
     parser.add_argument('-t', '--task',
-                       help='Task to do. Either "enroll", "predict"',
+                       help='Task to do. Either "enroll" or "predict"',
                        required=True)
 
     parser.add_argument('-i', '--input',

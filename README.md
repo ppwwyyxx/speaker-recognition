@@ -1,7 +1,8 @@
 ## About
 
-This is a [Speaker Recognition](https://en.wikipedia.org/wiki/Speaker_recognition) system with GUI,
-served as an SRT project for the course *Signal Processing (2013Fall)* in Tsinghua University.
+This is a [Speaker Recognition](https://en.wikipedia.org/wiki/Speaker_recognition) system with GUI.
+At first, it served as an SRT project for the course *Signal Processing (2013Fall)* in Tsinghua University.
+But we did find it pretty useful!
 
 For more details of this project, please see:
 

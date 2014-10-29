@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: speaker-recognition.py
-# Date: Wed Jun 11 11:15:00 2014 +0800
+# Date: Wed Oct 29 22:42:26 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import argparse
@@ -54,11 +54,15 @@ def task_enroll(input_dirs, output_model):
     dirs = itertools.chain(*(glob.glob(d) for d in input_dirs))
     dirs = [d for d in dirs if os.path.isdir(d)]
     files = []
+    if len(dirs) == 0:
+        print "No valid directory found!"
+        sys.exit(1)
     for d in dirs:
         label = os.path.basename(d)
 
         wavs = glob.glob(d + '/*.wav')
         if len(wavs) == 0:
+            print "No wav file found in {0}".format(d)
             continue
         print "Label {0} has files {1}".format(label, ','.join(wavs))
         for wav in wavs:

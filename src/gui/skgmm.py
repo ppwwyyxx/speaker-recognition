@@ -1,12 +1,13 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: skgmm.py
-# Date: Tue Jun 10 15:41:26 2014 +0800
+# Date: Wed Oct 29 18:38:36 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import operator
 import numpy as np
 from sklearn.mixture import GMM
+
 class GMMSet(object):
 
     def __init__(self, gmm_order = 32):

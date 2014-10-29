@@ -1,11 +1,12 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: BOB.py
-# Date: Mon Dec 30 22:55:07 2013 +0800
+# Date: Wed Oct 29 22:38:35 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from utils import cached_func, diff_feature
 import bob
+import bob.ap
 import numpy
 
 @cached_func

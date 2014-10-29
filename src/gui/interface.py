@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Tue Jun 10 17:05:42 2014 +0800
+# Date: Wed Oct 29 22:40:42 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
@@ -9,9 +9,10 @@ from scipy.io import wavfile
 import time
 import numpy as np
 import cPickle as pickle
-from filters.VAD import VAD
+import traceback as tb
 
 from feature import mix_feature
+from filters.VAD import VAD
 
 #from gmmset import GMMSetPyGMM as GMMSet
 #from gmmset import GMM
@@ -36,6 +37,7 @@ class ModelInterface(object):
         orig_len = len(signal)
 
         if len(ret) > orig_len / 3:
+            # signal is filtered by VAD
             return ret
         return np.array([])
 
@@ -44,11 +46,16 @@ class ModelInterface(object):
         self.features[name].extend(feat)
 
     def _get_gmm_set(self):
-        from gmmset import GMMSetPyGMM
-        if GMMSet is GMMSetPyGMM:
-            return GMMSet(ubm=GMM.load(self.UBM_MODEL_FILE))
-        else:
-            return GMMSet()
+        try:
+            from gmmset import GMMSetPyGMM
+            if GMMSet is GMMSetPyGMM:
+                return GMMSet(ubm=GMM.load(self.UBM_MODEL_FILE))
+        except Exception as e:
+            print "Warning: failed to import gmmset. You may forget to compile gmm:"
+            print e
+            print "Try running `make -C src/gmm` to compile gmm module."
+            print "But gmm from sklearn will work as well! Using it now!"
+        return GMMSet()
 
     def train(self):
         self.gmmset = self._get_gmm_set()
@@ -65,20 +72,19 @@ class ModelInterface(object):
         try:
             feat = mix_feature((fs, signal))
         except Exception as e:
-            print str(e)
+            print tb.format_exc()
             return None
         if reject:
             try:
-                l = self.gmmset.predict_one_with_rejection(feat)
-                return l
+                return self.gmmset.predict_one_with_rejection(feat)
             except Exception as e:
-                print str(e)
+                print tb.format_exc()
         return self.gmmset.predict_one(feat)
 
     def dump(self, fname):
         self.gmmset.before_pickle()
         with open(fname, 'w') as f:
-            pickle.dump(self, f, pickle.HIGHEST_PROTOCOL)
+            pickle.dump(self, f, -1)
         self.gmmset.after_pickle()
 
     @staticmethod

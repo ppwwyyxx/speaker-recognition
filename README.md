@@ -11,14 +11,30 @@ For more details of this project, please see:
 
 ## Dependencies
 
++ gcc >= 4.7
 + [SciPy](http://www.scipy.org/)
 + [scikit-learn](http://scikit-learn.org/)
 + [scikits.talkbox](http://scikits.appspot.com/talkbox)
-+ [bob](http://idiap.github.io/bob/)
 + [pyssp](https://pypi.python.org/pypi/pyssp)
 + [PyQt](http://sourceforge.net/projects/pyqt/)
 + [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
-+ gcc >= 4.7
++ [bob](http://idiap.github.io/bob/).
+
+## Installation / Compilation
+
+See [here](https://github.com/idiap/bob/wiki/Packages) for instructions on bob core library installation.
+
+See [here](https://github.com/bioidiap/bob.python) for bob python bindings. If you install python
+bindings manually, you may need to install the following in order:
++ bob.extension
++ bob.blitz
++ bob.core
++ bob.sp
++ bob.ap
+
+We also have features implemented on our own, but just not so efficient as those C implementation in BOB.
+
+(Optional) Run `make -C src/gmm` to compile our fast gmm implementation. (It is not used by default!)
 
 ## Algorithms Used
 

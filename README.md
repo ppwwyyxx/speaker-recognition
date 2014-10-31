@@ -18,7 +18,7 @@ For more details of this project, please see:
 + [pyssp](https://pypi.python.org/pypi/pyssp)
 + [PyQt](http://sourceforge.net/projects/pyqt/)
 + [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
-+ [bob](http://idiap.github.io/bob/).
++ (Optional)[bob](http://idiap.github.io/bob/).
 
 ## Installation / Compilation
 
@@ -32,7 +32,9 @@ bindings manually, you may need to install the following in order:
 + bob.sp
 + bob.ap
 
-We also have features implemented on our own, but just not so efficient as those C implementation in BOB.
+Note: We also have MFCC feature implemented on our own,
+which will be used when bob is unavailable.
+But it's not so efficient as those C implementation in BOB.
 
 (Optional) Run `make -C src/gmm` to compile our fast gmm implementation. (It is not used by default!)
 

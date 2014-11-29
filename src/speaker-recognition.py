@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: speaker-recognition.py
-# Date: Wed Oct 29 22:42:26 2014 +0800
+# Date: Sat Nov 29 14:06:43 2014 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import argparse
@@ -50,7 +50,7 @@ Examples:
 
 def task_enroll(input_dirs, output_model):
     m = ModelInterface()
-    input_dirs = input_dirs.strip().split()
+    input_dirs = [os.path.expanduser(k) for k in input_dirs.strip().split()]
     dirs = itertools.chain(*(glob.glob(d) for d in input_dirs))
     dirs = [d for d in dirs if os.path.isdir(d)]
     files = []
@@ -74,7 +74,7 @@ def task_enroll(input_dirs, output_model):
 
 def task_predict(input_files, input_model):
     m = ModelInterface.load(input_model)
-    for f in glob.glob(input_files):
+    for f in glob.glob([os.path.expanduser(k) for k in input_files]):
         fs, signal = wavfile.read(f)
         label = m.predict(fs, signal)
         print f, '->', label

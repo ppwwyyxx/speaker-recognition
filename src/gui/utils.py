@@ -1,11 +1,16 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: utils.py
-# Date: Thu Dec 26 18:17:17 2013 +0800
+# Date: Sat Feb 21 18:43:32 2015 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
 from scipy.io import wavfile
+
+def read_wav(fname):
+    fs, signal = wavfile.read(fname)
+    assert len(signal.shape) == 1, "Only Support Mono Wav File!"
+    return fs, signal
 
 def write_wav(fname, fs, signal):
     wavfile.write(fname, fs, signal)

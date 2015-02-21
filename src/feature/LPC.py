@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: LPC.py
-# Date: Mon Dec 30 22:55:14 2013 +0800
+# Date: Sat Feb 21 18:41:51 2015 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time

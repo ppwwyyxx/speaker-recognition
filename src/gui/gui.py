@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: gui.py
-# Date: Thu Jan 02 23:47:25 2014 +0800
+# Date: Sat Feb 21 18:44:12 2015 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 
@@ -19,7 +19,7 @@ from PyQt4.QtGui import *
 from PyQt4 import QtCore,QtGui
 
 import pyaudio
-from utils import write_wav, time_str, monophonic
+from utils import read_wav, write_wav, time_str, monophonic
 from interface import ModelInterface
 
 FORMAT=pyaudio.paInt16
@@ -117,7 +117,7 @@ class Main(QMainWindow):
 
         #init
         try:
-            fs, signal = wavfile.read("bg.wav")
+            fs, signal = read_wav("bg.wav")
             self.backend.init_noise(fs, signal)
         except:
             pass
@@ -253,14 +253,15 @@ class Main(QMainWindow):
         if not fname:
             return
         self.status(fname)
-        fs, signal = wavfile.read(fname)
+
+        fs, signal = read_wav(fname)
         self.reco_do_predict(fs, signal)
 
     def reco_files(self):
         fnames = QFileDialog.getOpenFileNames(self, "Select Wav Files", "", "Files (*.wav)")
         print 'reco_files'
         for f in fnames:
-            fs, sig = wavfile.read(f)
+            fs, sig = read_wav(f)
             newsig = self.backend.filter(fs, sig)
             label = self.backend.predict(fs, newsig)
             print f, label
@@ -277,7 +278,7 @@ class Main(QMainWindow):
             return
         self.status(fname)
         self.enrollFileName.setText(fname)
-        fs, signal = wavfile.read(fname)
+        fs, signal = read_wav(fname)
         signal = monophonic(signal)
         self.enrollWav = (fs, signal)
 
@@ -434,7 +435,7 @@ class Main(QMainWindow):
     def load_noise(self):
         fname = QFileDialog.getOpenFileName(self, "Open Data File:", "", "Wav File  (*.wav)")
         if fname:
-            fs, signal = wavfile.read(fname)
+            fs, signal = read_wav(fname)
             self.backend.init_noise(fs, signal)
 
     def load_avatar(self, dirname):

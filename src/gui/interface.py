@@ -1,12 +1,13 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Wed Oct 29 22:40:42 2014 +0800
+# Date: Sat Feb 21 18:39:21 2015 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from collections import defaultdict
 from scipy.io import wavfile
 import time
+import os
 import numpy as np
 import cPickle as pickle
 import traceback as tb
@@ -14,9 +15,9 @@ import traceback as tb
 from feature import mix_feature
 from filters.VAD import VAD
 
-#from gmmset import GMMSetPyGMM as GMMSet
-#from gmmset import GMM
-from skgmm import GMMSet, GMM
+from gmmset import GMMSetPyGMM as GMMSet
+from gmmset import GMM
+#from skgmm import GMMSet, GMM
 
 CHECK_ACTIVE_INTERVAL = 1       # seconds
 
@@ -46,15 +47,17 @@ class ModelInterface(object):
         self.features[name].extend(feat)
 
     def _get_gmm_set(self):
-        try:
-            from gmmset import GMMSetPyGMM
-            if GMMSet is GMMSetPyGMM:
-                return GMMSet(ubm=GMM.load(self.UBM_MODEL_FILE))
-        except Exception as e:
-            print "Warning: failed to import gmmset. You may forget to compile gmm:"
-            print e
-            print "Try running `make -C src/gmm` to compile gmm module."
-            print "But gmm from sklearn will work as well! Using it now!"
+        if os.path.isfile(self.UBM_MODEL_FILE):
+            try:
+                from gmmset import GMMSetPyGMM
+                if GMMSet is GMMSetPyGMM:
+                    return GMMSet(ubm=GMM.load(self.UBM_MODEL_FILE))
+            except Exception as e:
+                print "Warning: failed to import gmmset. You may forget to compile gmm:"
+                print e
+                print "Try running `make -C src/gmm` to compile gmm module."
+                print "But gmm from sklearn will work as well! Using it now!"
+            return GMMSet()
         return GMMSet()
 
     def train(self):

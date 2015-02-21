@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: speaker-recognition.py
-# Date: Sat Nov 29 14:06:43 2014 +0800
+# Date: Sat Feb 21 18:44:39 2015 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import argparse
@@ -15,6 +15,7 @@ sys.path.append(os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
     'gui'))
 from gui.interface import ModelInterface
+from gui.utils import read_wav
 from filters.silence import remove_silence
 
 def get_args():
@@ -66,7 +67,7 @@ def task_enroll(input_dirs, output_model):
             continue
         print "Label {0} has files {1}".format(label, ','.join(wavs))
         for wav in wavs:
-            fs, signal = wavfile.read(wav)
+            fs, signal = read_wav(wav)
             m.enroll(label, fs, signal)
 
     m.train()
@@ -74,8 +75,8 @@ def task_enroll(input_dirs, output_model):
 
 def task_predict(input_files, input_model):
     m = ModelInterface.load(input_model)
-    for f in glob.glob([os.path.expanduser(k) for k in input_files]):
-        fs, signal = wavfile.read(f)
+    for f in glob.glob(os.path.expanduser(input_files)):
+        fs, signal = read_wav(f)
         label = m.predict(fs, signal)
         print f, '->', label
 

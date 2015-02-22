@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Sun Feb 22 20:17:27 2015 +0800
+# Date: Sun Feb 22 20:42:23 2015 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -72,20 +72,12 @@ class ModelInterface(object):
             self.gmmset.fit_new(feats, name)
         print time.time() - start, " seconds"
 
-    def predict(self, fs, signal, reject=False):
-        from gmmset import GMMSetPyGMM
-        if GMMSet is not GMMSetPyGMM:
-            reject = False
+    def predict(self, fs, signal):
         try:
             feat = mix_feature((fs, signal))
         except Exception as e:
             print tb.format_exc()
             return None
-        if reject:
-            try:
-                return self.gmmset.predict_one_with_rejection(feat)
-            except Exception as e:
-                print tb.format_exc()
         return self.gmmset.predict_one(feat)
 
     def dump(self, fname):
@@ -100,8 +92,6 @@ class ModelInterface(object):
             R = pickle.load(f)
             R.gmmset.after_pickle()
             return R
-
-
 
 if __name__ == "__main__":
     m = ModelInterface()

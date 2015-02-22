@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: speaker-recognition.py
-# Date: Sun Feb 22 21:19:52 2015 +0800
+# Date: Sun Feb 22 22:36:46 2015 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import argparse
@@ -59,7 +59,7 @@ def task_enroll(input_dirs, output_model):
         print "No valid directory found!"
         sys.exit(1)
     for d in dirs:
-        label = os.path.basename(os.path.dirname(d))
+        label = os.path.basename(d.rstrip('/'))
 
         wavs = glob.glob(d + '/*.wav')
         if len(wavs) == 0:

@@ -36,7 +36,7 @@ Note: We also have MFCC feature implemented on our own,
 which will be used when bob is unavailable.
 But it's not so efficient as those C implementation in BOB.
 
-(Optional) Run `make -C src/gmm` to compile our fast gmm implementation. (It is not used by default!)
+(Optional) Run `make -C src/gmm` to compile our fast gmm implementation.
 
 ## Algorithms Used
 

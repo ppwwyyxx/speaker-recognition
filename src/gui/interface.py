@@ -1,13 +1,14 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Sat Feb 21 18:39:21 2015 +0800
+# Date: Sun Feb 22 20:17:27 2015 +0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
-from collections import defaultdict
-from scipy.io import wavfile
 import time
 import os
+import sys
+from collections import defaultdict
+from scipy.io import wavfile
 import numpy as np
 import cPickle as pickle
 import traceback as tb
@@ -15,9 +16,12 @@ import traceback as tb
 from feature import mix_feature
 from filters.VAD import VAD
 
-from gmmset import GMMSetPyGMM as GMMSet
-from gmmset import GMM
-#from skgmm import GMMSet, GMM
+try:
+    from gmmset import GMMSetPyGMM as GMMSet
+    from gmmset import GMM
+except:
+    print >> sys.stderr, "Warning: failed to import fast-gmm, use gmm from scikit-learn instead"
+    from skgmm import GMMSet, GMM
 
 CHECK_ACTIVE_INTERVAL = 1       # seconds
 

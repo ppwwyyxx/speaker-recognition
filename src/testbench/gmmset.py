@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: gmmset.py
-# $Date: Sat Nov 29 21:51:00 2014 +0800
+# $Date: Sun Feb 22 20:17:14 2015 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import operator

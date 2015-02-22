@@ -11,7 +11,6 @@ For more details of this project, please see:
 
 ## Dependencies
 
-+ gcc >= 4.7
 + [SciPy](http://www.scipy.org/)
 + [scikit-learn](http://scikit-learn.org/)
 + [scikits.talkbox](http://scikits.appspot.com/talkbox)
@@ -21,6 +20,8 @@ For more details of this project, please see:
 + (Optional)[bob](http://idiap.github.io/bob/).
 
 ## Installation / Compilation
+
+### (Optional) Bob:
 
 See [here](https://github.com/idiap/bob/wiki/Packages) for instructions on bob core library installation.
 
@@ -33,10 +34,14 @@ bindings manually, you may need to install the following in order:
 + bob.ap
 
 Note: We also have MFCC feature implemented on our own,
-which will be used when bob is unavailable.
-But it's not so efficient as those C implementation in BOB.
+which will be used as a fallback when bob is unavailable.
+But it's not so efficient as the C implementation in bob.
 
-(Optional) Run `make -C src/gmm` to compile our fast gmm implementation.
+### (Optional) GMM
+
+Run `make -C src/gmm` to compile our fast gmm implementation. Require gcc >= 4.7.
+
+It will be used as default, if successfully compiled.
 
 ## Algorithms Used
 

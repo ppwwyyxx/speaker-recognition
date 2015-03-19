@@ -64,7 +64,9 @@ Our GUI not only has basic functionality for recording, enrollment, training and
 
 ![graph](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Final-Report-Complete/img/gui-graph.png)
 
-See our [demo video](https://github.com/ppwwyyxx/speaker-recognition/raw/master/demo.avi) (in Chinese) for more details.
+You should understand that real-time speaker recognition is extremely hard, because we only use corpus of about 1 second length to identify the speaker.
+Therefore the real-time system doesn't work very perfect.
+You can See our [demo video](https://github.com/ppwwyyxx/speaker-recognition/raw/master/demo.avi) (in Chinese).
 
 ## Command Line Tools
 ```sh

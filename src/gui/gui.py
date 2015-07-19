@@ -300,6 +300,9 @@ class Main(QMainWindow):
         new_signal = self.backend.filter(*self.enrollWav)
         print "After removed: {0} -> {1}".format(len(self.enrollWav[1]), len(new_signal))
         print "Enroll: {:.4f} seconds".format(float(len(new_signal)) / Main.FS)
+        if len(new_signal) == 0:
+            print "Error! Input is silent! Please enroll again"
+            return
         self.backend.enroll(name, Main.FS, new_signal)
 
     def start_train(self):

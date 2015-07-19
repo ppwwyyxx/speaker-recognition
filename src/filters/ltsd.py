@@ -1,11 +1,13 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 # $File: ltsd.py
-# $Date: Sun Dec 29 13:12:21 2013 +0800
+# $Date: Sun Jul 19 17:53:59 2015 +0800
 # $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
 from scipy.io import wavfile
+import matplotlib
+matplotlib.use("Qt4Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 

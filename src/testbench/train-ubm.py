@@ -53,16 +53,6 @@ def train_all_together_ubm():
 def main():
     train_all_together_ubm()
     return
-    global nr_mixture
-#    file_pattern = 'test-data/mfcc-data/Style_Reading/*.mfcc'
-#    X_train, y_train, X_test, y_test = datautil.read_data(file_pattern, 10)
-    fpaths = map(lambda x: 'test-data/mfcc-lpc-data/Style_Reading/' + x +
-            '.mfcc', config.ubm_set)
-    print fpaths
-    X = datautil.read_raw_data(fpaths)
-    gmm = get_gmm()
-    gmm.fit(X)
-    gmm.dump('model/ubm-{}.model' . format(nr_mixture))
 
 
 if __name__ == '__main__':

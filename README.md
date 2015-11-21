@@ -25,10 +25,10 @@ For more details of this project, please see:
 
 See [here](https://github.com/idiap/bob/wiki/Packages) for instructions on bob core library installation.
 
-See [here](https://github.com/bioidiap/bob.python) for bob python bindings. If you install python
-bindings manually, you may need to install the following in order:
+Bob python bindings are available on [PyPI](https://pypi.python.org/pypi).
+You may need to install bob packages in the following order:
 + bob.extension
-+ bob.blitz
++ bob.blitz (require blitz++)
 + bob.core
 + bob.sp
 + bob.ap

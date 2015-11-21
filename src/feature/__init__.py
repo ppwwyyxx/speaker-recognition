@@ -10,8 +10,9 @@
 import sys
 try:
     import BOB as MFCC
-except:
-    print >> sys.stderr, "Warning: failed to import Bob, use a slower version of MFCC instead."
+except Exception as e:
+    print >> sys.stderr, e
+    print >> sys.stderr, "Warning: failed to import Bob, will use a slower version of MFCC instead."
     import MFCC
 import LPC
 import numpy as np

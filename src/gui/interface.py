@@ -35,9 +35,15 @@ class ModelInterface(object):
         self.vad = VAD()
 
     def init_noise(self, fs, signal):
+        """
+        init vad from environment noise
+        """
         self.vad.init_noise(fs, signal)
 
     def filter(self, fs, signal):
+        """
+        use VAD (voice activity detection) to filter out silence part of a signal
+        """
         ret, intervals = self.vad.filter(fs, signal)
         orig_len = len(signal)
 
@@ -47,6 +53,10 @@ class ModelInterface(object):
         return np.array([])
 
     def enroll(self, name, fs, signal):
+        """
+        add the signal to this person's training dataset
+        name: person's name
+        """
         feat = mix_feature((fs, signal))
         self.features[name].extend(feat)
 
@@ -73,6 +83,9 @@ class ModelInterface(object):
         print time.time() - start, " seconds"
 
     def predict(self, fs, signal):
+        """
+        return a label (name)
+        """
         try:
             feat = mix_feature((fs, signal))
         except Exception as e:
@@ -81,6 +94,7 @@ class ModelInterface(object):
         return self.gmmset.predict_one(feat)
 
     def dump(self, fname):
+        """ dump all models to file"""
         self.gmmset.before_pickle()
         with open(fname, 'w') as f:
             pickle.dump(self, f, -1)
@@ -88,12 +102,14 @@ class ModelInterface(object):
 
     @staticmethod
     def load(fname):
+        """ load from a dumped model file"""
         with open(fname, 'r') as f:
             R = pickle.load(f)
             R.gmmset.after_pickle()
             return R
 
 if __name__ == "__main__":
+    """ some testing"""
     m = ModelInterface()
     fs, signal = wavfile.read("../corpus.silence-removed/Style_Reading/f_001_03.wav")
     m.enroll('h', fs, signal[:80000])

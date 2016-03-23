@@ -22,13 +22,13 @@ def get_args():
     desc = "Speaker Recognition Command Line Tool"
     epilog = """
 Wav files in each input directory will be labeled as the basename of the directory.
-Note that wildcard inputs should be *quoted*, and they will be sent to glob module.
+Note that wildcard inputs should be *quoted*, and they will be sent to glob.glob module.
 
 Examples:
-    Train:
+    Train (enroll a list of person named person*, and mary, with wav files under corresponding directories):
     ./speaker-recognition.py -t enroll -i "/tmp/person* ./mary" -m model.out
 
-    Predict:
+    Predict (predict the speaker of all wav files):
     ./speaker-recognition.py -t predict -i "./*.wav" -m model.out
 """
     parser = argparse.ArgumentParser(description=desc,epilog=epilog,

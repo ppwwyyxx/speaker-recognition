@@ -1,7 +1,6 @@
 ## About
 
 This is a [Speaker Recognition](https://en.wikipedia.org/wiki/Speaker_recognition) system with GUI.
-At first, it served as an SRT project for the course *Signal Processing (2013Fall)* in Tsinghua University.
 But we did find it pretty useful!
 
 For more details of this project, please see:
@@ -11,11 +10,10 @@ For more details of this project, please see:
 
 ## Dependencies
 
-+ [SciPy](http://www.scipy.org/)
 + [scikit-learn](http://scikit-learn.org/)
 + [scikits.talkbox](http://scikits.appspot.com/talkbox)
 + [pyssp](https://pypi.python.org/pypi/pyssp)
-+ [PyQt](http://sourceforge.net/projects/pyqt/)
++ [PyQt4](http://sourceforge.net/projects/pyqt/)
 + [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
 + (Optional)[bob](http://idiap.github.io/bob/).
 
@@ -23,7 +21,8 @@ For more details of this project, please see:
 
 ### (Optional) Bob:
 
-See [here](https://github.com/idiap/bob/wiki/Packages) for instructions on bob core library installation.
+Install `blitz` as Bob dependency.
+See [here](https://github.com/idiap/bob/wiki/Packages) for more instructions on bob core library installation.
 
 Bob python bindings are available on [PyPI](https://pypi.python.org/pypi).
 You may need to install bob packages in the following order:
@@ -33,7 +32,7 @@ You may need to install bob packages in the following order:
 + bob.sp
 + bob.ap
 
-Note: We also have MFCC feature implemented on our own,
+Note: We also have a MFCC implementation on our own
 which will be used as a fallback when bob is unavailable.
 But it's not so efficient as the C implementation in bob.
 

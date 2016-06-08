@@ -51,8 +51,8 @@ def remove_silence(fs, signal,
 
 def task(fpath, new_fpath):
     fs, signal = wavfile.read(fpath)
-    fs_out, signal_out = remove_silence(fs, signal)
-    wavfile.write(new_fpath, fs_out, signal_out)
+    signal_out = remove_silence(fs, signal)
+    wavfile.write(new_fpath, fs, signal_out)
     return fpath
 
 def main():

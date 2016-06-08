@@ -42,6 +42,6 @@ if __name__ == "__main__":
     vad.init_noise(fs, bg)
 
     fs, sig = wavfile.read(sys.argv[2])
-    vaded = vad.filter(fs, sig)
+    vaded, intervals = vad.filter(fs, sig)
     wavfile.write('vaded.wav', fs, vaded)
 

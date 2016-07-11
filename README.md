@@ -1,7 +1,6 @@
 ## About
 
 This is a [Speaker Recognition](https://en.wikipedia.org/wiki/Speaker_recognition) system with GUI.
-But we did find it pretty useful!
 
 For more details of this project, please see:
 
@@ -63,9 +62,10 @@ Our GUI not only has basic functionality for recording, enrollment, training and
 
 ![graph](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Final-Report-Complete/img/gui-graph.png)
 
-You should understand that real-time speaker recognition is extremely hard, because we only use corpus of about 1 second length to identify the speaker.
-Therefore the real-time system doesn't work very perfect.
 You can See our [demo video](https://github.com/ppwwyyxx/speaker-recognition/raw/master/demo.avi) (in Chinese).
+Note that real-time speaker recognition is extremely hard, because we only use corpus of about 1 second length to identify the speaker.
+Therefore the real-time system doesn't work very perfect. Also the GUI part is quite hacky for demo purpose and may
+not work as smoothly as expected.
 
 ## Command Line Tools
 ```sh

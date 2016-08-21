@@ -346,7 +346,7 @@ class Main(QMainWindow):
 
     def updateUserInfo(self):
         userindex = self.Userchooser.currentIndex() - 1
-        u = self.serdata[userindex]
+        u = self.userdata[userindex]
         u[0] = unicode(self.Username.displayText())
         u[1] = self.Userage.value()
         if self.Usersex.currentIndex():

@@ -14,28 +14,15 @@ For more details of this project, please see:
 + [pyssp](https://pypi.python.org/pypi/pyssp)
 + [PyQt4](http://sourceforge.net/projects/pyqt/)
 + [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
-+ (Optional)[bob](http://idiap.github.io/bob/).
++ (Optional)Python bindings for [bob](http://idiap.github.io/bob/):
+	+ install blitz and openblas
+	+ pip install --user bob.extension bob.blitz bob.core bob.sp bob.ap
 
-## Installation / Compilation
-
-### (Optional) Bob:
-
-Install `blitz` as Bob dependency.
-See [here](https://github.com/idiap/bob/wiki/Packages) for more instructions on bob core library installation.
-
-Bob python bindings are available on [PyPI](https://pypi.python.org/pypi).
-You may need to install bob packages in the following order:
-+ bob.extension
-+ bob.blitz (require blitz++)
-+ bob.core
-+ bob.sp
-+ bob.ap
-
-Note: We also have a MFCC implementation on our own
+Note: We have a MFCC implementation on our own
 which will be used as a fallback when bob is unavailable.
 But it's not so efficient as the C implementation in bob.
 
-### (Optional) GMM
+## Compile GMM (Optional)
 
 Run `make -C src/gmm` to compile our fast gmm implementation. Require gcc >= 4.7.
 

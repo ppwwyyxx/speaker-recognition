@@ -16,7 +16,7 @@ For more details of this project, please see:
 + [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
 + (Optional)Python bindings for [bob](http://idiap.github.io/bob/):
 	+ install blitz and openblas
-	+ pip install --user bob.extension bob.blitz bob.core bob.sp bob.ap
+	+ `pip install --user bob.extension bob.blitz bob.core bob.sp bob.ap`
 
 Note: We have a MFCC implementation on our own
 which will be used as a fallback when bob is unavailable.

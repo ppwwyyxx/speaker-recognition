@@ -13,6 +13,7 @@
 #include <thread>
 #include <mutex>
 #include <queue>
+#include <cmath>
 
 using ThreadLib::Threadpool;
 

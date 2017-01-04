@@ -53,6 +53,7 @@ class MFCCExtractor(object):
         if signal.ndim > 1:
             self.dprint("INFO: Input signal has more than 1 channel; the channels will be averaged.")
             signal = mean(signal, axis=1)
+        assert len(signal) > 5 * self.FRAME_LEN, "Signal too short!"
         frames = (len(signal) - self.FRAME_LEN) / self.FRAME_SHIFT + 1
         feature = []
         for f in xrange(frames):

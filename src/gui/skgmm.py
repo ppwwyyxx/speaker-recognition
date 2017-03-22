@@ -6,7 +6,7 @@
 
 import operator
 import numpy as np
-from sklearn.mixture import GMM
+from sklearn.mixture import GaussianMixture as GMM
 
 class GMMSet(object):
 

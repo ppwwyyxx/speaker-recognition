@@ -26,7 +26,7 @@ Note that wildcard inputs should be *quoted*, and they will be sent to glob.glob
 
 Examples:
     Train (enroll a list of person named person*, and mary, with wav files under corresponding directories):
-    ./speaker-recognition.py -t enroll -i "/tmp/person* ./mary" -m model.out
+    ./speaker-recognition.py -t enroll -i "./bob/ ./mary/ ./person*" -m model.out
 
     Predict (predict the speaker of all wav files):
     ./speaker-recognition.py -t predict -i "./*.wav" -m model.out

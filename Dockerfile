@@ -50,22 +50,24 @@ ENV DEBIAN_FRONTEND=noninteractive
 ###############################################################################
 
 
+# Prepare package management
+###############################################################################
+RUN apt-get update && \
+    apt-get install -y nano sudo tzdata apt-utils && \
+    apt-get -y dist-upgrade
+
+
 # Set timezone
 # https://bugs.launchpad.net/ubuntu/+source/tzdata/+bug/1554806
 ###############################################################################
 RUN rm /etc/localtime && echo "Australia/Sydney" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 
-# Prepare package management
-###############################################################################
-COPY __etc__apt__sources.list /etc/apt/sources.list
-RUN apt-get update && \
-	apt-get install -y nano sudo tzdata && \
-    apt-get -y dist-upgrade
-
-
 # Create the GUI User
 ###############################################################################
+# Then you can run a docker container with access to the GUI on your desktop:
+# > docker run -ti -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -u guiuser <image>
+# -----------------------------------------------------------------------------
 ENV USERNAME guiuser
 RUN useradd -m $USERNAME && \
     echo "$USERNAME:$USERNAME" | chpasswd && \
@@ -78,10 +80,10 @@ RUN useradd -m $USERNAME && \
     groupmod --gid 1000 $USERNAME
 
 
-# Python
+# Python 2
 ###############################################################################
 RUN apt-get update && apt-get install -y python python-pip && \
-	pip2 list --outdated | cut -d' ' -f1 | xargs -n 1 pip2 install --upgrade
+    pip2 list --outdated | cut -d' ' -f1 | xargs -n 1 pip2 install --upgrade
 
 
 # Base Dependencies
@@ -93,30 +95,22 @@ RUN apt-get install -y portaudio19-dev libopenblas-base libopenblas-dev pkg-conf
 # https://gitlab.idiap.ch/bob/bob/wikis/Dependencies
 # Takes a very long time to install python packages because compilation is happening in the background
 ###############################################################################
-RUN pip2 install numpy \
-				 scipy \
-				 pyside \
-				 scikit-learn \
-				 scikits.talkbox \
-				 pyssp \
-				 PyAudio \
-				 argparse \
-				 bob.extension \
-				 bob.blitz \
-				 bob.core \
-				 h5py \
-				 bob.io.base \
-				 bob.bio.spear \
-				 bob.sp
+RUN pip2 install scipy scikit-learn scikits.talkbox numpy pyside pyssp PyAudio argparse h5py
+RUN pip2 install bob.extension
+RUN pip2 install bob.blitz
+RUN pip2 install bob.core
+RUN pip2 install bob.io.base
+RUN pip2 install bob.bio.spear
+RUN pip2 install bob.sp
 
 
 # Realtime Speaker Recognition
 # https://github.com/ppwwyyxx/speaker-recognition
 ###############################################################################
 RUN cd ~/ && \
-	git clone https://github.com/ppwwyyxx/speaker-recognition.git && \
-	cd ~/speaker-recognition && \
-	make -C src/gmm
+    git clone https://github.com/ppwwyyxx/speaker-recognition.git && \
+    cd ~/speaker-recognition && \
+    make -C src/gmm
 
 
 # Clean up

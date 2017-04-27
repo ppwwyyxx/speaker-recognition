@@ -60,7 +60,7 @@ RUN rm /etc/localtime && echo "Australia/Sydney" > /etc/timezone && dpkg-reconfi
 ###############################################################################
 COPY __etc__apt__sources.list /etc/apt/sources.list
 RUN apt-get update && \
-	apt-get install -y nano sudo && \
+	apt-get install -y nano sudo tzdata && \
     apt-get -y dist-upgrade
 
 
@@ -86,7 +86,7 @@ RUN apt-get update && apt-get install -y python python-pip && \
 
 # Base Dependencies
 ###############################################################################
-RUN apt-get install -y portaudio19-dev libopenblas-base libopenblas-dev pkg-config git-core cmake python-dev liblapack-dev libatlas-base-dev libblitz0-dev libboost-all-dev libhdf5-serial-dev libqt4-dev libsvm-dev libvlfeat-dev  python-nose python-setuptools python-imaging build-essential libmatio-dev python-sphinx python-matplotlib
+RUN apt-get install -y portaudio19-dev libopenblas-base libopenblas-dev pkg-config git-core cmake python-dev liblapack-dev libatlas-base-dev libblitz0-dev libboost-all-dev libhdf5-serial-dev libqt4-dev libsvm-dev libvlfeat-dev  python-nose python-setuptools python-imaging build-essential libmatio-dev python-sphinx python-matplotlib python-scipy
 
 
 # Spear

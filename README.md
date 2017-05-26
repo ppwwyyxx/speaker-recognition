@@ -15,7 +15,7 @@ For more details of this project, please see:
 + [PyQt4](http://sourceforge.net/projects/pyqt/)
 + [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
 + (Optional)Python bindings for [bob](http://idiap.github.io/bob/):
-	+ install blitz and openblas
+	+ install blitz, openblas, boost
 	+ `pip install --user bob.extension bob.blitz bob.core bob.sp bob.ap`
 
 Note: We have a MFCC implementation on our own

@@ -1,7 +1,4 @@
-FROM ubuntu
-ENV DEBIAN_FRONTEND=noninteractive
-
-
+# This is a docker file for the speaker recogntion project, not for sidekit
 ###############################################################################
 # Dockerfile for https://github.com/ppwwyyxx/speaker-recognition
 # -----------------------------------------------------------------------------
@@ -48,7 +45,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # > docker ps -a                  All docker containers (running or not: -a)
 #
 ###############################################################################
-
+# BASE IMAGE
+FROM ubuntu
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Prepare package management
 ###############################################################################
@@ -89,7 +88,8 @@ RUN apt-get update && apt-get install -y python python-pip && \
 # Base Dependencies
 ###############################################################################
 RUN apt-get install -y portaudio19-dev libopenblas-base libopenblas-dev pkg-config git-core cmake python-dev liblapack-dev libatlas-base-dev libblitz0-dev libboost-all-dev libhdf5-serial-dev libqt4-dev libsvm-dev libvlfeat-dev  python-nose python-setuptools python-imaging build-essential libmatio-dev python-sphinx python-matplotlib python-scipy
-
+# additional dependencies for bob
+RUN apt-get install -y libfftw3-dev libtiff5-dev libgif-dev libpng-dev libjpeg-dev
 
 # Spear
 # https://gitlab.idiap.ch/bob/bob/wikis/Dependencies
@@ -116,3 +116,7 @@ RUN cd ~/ && \
 # Clean up
 ###############################################################################
 RUN apt-get clean &&apt-get autoremove -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Entrypoint - so `docker run speaker-recognition` will automatically run the python main
+###############################################################################
+ENTRYPOINT ["/usr/bin/python", "/root/speaker-recognition/src/speaker-recognition.py"]

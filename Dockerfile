@@ -1,4 +1,3 @@
-# This is a docker file for the speaker recogntion project, not for sidekit
 ###############################################################################
 # Dockerfile for https://github.com/ppwwyyxx/speaker-recognition
 # -----------------------------------------------------------------------------
@@ -40,6 +39,9 @@
 # Run a stopped container
 # > docker start -ai speaker-recognitionInstance
 # 
+# Run the speaker_recognition.py directly thorough the configured entry point
+# > docker run -v local_path:remote_path speaker-recognition
+#
 # List information
 # > docker images                 All docker images
 # > docker ps -a                  All docker containers (running or not: -a)

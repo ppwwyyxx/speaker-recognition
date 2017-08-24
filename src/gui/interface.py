@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Sun Feb 22 20:42:23 2015 +0800
+# Date: Wed Aug 23 18:49:07 2017 -0700
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -27,7 +27,7 @@ CHECK_ACTIVE_INTERVAL = 1       # seconds
 
 class ModelInterface(object):
 
-    UBM_MODEL_FILE = 'model/ubm.mixture-32.utt-300.model'
+    UBM_MODEL_FILE = None
 
     def __init__(self):
         self.features = defaultdict(list)

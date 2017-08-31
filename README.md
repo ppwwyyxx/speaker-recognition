@@ -22,6 +22,12 @@ Note: We have a MFCC implementation on our own
 which will be used as a fallback when bob is unavailable.
 But it's not so efficient as the C implementation in bob.
 
+## Compile GMM (Optional)
+
+Run `make -C src/gmm`. Require gcc >= 4.7.
+If compiled successfully, it will be used by default instead of GMM from scikit-learn.
+But it doesn't make much difference apart from the speed.
+
 
 ## Algorithms Used
 
@@ -46,7 +52,7 @@ Our GUI not only has basic functionality for recording, enrollment, training and
 
 You can See our [demo video](https://github.com/ppwwyyxx/speaker-recognition/raw/master/demo.avi) (in Chinese).
 Note that real-time speaker recognition is extremely hard, because we only use corpus of about 1 second length to identify the speaker.
-Therefore the real-time system doesn't work very perfect. 
+Therefore the real-time system doesn't work very perfect.
 
 Also the GUI part is quite hacky for demo purpose and may
 not work smoothly anymore today.

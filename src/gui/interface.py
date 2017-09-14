@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Wed Aug 23 18:49:07 2017 -0700
+# Date: Thu Sep 14 14:56:58 2017 -0700
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -61,7 +61,7 @@ class ModelInterface(object):
         self.features[name].extend(feat)
 
     def _get_gmm_set(self):
-        if os.path.isfile(self.UBM_MODEL_FILE):
+        if self.UBM_MODEL_FILE and os.path.isfile(self.UBM_MODEL_FILE):
             try:
                 from gmmset import GMMSetPyGMM
                 if GMMSet is GMMSetPyGMM:

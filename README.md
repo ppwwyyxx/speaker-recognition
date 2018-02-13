@@ -22,11 +22,13 @@ Note: We have a MFCC implementation on our own
 which will be used as a fallback when bob is unavailable.
 But it's not so efficient as the C implementation in bob.
 
-## Compile GMM (Optional)
-
-Run `make -C src/gmm`. Require gcc >= 4.7.
-If compiled successfully, it will be used by default instead of GMM from scikit-learn.
-But it doesn't make much difference apart from the speed.
+<!--
+   -## Compile GMM (Optional)
+   -
+   -Run `make -C src/gmm`. Require gcc >= 4.7.
+   -If compiled successfully, it will be used by default instead of GMM from scikit-learn.
+   -But it doesn't make much difference apart from the speed.
+	 -->
 
 
 ## Algorithms Used

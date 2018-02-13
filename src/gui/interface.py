@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 # File: interface.py
-# Date: Thu Sep 14 14:56:58 2017 -0700
+# Date: Tue Feb 13 10:34:43 2018 -0800
 # Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
@@ -103,7 +103,7 @@ class ModelInterface(object):
     @staticmethod
     def load(fname):
         """ load from a dumped model file"""
-        with open(fname, 'r') as f:
+        with open(fname, 'rb') as f:
             R = pickle.load(f)
             R.gmmset.after_pickle()
             return R

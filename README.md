@@ -8,7 +8,7 @@ For more details of this project, please see:
 + Our [complete report](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Final-Report-Complete.pdf)
 
 ## Dependencies
-
++ Linux
 + [scikit-learn](http://scikit-learn.org/)
 + [scikits.talkbox](http://scikits.appspot.com/talkbox)
 + [pyssp](https://pypi.python.org/pypi/pyssp)
@@ -46,16 +46,15 @@ _Model_:
 
 ## GUI Demo
 
-Our GUI not only has basic functionality for recording, enrollment, training and testing, but also has a visualization of real-time speaker recognition:
+Our GUI has basic functionality for recording, enrollment, training and testing, plus a visualization of real-time speaker recognition:
 
 ![graph](https://github.com/ppwwyyxx/speaker-recognition/raw/master/doc/Final-Report-Complete/img/gui-graph.png)
 
 You can See our [demo video](https://github.com/ppwwyyxx/speaker-recognition/raw/master/demo.avi) (in Chinese).
 Note that real-time speaker recognition is extremely hard, because we only use corpus of about 1 second length to identify the speaker.
-Therefore the real-time system doesn't work very perfect.
+Therefore the system doesn't work very perfect.
 
-Also the GUI part is quite hacky for demo purpose and may
-not work smoothly anymore today.
+The GUI part is quite hacky for demo purpose and is not maintained anymore today. Take it as a reference, but don't expect it to work out of the box. Use command line tools to try the algorithms.
 
 ## Command Line Tools
 ```sh

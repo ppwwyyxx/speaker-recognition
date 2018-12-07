@@ -16,12 +16,12 @@ import traceback as tb
 from feature import mix_feature
 from filters.VAD import VAD
 
-try:
-    from gmmset import GMMSetPyGMM as GMMSet
-    from gmmset import GMM
-except:
-    print >> sys.stderr, "Warning: failed to import fast-gmm, use gmm from scikit-learn instead"
-    from skgmm import GMMSet, GMM
+#try:
+    #from gmmset import GMMSetPyGMM as GMMSet
+    #from gmmset import GMM
+#except:
+    #print >> sys.stderr, "Warning: failed to import fast-gmm, use gmm from scikit-learn instead"
+from skgmm import GMMSet, GMM
 
 CHECK_ACTIVE_INTERVAL = 1       # seconds
 

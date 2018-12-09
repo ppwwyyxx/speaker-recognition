@@ -58,6 +58,7 @@ def task_enroll(input_dirs, output_model):
     if len(dirs) == 0:
         print "No valid directory found!"
         sys.exit(1)
+    training_stats = []
     for d in dirs:
         label = os.path.basename(d.rstrip('/'))
 
@@ -65,10 +66,18 @@ def task_enroll(input_dirs, output_model):
         if len(wavs) == 0:
             print "No wav file found in {0}".format(d)
             continue
-        print "Label {0} has files {1}".format(label, ','.join(wavs))
+        print "Label '{0}' has files: {1}".format(label, ', '.join(wavs))
+        total_len = 0
         for wav in wavs:
             fs, signal = read_wav(wav)
+            print "   File '{}' has frequency={} and length={}".format(wav, fs, len(signal))
+            total_len += len(signal)
             m.enroll(label, fs, signal)
+        training_stats.append((label, total_len))
+    print "--------------------------------------------"
+    for label, total_len in training_stats:
+        print "Total length of training data for '{}' is {}".format(label, total_len)
+    print "For best accuracy, please make sure all labels have similar amount of training data!"
 
     m.train()
     m.dump(output_model)

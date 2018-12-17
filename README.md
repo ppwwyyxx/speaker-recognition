@@ -12,11 +12,15 @@ For more details of this project, please see:
 The [Dockerfile](Dockerfile) can be used to get started with the project easier.
 
 + Linux, Python 2
-+ [scikit-learn](http://scikit-learn.org/)
-+ [scikits.talkbox](http://scikits.appspot.com/talkbox)
-+ [pyssp](https://pypi.python.org/pypi/pyssp)
-+ [PyQt4](http://sourceforge.net/projects/pyqt/)
-+ [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
++ [scikit-learn](http://scikit-learn.org/),
+  [scikits.talkbox](http://scikits.appspot.com/talkbox), 
+  [pyssp](https://pypi.python.org/pypi/pyssp), 
+  [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/):
+  ```
+  pip install --user scikit-learn scikits.talkbox pyssp PyAudio
+  ```
++ [PyQt4](http://sourceforge.net/projects/pyqt/), usually can be installed by
+  your package manager.
 + (Optional)Python bindings for [bob](http://idiap.github.io/bob/):
 	+ install blitz, openblas, boost, then:
 	```

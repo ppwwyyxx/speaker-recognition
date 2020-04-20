@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: lpc_jp.py
 # Date: Sat Jan 04 11:48:02 2014 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 import numpy as np
 from pylab import *

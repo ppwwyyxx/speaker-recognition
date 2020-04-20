@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: gui.py
 # Date: Sun Nov 12 10:25:52 2017 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 
 import sys

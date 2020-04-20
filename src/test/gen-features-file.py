@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: gen-features-file.py
 # Date: Wed Dec 25 23:53:05 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 import glob
 import traceback

@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: test.py
 # Date: Sun Nov 17 22:20:12 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 from MFCC import MFCCExtractor
 import operator

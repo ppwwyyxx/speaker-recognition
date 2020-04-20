@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: plot-person.py
 # Date: Mon Dec 16 04:00:20 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 import numpy as np
 import matplotlib.pyplot as plt

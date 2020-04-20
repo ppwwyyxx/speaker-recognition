@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: MFCC.py
 # Date: Wed Dec 25 20:26:12 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 POWER_SPECTRUM_FLOOR = 1e-100
 

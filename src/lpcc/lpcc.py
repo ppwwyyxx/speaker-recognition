@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: lpcc.py
 # Date: Wed Dec 25 13:05:40 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 import time
 import scikits.talkbox as tb

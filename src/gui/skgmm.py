@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: skgmm.py
 # Date: Wed Oct 29 18:38:36 2014 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 import operator
 import numpy as np

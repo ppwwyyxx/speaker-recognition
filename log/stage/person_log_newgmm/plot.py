@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: plot.py
 # Date: Mon Dec 16 02:46:51 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 import numpy as np
 import matplotlib.pyplot as plt

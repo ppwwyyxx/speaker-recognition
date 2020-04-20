@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: interface.py
 # Date: Tue Feb 13 10:34:43 2018 -0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 import time
 import os

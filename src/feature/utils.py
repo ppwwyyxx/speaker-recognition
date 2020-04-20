@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 # File: utils.py
 # Date: Wed Dec 25 20:24:38 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
+
 
 import numpy
 
